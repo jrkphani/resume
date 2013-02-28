@@ -1,0 +1,11 @@
+*/config/development
+*/logs/log-*.php
+*/logs/!index.html
+*/cache/*
+*/cache/!index.html
+*.*~
+*.swp
+*.swo
+config.php
+database.php
+.htaccess

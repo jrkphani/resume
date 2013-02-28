@@ -6,6 +6,7 @@
 *.*~
 *.swp
 *.swo
+temp/
 config.php
 database.php
 .htaccess

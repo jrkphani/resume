@@ -1,0 +1,57 @@
+ /* ----------------------------------------------------------------------------------------------------- Common 
+
+
+.bgColorI{ background: #000000; }
+.bgImageI{ background:transparent url(../images/bg_full.jpg) no-repeat left bottom;}
+.bgImageRepeatI{background:#9A131A url(./images/bg_body.jpg) repeat-x left top; }
+div{border: solid 1px #828282;}*/
+div,h1,h2,h3,h4,h5,h6,p,ul{	margin:0;	padding:0; }
+h4{color: }
+ .clearBoth{	clear: both;}
+body{ background:#ffffff url(../img/bg_texture.jpg) repeat left top; font:12px verdana;  }
+
+.mainHeader{height: 80px;  padding-top: 10px;}
+.otherHeader{ height: 50px;}
+header{	background:#ffffff;	 
+	box-shadow: 2px 2px 2px #888; 	-moz-box-shadow: 2px 2px 2px #888;	-webkit-box-shadow: 2px 2px 2px #a2a2a2;}
+
+		.headerLogo h1	{	text-indent:-999em;		}
+		.headerLogo h1 a{ 	background:transparent url(../img/resumebuilder_logo.jpg) no-repeat left top;	display:block;	height:49px; }
+
+footer{	background:#ffffff; height: 50px;}
+
+		.footerLogo h1	{	text-indent:-999em;	}
+		.footerLogo h1 a{ 	background:transparent url(../img/digitalchakra_logo.jpg) no-repeat left top;	display:block; height:49px;	}
+
+/**************************************************home*******************************************/
+
+.video{	background-color: #828282; height: 300px;	margin: 20px; border-radius: 4px;
+	box-shadow: 2px 2px 2px #888; 	-moz-box-shadow: 2px 2px 2px #888;	-webkit-box-shadow: 2px 2px 2px #a2a2a2;}
+
+.signUp{ background: transparent; border-radius: 4px; height: 300px; margin: 20px; padding-top: 40px; }
+.signUp h4{	padding: 5px; padding-top: -10px; padding-bottom:30px; color: #36a4cc;}
+
+.signIn{ padding-top: 20px; text-align: right;
+
+}
+
+/**************************************************Common*******************************************/
+
+.breadCrumb{	background:transparent;	height: 30px;	margin:30px; 	}
+.breadCrumb h4{ color: #36a4cc;}
+.ads{	background-color: #e1e1e1;	height: 500px;}
+/**************************************************Resume templates*******************************************/
+
+.templates{	background: transparent;	height: 500px;}
+
+.templates h3{ color: #36a4cc; }
+
+.templateCell{	width: 260px;	height: 160px;	padding-left: 10px; padding-top: 10px;	background-color: #424242; color: #ffffff; float:left;}
+
+.templateThumbnail{	width: 115px;	height: 140px; background-color: #929292; float: left;}
+
+.templateContent{ width: 115px; height: 140px; padding-left: 8px; float: left;}
+
+/**************************************************Resume Details*******************************************/
+
+.templateForm{ background: #ffffff; border: solid 1px #e1e1e1; padding-left: 10px; padding-top: 10px; }

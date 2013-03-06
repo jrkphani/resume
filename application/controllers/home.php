@@ -17,10 +17,28 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
-		$this->load->view('home');
-	}
+	public  function index()
+	 {
+	   if($this->session->userdata('logged_in'))
+	   {
+		 $session_data = $this->session->userdata('logged_in');
+		 $data['username'] = $session_data['username'];
+		 $this->load->view('home', $data);
+	   }
+	   else
+	   {
+		 //If no session, redirect to login page
+		 redirect('login', 'refresh');
+	   }
+	 }
+
+ function logout()
+ {
+   $this->session->unset_userdata('logged_in');
+   //session_destroy();
+   $this->session->sess_destroy();
+   redirect('login', 'refresh');
+ }
 }
 
 /* End of file welcome.php */

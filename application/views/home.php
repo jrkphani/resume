@@ -140,4 +140,4 @@
 					});	
 			});
 		</script>
-		
+		<a href="home/logout">Logout</a>

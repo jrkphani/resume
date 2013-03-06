@@ -27,16 +27,18 @@ class Download extends CI_Controller {
 			if($results)
 			{
 				echo "SUCCESS";
+				$data['pdf']=$htmlpath;
+				$this->load->view('download',$data);
 			}
 			else
 			{
-				echo "FAILED";
+				echo "FAILED"; exit(0);
 			}
-			echo ' python '.FCPATH.'py/pdf.py '.$htmlpath; die;
+			#echo ' python '.FCPATH.'py/pdf.py '.$htmlpath;
 		}
 		else
 		{
-			echo "404"; die;
+			echo "404"; exit(0);
 		}
 		
 		//$this->load->view('home');

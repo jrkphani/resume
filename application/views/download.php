@@ -1,6 +1,8 @@
 <?php
-$file='/home/mani/test.pdf';
+$file=$pdf.'.pdf';
+//echo $file; die;
 $filename='resume.pdf';
+
 header("Content-Type: application/octet-stream");
 header("Content-Disposition: attachment; filename=" . urlencode($filename));   
 header("Content-Type: application/force-download");

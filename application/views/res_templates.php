@@ -20,7 +20,7 @@
 				 					<br/>
 				 					<br/>
 				 					<button class="btn-block">Preview</button>
-				 					<a href="form/T1" class="btn-block">Select</a>
+				 					<a href="tmplts/form/T1" class="btn-block">Select</a>
 				 				</div>
 			 				</div>
 			 				<div class="templateCell">
@@ -31,7 +31,7 @@
 			 						<br/>
 			 						<br/>
 			 						<button class="btn-block">Preview</button>
-			 						<a href="form/T2" class="btn-block">Select</a>
+			 						<a href="tmplts/form/T2" class="btn-block">Select</a>
 			 					</div>
 			 				</div>
 			 				<div class="templateCell">
@@ -42,7 +42,7 @@
 				 					<br/>
 				 					<br/>
 				 					<button class="btn-block">Preview</button>
-				 					<a href="form/T3" class="btn-block">Select</a>
+				 					<a href="tmplts/form/T3" class="btn-block">Select</a>
 				 				</div>
 					 		</div>
 				 			<div class="templateCell">
@@ -53,7 +53,7 @@
 				 					<br/>
 				 					<br/>
 				 					<button class="btn-block">Preview</button>
-				 					<a href="form/T4" class="btn-block">Select</a>
+				 					<a href="tmplts/form/T4" class="btn-block">Select</a>
 				 				</div>
 				 			</div>
 		 				</div>

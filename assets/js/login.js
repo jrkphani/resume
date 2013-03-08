@@ -45,7 +45,7 @@ $(document).ready(function()
 					if(data.success=='yes')
 					{
 						//window.location.reload();
-						window.location.href="home";
+						window.location.href="tmplts";
 					}
 					else
 					{

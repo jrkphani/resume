@@ -14,8 +14,15 @@
 			<div class="headerLogo span2">
 				<h1><a href="#" title="Resume Builder">Resume Builder</a></h1>
 			</div>
+			<?php if($session_data = $this->session->userdata('logged_in')) {
+					?>
+					<div class="span10 headerRight">
+						<p>Howdy! <?php echo $session_data['lastname']; ?> | <a href="<?php echo base_url('login/logout'); ?>">Logout</a></p>
+					</div>
+					<?php } else { ?>
 			<div class="span6 offset3 signIn">
 				<span id="error_msg"></span>
+					
 				<form class="form-inline">
  					 <input type="text" class="input-medium" placeholder="Email" id="username" name="username">
   					 <input type="password" class="input-medium" placeholder="Password" id="passowrd" name="password">
@@ -24,7 +31,7 @@
   					 </label>
 				     <span id="loginsubmit" class="btn btn-small btn-primary">Sign in</span>
 				</form>
-
 			</div>
+			<?php } ?>
 		</div>
 	</header>

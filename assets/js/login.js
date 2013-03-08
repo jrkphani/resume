@@ -36,7 +36,7 @@ $(document).ready(function()
 		{
 			$.ajax(
 			{
-				url:'verifylogin',
+				url:baseurl+'verifylogin',
 				type:'POST',
 				data:{'username':email,'password':password},
 				dataType: 'json',
@@ -85,7 +85,7 @@ $(document).ready(function()
 		{
 			$.ajax(
 			{
-				url:'registration',
+				url:baseurl+'registration',
 				type:'POST',
 				data:{'firstname':firstname,'lastname':lastname,'email_address':email,'pass_word':password},
 				dataType: 'json',

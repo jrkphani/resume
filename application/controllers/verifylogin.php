@@ -19,12 +19,17 @@ class VerifyLogin extends CI_Controller {
    if($this->form_validation->run() == FALSE)
    {
      //Field validation failed.&nbsp; User redirected to login page
-     $this->load->view('login_view');
+     $data['errors']=validation_errors();
+      $data['success']='no';
+     echo json_encode($data);
+     exit(0);
+     //$this->load->view('login_view');
    }
    else
    {
-     //Go to private area
-     redirect('home', 'refresh');
+      $data['success']='yes';
+       echo json_encode($data);
+       exit(0);
    }
 
  }
@@ -44,7 +49,9 @@ class VerifyLogin extends CI_Controller {
      {
        $sess_array = array(
          'id' => $row->id,
-         'username' => $row->username
+         'firstname' => $row->firstname,
+         'lastname' => $row->lastname,
+         'email' => $row->email
        );
        $this->session->set_userdata('logged_in', $sess_array);
      }

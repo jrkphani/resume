@@ -1,27 +1,35 @@
  /* ----------------------------------------------------------------------------------------------------- Common 
-
-
-.bgColorI{ background: #000000; }
-.bgImageI{ background:transparent url(../images/bg_full.jpg) no-repeat left bottom;}
-.bgImageRepeatI{background:#9A131A url(./images/bg_body.jpg) repeat-x left top; }
 div{border: solid 1px #828282;}*/
 div,h1,h2,h3,h4,h5,h6,p,ul{	margin:0;	padding:0; }
-h4{color: }
- .clearBoth{	clear: both;}
+.clearBoth{	clear: both;}
+.fillDiv{background-color: #e1e1e1; border: solid 2px #828282;}
+.floatLeft{float:left;}
+.floatRight{float: right;}
+.defaultBlue{color:#47c7f4;}
+.defaultGreen{color:#36dabd;}
+/**************************************************Common for site*******************************************/
 body{ background:#ffffff url(../img/bg_texture.jpg) repeat left top; font:12px verdana;  }
+h4{color:#36a4cc; }
+h3{color: #36a4cc;}
 
 .mainHeader{height: 80px;  padding-top: 10px;}
 .otherHeader{ height: 50px;}
+.headerRight{text-align: right;  padding-top:14px; padding-right: 50px;}
+
 header{	background:#ffffff;	 
 	box-shadow: 2px 2px 2px #888; 	-moz-box-shadow: 2px 2px 2px #888;	-webkit-box-shadow: 2px 2px 2px #a2a2a2;}
 
 		.headerLogo h1	{	text-indent:-999em;		}
 		.headerLogo h1 a{ 	background:transparent url(../img/resumebuilder_logo.jpg) no-repeat left top;	display:block;	height:49px; }
 
+
 footer{	background:#ffffff; height: 50px;}
 
 		.footerLogo h1	{	text-indent:-999em;	}
 		.footerLogo h1 a{ 	background:transparent url(../img/digitalchakra_logo.jpg) no-repeat left top;	display:block; height:49px;	}
+
+button{	border-radius: 0px;		border: solid 1px #3abbe5;	background:#47c7f4;	color: #ffffff;	height: 30px;	font-family: verdana;	font-size: 12px;	padding-left: 10px;	padding-right: 10px;}
+button:hover{	background:#3abbe5;}
 
 /**************************************************home*******************************************/
 
@@ -30,28 +38,54 @@ footer{	background:#ffffff; height: 50px;}
 
 .signUp{ background: transparent; border-radius: 4px; height: 300px; margin: 20px; padding-top: 40px; }
 .signUp h4{	padding: 5px; padding-top: -10px; padding-bottom:30px; color: #36a4cc;}
+.signIn{ padding-top: 20px; text-align: right;}
 
-.signIn{ padding-top: 20px; text-align: right;
-
-}
 
 /**************************************************Common*******************************************/
 
 .breadCrumb{	background:transparent;	height: 30px;	margin:30px; 	}
-.breadCrumb h4{ color: #36a4cc;}
+.breadCrumb a{ color: #36dabd; text-decoration: none;}
+.breadCrumb a:hover{ color:#23bca1; text-decoration: none;}
 .ads{	background-color: #e1e1e1;	height: 500px;}
 /**************************************************Resume templates*******************************************/
 
 .templates{	background: transparent;	height: 500px;}
 
-.templates h3{ color: #36a4cc; }
 
-.templateCell{	width: 260px;	height: 160px;	padding-left: 10px; padding-top: 10px;	background-color: #424242; color: #ffffff; float:left;}
+.templateCell{ margin-left: 30px; margin-top: 40px;	width: 260px;	height: 160px;	padding-left: 10px; padding-top: 10px;	background-color: #424242; color: #ffffff; float:left;}
 
 .templateThumbnail{	width: 115px;	height: 140px; background-color: #929292; float: left;}
 
 .templateContent{ width: 115px; height: 140px; padding-left: 8px; float: left;}
 
+.templateTiles{ height: 422px; width: 604px; display: block; float: left;}
+
+.templateBlock{ margin:0 auto; width: 770px;}
+
+.leftArrow{ float:left; height: 340px; padding-right: 5px; padding-top: 80px;}
+
+.rightArrow{ float:left; height: 340px; padding-left: 30px; margin-top: 80px;}
 /**************************************************Resume Details*******************************************/
 
 .templateForm{ background: #ffffff; border: solid 1px #e1e1e1; padding-left: 10px; padding-top: 10px; }
+
+.leftMargin{ margin-left: 17px;}
+
+.removeButton{ 	float: right;	margin-top: -20px;	margin-right: 20px;}
+
+.formBorder{	border: solid 1px #a2a2a2;	padding-top: 20px;	margin-right: 10px;	border-radius: 5px;	margin-bottom: 10px;}
+
+.topBorder{		padding-top: 20px;	border-top: solid 2px #3abbe5;}
+
+/**************************************************Resume Print *******************************************/
+
+.alignRight{text-align: right;}
+.preview{height: 1104px; background-color: #ffffff; border: solid 1px #e1e1e1; margin: 0 auto; margin-top: 20px;}
+
+.previewHeader{height: 50px;}
+
+.previewLeft{float:left;}
+
+.previewRight{float:right;}
+
+.previewAds{background-color: #e1e1e1;	height: 1104px; margin-top: 50px; }

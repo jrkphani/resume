@@ -12,16 +12,22 @@ class Login extends CI_Controller {
  {
 	 if($this->session->userdata('logged_in'))
 	   {
-		 $session_data = $this->session->userdata('logged_in');
-		 $data['username'] = $session_data['username'];
-		 $this->load->view('home', $data);
+		 //$session_data = $this->session->userdata('logged_in');
+		 //$data['username'] = $session_data['username'];
+		 //$this->load->view('home', $data);
+		 redirect('home', 'refresh');
 	   }
 	   else
 	   {
 		$this->load->helper(array('form'));
-		$this->load->view('login_view');
+		$data['view_page'] = 'login_view';
+		$this->load->view('template', $data);
 	   }
    
+ }
+ function login()
+ {
+	 $this->load->view("registration.php", $data);
  }
 
 }

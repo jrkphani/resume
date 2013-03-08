@@ -1,72 +1,42 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Resume Builder</title>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/css_site.css"); ?>"/>
-
-</head>
-<body>
-	<header class="container-fluid mainHeader">
-		<div class="row-fluid">
-			<div class="headerLogo span2">
-				<h1><a href="#" title="Resume Builder">Resume Builder</a></h1>
-			</div>
-			<div class="span6 offset3 signIn">
-				<?php echo validation_errors(); ?>
-				<form class="form-inline" action="verifylogin" method="POST">
- 					 <input type="text" class="input-medium" placeholder="Email" id="username" name="username">
-  					 <input type="password" class="input-medium" placeholder="Password" id="passowrd" name="password">
- 					 <label class="checkbox"> 
- 					 	<input type="checkbox"> Remember me
-  					 </label>
-				     <button type="submit" class="btn btn-small btn-primary">Sign in</button>
-				</form>
-
-			</div>
-		</div>
-	</header>
 	<div class="row-fluid" >
 		<div class="span4 offset2 video">
  			
 		</div>
 		<div class="span4  signUp">
 			<h4>New to Resume Builder? Sign Up </h4>
+			<span id="error_msg1"></span>
 			<form class="form-horizontal">
 				<div class="control-group">
-			    <label class="control-label" for="input">Username</label>
+			    <label class="control-label" for="input">First name</label>
 			    <div class="controls">
-			      <input type="text" class="input-xlarge" id="username" placeholder="Username">
+			      <input type="text" class="input-xlarge" name="firstname" id="firstname" placeholder="First name">
+			    </div>
+			  </div>
+			  <div class="control-group">
+			    <label class="control-label" for="input">Last name</label>
+			    <div class="controls">
+			      <input type="text" class="input-xlarge" name="lastname" id="lastname" placeholder="Last name">
 			    </div>
 			  </div>
 			  <div class="control-group">
 			    <label class="control-label" for="inputEmail">Email</label>
 			    <div class="controls">
-			      <input type="text" class="input-xlarge" id="inputEmail" placeholder="Email">
+			      <input type="text" class="input-xlarge" name="email_address" id="inputEmail" placeholder="Email">
 			    </div>
 			  </div>
 			  <div class="control-group">
 			    <label class="control-label" for="inputPassword">Password</label>
 			    <div class="controls">
-			      <input type="password" class="input-xlarge" id="inputPassword" placeholder="Password">
+			      <input type="password" class="input-xlarge" name="pass_word" id="inputPassword" placeholder="Password">
 			    </div>
 			  </div>
 			  <div class="control-group">
 			    <div class="controls">
-			        <button type="submit" class="btn btn-large btn-primary">Sign Up</button>
+			        <span id="signupsubmit" class="btn btn-large btn-primary">Sign Up</span>
 			    </div>
 			  </div>
 			</form>
 		</div>	
 	</div>	
+	<script src="<?php echo base_url('assets/js/login.js');?>"></script>
 	
-	 <footer class="container-fluid" >
-	 	<div class="row-fluid">
-			<div class="footerLogo offset9 span3 ">
-				<h1><a href="#" title="DigitalChakra">DigitalChakra</a></h1>
-			</div>
-		</div>
-	 </footer>
-</body>
-</html>

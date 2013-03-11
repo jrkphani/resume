@@ -24,15 +24,15 @@
 					</div>
 					<?php } else { ?>
 			<div class="span6 offset3 signIn">
-				<span id="error_msg"></span>
+				<span id="error_msg" class="signInError"></span>
 					
 				<form class="form-inline">
  					 <input type="text" class="input-medium" placeholder="Email" id="username" name="username">
   					 <input type="password" class="input-medium" placeholder="Password" id="passowrd" name="password">
- 					 <label class="checkbox"> 
- 					 	<input type="checkbox"> Remember me
-  					 </label>
-				     <span id="loginsubmit" class="btn btn-small btn-primary">Sign in</span>
+
+ 					<input type="checkbox" id="c1" />
+            		<label for="c1" class="checkbox"><span></span>Remember me</label>
+				     <span id="loginsubmit" class="button">Sign in</span>
 				</form>
 			</div>
 			<?php } ?>

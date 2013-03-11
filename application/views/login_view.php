@@ -1,10 +1,11 @@
-	<div class="row-fluid" >
+	<div class="row-fluid loginPage" >
 		<div class="span4 offset2 video">
  			
 		</div>
-		<div class="span4  signUp">
+		<div class="span5  signUp">
 			<h4>New to Resume Builder? Sign Up </h4>
-			<span id="error_msg1"></span>
+			<span id="error_msg1" class="errorMessage"></span>
+
 			<form class="form-horizontal">
 				<div class="control-group">
 			    <label class="control-label" for="input">First name</label>
@@ -32,7 +33,7 @@
 			  </div>
 			  <div class="control-group">
 			    <div class="controls">
-			        <span id="signupsubmit" class="btn btn-large btn-primary">Sign Up</span>
+			        <span id="signupsubmit" class="signUpbutton">Sign Up</span>
 			    </div>
 			  </div>
 			</form>

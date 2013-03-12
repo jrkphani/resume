@@ -36,9 +36,17 @@ class Registration extends CI_Controller {
 		  else
 		  {
 			$this->load->model('user');
-			if($this->user->check_user())
+			$post_data=array(
+							'firstname'=>$this->input->post('firstname'),
+							'lastname'=>$this->input->post('lastname'),
+							'email'=>$this->input->post('email_address'),
+							'password'=>md5($this->input->post('pass_word')),
+							'active'=>sha1(mt_rand(10000,99999).time().$this->input->post('email_address'))
+						  );
+			$check_data=array('email'=>$post_data['email']);
+			if(!$this->user->check_user($check_data))
 			{
-				$this->user->add_user();
+				$this->user->add_user($post_data);
 				$data['success']='yes';
 				echo json_encode($data);
 				exit(0);
@@ -62,7 +70,7 @@ class Registration extends CI_Controller {
  {
 	 $id = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
 	 $code = ($this->uri->segment(4)) ? $this->uri->segment(4) : NULL;
-	 if(($code) && ($id) &&  strlen($code)>2)
+	 if(($id) &&  strlen($code)>2)
 	 {
 		 $this->load->model('user');
 		 if($this->user->activate_user($id,$code))

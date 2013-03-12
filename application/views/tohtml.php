@@ -1,42 +1,203 @@
-<?php
-//will get all post data as key => value; 
-extract($_POST);
-?>				<div>
-	<?php if($img!="")
-	{ ?>
-	<img src="<?php if($img!="") echo base_url('temp/img').'/'.$img; ?>" />
-	<?php }?>
-				</div>
-				<div id="top_left">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url()."assets/css/T/".$css."_css.css"; ?>"/>
+<div class="resume">
+	<div class="inner"> 
+		<header class="resumeHeader">
+			<div class="mainTitle"> 
+				<span><h1><?=$fname;?> <?=$lname;?></h1><h2 class="alignRight"><?=$designation;?></h2> </span>
+				
+				
+			</div>
+			
+		</header>
+
+		<div class="resumeBody">
+			
+<!--objective start-->
+<? if(trim($objective)!="")
+{ ?>
 					<div>
-						<?php echo $name; ?>
+						<div class="titleSection">
+							<h2>Objective</h2>
+						</div>
+						<div class="contentSection">
+							<p>
+								<?=nl2br($objective);?>
+							</p>
+						</div>
 					</div>
+					<? } ?>
+<!--objective end-->
+
+<!--summary start-->
+<? if(trim($summary)!="")
+{ ?>
 					<div>
-						<?php echo $email; ?>
+						<div class="titleSection">
+							<h2>Summary</h2>
+						</div>
+						<div class="contentSection">
+							<p>
+								<?=nl2br($summary);?>
+							</p>
+						</div>
 					</div>
+					<? } ?>
+<!--summary end-->
+
+<!--Company start-->
 					<div>
-						<?php echo $mobile; ?>
-					</div>
-				</div>
-				<div id="top_right">
-					<div>
-						<?php echo nl2br($address); ?>
-					</div>
-				</div>
-					<div>
-						<label>Experience : </label>
-						<?php echo $experience; ?>
-					</div>
-					<div>
-						<label>Objectives</label>
-					</div>
-					<div>
-						<ul>
-							<?php
-							foreach($objectives as $objective)
-							{
-								echo '<li>'.nl2br($objective).'</li>';
-							}
+						<div class="mainTitle">
+							<h2> Work Experiences</h2>
+						</div>
+
+						<div>
+							<? 
+							$i=0;
+							foreach($cmpnyName as $cmpny) {
 							?>
-						</ul>
+							<div class="titleSection">
+								<h2><?=$cmpnyName[$i];?></h2>
+								<h4><?=$cmpnyFrom[$i];?>-<?=$cmpnyTo[$i];?></h4>
+							</div>
+							<div class="contentSection">
+								<h3><?=$cmpnyDesg[$i];?></h3>
+								<p><?=$cmpnyDesc[$i];?></p>
+									<!--<ul>
+										<li>Accomplishments 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
+										<li>Accomplishments 2 Mauris at mauris tellus, ut convallis diam. </li>
+									</ul>-->	
+							</div>
+							
+							<? $i++; } ?>									
+						</div>
 					</div>
+<!--Company end-->
+
+<!--Skill start-->
+					<div>
+						<div class="mainTitle">
+							<h2>Key Skills</h2>
+						</div>
+						<div  >
+							<? 
+							$i=0;
+							foreach($skillName as $skill) {
+							?>
+								<div class="titleSection">
+									<h2><?=$skillName[$i];?></h2>
+									<h4><?=$skillTitle[$i];?></h4>
+								</div>
+								<div class="contentSection">
+									<h3><?=$skillEff[$i];?></h3>
+									<p><?=nl2br($skillDesc[$i]);?></p>
+									
+								</div>
+							<? $i++; } ?>
+						</div>
+					</div>
+<!--Skill end-->
+					
+		</div>
+
+	</div>
+
+
+</div>
+<div class="resume">
+	<div class="inner"> 
+			<!--OtherSkill start-->
+		<div> 
+							<div class="titleSection ">
+								<h2>Other skills</h2>
+							</div>
+						
+						<div  class="contentSection">
+							<ul>
+							<? 
+							$i=0;
+							foreach($otherSkills as $otherskill) {
+							?>
+								<li><?=$otherskill;?></li>
+							<? $i++; } ?>
+							</ul>
+						</div>
+					
+					</div>
+	<!--OtherSkill end-->
+
+	<!--Projects start-->
+					<div>
+						<div class="mainTitle">
+							<h2>Projects</h2>
+						</div>
+
+						<div>
+							<? 
+							$i=0;
+							foreach($projName as $proj) {
+							?>
+							<div class="titleSection">
+								<h2><?=$projName[$i];?></h2>
+								<h4><?=$projFrom[$i];?>-<?=$projTo[$i];?></h4>
+							</div>
+							<div class="contentSection">
+								<h3><?=$projRole[$i];?></h3>
+								<p><?=nl2br($projDesc[$i]);?></p>
+									<!--<ul>
+										<li>Accomplishments 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
+										<li>Accomplishments 2 Mauris at mauris tellus, ut convallis diam. </li>
+									</ul>-->
+							</div>
+							<? $i++; } ?>
+						</div>
+					</div>
+<!--Projects end-->
+
+<!--Education start-->
+					<div>
+						
+							<div class="mainTitle ">
+								<h2>Education</h2>
+							</div>
+							<? 
+							$i=0;
+							foreach($eduInst as $edu) {
+							?>
+								<div class="titleSection">
+									<h2><?=$eduInst[$i];?></h2>
+									<h4><?=$eduFrom[$i];?> to <?=$eduTo[$i];?> </h4>
+								</div>
+								<div class="contentSection height40">
+									<h3><?=$eduCert[$i];?></h3>
+									<p><?=$eduScore[$i];?></p>
+									
+								</div>
+							<? $i++; } ?>	
+					</div>
+<!--Education end-->
+
+<!--Personal Information start -->
+					<div class="mainTitle" style="clear:both;">
+							<div class="titleSection">
+								<h2>Personal Information</h2>
+							</div>
+							<div class="contentSection">
+								<div>
+									<h3>Phone</h3>
+									<p><?=$phone;?></p>
+								</div>
+								<div>
+									<h3>Email</h3>
+									<p><?=$email;?></p>
+								</div>
+								<div>
+									<h3>Site</h3>
+									<p><?=$mysite;?></p>
+								</div>
+								
+								
+							</div>
+					</div>
+<!--Personal Information end -->
+	</div>
+</div>

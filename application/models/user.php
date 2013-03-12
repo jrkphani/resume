@@ -22,16 +22,10 @@ Class User extends CI_Model
      return false;
    }
  }
- function add_user()
+ function add_user($data)
  {
 	// $code=sha1(mt_rand(10000,99999).time().$this->input->post('email_address'));
-  $data=array(
-    'firstname'=>$this->input->post('firstname'),
-    'lastname'=>$this->input->post('lastname'),
-    'email'=>$this->input->post('email_address'),
-    'password'=>md5($this->input->post('pass_word')),
-    'active'=>sha1(mt_rand(10000,99999).time().$this->input->post('email_address'))
-  );
+  
   if($newuser = $this->db->insert('users',$data))
   {
 		$this->load->library('email');
@@ -51,21 +45,34 @@ Class User extends CI_Model
 		$this->email->send();
   }
  }
- function check_user()
+ function update_user($where,$data)
  {
-    $email=$this->input->post('email_address');
+	// $code=sha1(mt_rand(10000,99999).time().$this->input->post('email_address'));
+	$this->db->where($where);
+  if($newuser = $this->db->update('users',$data))
+  {
+		return true;
+  }
+  else
+  {
+	  return false;
+  }
+ }
+ function check_user($data)
+ {
+    //$email=$this->input->post('email_address');
 	$this -> db -> select('id');
 	$this -> db -> from('users');
-	$this -> db -> where('email', $email);
+	$this -> db -> where($data);
 	$query = $this -> db -> get();
 
    if($query -> num_rows() == 1)
    {
-     return false;
+	  return $query->result_array();
    }
    else
    {
-	   return true;
+	   return false;
    }
  }
  function activate_user($id,$code)

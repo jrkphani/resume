@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/css_site.css"); ?>"/>
 <!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
 <script src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
+<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>
 <script type="text/javascript">
   var baseurl = "<?php print base_url(); ?>";
 </script>
@@ -33,6 +34,7 @@
  					<input type="checkbox" id="c1" />
             		<label for="c1" class="checkbox"><span></span>Remember me</label>
 				     <span id="loginsubmit" class="button">Sign in</span>
+				     <span id="forgetsubmit" class="button">forget</span>
 				</form>
 			</div>
 			<?php } ?>

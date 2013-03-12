@@ -20,7 +20,10 @@ class Preview extends CI_Controller {
 	public function index()
 	{
 		$this->load->helper('file');
-		$preview_html = $this->load->view('tohtml',"",true);
+		$postdata=$this->input->post();
+		//echo "<pre>";
+		//print_r($postdata);
+		$preview_html = $this->load->view('tohtml',$postdata,true);
 		$tempnam=mt_rand().time();
 		$temppath=FCPATH.'temp/files/'.$tempnam.'.html';
 		if (!write_file($temppath, $preview_html))
@@ -30,6 +33,7 @@ class Preview extends CI_Controller {
 			else
 			{
 				$data['html']=$preview_html;
+				//$data['css']=$postdata['css'];
 				$data['link']=$tempnam;
 				$this->load->view('preview',$data);	
 			}

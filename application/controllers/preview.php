@@ -19,15 +19,19 @@ class Preview extends CI_Controller {
 	 */
 	public function index()
 	{
+		if($this->session->userdata('logged_in'))
+	   {
 		$this->load->helper('file');
-		$postdata=$this->input->post();
+		if($postdata=$this->input->post())
+		{
 		//echo "<pre>";
 		//print_r($postdata);
-		$preview_html = $this->load->view('tohtml',$postdata,true);
+		$preview_html = $this->load->view('T/'.$postdata['template'].'_html',$postdata,true);
 		$tempnam=mt_rand().time();
 		$temppath=FCPATH.'temp/files/'.$tempnam.'.html';
 		if (!write_file($temppath, $preview_html))
 			{
+				//temp page
 				 echo 'Unable to write the file';
 			}
 			else
@@ -37,6 +41,16 @@ class Preview extends CI_Controller {
 				$data['link']=$tempnam;
 				$this->load->view('preview',$data);	
 			}
+		}
+		else
+		{
+		redirect('login', 'home');	
+		}
+	}
+	else
+	{
+		redirect('login', 'refresh');
+	}
 	}
 }
 

@@ -4,7 +4,7 @@
 	 			
 	 			<!--T1_form-->
 	 			<form class="form-horizontal" id="resume_form" method="post" action="<?php echo base_url('preview'); ?>">
-	 			<input type="hidden" value="T1" name="css" />
+	 			<input type="hidden" value="T1" id="template" name="template" />
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
 					    <div class="controls">
@@ -214,47 +214,4 @@
 				</form>
 			</div>
 		</div>
-
-
-		<script>
-			$(document).ready(function()
-			{
-				 $('#upload_file').submit(function(e) {
-      e.preventDefault();
-      $.ajaxFileUpload({
-         url         :'./upload/upload_file/',
-         secureuri      :false,
-         fileElementId  :'userfile',
-         dataType    : 'json',
-         data        : {
-            'title'           : $('#title').val()
-         },
-         success  : function (data, status)
-         {
-            if(data.status != 'error')
-            {
-				$('#profile_pic').attr('src',data.imgUrl);
-				$('#img').val(data.fname);
-               //$('#files').html('<p>Reloading files...</p>');
-              // refresh_files();
-               //$('#title').val('');
-            }
-            alert(data.msg);
-         }
-      });
-      return false;
-   });
-   $('#addObj').click(function()
-				{
-					$('#fromObj').append('<li><textarea class="objectives" name="objectives[]" placeholder="objective"></textarea></li><span class="removeObj" >Remove</span>');
-					$('.removeObj').click(function(){
-					$(this).prev().remove();
-					$(this).remove();
-					});
-				});
-	$('.removeObj').click(function(){
-					$(this).prev().remove();
-					$(this).remove();
-					});	
-			});
-		</script>
+		<script src="<?php echo base_url('assets/js/home.js');?>"></script>

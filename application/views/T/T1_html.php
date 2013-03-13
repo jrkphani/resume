@@ -1,18 +1,18 @@
 <!--<link rel="stylesheet" type="text/css" href="<?php echo base_url()."assets/css/T/".$css."_css.css"; ?>"/> -->
-<?php $string = read_file(FCPATH."/assets/css/T/".$template."_css.css"); ?>
+<?php $string = read_file(FCPATH."/assets/css/T/".$template.".css"); ?>
 <style>
 <?=$string;?>
 </style>
 <div class="resume">
 	<div class="inner"> 
-		<header class="resumeHeader">
+		<div class="resumeHeader">
 			<div class="mainTitle"> 
 				<span><h1><?=$fname;?> <?=$lname;?></h1><h2 class="alignRight"><?=$designation;?></h2> </span>
 				
 				
 			</div>
 			
-		</header>
+		</div>
 
 		<div class="resumeBody">
 			

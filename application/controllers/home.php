@@ -25,6 +25,7 @@ class Home extends CI_Controller {
 		 $data['email'] = $session_data['email'];
 		 $data['view_page'] = 'home';
 		 $this->load->view('template', $data);
+		 $this->load->view('select_template');
 	   }
 	   else
 	   {

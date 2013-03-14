@@ -41,6 +41,15 @@ class Home extends CI_Controller {
    $this->session->sess_destroy();
    redirect('login', 'refresh');
  }
+ function test()
+ {
+	$this->load->helper('file');
+	$this->load->library('mpdf');
+	$content=read_file(FCPATH.'temp/files/3670876891363179040.html');
+	//echo $content; die;
+	$this->mpdf->WriteHTML($content);
+	$this->mpdf->Output('MyPDF.pdf', 'D');
+ }
 }
 
 /* End of file welcome.php */

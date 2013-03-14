@@ -43,6 +43,25 @@ class Download extends CI_Controller {
 		
 		//$this->load->view('home');
 	}
+	function test()
+	{
+		//mpdf
+	$html = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
+	if($html)
+	{
+	$this->load->helper('file');
+	$this->load->library('mpdf');
+	$htmlpath=FCPATH.'temp/files/'.$html.'.html';
+	$content=read_file($htmlpath);
+	//echo $content; die;
+	$this->mpdf->WriteHTML($content);
+	$this->mpdf->Output();
+	}
+	else
+		{
+			echo "404"; exit(0);
+		}
+	}
 }
 
 /* End of file welcome.php */

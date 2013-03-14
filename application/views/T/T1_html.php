@@ -49,6 +49,8 @@
 <!--summary end-->
 
 <!--Company start-->
+<? if(array_filter($cmpnyName))
+{ ?>
 					<div>
 						<div class="mainTitle">
 							<h2> Work Experiences</h2>
@@ -75,9 +77,12 @@
 							<? $i++; } ?>									
 						</div>
 					</div>
+					<? } ?>
 <!--Company end-->
 
 <!--Skill start-->
+<? if(array_filter($skillName))
+{ ?>
 					<div>
 						<div class="mainTitle">
 							<h2>Key Skills</h2>
@@ -99,6 +104,7 @@
 							<? $i++; } ?>
 						</div>
 					</div>
+					<? } ?>
 <!--Skill end-->
 					
 		</div>
@@ -110,6 +116,8 @@
 <div class="resume">
 	<div class="inner"> 
 			<!--OtherSkill start-->
+			<? if(array_filter($otherSkills))
+				{ ?>
 		<div> 
 							<div class="titleSection ">
 								<h2>Other skills</h2>
@@ -127,9 +135,12 @@
 						</div>
 					
 					</div>
+					<? } ?>
 	<!--OtherSkill end-->
 
 	<!--Projects start-->
+	<? if(array_filter($projName))
+				{ ?>
 					<div>
 						<div class="mainTitle">
 							<h2>Projects</h2>
@@ -155,9 +166,12 @@
 							<? $i++; } ?>
 						</div>
 					</div>
+					<? } ?>
 <!--Projects end-->
 
 <!--Education start-->
+<? if(array_filter($eduInst))
+				{ ?>
 					<div>
 						
 							<div class="mainTitle ">
@@ -178,6 +192,7 @@
 								</div>
 							<? $i++; } ?>	
 					</div>
+					<? } ?>
 <!--Education end-->
 
 <!--Personal Information start -->
@@ -194,10 +209,13 @@
 									<h3>Email</h3>
 									<p><?=$email;?></p>
 								</div>
+								<? if(trim($objective)!="")
+								{ ?>
 								<div>
 									<h3>Site</h3>
 									<p><?=$mysite;?></p>
 								</div>
+								<? } ?>
 								
 								
 							</div>

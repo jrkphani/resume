@@ -66,26 +66,28 @@
 
 					  	<!--******************************************Skills 1********************************/-->
 					 <div id="skills">
-					  <div class="control-group topBorder">
-					    <label class="control-label">Key Skills</label>
-					    <div class="controls">
-					      <input class="span4" type="text"  name="skillName[]" placeholder="Skill name">
-					      <input class="span4 leftMargin" name="skillTitle[]" type="text"  placeholder="SubTitle">
-					    </div>
-					  </div>
-					  
-					  <div class="control-group ">
-					    <label class="control-label">Effeciency</label>
-					    <div class="controls">
-					      <input class="span4" type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., ">
-					    </div>
-					  </div>
-					  <div class="control-group ">
-					    <label class="control-label">Description</label>
-					    <div class="controls">
-					      <textarea rows="3" class="input span8" name="skillDesc[]" type="text"  placeholder="Description"></textarea>
-					    </div>
-					  </div>
+					 	<div id="s0">
+						  <div class="control-group topBorder">
+						    <label class="control-label">Key Skills</label>
+						    <div class="controls">
+						      <input class="span4" type="text"  name="skillName[]" placeholder="Skill name">
+						      <input class="span4 leftMargin" name="skillTitle[]" type="text"  placeholder="SubTitle">
+						    </div>
+						  </div>
+						  
+						  <div class="control-group ">
+						    <label class="control-label">Effeciency</label>
+						    <div class="controls">
+						      <input class="span4" type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., ">
+						    </div>
+						  </div>
+						  <div class="control-group ">
+						    <label class="control-label">Description</label>
+						    <div class="controls">
+						      <textarea rows="3" class="input span8" name="skillDesc[]" type="text"  placeholder="Description"></textarea>
+						    </div>
+						  </div>
+						</div>
 					</div>
 					
 					<div class="control-group ">
@@ -100,8 +102,9 @@
 							<div class="control-group">
 						    	<label class="control-label">Other Skills</label>
 						    	<div class="controls" id="oskills">
+						    		<div id="os0">
 						      		<input class="span4" type="text"  name="otherSkills[]" placeholder="Skill name">
-						      		 <span class="button" >Remove</span>
+						      		</div>
 						    	</div>
 						    	<div class="controls">
 						    	<span class="button"  id="addOskills">Add skill</span>

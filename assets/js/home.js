@@ -39,7 +39,7 @@ $('#addProject').click(function()
 	{
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
-		rid="e"+id;
+		rid="p"+id;
 				html=	'<div id="'+rid+'">';
 				html+=		  '<div class="control-group topBorder">';
 				html+=		  	'<label class="control-label">Project 1</label>';
@@ -70,7 +70,7 @@ $('#addCompany').click(function()
 	{
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
-		rid="e"+id;
+		rid="c"+id;
 				html=	'<div id="'+rid+'">';
 				html+=	  '<div class="control-group topBorder">';
 				html+=		  	'<label class="control-label">Company 1</label>';
@@ -96,6 +96,46 @@ $('#addCompany').click(function()
 				html+=		'<span class="button remove" onclick=removeId("'+rid+'");>Remove</span>';
 				html+=	'</div>';
 		$('#company').append(html);
+	});
+$('#addOskills').click(function()
+	{
+		id=parseInt($(this).attr('value'))+1;
+		$(this).attr('value',id);
+		rid="os"+id;
+				html=	'<div id="'+rid+'">';
+				html+=		'<input class="span4" type="text"  name="otherSkills[]" placeholder="Skill name">';
+				html+=		'<span class="button remove" onclick=removeId("'+rid+'");>Remove</span>';
+				html+=	'</div>';
+		$('#oskills').append(html);
+	});
+$('#addSkills').click(function()
+	{
+		id=parseInt($(this).attr('value'))+1;
+		$(this).attr('value',id);
+		rid="s"+id;
+				html=	'<div id="'+rid+'">';
+				html+=	  '<div class="control-group topBorder">';
+				html+=		    '<label class="control-label">Key Skills</label>';
+				html+=		    '<div class="controls">';
+				html+=		      '<input class="span4" type="text"  name="skillName[]" placeholder="Skill name">';
+				html+=		      '<input class="span4 leftMargin" name="skillTitle[]" type="text"  placeholder="SubTitle">';
+				html+=		    '</div>';
+				html+=		  '</div>';
+				html+=		  '<div class="control-group ">';
+				html+=		    '<label class="control-label">Effeciency</label>';
+				html+=		    '<div class="controls">';
+				html+=		      '<input class="span4" type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., ">';
+				html+=		    '</div>';
+				html+=		  '</div>';
+				html+=		  '<div class="control-group ">';
+				html+=		    '<label class="control-label">Description</label>';
+				html+=		    '<div class="controls">';
+				html+=		      '<textarea rows="3" class="input span8" name="skillDesc[]" type="text"  placeholder="Description"></textarea>';
+				html+=		    '</div>';
+				html+=		  '</div>';
+				html+=		'<span class="button remove" onclick=removeId("'+rid+'");>Remove</span>';
+				html+=	'</div>';
+		$('#skills').append(html);
 	});
 });
 function removeId(ID)

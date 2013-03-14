@@ -1,5 +1,14 @@
 $(document).ready(function()
 {
+	$("#resume_form").submit(function(e){
+		//if('#template').val();
+		if($('#template').val()==="")
+		{
+			//return false;
+			alert('Please select a Template');
+			e.preventDefault();
+		}
+	});
 	$('.template').click(function()
 	{
 		$('.templateCell').removeClass('templateCellSelected');

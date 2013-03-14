@@ -4,7 +4,7 @@
 	 			
 	 			<!--T1_form-->
 	 			<form class="form-horizontal" id="resume_form" method="post" action="<?php echo base_url('preview'); ?>">
-	 			<input type="hidden" value="T1" id="template" name="template" />
+	 			<input type="hidden" value="" id="template" name="template" autocomplete="off" />
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
 					    <div class="controls">
@@ -228,7 +228,7 @@
 		</div>
 		 <div class="selectTemplate">
 	 				<div class="selectTemplateInner ">
-						<div class="templateCell templateCellSelected" id="T1">
+						<div class="templateCell" id="T1">
 				 				<div class="templateThumbnail">
 				 				</div>	
 				 				<div class="templateContent">

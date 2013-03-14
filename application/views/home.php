@@ -226,4 +226,52 @@
 				</form>
 			</div>
 		</div>
+		 <div class="selectTemplate">
+	 				<div class="selectTemplateInner ">
+						<div class="templateCell templateCellSelected" id="T1">
+				 				<div class="templateThumbnail">
+				 				</div>	
+				 				<div class="templateContent">
+				 					<h4>Corporate Template</h4>
+				 					<br/>
+				 					<br/>
+				 					<button class="btn-block preview" id="p_T1">Preview</button>
+				 					<button class="btn-block template" value="T1">Select</button>
+				 				</div>
+			 				</div>
+			 				<div class="templateCell" id="T2">
+				 				<div class="templateThumbnail">
+				 				</div>	
+				 				<div class="templateContent">
+				 					<h4>Corporate Template</h4>
+				 					<br/>
+				 					<br/>
+				 					<button class="btn-block preview" id="p_T2">Preview</button>
+				 					<button class="btn-block  template" value="T2">Select</button>
+				 				</div>
+			 				</div>
+			 				<div class="templateCell" id="T3">
+				 				<div class="templateThumbnail">
+				 				</div>	
+				 				<div class="templateContent">
+				 					<h4>Corporate Template</h4>
+				 					<br/>
+				 					<br/>
+				 					<button class="btn-block preview" id="p_T3">Preview</button>
+				 					<button class="btn-block template" value="T3">Select</button>
+				 				</div>
+			 				</div>
+						<div class="templateCell" id="T4">
+				 				<div class="templateThumbnail">
+				 				</div>	
+				 				<div class="templateContent">
+				 					<h4>Corporate Template</h4>
+				 					<br/>
+				 					<br/>
+				 					<button class="btn-block preview" id="p_T4">Preview</button>
+				 					<button class="btn-block template" value="T4">Select</button>
+				 				</div>
+			 				</div>
+					</div>
+				 </div>
 		<script src="<?php echo base_url('assets/js/home.js');?>"></script>

@@ -2,7 +2,9 @@ $(document).ready(function()
 {
 	$('.template').click(function()
 	{
+		$('.templateCell').removeClass('templateCellSelected');
 		$('#template').val($(this).attr('value'));
+		$('#'+$(this).attr('value')).addClass('templateCellSelected');
 	});
 	$('#addEdudcation').click(function()
 	{

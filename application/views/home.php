@@ -65,6 +65,7 @@
 					  </div>
 
 					  	<!--******************************************Skills 1********************************/-->
+					 <div id="skills">
 					  <div class="control-group topBorder">
 					    <label class="control-label">Key Skills</label>
 					    <div class="controls">
@@ -85,30 +86,32 @@
 					      <textarea rows="3" class="input span8" name="skillDesc[]" type="text"  placeholder="Description"></textarea>
 					    </div>
 					  </div>
-					
+					</div>
 					
 					<div class="control-group ">
-						    <label class="control-label">Add skill</label>
+						   <!-- <label class="control-label">Add skill</label>-->
 						    <div class="controls">
-						      <button>Add</button>
+						      <span class="button"  id="addSkills">Add skill</span>
 
 						    </div>
 						  </div>
 						  
 						  <!--============================================Other skills==========================================-->
-							<div class="control-group ">
+							<div class="control-group">
 						    	<label class="control-label">Other Skills</label>
-						    	<div class="controls">
+						    	<div class="controls" id="oskills">
 						      		<input class="span4" type="text"  name="otherSkills[]" placeholder="Skill name">
-						      		<button>Add</button>
-						      		 <button>Remove</button>
+						      		 <span class="button" >Remove</span>
+						    	</div>
+						    	<div class="controls">
+						    	<span class="button"  id="addOskills">Add skill</span>
 						    	</div>
 						  	</div>
 
 						  
 					  <!--******************************************Company 1********************************/-->
 					  
-
+					  <div id="company">
 						<div class="control-group topBorder">
 						  	<label class="control-label">Company 1</label>
 						    <div class="controls">
@@ -131,16 +134,16 @@
 						      <textarea rows="3" class="input span8" name="cmpnyDesc[]" type="text"  placeholder="Description"></textarea>
 						    </div>
 						  </div>
-						  
+						 </div>
 					 	<div class="control-group ">
-					    <label class="control-label">Add company</label>
+					    <!--<label class="control-label">Add company</label>-->
 					    <div class="controls">
-					      <button>Add</button>
+					      <span class="button"  id="addCompany">Add company</span>
 					    </div>
 					  </div>
 						  	  <!--******************************************Project********************************/-->
 					  
-
+					<div id="project">
 						<div class="control-group topBorder">
 						  	<label class="control-label">Project 1</label>
 						    <div class="controls">
@@ -163,25 +166,26 @@
 						      <textarea rows="3" class="input span8" name="projDesc[]" type="text"  placeholder="Description"></textarea>
 						    </div>
 						  </div>
+					</div>
 						 
 					 	<div class="control-group ">
-					    <label class="control-label">Add Project</label>
+					    <!--<label class="control-label">Add Project</label>-->
 					    <div class="controls">
-					      <button>Add</button>
+					      <span class="button"  id="addProject">Add project</span>
 					    </div>
 					  </div>
 					  
 					  <!--******************************************Education********************************/-->
 					  
-
+				<div id="edudcation">
+					<div id="e0">
 						<div class="control-group topBorder">
-						  	<label class="control-label">Edudcation 1</label>
+						  	<label class="control-label">Edudcation</label>
 						    <div class="controls">
 						      <input class="span4" type="text" name="eduInst[]" placeholder="Institution">
 						      <input class="span4 leftMargin" name="eduCert[]" type="text"  placeholder="Certification">
 						    </div>
 						  </div>
-						  
 						  <div class="control-group ">
 						    <label class="control-label">Period</label>
 						    <div class="controls">
@@ -196,19 +200,20 @@
 						      <textarea rows="3" class="input span8" name="eduScore[]" type="text"  placeholder="Score"></textarea>
 						    </div>
 						  </div>
-						  
+					</div>
+				</div>	  
 						  <div class="control-group ">
-					    <label class="control-label">Add Education</label>
+					    <!--<label class="control-label">Add Education</label>-->
 					    <div class="controls">
-					      <button>Add</button>
+					      <span class="button"  id="AddEdudcation" value="0">Add Edudcation</span>
 					    </div>
 					  </div>
 					  
 						  <div class="control-group">
 						    <div class="controls">
-						       <button type="submit">Submit</button>
-						       <button >Reset</button>
-						    	<button>Cancel</button>
+						       <span class="button"  type="submit">Submit</span>
+						       <span class="button"  >Reset</span>
+						    	<span class="button" >Cancel</span>
 						    </div>
 						  </div>
 				</form>

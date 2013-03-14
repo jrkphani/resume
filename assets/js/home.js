@@ -1,12 +1,35 @@
 $(document).ready(function()
 {
-	$("#resume_form").submit(function(e){
-		//if('#template').val();
+	$("#resume_submit").click(function(e){
+		e.preventDefault();
 		if($('#template').val()==="")
 		{
 			//return false;
 			alert('Please select a Template');
-			e.preventDefault();
+			return false;
+		}
+		else
+		{
+			$.ajax({
+				url: baseurl+'preview', 
+				type: 'post',
+				data: $('#resume_form').serialize(),
+				success:function(result)
+				{
+					if(result.resultset.success=='yes')
+					{
+						window.location=baseurl+'preview/page/'+result.resultset.html;
+					}
+					else
+					{
+						alert('Internal error, Please try agian!');
+					}
+				},
+				error:function()
+				{
+					alert('Internal error, Please try agian!');
+				}
+			});
 		}
 	});
 	$('.template').click(function()

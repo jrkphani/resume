@@ -31,15 +31,21 @@ class Preview extends CI_Controller {
 		$temppath=FCPATH.'temp/files/'.$tempnam.'.html';
 		if (!write_file($temppath, $preview_html))
 			{
-				//temp page
-				 echo 'Unable to write the file';
+				$data['success']='no';
+				$data['msg']='Unable to write file';
+				$result['resultset']=$data;
+				$this->load->view('json',$result);
 			}
 			else
 			{
-				$data['html']=$preview_html;
+				$data['success']='yes';
+				$data['html']=$tempnam;
+				$result['resultset']=$data;
+				$this->load->view('json',$result);
+				//$data['html']=$preview_html;
 				//$data['css']=$postdata['css'];
-				$data['link']=$tempnam;
-				$this->load->view('preview',$data);	
+				//$data['link']=$tempnam;
+				//	$this->load->view('preview',$data);	
 			}
 		}
 		else
@@ -51,6 +57,18 @@ class Preview extends CI_Controller {
 	{
 		redirect('login', 'refresh');
 	}
+	}
+	function page()
+	{
+		$this->load->helper('file');
+		$html = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
+		//echo $html; die;
+		$content = read_file(FCPATH."/temp/files/".$html.".html");
+		$data['html']=$content;
+		$data['link']=$html;
+		$data['view_page'] = 'preview';
+		$this->load->view('template', $data);
+		//$this->load->view('preview',$data);	
 	}
 }
 

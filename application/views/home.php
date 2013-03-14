@@ -3,7 +3,7 @@
 	 		<div class="span7 offset1 templateForm">
 	 			
 	 			<!--T1_form-->
-	 			<form class="form-horizontal" id="resume_form" method="post" action="<?php echo base_url('preview'); ?>">
+	 			<form class="form-horizontal" id="resume_form">
 	 			<input type="hidden" value="" id="template" name="template" autocomplete="off" />
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
@@ -218,7 +218,7 @@
 					  
 						  <div class="control-group">
 						    <div class="controls">
-						       <input class="button"  type="submit" value="Submit"/>
+						       <span class="button" id="resume_submit"> Submit</span>
 						       <span class="button"  >Reset</span>
 						    	<span class="button" >Cancel</span>
 						    </div>

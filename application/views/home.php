@@ -211,7 +211,7 @@
 					  
 						  <div class="control-group">
 						    <div class="controls">
-						       <span class="button"  type="submit">Submit</span>
+						       <input class="button"  type="submit" value="Submit"/>
 						       <span class="button"  >Reset</span>
 						    	<span class="button" >Cancel</span>
 						    </div>

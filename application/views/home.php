@@ -144,7 +144,8 @@
 						  	  <!--******************************************Project********************************/-->
 					  
 					<div id="project">
-						<div class="control-group topBorder">
+						<div id="p0">
+						  <div class="control-group topBorder">
 						  	<label class="control-label">Project 1</label>
 						    <div class="controls">
 						      <input class="span4" type="text" name="projName[]"  placeholder="Project name">
@@ -166,6 +167,7 @@
 						      <textarea rows="3" class="input span8" name="projDesc[]" type="text"  placeholder="Description"></textarea>
 						    </div>
 						  </div>
+						</div>
 					</div>
 						 
 					 	<div class="control-group ">
@@ -205,7 +207,7 @@
 						  <div class="control-group ">
 					    <!--<label class="control-label">Add Education</label>-->
 					    <div class="controls">
-					      <span class="button"  id="AddEdudcation" value="0">Add Edudcation</span>
+					      <span class="button"  id="addEdudcation" value="0">Add Edudcation</span>
 					    </div>
 					  </div>
 					  

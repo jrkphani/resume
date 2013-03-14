@@ -73,7 +73,7 @@ $(document).ready(function()
 			//$('#apploginusernamecontainer').addClass('control-group error');
 			$('#error_msg1').html("Enter valid email id.");
 		}
-		else if(firstname.length <=2 || lastname.length <=1)
+		else if(firstname.length <=2 || lastname.length <=0)
 		{
 			$('#error_msg1').html("Enter your First name and Last name.");
 		}

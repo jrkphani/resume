@@ -31,12 +31,12 @@ $(document).ready(function()
 				html+=		      '<textarea rows="3" class="input span8" name="eduScore[]" type="text"  placeholder="Score"></textarea>';
 				html+=		    '</div>';
 				html+=		  '</div>';
-				html+=		'<span class="button remove" onclick=remove("'+rid+'");>Remove</span>';
+				html+=		'<span class="button remove" onclick=removeId("'+rid+'");>Remove</span>';
 				html+=	'</div>';
 		$('#edudcation').append(html);
 	});
 });
-function remove(ID)
+function removeId(ID)
 {
 $('#'+ID).remove();
 }

@@ -111,7 +111,8 @@
 						  
 					  <!--******************************************Company 1********************************/-->
 					  
-					  <div id="company">
+					<div id="company">
+					  <div id="c0">
 						<div class="control-group topBorder">
 						  	<label class="control-label">Company 1</label>
 						    <div class="controls">
@@ -134,9 +135,10 @@
 						      <textarea rows="3" class="input span8" name="cmpnyDesc[]" type="text"  placeholder="Description"></textarea>
 						    </div>
 						  </div>
-						 </div>
+					  </div>
+					</div>
+						<!--<label class="control-label">Add company</label>-->
 					 	<div class="control-group ">
-					    <!--<label class="control-label">Add company</label>-->
 					    <div class="controls">
 					      <span class="button"  id="addCompany">Add company</span>
 					    </div>

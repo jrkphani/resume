@@ -235,7 +235,7 @@
 				 					<h4>Corporate Template</h4>
 				 					<br/>
 				 					<br/>
-				 					<button class="btn-block preview" id="p_T1">Preview</button>
+				 					<button class="btn-block" id="p_T1">Preview</button>
 				 					<button class="btn-block template" value="T1">Select</button>
 				 				</div>
 			 				</div>
@@ -246,7 +246,7 @@
 				 					<h4>Corporate Template</h4>
 				 					<br/>
 				 					<br/>
-				 					<button class="btn-block preview" id="p_T2">Preview</button>
+				 					<button class="btn-block" id="p_T2">Preview</button>
 				 					<button class="btn-block  template" value="T2">Select</button>
 				 				</div>
 			 				</div>
@@ -257,7 +257,7 @@
 				 					<h4>Corporate Template</h4>
 				 					<br/>
 				 					<br/>
-				 					<button class="btn-block preview" id="p_T3">Preview</button>
+				 					<button class="btn-block" id="p_T3">Preview</button>
 				 					<button class="btn-block template" value="T3">Select</button>
 				 				</div>
 			 				</div>
@@ -268,7 +268,7 @@
 				 					<h4>Corporate Template</h4>
 				 					<br/>
 				 					<br/>
-				 					<button class="btn-block preview" id="p_T4">Preview</button>
+				 					<button class="btn-block" id="p_T4">Preview</button>
 				 					<button class="btn-block template" value="T4">Select</button>
 				 				</div>
 			 				</div>

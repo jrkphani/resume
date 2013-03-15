@@ -5,15 +5,26 @@
 </style>
 <div class="resume">
 	<div class="inner"> 
-		<div class="resumeHeader">
-			<div class="mainTitle"> 
-				<span><h1><?=$fname;?> <?=$lname;?></h1><h2 class="alignRight"><?=$designation;?></h2> </span>
-				
-				
-			</div>
-			
-		</div>
+			<header class="resumeHeader borderPadding">
+					<div class="headerLeft">
+						<div class="photoBorder">
+							<img src="images/userPhoto.png">
+						</div>	
+						<div class="userName">
+							<h2><?=$fname;?> <?=$lname;?></h2>
+							<h3><?=$designation;?></h3>
+						</div>
+						<div class="address">
+							<p>Address: Sed sapien ligula, imperdiet eu porta nec, sollicitudin </p>
+						</div>
+					</div>
+					<div class="headerRight">
+						<div>
 
+							<p><b>Ph:</b><?=$phone;?><br/><b>Site:</b><?=$mysite;?><br/><b>Email:</b><?=$email;?></p>
+						</div>	
+					</div>	
+			</header>
 		<div class="resumeBody">
 			
 <!--objective start-->
@@ -106,16 +117,7 @@
 					</div>
 					<? } ?>
 <!--Skill end-->
-					
-		</div>
-
-	</div>
-
-
-</div>
-<div class="resume">
-	<div class="inner"> 
-			<!--OtherSkill start-->
+						<!--OtherSkill start-->
 			<? if(array_filter($otherSkills))
 				{ ?>
 		<div> 
@@ -196,11 +198,11 @@
 <!--Education end-->
 
 <!--Personal Information start -->
-					<div class="mainTitle" style="clear:both;">
+					<div class="mainTitle height200" style="clear:both;">
 							<div class="titleSection">
 								<h2>Personal Information</h2>
 							</div>
-							<div class="contentSection">
+							<div class="contentSection height200">
 								<div>
 									<h3>Phone</h3>
 									<p><?=$phone;?></p>
@@ -220,6 +222,12 @@
 								
 							</div>
 					</div>
-<!--Personal Information end -->
+<!--Personal Information end -->		
+		</div>
+
 	</div>
+
+
 </div>
+
+

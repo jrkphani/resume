@@ -8,8 +8,8 @@ h4{font-size: 12px; color: #828282;}
 p{font-size: 13px; padding-bottom: 10px;}
 
 
-body { font-family: Georgia; color: #525252; font-size: 15px;}
-.resume{ width: 210mm; background: #f5f5f5; border: solid #626262; border-width: 3px 0 3px 0;}
+body { font-family: Georgia; color: #525252; background-color: #232323; font-size: 15px;}
+.resume{ width: 760px; background: #f5f5f5; border: solid #626262; border-width: 3px 0 3px 0;}
 .inner{padding-left: 40px; padding-right: 40px;}
 
 

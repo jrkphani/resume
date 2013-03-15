@@ -106,16 +106,7 @@
 					</div>
 					<? } ?>
 <!--Skill end-->
-					
-		</div>
-
-	</div>
-
-
-</div>
-<div class="resume">
-	<div class="inner"> 
-			<!--OtherSkill start-->
+						<!--OtherSkill start-->
 			<? if(array_filter($otherSkills))
 				{ ?>
 		<div> 
@@ -196,11 +187,11 @@
 <!--Education end-->
 
 <!--Personal Information start -->
-					<div class="mainTitle" style="clear:both;">
+					<div class="mainTitle height200" style="clear:both;">
 							<div class="titleSection">
 								<h2>Personal Information</h2>
 							</div>
-							<div class="contentSection">
+							<div class="contentSection height200">
 								<div>
 									<h3>Phone</h3>
 									<p><?=$phone;?></p>
@@ -220,6 +211,12 @@
 								
 							</div>
 					</div>
-<!--Personal Information end -->
+<!--Personal Information end -->		
+		</div>
+
 	</div>
+
+
 </div>
+
+

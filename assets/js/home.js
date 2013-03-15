@@ -1,5 +1,6 @@
 $(document).ready(function()
 {
+	$("#preview").colorbox({iframe:true, width:"830px", height:"100%"});
 	$("#resume_submit").click(function(e){
 		e.preventDefault();
 		if($('#template').val()==="")
@@ -18,7 +19,13 @@ $(document).ready(function()
 				{
 					if(result.resultset.success=='yes')
 					{
-						window.location=baseurl+'preview/page/'+result.resultset.html;
+						$("#preview").attr('href',baseurl+'preview/page/'+result.resultset.html)
+						$("#preview").click();
+						$("#download").click(function(){
+							alert('d');
+							window.location=baseurl+'preview/page/'+result.resultset.html;
+						});
+						//window.location=baseurl+'preview/page/'+result.resultset.html;
 					}
 					else
 					{

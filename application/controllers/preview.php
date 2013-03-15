@@ -67,8 +67,8 @@ class Preview extends CI_Controller {
 		$data['html']=$content;
 		$data['link']=$html;
 		$data['view_page'] = 'preview';
-		$this->load->view('template', $data);
-		//$this->load->view('preview',$data);	
+		//$this->load->view('template', $data);
+		$this->load->view('preview',$data);	
 	}
 }
 

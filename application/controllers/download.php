@@ -22,7 +22,9 @@ class Download extends CI_Controller {
 		$html = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
 		if($html)
 		{
-			$htmlpath=FCPATH.'temp/files/'.$html;
+			$data['html']=base_url('download/pdf/'.$html);
+			$this->load->view('download',$data);
+			/*$htmlpath=FCPATH.'temp/files/'.$html;
 			$results = shell_exec('python '.FCPATH.'py/pdf.py '.$htmlpath);
 			if($results)
 			{
@@ -35,6 +37,7 @@ class Download extends CI_Controller {
 				echo "FAILED"; exit(0);
 			}
 			#echo ' python '.FCPATH.'py/pdf.py '.$htmlpath;
+			*/
 		}
 		else
 		{
@@ -43,7 +46,7 @@ class Download extends CI_Controller {
 		
 		//$this->load->view('home');
 	}
-	function test()
+	function pdf()
 	{
 		//mpdf
 	$html = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
@@ -55,7 +58,7 @@ class Download extends CI_Controller {
 	$content=read_file($htmlpath);
 	//echo $content; die;
 	$this->mpdf->WriteHTML($content);
-	$this->mpdf->Output();
+	$this->mpdf->Output('Resume.pdf','D');
 	}
 	else
 		{

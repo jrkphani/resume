@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/colorbox.css"); ?>"/>
 		<div class="row-fluid">
 			
 	 		<div class="span7 offset1 templateForm">
@@ -274,4 +275,7 @@
 			 				</div>
 					</div>
 				 </div>
+				 <div id="preview" class="stop-theme" title="Resume" href=""></div>
+		<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>
+		<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>
 		<script src="<?php echo base_url('assets/js/home.js');?>"></script>

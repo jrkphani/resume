@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/css_site.css"); ?>"/>
 <!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
 <script src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
-<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>
+
 <script type="text/javascript">
   var baseurl = "<?php print base_url(); ?>";
 </script>

@@ -3,221 +3,121 @@
 <style>
 <?=$string;?>
 </style>
-<div class="resume">
-	<div class="inner"> 
-		<div class="resumeHeader">
-			<div class="mainTitle"> 
-				<span><h1><?=$fname;?> <?=$lname;?></h1><h2 class="alignRight"><?=$designation;?></h2> </span>
-				
-				
-			</div>
-			
-		</div>
+<!--Begin Resume Wrapper
+===============================-->
+<div class="resume-wrapper">
 
-		<div class="resumeBody">
-			
-<!--objective start-->
-<? if(trim($objective)!="")
-{ ?>
-					<div>
-						<div class="titleSection">
-							<h2>Objective</h2>
-						</div>
-						<div class="contentSection">
-							<p>
-								<?=nl2br($objective);?>
-							</p>
-						</div>
-					</div>
-					<? } ?>
-<!--objective end-->
+<!--Begin Left Column
+=======================-->
+  <div class="header">
+    <div class="emp-details">
+      <h3><?=$fname;?> <?=$lname;?></h3>
+      <h4><?=$designation;?></h4>
+      <p>Address line 01</p>
+      <p>Address line 02</p>
+      <p>Address line 03</p>
+      <p class="info">Ph: <?=$phone;?></p>
+      <p class="info">E-Mail: <?=$email;?></p>
+      <? if(trim($objective)!=""){ ?>
+      <p class="info">Site: <?=$mysite;?></p>
+      <? } ?>
+    </div>
+  </div>
 
-<!--summary start-->
-<? if(trim($summary)!="")
-{ ?>
-					<div>
-						<div class="titleSection">
-							<h2>Summary</h2>
-						</div>
-						<div class="contentSection">
-							<p>
-								<?=nl2br($summary);?>
-							</p>
-						</div>
-					</div>
-					<? } ?>
-<!--summary end-->
-
-<!--Company start-->
-<? if(array_filter($cmpnyName))
-{ ?>
-					<div>
-						<div class="mainTitle">
-							<h2> Work Experiences</h2>
-						</div>
-
-						<div>
-							<? 
-							$i=0;
-							foreach($cmpnyName as $cmpny) {
-							?>
-							<div class="titleSection">
-								<h2><?=$cmpnyName[$i];?></h2>
-								<h4><?=$cmpnyFrom[$i];?>-<?=$cmpnyTo[$i];?></h4>
-							</div>
-							<div class="contentSection">
-								<h3><?=$cmpnyDesg[$i];?></h3>
-								<p><?=$cmpnyDesc[$i];?></p>
-									<!--<ul>
-										<li>Accomplishments 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
-										<li>Accomplishments 2 Mauris at mauris tellus, ut convallis diam. </li>
-									</ul>-->	
-							</div>
-							
-							<? $i++; } ?>									
-						</div>
-					</div>
-					<? } ?>
-<!--Company end-->
-
-<!--Skill start-->
-<? if(array_filter($skillName))
-{ ?>
-					<div>
-						<div class="mainTitle">
-							<h2>Key Skills</h2>
-						</div>
-						<div  >
-							<? 
-							$i=0;
-							foreach($skillName as $skill) {
-							?>
-								<div class="titleSection">
-									<h2><?=$skillName[$i];?></h2>
-									<h4><?=$skillTitle[$i];?></h4>
-								</div>
-								<div class="contentSection">
-									<h3><?=$skillEff[$i];?></h3>
-									<p><?=nl2br($skillDesc[$i]);?></p>
-									
-								</div>
-							<? $i++; } ?>
-						</div>
-					</div>
-					<? } ?>
-<!--Skill end-->
-			<!--OtherSkill start-->
-			<? if(array_filter($otherSkills))
+<!--Begin Left Column
+=======================-->
+  <div class="main-content">
+    
+        <!--Begin Objective
+        ====================-->
+        <? if(trim($objective)!=""){ ?>
+        <h3>Objective</h3>
+        <div class="content"><p><?=nl2br($objective);?></p></div>
+        <div class="spacer20"></div>
+        <? } ?>
+        
+        <!--Begin Summary
+        ====================-->
+        <? if(trim($summary)!=""){ ?>
+        <h3>Summary</h3>
+        <div class="content"><p><?=nl2br($summary);?></p></div>
+        <div class="spacer20"></div>
+        <? } ?>
+        
+         <!--Begin Experience
+        ====================-->
+        <? if(array_filter($cmpnyName)){ ?>
+        <h3>Work Experience</h3>
+        <!--Project01-->
+        <? 
+					$i=0;
+					foreach($cmpnyName as $cmpny) {
+				?>
+        <div class="content">
+        <p><h4><?=$cmpnyName[$i];?></h4>
+        <h5><?=$cmpnyFrom[$i];?>-<?=$cmpnyTo[$i];?>  |  <?=$cmpnyDesg[$i];?></h5><?=$cmpnyDesc[$i];?></p>
+        </div>
+        <? $i++; } ?>	
+        <? } ?>
+        <div class="spacer20"></div>
+        
+         <!--Begin Skills
+        ====================-->
+        <? if(array_filter($skillName)){ ?>
+        <h3>Skills</h3>
+        <? 
+					$i=0;
+					foreach($skillName as $skill) {
+				?>
+        <!--Skill01-->
+        <div class="content"><p>
+        <h4><?=$skillName[$i];?></h4>
+        <h5><?=$skillTitle[$i];?>  |  <?=$skillEff[$i];?></h5>
+				<?=nl2br($skillDesc[$i]);?>
+        </p></div>
+        <? $i++; } ?>
+        <? } ?>
+        <div class="spacer20"></div>
+        
+         <!--Begin Education
+        ====================-->
+        <? if(array_filter($eduInst))
 				{ ?>
-		<div> 
-							<div class="titleSection ">
-								<h2>Other skills</h2>
-							</div>
-						
-						<div  class="contentSection">
-							<ul>
-							<? 
-							$i=0;
-							foreach($otherSkills as $otherskill) {
-							?>
-								<li><?=$otherskill;?></li>
-							<? $i++; } ?>
-							</ul>
-						</div>
-					
-					</div>
-					<? } ?>
-	<!--OtherSkill end-->
-
-	<!--Projects start-->
-	<? if(array_filter($projName))
+        <h3>Education</h3>
+        <? 
+					$i=0;
+					foreach($eduInst as $edu) {
+				?>
+        <!--Education-->
+        <div class="content">
+        <h4><?=$eduInst[$i];?>  |  <?=$eduFrom[$i];?>-<?=$eduTo[$i];?></h4>
+        <h5><?=$eduCert[$i];?>  |  <?=$eduScore[$i];?></h5>
+        </div>
+        <? $i++; } ?>	
+        <? } ?>
+        <div class="spacer20"></div>
+        
+        <!--Begin Projects
+        ====================-->
+        <? if(array_filter($projName))
 				{ ?>
-					<div>
-						<div class="mainTitle">
-							<h2>Projects</h2>
-						</div>
-
-						<div>
-							<? 
-							$i=0;
-							foreach($projName as $proj) {
-							?>
-							<div class="titleSection">
-								<h2><?=$projName[$i];?></h2>
-								<h4><?=$projFrom[$i];?>-<?=$projTo[$i];?></h4>
-							</div>
-							<div class="contentSection">
-								<h3><?=$projRole[$i];?></h3>
-								<p><?=nl2br($projDesc[$i]);?></p>
-									<!--<ul>
-										<li>Accomplishments 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
-										<li>Accomplishments 2 Mauris at mauris tellus, ut convallis diam. </li>
-									</ul>-->
-							</div>
-							<? $i++; } ?>
-						</div>
-					</div>
-					<? } ?>
-<!--Projects end-->
-
-<!--Education start-->
-<? if(array_filter($eduInst))
-				{ ?>
-					<div>
-						
-							<div class="mainTitle ">
-								<h2>Education</h2>
-							</div>
-							<? 
-							$i=0;
-							foreach($eduInst as $edu) {
-							?>
-								<div class="titleSection">
-									<h2><?=$eduInst[$i];?></h2>
-									<h4><?=$eduFrom[$i];?> to <?=$eduTo[$i];?> </h4>
-								</div>
-								<div class="contentSection2 height40">
-									<h3><?=$eduCert[$i];?></h3>
-									<p><?=$eduScore[$i];?></p>
-									
-								</div>
-							<? $i++; } ?>	
-					</div>
-					<? } ?>
-<!--Education end-->
-
-<!--Personal Information start -->
-					<div class="mainTitle height200" style="clear:both;">
-							<div class="titleSection">
-								<h2>Personal Information</h2>
-							</div>
-							<div class="contentSection height200">
-								<div>
-									<h3>Phone</h3>
-									<p><?=$phone;?></p>
-								</div>
-								<div>
-									<h3>Email</h3>
-									<p><?=$email;?></p>
-								</div>
-								<? if(trim($objective)!="")
-								{ ?>
-								<div>
-									<h3>Site</h3>
-									<p><?=$mysite;?></p>
-								</div>
-								<? } ?>
-								
-								
-							</div>
-					</div>
-<!--Personal Information end -->
-					
-		</div>
-
-	</div>
-
-
+        <h3>Projects</h3>
+        <? 
+					$i=0;
+					foreach($projName as $proj) {
+				?>
+        <!--Education-->
+        <div class="content">
+        <p>
+				<h4><?=$projName[$i];?></h4>
+        <h5><?=$projFrom[$i];?>-<?=$projTo[$i];?>  |  <?=$projRole[$i];?></h5>
+				<?=nl2br($projDesc[$i]);?></p>
+        </div>
+        <? $i++; } ?>	
+        <? } ?>
+        <div class="spacer20"></div>
+        
+   </div>
 </div>
-
-
+</body>
+</html>

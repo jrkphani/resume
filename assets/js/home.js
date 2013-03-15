@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-	$("#preview").colorbox({iframe:true, width:"830px", height:"100%"});
+	$("#preview").colorbox({iframe:true, width:"860px", height:"100%"});
 	$("#resume_submit").click(function(e){
 		e.preventDefault();
 		if($('#template').val()==="")

@@ -57,8 +57,14 @@ class Download extends CI_Controller {
 	$htmlpath=FCPATH.'temp/files/'.$html.'.html';
 	$content=read_file($htmlpath);
 	//echo $content; die;
-	$this->mpdf->WriteHTML($content);
-	$this->mpdf->Output('Resume.pdf','D');
+	#new mPDF('utf-8','A4', 0, '', 0, 0, 0, 0, 10, 10, 'L');
+	$mpdf = new mPDF('utf-8','A4', 0, '', 0, 0, 0, 0, 40, 40);
+	//$mpdf->useOnlyCoreFonts = true;
+	$mpdf->SetDisplayMode('fullpage');
+	//$mpdf->SetAutoFont(0);
+	$mpdf->WriteHTML($content);
+	//$mpdf->Output();
+	$mpdf->Output('Resume.pdf','D');
 	}
 	else
 		{

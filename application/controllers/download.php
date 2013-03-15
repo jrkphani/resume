@@ -22,8 +22,9 @@ class Download extends CI_Controller {
 		$html = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
 		if($html)
 		{
+			$data['view_page'] = 'download';
 			$data['html']=base_url('download/pdf/'.$html);
-			$this->load->view('download',$data);
+			$this->load->view('template', $data);
 			/*$htmlpath=FCPATH.'temp/files/'.$html;
 			$results = shell_exec('python '.FCPATH.'py/pdf.py '.$htmlpath);
 			if($results)

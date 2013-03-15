@@ -1,19 +1,17 @@
+Download will start in  
+<span id="glowingLayout"></span> Seconds ...
 
-<a href="<?=$html?>">DOWNLOAD</a>
-<?php
-/*
-$file=$pdf.'.pdf';
-//echo $file; die;
-$filename='resume.pdf';
 
-header("Content-Type: application/octet-stream");
-header("Content-Disposition: attachment; filename=" . urlencode($filename));   
-header("Content-Type: application/force-download");
-header("Content-Type: application/octet-stream");
-header("Content-Type: application/download");
-header("Content-Description: File Transfer");            
-header("Content-Length: " . filesize($file));
-readfile($file);
-*/
-?>
+<script src="<?php echo base_url('assets/js/jquery.countdown.min.js');?>"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var austDay = new Date(0,0,0,0,0,1)
+	austDay=austDay.getSeconds()+19;
+$('#glowingLayout').countdown({until: austDay, compact: true, format: 'S', onExpiry: download});
+});
+function download()
+{
+	window.location="<?=$html?>";
+}
+</script>
 

@@ -75,6 +75,8 @@ class Forget extends CI_Controller {
 	 $cpassword = $this->input->post('cpassword');
 	 $active = $this->input->post('acode');
 	 $id = $this->input->post('uid');
+	 if($id)
+	 {
 	 if($password == $cpassword && strlen($password)>4)
 	 {
 		 $update_data=array('password'=>md5($password),'active'=>1);
@@ -98,6 +100,11 @@ class Forget extends CI_Controller {
 		$check_data['view_page'] = 'reset';
 		$this->load->view('template', $check_data);
 	 }
+	}
+	else
+	{
+		redirect('login', 'refresh');
+	}
  }
  function reset()
  {

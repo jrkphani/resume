@@ -117,7 +117,8 @@ class Forget extends CI_Controller {
 		 if($result = $this->user->check_user($check_data))
 		 {
 			$check_data['error']='';
-			 $this->load->view('reset',$check_data);
+			$check_data['view_page'] = 'reset';
+			$this->load->view('template', $check_data);
 		 }
 		 else
 		 {

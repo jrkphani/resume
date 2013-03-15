@@ -25,20 +25,6 @@ class Download extends CI_Controller {
 			$data['view_page'] = 'download';
 			$data['html']=base_url('download/pdf/'.$html);
 			$this->load->view('template', $data);
-			/*$htmlpath=FCPATH.'temp/files/'.$html;
-			$results = shell_exec('python '.FCPATH.'py/pdf.py '.$htmlpath);
-			if($results)
-			{
-				echo "SUCCESS";
-				$data['pdf']=$htmlpath;
-				$this->load->view('download',$data);
-			}
-			else
-			{
-				echo "FAILED"; exit(0);
-			}
-			#echo ' python '.FCPATH.'py/pdf.py '.$htmlpath;
-			*/
 		}
 		else
 		{

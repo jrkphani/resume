@@ -42,14 +42,14 @@ $(document).ready(function()
 				dataType: 'json',
 				success:function(data)
 				{
-					if(data.success=='yes')
+					if(data.resultset.success=='yes')
 					{
 						//window.location.reload();
 						window.location.href="home";
 					}
 					else
 					{
-						$('#error_msg').html(data.errors);	
+						$('#error_msg').html(data.resultset.errors);	
 					}
 				},
 				error:function()
@@ -91,13 +91,13 @@ $(document).ready(function()
 				dataType: 'json',
 				success:function(data)
 				{
-					if(data.success=='yes')
+					if(data.resultset.success=='yes')
 					{
 						$('#error_msg1').html("success msg");
 					}
 					else
 					{
-						$('#error_msg1').html(data.errors);	
+						$('#error_msg1').html(data.resultset.errors);	
 					}
 				},
 				error:function()
@@ -135,7 +135,7 @@ $(document).ready(function()
 				dataType: 'json',
 				success:function(data)
 				{
-					if(data.success=='yes')
+					if(data.resultset.success=='yes')
 					{
 						alert('s');
 						//window.location.reload();
@@ -143,7 +143,7 @@ $(document).ready(function()
 					}
 					else
 					{
-						$('#error_msg').html(data.errors);	
+						$('#error_msg').html(data.resultset.errors);	
 					}
 				},
 				error:function()

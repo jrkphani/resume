@@ -40,27 +40,33 @@ class Forget extends CI_Controller {
 					$this->email->message($message);
 					$this->email->send();
 					$data['success']='yes';
-					echo json_encode($data);
-					exit(0);
+					$result['resultset']=$data;
+      				$this->load->view('json',$result);
 				}
 				else
 				{
-					
+				$data['success']='no';
+				$data['errors']='Internal error, please try again!';
+				$result['resultset']=$data;
+      			$this->load->view('json',$result);
 				}
 				//$this->load->view('login_view');
 				//redirect('home', 'refresh');
 			}
 			else
 			{
-				$data['errors']="eamil is not available";
+				$data['errors']="invalid email";
 				$data['success']='no';
-				echo json_encode($data);
-				exit(0);
+				$result['resultset']=$data;
+      			$this->load->view('json',$result);
 			}
 	 }
 	 else
 	 {
-		 echo 'no';
+		$data['errors']="invalid email";
+		$data['success']='no';
+		$result['resultset']=$data;
+    	$this->load->view('json',$result);
 	 }
  }
  function activation()

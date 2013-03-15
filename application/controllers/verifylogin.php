@@ -19,17 +19,17 @@ class VerifyLogin extends CI_Controller {
    if($this->form_validation->run() == FALSE)
    {
      //Field validation failed.&nbsp; User redirected to login page
-     $data['errors']=validation_errors();
-      $data['success']='no';
-     echo json_encode($data);
-     exit(0);
+    $data['errors']=validation_errors();
+    $data['success']='no';
+    $result['resultset']=$data;
+    $this->load->view('json',$result);
      //$this->load->view('login_view');
    }
    else
    {
       $data['success']='yes';
-       echo json_encode($data);
-       exit(0);
+      $result['resultset']=$data;
+      $this->load->view('json',$result);
    }
 
  }

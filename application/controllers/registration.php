@@ -46,10 +46,34 @@ class Registration extends CI_Controller {
 			$check_data=array('email'=>$post_data['email']);
 			if(!$this->user->check_user($check_data))
 			{
-				$this->user->add_user($post_data);
-				$data['success']='yes';
-				echo json_encode($data);
-				exit(0);
+				if($this->user->add_user($post_data))
+				{
+					$this->load->library('email');
+					#$config['protocol'] = 'sendmail';
+					#$config['mailpath'] = '/usr/sbin/sendmail';
+					$config['charset'] = 'iso-8859-1';
+					$config['wordwrap'] = TRUE;
+					$config['mailtype']='html';
+					$this->email->initialize($config);
+					$this->email->from('resume@digitalchakra.in', 'Digital Chakra');
+					$this->email->to($data['email']);
+					#$this->email->cc('another@another-example.com');
+					#$this->email->bcc('them@their-example.com');
+					$this->email->subject('Verify your account @ Digitalchakra');
+					$message= 'Verify your the registered account in <a href="'.base_url('registration/activation/'.$this->db->insert_id().'/'.$data['active']).'"> Digitalchakra Resume App </a>'; 
+					$this->email->message($message);
+					if($this->email->send())
+					{
+						$data['mail']='yes';
+					}
+					else
+					{
+						$data['mail']='no';
+					}
+					$data['success']='yes';
+					$result['resultset']=$data;
+					$this->load->view('json',$result);
+				}
 				//$this->load->view('login_view');
 				//redirect('home', 'refresh');
 			}
@@ -57,8 +81,8 @@ class Registration extends CI_Controller {
 			{
 				$data['errors']="eamil is not available";
 				$data['success']='no';
-				echo json_encode($data);
-				exit(0);
+				$result['resultset']=$data;
+				$this->load->view('json',$result);
 			}
 		   
 		  

@@ -53,7 +53,7 @@ $(document).ready(function()
 					if(data.resultset.success=='yes')
 					{
 						//window.location.reload();
-						window.location.href="home";
+						window.location.href=baseurl+"home";
 					}
 					else
 					{

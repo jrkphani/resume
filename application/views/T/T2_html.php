@@ -7,9 +7,9 @@
 	<div class="inner"> 
 			<header class="resumeHeader borderPadding">
 					<div class="headerLeft">
-						<div class="photoBorder">
+						<!--<div class="photoBorder">
 							<img src="images/userPhoto.png">
-						</div>	
+						</div>-->	
 						<div class="userName">
 							<h2><?=$fname;?> <?=$lname;?></h2>
 							<h3><?=$designation;?></h3>
@@ -31,7 +31,7 @@
 <? if(trim($objective)!="")
 { ?>
 					<div>
-						<div class="titleSection">
+						<div class="titleSection top5">
 							<h2>Objective</h2>
 						</div>
 						<div class="contentSection">
@@ -47,7 +47,7 @@
 <? if(trim($summary)!="")
 { ?>
 					<div>
-						<div class="titleSection">
+						<div class="titleSection top5">
 							<h2>Summary</h2>
 						</div>
 						<div class="contentSection">
@@ -77,6 +77,7 @@
 								<h4><?=$cmpnyFrom[$i];?>-<?=$cmpnyTo[$i];?></h4>
 							</div>
 							<div class="contentSection">
+
 								<h3><?=$cmpnyDesg[$i];?></h3>
 								<p><?=$cmpnyDesc[$i];?></p>
 									<!--<ul>
@@ -198,7 +199,7 @@
 <!--Education end-->
 
 <!--Personal Information start -->
-					<div class="mainTitle height200" style="clear:both;">
+					<!--<div class="mainTitle height200" style="clear:both;">
 							<div class="titleSection">
 								<h2>Personal Information</h2>
 							</div>
@@ -221,7 +222,7 @@
 								
 								
 							</div>
-					</div>
+					</div>-->
 <!--Personal Information end -->		
 		</div>
 

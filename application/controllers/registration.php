@@ -56,11 +56,11 @@ class Registration extends CI_Controller {
 					$config['mailtype']='html';
 					$this->email->initialize($config);
 					$this->email->from('resume@digitalchakra.in', 'Digital Chakra');
-					$this->email->to($data['email']);
+					$this->email->to($post_data['email']);
 					#$this->email->cc('another@another-example.com');
 					#$this->email->bcc('them@their-example.com');
 					$this->email->subject('Verify your account @ Digitalchakra');
-					$message= 'Verify your the registered account in <a href="'.base_url('registration/activation/'.$this->db->insert_id().'/'.$data['active']).'"> Digitalchakra Resume App </a>'; 
+					$message= 'Verify your the registered account in <a href="'.base_url('registration/activation/'.$this->db->insert_id().'/'.$post_data['active']).'"> Digitalchakra Resume App </a>'; 
 					$this->email->message($message);
 					if($this->email->send())
 					{
@@ -99,8 +99,7 @@ class Registration extends CI_Controller {
 		 $this->load->model('user');
 		 if($this->user->activate_user($id,$code))
 		 {
-			 echo "success  view page ";
-			 exit(0);
+			$this->load->view('congrats');
 		 }
 		 else
 		 {

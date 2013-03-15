@@ -46,9 +46,31 @@ button:hover{	background:#3abbe5;}
 
 .errorMessage{ color: #d84040; padding-left:180px;  padding-bottom: 10px; display: block;}
 
-.signIn{ padding-top: 15px; text-align: right;}	
-.signInError{ text-align: left; font-size: 9px; color: #ff0000;}
-.loginPage{ padding-top: 40px;}
+.loginPage{ padding-top: 40px; height:100%;}
+
+
+/**************************************************header*******************************************/
+
+.signIn{ padding-top: 0px; text-align: right;}	
+
+.signInRight{ width: 500px; float: right; display: block;}
+
+.signInError{ text-align: left; font-size: 11px; color: #ff0000; width: 200px; height: 40px; float: left;}
+
+.signIn input{ height: 18px; width: 170px; padding: 3px; margin-top: -8px; }
+
+.signIn-email{height: 50px; width: 200px; float: left;}
+.signIn-pass{height: 50px; width: 200px; float: left;}
+
+.signIn-Button{ padding-top: 0px; text-align: left; padding-left: 20px; width: 100px; float: left; height: 20px;}
+
+.signIn-fp{ margin-top: -6px; display: block; text-align: left; padding-left: 22px;}
+
+.signIn-Inner{width:800px; height: 60px; float: right; padding-top: 14px;}
+
+
+
+
 
 /**************************************************Common*******************************************/
 
@@ -184,21 +206,52 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"] + label {
-    color:#232323;
+	margin-top: -8px; 
+    color:#0000ff;
     font-size:11px;
     padding-right: 20px;
 }
 
 input[type="checkbox"] + label span {
-    display:inline-block;
-    width:15px;
-    height:15px;
+	display:inline-block;
+    width:18px;
+    height:18px;
     margin:-1px 4px 0 0;
     vertical-align:middle;
     background:url(../img/check_radio_sheet.png) left top no-repeat;
     cursor:pointer;
+
 }
 
 input[type="checkbox"]:checked + label span {
-    background:url(../img/check_radio_sheet.png) -16px top no-repeat;
+
+    background:url(../img/check_radio_sheet.png) -19px top no-repeat;
 }
+
+
+
+.download-main{ margin: 0 auto; width: 400px; height: 300px; padding:50px;padding-top: 100px; background-color: #ffffff; margin-top: 50px; text-align: center; border-radius: 40px;	
+
+background: #1e5799; /* Old browsers */
+background: -moz-linear-gradient(-45deg,  #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* IE10+ */
+background: linear-gradient(135deg,  #1e5799 0%,#2989d8 50%,#207cca 51%,#7db9e8 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+font-size: 30px;
+color: #ffffff;
+}
+.download-main-inner{ margin: 0 auto; width: 150px; height: 150px;  padding: 40px; margin-top: 40px; 
+
+font-size: 40px;
+color: #ffffff;
+} 
+.dbutton{	border-radius: 0px;		border: solid 1px #3abbe5; text-align: center; text-decoration: none; padding: 20px; padding-top: 10px;	background:#47c7f4;	color: #ffffff;	height: 100px; width: 200px;  font-family: verdana;	font-size: 30px;}
+.dbutton:hover{	background:#3abbe5; text-decoration: none; color: #ffffff;}
+
+
+.final-ads{ margin-top: 50px; border-radius: 4px; border: solid 1px #b2b2b2; margin-bottom: 10px;}
+
+.preview-download{bottom: 0; position: fixed; background-color: #232323;}

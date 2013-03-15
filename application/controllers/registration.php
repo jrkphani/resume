@@ -92,14 +92,17 @@ class Registration extends CI_Controller {
  }
  function activation()
  {
-	 $id = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
+ 	$data['view_page'] = 'congrats';
+	$this->load->view('template', $data);
+	 /*$id = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
 	 $code = ($this->uri->segment(4)) ? $this->uri->segment(4) : NULL;
 	 if(($id) &&  strlen($code)>2)
 	 {
 		 $this->load->model('user');
 		 if($this->user->activate_user($id,$code))
 		 {
-			$this->load->view('congrats');
+			$data['view_page'] = 'congrats';
+			$this->load->view('template', $data);
 		 }
 		 else
 		 {
@@ -109,7 +112,7 @@ class Registration extends CI_Controller {
 	 else
 	 {
 		 redirect('login', 'refresh');
-	 }
+	 }*/
  }
 
 }

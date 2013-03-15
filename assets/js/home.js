@@ -43,8 +43,9 @@ $(document).ready(function()
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="e"+id;
-				html=	'<div id="'+rid+'">';
-				html+=		'<div class="control-group topBorder">';
+				html=	'<div id="'+rid+'" class="formBorder">';
+				html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
+				html+=		'<div class="control-group">';
 				html+=		  	'<label class="control-label">Edudcation</label>';
 				html+=		    '<div class="controls">';
 				html+=		      '<input class="span4" type="text" name="eduInst[]" placeholder="Institution">';
@@ -65,7 +66,6 @@ $(document).ready(function()
 				html+=		      '<textarea rows="3" class="input span8" name="eduScore[]" type="text"  placeholder="Score"></textarea>';
 				html+=		    '</div>';
 				html+=		  '</div>';
-				html+=		'<span class="button remove" onclick=removeId("'+rid+'");>Remove</span>';
 				html+=	'</div>';
 		$('#edudcation').append(html);
 	});
@@ -74,8 +74,9 @@ $('#addProject').click(function()
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="p"+id;
-				html=	'<div id="'+rid+'">';
-				html+=		  '<div class="control-group topBorder">';
+				html=	'<div id="'+rid+'" class="formBorder">';
+				html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
+				html+=		  '<div class="control-group">';
 				html+=		  	'<label class="control-label">Project 1</label>';
 				html+=		    '<div class="controls">';
 				html+=		      '<input class="span4" type="text" name="projName[]"  placeholder="Project name">';
@@ -96,7 +97,6 @@ $('#addProject').click(function()
 				html+=		      '<textarea rows="3" class="input span8" name="projDesc[]" type="text"  placeholder="Description"></textarea>';
 				html+=		    '</div>';
 				html+=		  '</div>';
-				html+=		'<span class="button remove" onclick=removeId("'+rid+'");>Remove</span>';
 				html+=	'</div>';
 		$('#project').append(html);
 	});
@@ -105,8 +105,9 @@ $('#addCompany').click(function()
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="c"+id;
-				html=	'<div id="'+rid+'">';
-				html+=	  '<div class="control-group topBorder">';
+				html=	'<div id="'+rid+'" class="formBorder">';
+				html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
+				html+=	  '<div class="control-group">';
 				html+=		  	'<label class="control-label">Company 1</label>';
 				html+=		    '<div class="controls">';
 				html+=		      '<input class="span4" type="text" name="cmpnyName[]" placeholder="Company name">';
@@ -127,7 +128,6 @@ $('#addCompany').click(function()
 				html+=		      '<textarea rows="3" class="input span8" name="cmpnyDesc[]" type="text"  placeholder="Description"></textarea>';
 				html+=		    '</div>';
 				html+=		  '</div>';
-				html+=		'<span class="button remove" onclick=removeId("'+rid+'");>Remove</span>';
 				html+=	'</div>';
 		$('#company').append(html);
 	});
@@ -136,9 +136,9 @@ $('#addOskills').click(function()
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="os"+id;
-				html=	'<div id="'+rid+'">';
+				html=	'<div id="'+rid+'"class="otherSkillBox">';
 				html+=		'<input class="span4" type="text"  name="otherSkills[]" placeholder="Skill name">';
-				html+=		'<span class="button remove" onclick=removeId("'+rid+'");>Remove</span>';
+				html+=		'<span class="button remove otherSkillButton" onclick=removeId("'+rid+'");>Remove</span>';
 				html+=	'</div>';
 		$('#oskills').append(html);
 	});
@@ -147,8 +147,9 @@ $('#addSkills').click(function()
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="s"+id;
-				html=	'<div id="'+rid+'">';
-				html+=	  '<div class="control-group topBorder">';
+				html=	'<div id="'+rid+'" class="formBorder">';
+				html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
+				html+=	  '<div class="control-group">';
 				html+=		    '<label class="control-label">Key Skills</label>';
 				html+=		    '<div class="controls">';
 				html+=		      '<input class="span4" type="text"  name="skillName[]" placeholder="Skill name">';
@@ -167,7 +168,6 @@ $('#addSkills').click(function()
 				html+=		      '<textarea rows="3" class="input span8" name="skillDesc[]" type="text"  placeholder="Description"></textarea>';
 				html+=		    '</div>';
 				html+=		  '</div>';
-				html+=		'<span class="button remove" onclick=removeId("'+rid+'");>Remove</span>';
 				html+=	'</div>';
 		$('#skills').append(html);
 	});

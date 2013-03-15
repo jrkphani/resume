@@ -99,9 +99,9 @@
 						  </div>
 						  
 						  <!--============================================Other skills==========================================-->
-							<div class="control-group">
+							<div class="control-group topBorder ">
 						    	<label class="control-label">Other Skills</label>
-						    	<div class="controls" id="oskills">
+						    	<div class="controls otherSkillBox" id="oskills">
 						    		<div id="os0">
 						      		<input class="span4" type="text"  name="otherSkills[]" placeholder="Skill name">
 						      		</div>

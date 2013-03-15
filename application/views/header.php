@@ -29,17 +29,19 @@
 					<span id="error_msg" class="signInError"></span>
 					<form class"signInRight">
 						<div class="signIn-email">
-							<input type="text"  placeholder="Email" id="username" name="username">
+							<input type="text"  class="login" placeholder="Email" id="username" name="username">
 							<input type="checkbox" id="c1" />
-	            			<label for="c1" class="checkbox"><span></span>Remember me</label>
+	            			<label for="c1" class="checkbox" style="display:none;"><span></span>Remember me</label>
 						</div>
 						<div class="signIn-pass">
-							<input type="password" placeholder="Password" id="passowrd" name="password">
-							<span class="signIn-fp"> <a href="#">Forgot Password?</a></span>
+							<input type="password" class="login" placeholder="Password" id="passowrd" name="password">
+							<input type="text"  class="forget" placeholder="Email" id="fusername" name="fusername" style="display:none;">
+							<span id="forget" class="signIn-fp login" >Forgot Password?</span>
+							<span id="login" class="forget signIn-fp" style="display:none;">Login</span>
 						</div>
 	 					<div class="signIn-Button">
-	 						<span id="loginsubmit" class="button">Sign in</span>
-					    	 <!--<span id="forgetsubmit" class="button">forget</span>-->
+	 						<span id="loginsubmit" class="button login">Sign in</span>
+					    	<span id="forgetsubmit" class="forget button" style="display:none;">Submit</span>
 	 					</div>
 				     
 					</form>

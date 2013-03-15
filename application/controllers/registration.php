@@ -30,8 +30,8 @@ class Registration extends CI_Controller {
 		  {
 			$data['errors']=validation_errors();
 			$data['success']='no';
-			echo json_encode($data);
-			exit(0);
+			$result['resultset']=$data;
+			$this->load->view('json',$result);
 		  }
 		  else
 		  {

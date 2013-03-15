@@ -1,5 +1,3 @@
-<p> .</p>
-
 <div class="row-fluid">
 	<div class="offset1 span2 ads final-ads">
 

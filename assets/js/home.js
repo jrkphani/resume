@@ -178,6 +178,43 @@ $('#addSkills').click(function()
 				html+=	'</div>';
 		$('#skills').append(html);
 	});
+	$('#uploadstate').html("");
+	$('#upload_file').submit(function(e) {
+		$('#uploadstate').html("uploading..");
+      e.preventDefault();
+      $.ajaxFileUpload({
+         url         :'./upload/upload_file/',
+         secureuri      :false,
+         fileElementId  :'userfile',
+         dataType    : 'json',
+         success  : function (data, status)
+         {
+			 $('#uploadstate').html("");
+            if(data.status != 'error')
+            {
+				$('#profile_pic').attr('src',data.imgUrl);
+				$('#photo').val(data.fname);
+               //$('#files').html('<p>Reloading files...</p>');
+              // refresh_files();
+               //$('#title').val('');
+            }
+            else
+            {
+            $('#uploadstate').html(data.msg);
+			}
+         },
+         error:function()
+         {
+			alert("Internal error.");
+		 }
+      });
+      return false;
+   });
+   $('#userfile').live('change', function(){ $('#fsubmit').click(); });
+   $('#profile_pic').click(function()
+   {
+	   $('#userfile').click();
+	});
 });
 function removeId(ID)
 {

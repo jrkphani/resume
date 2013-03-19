@@ -6,12 +6,23 @@
 <div class="resume">
 	<div class="inner"> 
 		<div class="resumeHeader">
-			<div class="mainTitle"> 
-				<span><h1><?=$fname;?> <?=$lname;?></h1><h2 class="alignRight"><?=$designation;?></h2> </span>
-				
-				
-			</div>
-			
+			`		<div class="headerLeft mainTitle">
+						<div class="photoBorder">
+							<?
+							if($photo=="")
+							{ ?>
+								<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" />
+							<? }
+							else
+							{ ?>
+								<img src="<? echo base_url('temp/img').'/'.$photo; ?>">
+							<? } ?>
+						</div>
+						<div class="userName">
+							<h2><?=$fname;?> <?=$lname;?></h2>
+							<h3><?=$designation;?></h3>
+						</div>
+					</div>
 		</div>
 
 		<div class="resumeBody">
@@ -110,7 +121,7 @@
 			<? if(array_filter($otherSkills))
 				{ ?>
 		<div> 
-							<div class="titleSection ">
+							<div class="titleSection">
 								<h2>Other skills</h2>
 							</div>
 						
@@ -187,8 +198,8 @@
 <!--Education end-->
 
 <!--Personal Information start -->
-					<div class="mainTitle height200" style="clear:both;">
-							<div class="titleSection">
+					<div class="height200" style="clear:both;">
+							<div class="titleSection mainTitle">
 								<h2>Personal Information</h2>
 							</div>
 							<div class="contentSection height200">

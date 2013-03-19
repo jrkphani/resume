@@ -7,15 +7,23 @@
 	<div class="inner"> 
 			<header class="resumeHeader borderPadding">
 					<div class="headerLeft">
-						<!--<div class="photoBorder">
-							<img src="images/userPhoto.png">
-						</div>-->	
+						<div class="photoBorder">
+							<?
+							if($photo=="")
+							{ ?>
+								<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" />
+							<? }
+							else
+							{ ?>
+								<img src="<? echo base_url('temp/img').'/'.$photo; ?>">
+							<? } ?>
+						</div>
 						<div class="userName">
 							<h2><?=$fname;?> <?=$lname;?></h2>
 							<h3><?=$designation;?></h3>
 						</div>
 						<div class="address">
-							<p>Address: Sed sapien ligula, imperdiet eu porta nec, sollicitudin </p>
+							<p>Address: <?=nl2br($address)?></p>
 						</div>
 					</div>
 					<div class="headerRight">
@@ -73,13 +81,13 @@
 							foreach($cmpnyName as $cmpny) {
 							?>
 							<div class="titleSection">
-								<h2><?=$cmpnyName[$i];?></h2>
+								<h2 ><?=$cmpnyName[$i];?></h2>
 								<h4><?=$cmpnyFrom[$i];?>-<?=$cmpnyTo[$i];?></h4>
 							</div>
-							<div class="contentSection">
+							<div class="contentSection2">
 
-								<h3><?=$cmpnyDesg[$i];?></h3>
-								<p><?=$cmpnyDesc[$i];?></p>
+								<h3 ><?=$cmpnyDesg[$i];?></h3>
+								<p > <?=$cmpnyDesc[$i];?></p>
 									<!--<ul>
 										<li>Accomplishments 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
 										<li>Accomplishments 2 Mauris at mauris tellus, ut convallis diam. </li>
@@ -108,7 +116,7 @@
 									<h2><?=$skillName[$i];?></h2>
 									<h4><?=$skillTitle[$i];?></h4>
 								</div>
-								<div class="contentSection">
+								<div class="contentSection2">
 									<h3><?=$skillEff[$i];?></h3>
 									<p><?=nl2br($skillDesc[$i]);?></p>
 									
@@ -126,7 +134,7 @@
 								<h2>Other skills</h2>
 							</div>
 						
-						<div  class="contentSection">
+						<div  class="contentSection3">
 							<ul>
 							<? 
 							$i=0;
@@ -158,7 +166,7 @@
 								<h2><?=$projName[$i];?></h2>
 								<h4><?=$projFrom[$i];?>-<?=$projTo[$i];?></h4>
 							</div>
-							<div class="contentSection">
+							<div class="contentSection2">
 								<h3><?=$projRole[$i];?></h3>
 								<p><?=nl2br($projDesc[$i]);?></p>
 									<!--<ul>

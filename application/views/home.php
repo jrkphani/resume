@@ -1,10 +1,18 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/colorbox.css"); ?>"/>
+<div id="file_upload" style="display:none;">
+   <form method="post" action="" id="upload_file">
+     <label for="userfile">File</label>
+     <input type="file" name="userfile" id="userfile" size="20" value=""/>
+     <input type="submit" name="submit" id="fsubmit" value="Upload"/>
+   </form>
+</div>
 		<div class="row-fluid">
 			
 	 		<div class="span7 offset1 templateForm">
 	 			
 	 			<!--T1_form-->
 	 			<form class="form-horizontal" id="resume_form">
+	 			<input type="hidden" name="photo" id="photo" value=""/>
 	 			<input type="hidden" value="" id="template" name="template" autocomplete="off" />
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
@@ -14,6 +22,9 @@
 					      <input class="span4 leftMargin" name="lname" type="text"  placeholder="Last name">
 					    </div>
 					  </div>
+					   <div style="float:right;">
+							<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" id="profile_pic" /> <span id="uploadstate"></span>
+						</div>
 					  <div class="control-group ">
 					    <label class="control-label">Tag line</label>
 					    <div class="controls">

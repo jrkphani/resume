@@ -24,15 +24,20 @@ body { font-family: Georgia; color: #525252; background-color: #ffffff; font-siz
 .resumeHeader{	height: 140px; background-color: #edd4c0; border-top: solid 3px #512a0b; padding-top: 15px; padding-left: 20px;	}
 .resumeFooter{	height: 40px; border-bottom: solid 3px #512a0b;	}
 .resumeBody{ padding-left: 40px; padding-right: 40px; padding-top: 20px; border-top: solid 1px #e1e1e1;}
-.userName{ width:250px; float: left; padding-left: 0px;  }
+.userName{ width:250px; float: left; padding-left: 20px;  }
 .address{ width: 400px; clear: both;  padding-top: 10px;}
 
 .titleSection{ width:170px;  text-align: right;}
+
 .subtitleSection{ width: 480px;  }
 .subtitleSection h2{width: 200px; margin-top: -25px; }
 .subtitleSection h4{width: 260px; padding-left:220px; margin-top: -25px; text-align: right;  }
+
 .contentSection{width:500px; padding-left: 180px; margin-top: -50px;}
-.mainTitle{border: solid 2px #512a0b; border-width: 2px 0 0 0;}
+.contentSection2{width:500px; padding-left: 180px; margin-top: -50px; display: block; padding-bottom: 0px; margin-bottom: -20px;}
+.contentSection3{width:500px; padding-left: 180px; margin-top: -50px; display: block; padding-bottom: 0px; margin-bottom: 10px;}
+
+.mainTitle{border: solid 2px #512a0b; border-width: 1px 0 0 0; display: block; padding-bottom: 0px; margin-bottom: -5px;}
 
 .height40{ height: 60px;}
 .height200{height:200px;}
@@ -46,3 +51,13 @@ ul{border: solid 1px #512a0b; border-width: 1px 0 0 0; padding-top: 10px; paddin
 
 .top10{ margin-top: -10px;}
 .top5{margin-top:  -5px;}
+
+.paddingA{
+	padding-bottom: 10px;
+	padding-top: -5px;
+}
+
+.paddingB{
+	margin-bottom: 40px;
+	margin-top: 20px;
+}

@@ -9,4 +9,6 @@
 temp/
 config.php
 database.php
+application/third_party/mpdf/ttfontdata/*.php
+application/third_party/mpdf/ttfontdata/*.dat
 .htaccess

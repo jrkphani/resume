@@ -15,7 +15,7 @@
 							<? }
 							else
 							{ ?>
-								<img src="<? echo base_url('temp/img').'/'.$photo; ?>">
+								<img src="<? echo base_url('tmp/img').'/'.$photo; ?>">
 							<? } ?>
 						</div>
 						<div class="userName">

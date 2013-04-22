@@ -41,7 +41,7 @@ class Download extends CI_Controller {
 	{
 	$this->load->helper('file');
 	$this->load->library('mpdf');
-	$htmlpath=FCPATH.'temp/files/'.$html.'.html';
+	$htmlpath=FCPATH.'tmp/files/'.$html.'.html';
 	$content=read_file($htmlpath);
 	//echo $content; die;
 	#new mPDF('utf-8','A4', 0, '', 0, 0, 0, 0, 10, 10, 'L');

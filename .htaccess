@@ -43,5 +43,5 @@ Header append Vary User-Agent env=!dont-vary
 
 ########################################
 RewriteEngine on
-RewriteCond $1 !^(index\.php|assets|images|cron|temp|robots\.txt)
+RewriteCond $1 !^(index\.php|assets|images|cron|tmp|robots\.txt)
 RewriteRule ^(.*)$ index.php/$1 [L]

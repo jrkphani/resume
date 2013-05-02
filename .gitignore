@@ -6,7 +6,7 @@
 *.*~
 *.swp
 *.swo
-temp/
+tmp/
 config.php
 database.php
 application/third_party/mpdf/ttfontdata/*.php

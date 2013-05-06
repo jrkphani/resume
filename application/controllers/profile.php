@@ -32,8 +32,9 @@ class Profile extends CI_Controller{
 			$data['error']=$error;
 		else
 			$data['error']='';
-		
-		$this->load->view('profile',$data);
+		$data['view_page'] = 'profile';
+		$this->load->view('template', $data);
+		//$this->load->view('profile',$data);
 	}
 	
 	function edit()

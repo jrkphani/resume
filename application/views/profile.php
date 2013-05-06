@@ -1,5 +1,3 @@
-<?php $this->load->view('header'); ?>
-<script type="text/javascript" src="<?php echo base_url('assets/js/profile.js'); ?>"></script>
 <div class="container">
 <div class="profile-outer">
 	<div style="float:left;">
@@ -78,4 +76,4 @@
     </div>
 </div>
 </div>
-<?php $this->load->view('footer'); ?>
+<script type="text/javascript" src="<?php echo base_url('assets/js/profile.js'); ?>"></script>

@@ -1,3 +1,8 @@
+<style>
+.pr-edit{
+    display:none;
+}
+</style>
 <div class="container">
 <div class="profile-outer">
 	<div style="float:left;">

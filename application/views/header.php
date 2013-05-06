@@ -16,7 +16,7 @@
 	<header class="container-fluid mainHeader">
 		<div class="row-fluid">
 			<div class="headerLogo span2">
-				<h1><a href="#" title="Resume Builder">Resume Builder</a></h1>
+				<h1><a href="<?=base_url()?>" title="Resume Builder">Resume Builder</a></h1>
 			</div>
 			<?php if($session_data = $this->session->userdata('logged_in')) {
 					?>

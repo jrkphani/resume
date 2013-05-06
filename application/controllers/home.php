@@ -24,6 +24,21 @@ class Home extends CI_Controller {
 		 $session_data = $this->session->userdata('logged_in');
 		 $data['email'] = $session_data['email'];
 		 $data['view_page'] = 'home';
+		 
+		 $this->load->model('user');
+		 $result=$this->user->exist_details($session_data['id']);
+		 foreach($result as $row)
+		 {
+			 $data['first_name']=$row['first_name'];
+			 $data['last_name']=$row['last_name'];
+			 $data['secondary_email']=$row['secondary_email'];
+			 $data['mobile']=$row['mobile'];
+			 $data['landline']=$row['landline'];
+			 $data['address']=$row['address'];
+			 $data['website']=$row['website'];
+			 $data['photo']=$row['photo'];
+		 }
+		 
 		 $this->load->view('template', $data);
 		 //$this->load->view('select_template');
 	   }

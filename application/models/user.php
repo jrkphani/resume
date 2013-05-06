@@ -1,4 +1,3 @@
-
 <?php
 Class User extends CI_Model
 {
@@ -84,6 +83,14 @@ Class User extends CI_Model
 	   return false;
    }
  }
+ 
+ function exist_details($id)
+ {
+	 $this -> db -> select('first_name,last_name,secondary_email,mobile,landline,address,website,photo');
+	 $this-> db -> from ('user_detail');
+	 $this->db->where('user_id',$id);
+	 $query=$this->db->get();
+	 return $query->result_array();
+ }
 }
 ?>
-

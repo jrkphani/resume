@@ -12,18 +12,23 @@
 	 			
 	 			<!--T1_form-->
 	 			<form class="form-horizontal" id="resume_form">
-	 			<input type="hidden" name="photo" id="photo" value=""/>
+	 			<input type="hidden" name="photo" id="photo" value="<?php if($photo) { echo base_url('user/'.$photo); } ?>" />
 	 			<input type="hidden" value="" id="template" name="template" autocomplete="off" />
 					  <div class="control-group">
 					    <label class="control-label">Name</label>
 					    <div class="controls">
-					      <input class="span4" type="text" name="fname" placeholder="First name">
+					      <input class="span4" type="text" name="fname" placeholder="First name" value="<?php echo $first_name; ?>" />
 
-					      <input class="span4 leftMargin" name="lname" type="text"  placeholder="Last name">
+					      <input class="span4 leftMargin" name="lname" type="text"  placeholder="Last name" value="<?php echo $last_name; ?>" />
 					    </div>
 					  </div>
 					   <div style="float:right;">
-							<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" id="profile_pic" /> <span id="uploadstate"></span>
+                       		<?php if($photo) { ?>
+                            	<img src="<? echo base_url('user/'.$photo); ?>" id="profile_pic" />
+                            <?php } else { ?>
+								<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" id="profile_pic" />
+                            <?php } ?>
+                            <span id="uploadstate"></span>
 						</div>
 					  <div class="control-group ">
 					    <label class="control-label">Tag line</label>
@@ -34,22 +39,22 @@
 					   <div class="control-group">
 					    <label class="control-label">Contact</label>
 					    <div class="controls">
-					      <input class="span4" type="text"  name="phone" placeholder="Phone">
+					      <input class="span4" type="text"  name="phone" placeholder="Phone" value="<?php if($mobile) echo $mobile; else if($landline) echo $landline; ?>" />
 
-					      <input class="span4 leftMargin"  name="email" type="email"  placeholder="Email">
+					      <input class="span4 leftMargin"  name="email" type="email"  placeholder="Email" value="<?php echo $secondary_email; ?>" />
 					    </div>
 					  </div>
 					  
 					  <div class="control-group ">
 					    <label class="control-label">Address</label>
 					    <div class="controls">
-					      <textarea rows="3" class="input span8" type="text"  name="address" placeholder="Address"></textarea>
+					      <textarea rows="3" class="input span8" type="text"  name="address" placeholder="Address"><?php echo $address; ?></textarea>
 					    </div>
 					  </div>
 					  <div class="control-group ">
 					    <label class="control-label">Website</label>
 					    <div class="controls">
-					      <input class="span8" type="text"  name="mysite" placeholder="url">
+					      <input class="span8" type="text"  name="mysite" placeholder="url" value="<?php echo $website; ?>" />
 					    </div>
 					  </div>
 					  <!--******************************************Experience********************************/-->

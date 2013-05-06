@@ -6,16 +6,15 @@
 <div class="resume">
 	<div class="inner"> 
 		<div class="resumeHeader">
-			`		<div class="headerLeft mainTitle">
+					<div class="headerLeft mainTitle">
 						<div class="photoBorder">
 							<?
 							if($photo=="")
-							{ ?>
-								<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" />
+							{ ?><img src="<? echo base_url('assets/img/userPhoto.png'); ?>" />
 							<? }
 							else
 							{ ?>
-								<img src="<? echo base_url('tmp/img').'/'.$photo; ?>">
+								<img src="<? echo $photo; ?>">
 							<? } ?>
 						</div>
 						<div class="userName">

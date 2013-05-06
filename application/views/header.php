@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Resume Builder</title>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/css_site.css"); ?>"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/css_site.css"); ?>" />
 <!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
 <script src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
 
@@ -21,7 +21,7 @@
 			<?php if($session_data = $this->session->userdata('logged_in')) {
 					?>
 					<div class="span10 headerRight">
-						<p>Howdy! <?php echo $session_data['lastname']; ?> | <a href="<?php echo base_url('login/logout'); ?>">Logout</a></p>
+						<p>Howdy! <?php echo $session_data['firstname']; ?> | <a href="<?php echo base_url('profile'); ?>">Profile</a> | <a href="<?php echo base_url('login/logout'); ?>">Logout</a></p>
 					</div>
 					<?php } else { ?>
 			<div class="span8 offset1 signIn">

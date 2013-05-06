@@ -193,7 +193,7 @@ $('#addSkills').click(function()
             if(data.status != 'error')
             {
 				$('#profile_pic').attr('src',data.imgUrl);
-				$('#photo').val(data.fname);
+				$('#photo').val(data.imgUrl);
                //$('#files').html('<p>Reloading files...</p>');
               // refresh_files();
                //$('#title').val('');

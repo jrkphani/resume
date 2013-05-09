@@ -144,7 +144,7 @@ $('#addOskills').click(function()
 		$(this).attr('value',id);
 		rid="os"+id;
 				html=	'<div id="'+rid+'"class="otherSkillBox">';
-				html+=		'<input class="span4" type="text"  name="otherSkills[]" placeholder="Skill name">';
+				html+=		'<input class="span4" type="text"  name="otherSkills[]" state="pending" placeholder="Skill name">';
 				html+=		'<span class="button remove otherSkillButton" onclick=removeId("'+rid+'");>Remove</span>';
 				html+=	'</div>';
 		$('#oskills').append(html);
@@ -215,8 +215,43 @@ $('#addSkills').click(function()
    {
 	   $('#userfile').click();
 	});
+	
+	$(".remove_ex_skill").click(function(){
+		var id=$(this).attr('id');
+		var remove_skills=$("#remove_skills").val();
+		$('#ex_skill_'+id).remove();
+		
+		if(remove_skills)
+			$("#remove_skills").val(remove_skills+','+id);
+		else
+			$("#remove_skills").val(id);
+		/*$.ajax({
+				url: baseurl+'resume/delete_exist', 
+				type: 'get',
+				data: {'id':id,'table':'skill'},
+				success:function(result)
+				{
+					if(result)
+						$('#ex_skill_'+id).remove();
+					else
+						alert('Internal error. Try again later.');
+				},
+				error:function()
+				{
+					alert('Internal error, Please try agian!');
+				}
+			});*/
+	});
 });
 function removeId(ID)
 {
 $('#'+ID).remove();
+}
+function testt(temp_link)
+{
+	document.getElementById('download_file').value=temp_link;
+	var form=document.getElementById('resume_form');
+	form.method="post";
+	form.action=baseurl+'resume/update_download';
+	form.submit();
 }

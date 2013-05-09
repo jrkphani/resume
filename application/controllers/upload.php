@@ -50,7 +50,8 @@ class Upload extends CI_Controller
         $data = $this->upload->data();
         $config['image_library'] = 'gd2';
 		$config['source_image'] = $data['full_path'];
-		$new_file_name=mt_rand().time().$data['file_ext'];
+		$tmp_name=mt_rand().time();
+		$new_file_name=$tmp_name.$data['file_ext'];
 		$config['new_image'] = $data['file_path'].$new_file_name;
 		//$config['create_thumb'] = TRUE;
 		$config['maintain_ratio'] = TRUE;
@@ -72,6 +73,9 @@ class Upload extends CI_Controller
         $result['msg'] = "File successfully uploaded";
         $result['imgUrl'] = base_url('tmp/img').'/'.$new_file_name;
         $result['fname'] = $new_file_name;
+		$result['imgRoot']=base_url('tmp/img');
+		$result['imgName']=$tmp_name;
+		$result['imgExt']=$data['file_ext'];
 		}
       }
       //@unlink($_FILES[$file_element_name]);

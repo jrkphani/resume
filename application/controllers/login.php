@@ -1,4 +1,3 @@
-
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Login extends CI_Controller {
@@ -23,7 +22,6 @@ class Login extends CI_Controller {
 		$data['view_page'] = 'login_view';
 		$this->load->view('template', $data);
 	   }
-   
  }
  function login()
  {
@@ -40,4 +38,3 @@ class Login extends CI_Controller {
 }
 
 ?>
-

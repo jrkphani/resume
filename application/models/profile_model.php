@@ -25,10 +25,11 @@ class Profile_model extends CI_Model{
 					'website' => $this->input->post('website'),
 					'address' => $this->input->post('address'),
 					);	
-		if($_FILES['photo']['name'])
+		if($_POST['photo_name'])
 		{
-			$upload=$this->upload->data();
-			$new_name =$this->get_userid().$upload['file_ext'];
+			$name =$this->input->post('photo_name').$this->input->post('photo_ext');
+			$new_name=$this->get_userid().$this->input->post('photo_ext');
+			rename('./tmp/img/'.$name,'./profile_photo/'.$new_name);
 			$data['photo']=$new_name;
 		}
 		$this->db->where('user_id',$this->get_userid());

@@ -12,10 +12,12 @@
 	 			
 	 			<!--T1_form-->
 	 			<form class="form-horizontal" id="resume_form">
-	 			<input type="hidden" name="photo" id="photo" value="<?php if($photo) { echo base_url('user/'.$photo); } ?>" />
+	 			<input type="hidden" name="photo" id="photo" value="<?php if($photo) { echo base_url('profile_photo/'.$photo); } ?>" />
 	 			<input type="hidden" value="" id="template" name="template" autocomplete="off" />
+                <input type="hidden" name="download_file" id="download_file" />
+                <input type="hidden" name="remove_skills" value="" id="remove_skills" />
 					  <div class="control-group">
-					    <label class="control-label">Name</label>
+					    <label class="control-label" >Name</label>
 					    <div class="controls">
 					      <input class="span4" type="text" name="fname" placeholder="First name" value="<?php echo $first_name; ?>" />
 
@@ -24,7 +26,7 @@
 					  </div>
 					   <div style="float:right;">
                        		<?php if($photo) { ?>
-                            	<img src="<? echo base_url('user/'.$photo); ?>" id="profile_pic" />
+                            	<img src="<? echo base_url('profile_photo/'.$photo); ?>" id="profile_pic" />
                             <?php } else { ?>
 								<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" id="profile_pic" />
                             <?php } ?>
@@ -33,7 +35,7 @@
 					  <div class="control-group ">
 					    <label class="control-label">Tag line</label>
 					    <div class="controls">
-					      <input class="span8" type="text"  name="designation" placeholder="Designation / key skills">
+					      <input class="span8" type="text"  name="designation" placeholder="Designation / key skills" value="<?php echo $tag_line; ?>" />
 					    </div>
 					  </div>
 					   <div class="control-group">
@@ -61,7 +63,7 @@
 					  <div class="control-group ">
 					    <label class="control-label">Experience</label>
 					    <div class="controls">
-					      <input class="span8" type="text" name="experience" placeholder="No of years">
+					      <input class="span8" type="text" name="experience" placeholder="No of years" value="<?php echo $experience; ?>" />
 					    </div>
 					  </div>
 					  
@@ -69,7 +71,7 @@
 					  <div class="control-group ">
 					    <label class="control-label">Objective</label>
 					    <div class="controls">
-					      <textarea rows="3" class="input span8" name="objective" type="text"  placeholder="Objective"></textarea>
+					      <textarea rows="3" class="input span8" name="objective" type="text"  placeholder="Objective"><?php echo $objective; ?></textarea>
 					    </div>
 					  </div>
 					  
@@ -77,7 +79,7 @@
 					  <div class="control-group ">
 					    <label class="control-label">Summary</label>
 					    <div class="controls">
-					      <textarea rows="3" class="input span8" name="summary" type="text"  placeholder="Summary"></textarea>
+					      <textarea rows="3" class="input span8" name="summary" type="text"  placeholder="Summary"><?php echo $summary; ?></textarea>
 					    </div>
 					  </div>
 
@@ -85,6 +87,33 @@
 					 <div id="skills">
 					 	<div id="s0">
 						  <div class="control-group topBorder">
+							<!--******************************************Exist Skills********************************/-->
+                            <?php for($i=0; $i<sizeof($result2); $i++) { ?>
+                            <div class="formBorder" id="ex_skill_<?php echo $result2[$i]->id; ?>">
+                                <span class="button formRemoveBtn remove_ex_skill" id="<?php echo $result2[$i]->id; ?>">Remove</span>
+                                <div class="control-group">
+                                    <label class="control-label">Key Skills</label>
+                                    <div class="controls">
+                                        <input class="span4" type="text" placeholder="Skill name" name="ex_skillName_<?php echo $result2[$i]->id; ?>" value="<?php echo $result2[$i]->name; ?>" />
+                                        <input class="span4 leftMargin" type="text" placeholder="SubTitle" name="ex_skillTitle_<?php echo $result2[$i]->id; ?>" value="<?php echo $result2[$i]->sub_title; ?>" />
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <label class="control-label">Effeciency</label>
+                                    <div class="controls">
+                                        <input class="span4" type="text" placeholder="Master, Intermediate, Adept etc., " name="ex_skillEff_<?php echo $result2[$i]->id; ?>" value="<?php echo $result2[$i]->efficiency; ?>" />
+                                    </div>
+                                </div>
+                                <div class="control-group ">
+                                    <label class="control-label">Description</label>
+                                    <div class="controls">
+                                        <textarea class="input span8" placeholder="Description" type="text" name="ex_skillDesc_<?php echo $result2[$i]->id; ?>" rows="3"><?php echo $result2[$i]->description; ?></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
+                            <!--******************************************Exist Skills********************************/-->
+                          
 						    <label class="control-label">Key Skills</label>
 						    <div class="controls">
 						      <input class="span4" type="text"  name="skillName[]" placeholder="Skill name">
@@ -237,7 +266,7 @@
 						    <div class="controls">
 						       <span class="button" id="resume_submit"> Submit</span>
 						       <span class="button"  >Reset</span>
-						    	<span class="button" >Cancel</span>
+						       <span class="button" >Cancel</span>
 						    </div>
 						  </div>
 				</form>

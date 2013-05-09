@@ -25,20 +25,24 @@ class Home extends CI_Controller {
 		 $data['email'] = $session_data['email'];
 		 $data['view_page'] = 'home';
 		 
-		 $this->load->model('user');
-		 $result=$this->user->exist_details($session_data['id']);
+		 $this->load->model('resume_model');
+		 $result=$this->resume_model->basic_details($session_data['id']);
+		 $data['result2']=$this->resume_model->skill_details($session_data['id']);
 		 foreach($result as $row)
 		 {
 			 $data['first_name']=$row['first_name'];
 			 $data['last_name']=$row['last_name'];
+			 $data['tag_line']=$row['tag_line'];
 			 $data['secondary_email']=$row['secondary_email'];
 			 $data['mobile']=$row['mobile'];
 			 $data['landline']=$row['landline'];
 			 $data['address']=$row['address'];
 			 $data['website']=$row['website'];
 			 $data['photo']=$row['photo'];
+			 $data['experience']=$row['experience'];
+			 $data['objective']=$row['objective'];
+			 $data['summary']=$row['summary'];
 		 }
-		 
 		 $this->load->view('template', $data);
 		 //$this->load->view('select_template');
 	   }

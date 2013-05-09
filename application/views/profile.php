@@ -3,16 +3,36 @@
     display:none;
 }
 </style>
+<?php
+	if($photo)
+		$img= base_url('profile_photo').'/'.$photo.'?'.rand();
+	else
+		$img=base_url('assets/img/userPhoto.png');
+		
+ ?>
 <div class="container">
+<div id="file_upload" style="display:none;">
+   <form method="post" action="" id="upload_file">
+     <label for="userfile">File</label>
+     <input type="file" name="userfile" id="userfile" size="20" value=""/>
+     <input type="submit" name="submit" id="fsubmit" value="Upload"/>
+   </form>
+</div>
 <div class="profile-outer">
 	<div style="float:left;">
 	<div class="head">Profile<span id="pr-edit-link" class="pr-edit-link"><a href="#">Edit profile</a></span></div>
     </div>
-    <div style="float:right;"><img src="<?php echo base_url('user/'.$photo); ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;&nbsp;<?php echo $last_name; ?>" /></div>
+    <div style="float:right;">
+        	<img src="<?php echo $img; ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;&nbsp;<?php echo $last_name; ?>" class="img_update" />
+        	<span id="uploadstate"></span>
+    </div>
     <div class="clearBoth"></div>
     <div class="profile-body">
     	<span class="err-msg"><?php echo validation_errors(); if($error) echo $error['error'];  ?></span>
     	<?php $attributes = array('name' => 'form1', 'id' => 'form1'); echo form_open_multipart('profile/edit',$attributes); ?>
+        <input type="hidden" name="photo_root" id="photo_root" value="" />
+        <input type="hidden" name="photo_name" id="photo_name" value="" />
+        <input type="hidden" name="photo_ext" id="photo_ext" value="" />
     	<table border="0" class="tbl">
         	<tr>
             	<td><label for="first_name">Name*</label></td>
@@ -62,13 +82,13 @@
                 </td>
                 <td></td>
             </tr>
-            <tr class="pr-edit">
+            <!--<tr class="pr-edit">
             	<td><label for="photo">Photo</label></td>
                 <td>
                     <input type="file" name="photo" id="file">
                 </td>
                 <td></td>
-            </tr>
+            </tr>-->
             <tr class="pr-edit">
             	<td  style="border:none !important;;"></td>
                 <td  style="border:none !important;;">
@@ -82,3 +102,4 @@
 </div>
 </div>
 <script type="text/javascript" src="<?php echo base_url('assets/js/profile.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>

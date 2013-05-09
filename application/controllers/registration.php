@@ -1,4 +1,3 @@
-
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Registration extends CI_Controller {
@@ -37,8 +36,8 @@ class Registration extends CI_Controller {
 		  {
 			$this->load->model('user');
 			$post_data=array(
-							'firstname'=>$this->input->post('firstname'),
-							'lastname'=>$this->input->post('lastname'),
+							/*'firstname'=>$this->input->post('firstname'),
+							'lastname'=>$this->input->post('lastname'),*/
 							'email'=>$this->input->post('email_address'),
 							'password'=>md5($this->input->post('pass_word')),
 							'active'=>sha1(mt_rand(10000,99999).time().$this->input->post('email_address'))
@@ -116,4 +115,3 @@ class Registration extends CI_Controller {
 }
 
 ?>
-

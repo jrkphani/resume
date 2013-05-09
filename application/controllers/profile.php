@@ -50,58 +50,9 @@ class Profile extends CI_Controller{
 		}
 		else
 		{
-			if($_FILES['photo']['name'])
-			{
-				$config['upload_path'] = './user/';
-				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size']  = 1024 * 8;
-				$config['overwrite'] = TRUE;
-				$this->load->library('upload', $config);
-				
-				if ( ! $this->upload->do_upload('photo'))
-				{
-					$error = array('error' => $this->upload->display_errors());
-					$this->index($error);
-				}
-				else
-				{
-					$arr=$this->upload->data();
-					
-					// resize the file
-					$config['image_library'] = 'gd2';
-					$config['source_image'] = $arr['full_path'];
-					$config['create_thumb'] = FALSE;
-					$config['maintain_ratio'] = TRUE;
-					$config['width'] = 70;
-					$config['height'] = 75;
-					$this->load->library('image_lib', $config);
-					if(!$this->image_lib->resize())
-					{
-						unlink($arr['full_path']);
-						$error = array('error' => $this->image_lib->display_errors());
-						$this->index($error);
-					}
-					// end
-					else
-					{
-					// rename the file to user id
-					$ses=$this->session->userdata('logged_in');
-					$new_name = $ses['id'].$arr['file_ext'];
-					rename($arr['full_path'],$arr['file_path'].$new_name);
-					// end
-					
-					$this->profile_model->update_profile();
-					$msg=array('error'=>'Profile updated successfully.');
-					$this->index($msg);
-					}
-				}
-			}
-			else
-			{
-				$this->profile_model->update_profile();
-				$msg=array('error'=>'Profile updated successfully.');
-				$this->index($msg);
-			}
+			$this->profile_model->update_profile();
+			$msg=array('error'=>'Profile updated successfully.');
+			$this->index($msg);
 		}
 	}
 }

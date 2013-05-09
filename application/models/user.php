@@ -3,7 +3,7 @@ Class User extends CI_Model
 {
  function login($username, $password)
  {
-   $this -> db -> select('id, firstname, lastname, email');
+   $this -> db -> select('id, email');
    $this -> db -> from('users');
    $this -> db -> where('email', $username);
    $this -> db -> where('password', MD5($password));
@@ -21,11 +21,30 @@ Class User extends CI_Model
      return false;
    }
  }
+ function name($id)
+ {
+	$this -> db -> select('first_name,last_name');
+	$this -> db -> from('user_detail');
+	$this->db->where('user_id',$id);
+	$query=$this->db->get();
+	return $query->result_array();
+ }
  function add_user($data)
  {
 	// $code=sha1(mt_rand(10000,99999).time().$this->input->post('email_address'));
+	$this->db->set('email',$data['email']);
+	$this->db->set('password',$data['password']);
+	$this->db->set('active',$data['active']);
+	$newuser=$this->db->insert('users'); 
   
-  if($newuser = $this->db->insert('users',$data))
+	$this->db->set('first_name',$data['firstname']);
+	$this->db->set('last_name',$data['lastname']);
+	$this->db->set('status','1');
+	$this->db->set('user_id',$this->db->insert_id());
+	$this->db->insert('user_detail');
+	
+	
+  if($newuser)
   {
 		return true;
   }
@@ -82,15 +101,6 @@ Class User extends CI_Model
    {
 	   return false;
    }
- }
- 
- function exist_details($id)
- {
-	 $this -> db -> select('first_name,last_name,secondary_email,mobile,landline,address,website,photo');
-	 $this-> db -> from ('user_detail');
-	 $this->db->where('user_id',$id);
-	 $query=$this->db->get();
-	 return $query->result_array();
  }
 }
 ?>

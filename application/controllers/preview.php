@@ -24,6 +24,10 @@ class Preview extends CI_Controller {
 		$this->load->helper('file');
 		if($postdata=$this->input->post())
 		{
+			/* POST START HERE
+			$this->load->model('resume_model');
+			$this->resume_model->update();*/
+			
 		//echo "<pre>";
 		//print_r($postdata);
 		$preview_html = $this->load->view('T/'.$postdata['template'].'_html',$postdata,true);

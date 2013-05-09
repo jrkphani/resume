@@ -84,7 +84,7 @@ $('#addProject').click(function()
 				html=	'<div id="'+rid+'" class="formBorder">';
 				html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
 				html+=		  '<div class="control-group">';
-				html+=		  	'<label class="control-label">Project 1</label>';
+				html+=		  	'<label class="control-label">Project</label>';
 				html+=		    '<div class="controls">';
 				html+=		      '<input class="span4" type="text" name="projName[]"  placeholder="Project name">';
 				html+=		      '<input class="span4 leftMargin" name="projRole[]" type="text"  placeholder="Role">';
@@ -115,7 +115,7 @@ $('#addCompany').click(function()
 				html=	'<div id="'+rid+'" class="formBorder">';
 				html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
 				html+=	  '<div class="control-group">';
-				html+=		  	'<label class="control-label">Company 1</label>';
+				html+=		  	'<label class="control-label">Company</label>';
 				html+=		    '<div class="controls">';
 				html+=		      '<input class="span4" type="text" name="cmpnyName[]" placeholder="Company name">';
 				html+=		      '<input class="span4 leftMargin" name="cmpnyDesg[]" type="text"  placeholder="Designation">';
@@ -241,6 +241,36 @@ $('#addSkills').click(function()
 					alert('Internal error, Please try agian!');
 				}
 			});*/
+	});
+	$(".remove_ex_company").click(function(){
+		var id=$(this).attr('id');
+		var remove_company=$("#remove_company").val();
+		$('#ex_company_'+id).remove();
+		
+		if(remove_company)
+			$("#remove_company").val(remove_company+','+id);
+		else
+			$("#remove_company").val(id);
+	});
+	$(".remove_ex_project").click(function(){
+		var id=$(this).attr('id');
+		var remove_project=$("#remove_project").val();
+		$('#ex_project_'+id).remove();
+		
+		if(remove_project)
+			$("#remove_project").val(remove_project+','+id);
+		else
+			$("#remove_project").val(id);
+	});
+	$(".remove_ex_education").click(function(){
+		var id=$(this).attr('id');
+		var remove_education=$("#remove_education").val();
+		$('#ex_education_'+id).remove();
+		
+		if(remove_education)
+			$("#remove_education").val(remove_education+','+id);
+		else
+			$("#remove_education").val(id);
 	});
 });
 function removeId(ID)

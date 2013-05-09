@@ -28,6 +28,9 @@ class Home extends CI_Controller {
 		 $this->load->model('resume_model');
 		 $result=$this->resume_model->basic_details($session_data['id']);
 		 $data['result2']=$this->resume_model->skill_details($session_data['id']);
+		 $data['result3']=$this->resume_model->company_details($session_data['id']);
+		 $data['result4']=$this->resume_model->project_details($session_data['id']);
+		 $data['result5']=$this->resume_model->education_details($session_data['id']);
 		 foreach($result as $row)
 		 {
 			 $data['first_name']=$row['first_name'];

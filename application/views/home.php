@@ -16,6 +16,9 @@
 	 			<input type="hidden" value="" id="template" name="template" autocomplete="off" />
                 <input type="hidden" name="download_file" id="download_file" />
                 <input type="hidden" name="remove_skills" value="" id="remove_skills" />
+				<input type="hidden" name="remove_company" value="" id="remove_company" />
+				<input type="hidden" name="remove_project" value="" id="remove_project" />
+				<input type="hidden" name="remove_education" value="" id="remove_education" />
 					  <div class="control-group">
 					    <label class="control-label" >Name</label>
 					    <div class="controls">
@@ -86,8 +89,30 @@
 					  	<!--******************************************Skills 1********************************/-->
 					 <div id="skills">
 					 	<div id="s0">
-						  <div class="control-group topBorder">
-							<!--******************************************Exist Skills********************************/-->
+						<?php if(sizeof($result2)==0) { ?>
+							<div class="control-group topBorder">
+								<label class="control-label">Key Skills</label>
+								<div class="controls">
+									<input class="span4" type="text"  name="skillName[]" placeholder="Skill name" />
+									<input class="span4 leftMargin" name="skillTitle[]" type="text"  placeholder="SubTitle" />
+								</div>
+							</div>
+
+							<div class="control-group ">
+								<label class="control-label">Effeciency</label>
+								<div class="controls">
+									<input class="span4" type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., ">
+								</div>
+							</div>
+							<div class="control-group ">
+								<label class="control-label">Description</label>
+								<div class="controls">
+									<textarea rows="3" class="input span8" name="skillDesc[]" type="text"  placeholder="Description"></textarea>
+								</div>
+							</div>
+						<?php } else { ?>
+						  <!--******************************************Exist Skills********************************/-->
+							<div class="topBorder">
                             <?php for($i=0; $i<sizeof($result2); $i++) { ?>
                             <div class="formBorder" id="ex_skill_<?php echo $result2[$i]->id; ?>">
                                 <span class="button formRemoveBtn remove_ex_skill" id="<?php echo $result2[$i]->id; ?>">Remove</span>
@@ -112,27 +137,9 @@
                                 </div>
                             </div>
                             <?php } ?>
+							</div>
                             <!--******************************************Exist Skills********************************/-->
-                          
-						    <label class="control-label">Key Skills</label>
-						    <div class="controls">
-						      <input class="span4" type="text"  name="skillName[]" placeholder="Skill name">
-						      <input class="span4 leftMargin" name="skillTitle[]" type="text"  placeholder="SubTitle">
-						    </div>
-						  </div>
-						  
-						  <div class="control-group ">
-						    <label class="control-label">Effeciency</label>
-						    <div class="controls">
-						      <input class="span4" type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., ">
-						    </div>
-						  </div>
-						  <div class="control-group ">
-						    <label class="control-label">Description</label>
-						    <div class="controls">
-						      <textarea rows="3" class="input span8" name="skillDesc[]" type="text"  placeholder="Description"></textarea>
-						    </div>
-						  </div>
+						<?php } ?>
 						</div>
 					</div>
 					
@@ -162,97 +169,193 @@
 					  
 					<div id="company">
 					  <div id="c0">
+						<?php if(sizeof($result3)==0) { ?>
 						<div class="control-group topBorder">
-						  	<label class="control-label">Company 1</label>
+						  	<label class="control-label">Company</label>
 						    <div class="controls">
 						      <input class="span4" type="text" name="cmpnyName[]" placeholder="Company name">
 						      <input class="span4 leftMargin" name="cmpnyDesg[]" type="text"  placeholder="Designation">
 						    </div>
-						  </div>
+						</div>
 						  
-						  <div class="control-group ">
-						    <label class="control-label">Period</label>
-						    <div class="controls">
-						      <input class="span4" type="text"  name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)">
-						      to
-						      <input class="span4" type="text"  name="cmpnyTo[]" placeholder="(2007)(Mar 2007)">
-						    </div>
-						  </div>
-						  <div class="control-group ">
-						    <label class="control-label">Description</label>
-						    <div class="controls">
-						      <textarea rows="3" class="input span8" name="cmpnyDesc[]" type="text"  placeholder="Description"></textarea>
-						    </div>
-						  </div>
+						<div class="control-group">
+							<label class="control-label">Period</label>
+							<div class="controls">
+								<input class="span4" type="text"  name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)" />
+								to
+								<input class="span4" type="text"  name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" />
+							</div>
+						</div>
+						<div class="control-group ">
+							<label class="control-label">Description</label>
+							<div class="controls">
+								<textarea rows="3" class="input span8" name="cmpnyDesc[]" type="text"  placeholder="Description"></textarea>
+							</div>
+						</div>
+						<?php } else { ?>
+						<!--******************************************Exist company********************************/-->
+						<div class="topBorder">
+						<?php for($i=0; $i<sizeof($result3); $i++) { ?>
+						<div class="formBorder" id="ex_company_<?php echo $result3[$i]->id; ?>">
+							<span class="button formRemoveBtn remove_ex_company" id="<?php echo $result3[$i]->id; ?>">Remove</span>
+							<div class="control-group">
+								<label class="control-label">Company</label>
+								<div class="controls">
+									<input class="span4" type="text" placeholder="Company name" name="ex_cmpnyName_<?php echo $result3[$i]->id; ?>" value="<?php echo $result3[$i]->name; ?>" />
+									<input class="span4 leftMargin" type="text"  placeholder="Designation" name="ex_cmpnyDesg_<?php echo $result3[$i]->id; ?>" value="<?php echo $result3[$i]->designation; ?>" />
+								</div>
+							</div>
+							<div class="control-group ">
+								<label class="control-label">Period</label>
+								<div class="controls">
+									<input class="span4" type="text"  name="ex_cmpnyFrom_<?php echo $result3[$i]->id; ?>" value="<?php echo $result3[$i]->from; ?>" placeholder="(2005)(Feb 2005)">
+									<input class="span4" type="text"  name="ex_cmpnyTo_<?php echo $result3[$i]->id; ?>" value="<?php echo $result3[$i]->to; ?>" placeholder="(2007)(Mar 2007)">
+								</div>
+							</div>
+								
+							<div class="control-group ">
+								<label class="control-label">Description</label>
+								<div class="controls">
+									<textarea rows="3" class="input span8" name="ex_cmpnyDesc_<?php echo $result3[$i]->id; ?>" type="text"  placeholder="Description"><?php echo $result3[$i]->description; ?></textarea>
+								</div>
+							</div>
+						</div>
+						<?php } ?>
+						</div>
+                        <!--******************************************Exist company********************************/-->
+						<?php } ?>
 					  </div>
 					</div>
-						<!--<label class="control-label">Add company</label>-->
-					 	<div class="control-group ">
+					<!--<label class="control-label">Add company</label>-->
+					<div class="control-group ">
 					    <div class="controls">
 					      <span class="button"  id="addCompany">Add company</span>
 					    </div>
 					  </div>
 						  	  <!--******************************************Project********************************/-->
-					  
 					<div id="project">
 						<div id="p0">
-						  <div class="control-group topBorder">
-						  	<label class="control-label">Project 1</label>
-						    <div class="controls">
-						      <input class="span4" type="text" name="projName[]"  placeholder="Project name">
-						      <input class="span4 leftMargin" name="projRole[]" type="text"  placeholder="Role">
-						    </div>
-						  </div>
-						  
-						  <div class="control-group ">
-						    <label class="control-label">Period</label>
-						    <div class="controls">
-						      <input class="span4" type="text"  name="projFrom[]" placeholder="(2005)(Feb 2005)">
-						      to
-						      <input class="span4" type="text"  name="projTo[]" placeholder="(2007)(Mar 2007)">
-						    </div>
-						  </div>
-						  <div class="control-group ">
-						    <label class="control-label">Description</label>
-						    <div class="controls">
-						      <textarea rows="3" class="input span8" name="projDesc[]" type="text"  placeholder="Description"></textarea>
-						    </div>
-						  </div>
+							<?php if(sizeof($result4)==0) { ?>
+							<div class="control-group topBorder">
+								<label class="control-label">Project</label>
+								<div class="controls">
+								  <input class="span4" type="text" name="projName[]"  placeholder="Project name">
+								  <input class="span4 leftMargin" name="projRole[]" type="text"  placeholder="Role">
+								</div>
+							</div>
+							<div class="control-group ">
+								<label class="control-label">Period</label>
+								<div class="controls">
+								  <input class="span4" type="text"  name="projFrom[]" placeholder="(2005)(Feb 2005)">
+								  to
+								  <input class="span4" type="text"  name="projTo[]" placeholder="(2007)(Mar 2007)">
+								</div>
+							</div>
+							<div class="control-group ">
+								<label class="control-label">Description</label>
+								<div class="controls">
+								  <textarea rows="3" class="input span8" name="projDesc[]" type="text"  placeholder="Description"></textarea>
+								</div>
+							</div>
+							<?php } else { ?>
+							<!--******************************************Exist project********************************/-->
+							<div class="topBorder">
+							<?php for($i=0; $i<sizeof($result4); $i++) { ?>
+							<div class="formBorder" id="ex_project_<?php echo $result4[$i]->id; ?>">
+								<span class="button formRemoveBtn remove_ex_project" id="<?php echo $result4[$i]->id; ?>">Remove</span>
+								<div class="control-group">
+									<label class="control-label">Project</label>
+									<div class="controls">
+										<input class="span4" type="text" placeholder="Project name" name="ex_projName_<?php echo $result4[$i]->id; ?>" value="<?php echo $result4[$i]->name; ?>" />
+										<input class="span4 leftMargin" type="text"  placeholder="Role" name="ex_projRole_<?php echo $result4[$i]->id; ?>" value="<?php echo $result4[$i]->role; ?>" />
+									</div>
+								</div>
+								<div class="control-group ">
+									<label class="control-label">Period</label>
+									<div class="controls">
+										<input class="span4" type="text"  name="ex_projFrom_<?php echo $result4[$i]->id; ?>" value="<?php echo $result4[$i]->from; ?>" placeholder="(2005)(Feb 2005)">
+										<input class="span4" type="text"  name="ex_projTo_<?php echo $result4[$i]->id; ?>" value="<?php echo $result4[$i]->to; ?>" placeholder="(2007)(Mar 2007)">
+									</div>
+								</div>
+									
+								<div class="control-group ">
+									<label class="control-label">Description</label>
+									<div class="controls">
+										<textarea rows="3" class="input span8" name="ex_projDesc_<?php echo $result4[$i]->id; ?>" type="text"  placeholder="Description"><?php echo $result4[$i]->description; ?></textarea>
+									</div>
+								</div>
+							</div>
+							<?php } ?>
+							</div>
+							<!--******************************************Exist Project********************************/-->
+							<?php } ?>
 						</div>
 					</div>
-						 
-					 	<div class="control-group ">
-					    <!--<label class="control-label">Add Project</label>-->
-					    <div class="controls">
-					      <span class="button"  id="addProject">Add project</span>
-					    </div>
-					  </div>
+					<div class="control-group ">
+					<!--<label class="control-label">Add Project</label>-->
+						<div class="controls">
+						  <span class="button"  id="addProject">Add project</span>
+						</div>
+					</div>
 					  
 					  <!--******************************************Education********************************/-->
 					  
 				<div id="edudcation">
 					<div id="e0">
+						<?php if(sizeof($result5)==0) { ?>
 						<div class="control-group topBorder">
-						  	<label class="control-label">Edudcation</label>
-						    <div class="controls">
-						      <input class="span4" type="text" name="eduInst[]" placeholder="Institution">
-						      <input class="span4 leftMargin" name="eduCert[]" type="text"  placeholder="Certification">
-						    </div>
-						  </div>
-						  <div class="control-group ">
-						    <label class="control-label">Period</label>
-						    <div class="controls">
-						      <input class="span4" type="text"  name="eduFrom[]" placeholder="(2005)(Feb 2005)">
-						      to
-						      <input class="span4" type="text"  name="eduTo[]" placeholder="(2007)(Mar 2007)">
-						    </div>
-						  </div>
-						  <div class="control-group ">
-						    <label class="control-label">Score</label>
-						    <div class="controls">
-						      <textarea rows="3" class="input span8" name="eduScore[]" type="text"  placeholder="Score"></textarea>
-						    </div>
-						  </div>
+							<label class="control-label">Edudcation</label>
+							<div class="controls">
+								<input class="span4" type="text" name="eduInst[]" placeholder="Institution">
+								<input class="span4 leftMargin" name="eduCert[]" type="text"  placeholder="Certification">
+							</div>
+						</div>
+						<div class="control-group ">
+							<label class="control-label">Period</label>
+							<div class="controls">
+								<input class="span4" type="text"  name="eduFrom[]" placeholder="(2005)(Feb 2005)">
+								to
+								<input class="span4" type="text"  name="eduTo[]" placeholder="(2007)(Mar 2007)">
+							</div>
+						</div>
+						<div class="control-group ">
+							<label class="control-label">Score</label>
+							<div class="controls">
+								<textarea rows="3" class="input span8" name="eduScore[]" type="text"  placeholder="Score"></textarea>
+							</div>
+						</div>
+						<?php } else { ?>
+						<!--******************************************Exist project********************************/-->
+						<div class="topBorder">
+						<?php for($i=0; $i<sizeof($result5); $i++) { ?>
+						<div class="formBorder" id="ex_education_<?php echo $result5[$i]->id; ?>">
+							<span class="button formRemoveBtn remove_ex_education" id="<?php echo $result5[$i]->id; ?>">Remove</span>
+							<div class="control-group">
+								<label class="control-label">Edudcation</label>
+								<div class="controls">
+									<input class="span4" type="text" placeholder="Institution" name="ex_eduInst_<?php echo $result5[$i]->id; ?>" value="<?php echo $result5[$i]->institution; ?>" />
+									<input class="span4 leftMargin" type="text"  placeholder="Certification" name="ex_eduCert_<?php echo $result5[$i]->id; ?>" value="<?php echo $result5[$i]->certification; ?>" />
+								</div>
+							</div>
+							<div class="control-group ">
+								<label class="control-label">Period</label>
+								<div class="controls">
+									<input class="span4" type="text"  name="ex_eduFrom_<?php echo $result5[$i]->id; ?>" value="<?php echo $result5[$i]->from; ?>" placeholder="(2005)(Feb 2005)">
+									<input class="span4" type="text"  name="ex_eduTo_<?php echo $result5[$i]->id; ?>" value="<?php echo $result5[$i]->to; ?>" placeholder="(2007)(Mar 2007)">
+								</div>
+							</div>
+								
+							<div class="control-group ">
+								<label class="control-label">Score</label>
+								<div class="controls">
+									<textarea rows="3" class="input span8" name="ex_eduScore_<?php echo $result5[$i]->id; ?>" type="text"  placeholder="Score"><?php echo $result5[$i]->score; ?></textarea>
+								</div>
+							</div>
+						</div>
+						<?php } ?>
+						</div>
+						<!--******************************************Exist Project********************************/-->
+						<?php } ?>
 					</div>
 				</div>	  
 						  <div class="control-group ">

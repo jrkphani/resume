@@ -76,8 +76,9 @@ class Resume_model extends CI_model{
 			$result=$this->db->delete('skill');
 		}
 		
+		
 		//update skill
-		$this -> db -> select('id');
+		/*$this -> db -> select('id');
 		$this-> db -> from ('skill');
 		$this-> db-> where('user_id',$user_id);
 		$query=$this-> db ->get();
@@ -91,17 +92,19 @@ class Resume_model extends CI_model{
 			
 			$this->db->where('id',$row->id);
 			$this->db->update('skill');
-		}
+		}*/
 		
 		//add skill
 		$skill_name=$this->input->post('skillName');
 		$skill_tit=$this->input->post('skillTitle');
 		$skill_eff=$this->input->post('skillEff');
 		$skill_desc=$this->input->post('skillDesc');
+		
+		$skill_id=$this->input->post('skillNameID');
 
 		for($i=0;$i<sizeof($skill_name);$i++)
 		{
-			if($skill_name[$i])
+			if($skill_name[$i] && !$skill_id[$i])
 			{
 				$this->db->set('user_id', $user_id);
 				$this->db->set('name', $skill_name[$i]);
@@ -111,6 +114,18 @@ class Resume_model extends CI_model{
 				$this->db->set('status', '1');
 				$this->db->set('update_date','now()',FALSE);
 				$this->db->insert('skill');
+			}
+			else if($skill_name[$i] && $skill_id[$i])
+			{
+				$this->db->set('name', $skill_name[$i]);
+				$this->db->set('sub_title', $skill_tit[$i]);
+				$this->db->set('efficiency ', $skill_eff[$i]);
+				$this->db->set('description', $skill_desc[$i]);
+				$this->db->set('status', '1');
+				$this->db->set('update_date','now()',FALSE);
+				
+				$this->db->where('id',$skill_id[$i]);
+				$this->db->update('skill');
 			}
 		}
 		
@@ -123,7 +138,7 @@ class Resume_model extends CI_model{
 		}
 		
 		//update company
-		$this -> db -> select('id');
+		/*$this -> db -> select('id');
 		$this-> db -> from ('company');
 		$this-> db-> where('user_id',$user_id);
 		$query=$this-> db ->get();
@@ -138,7 +153,7 @@ class Resume_model extends CI_model{
 			
 			$this->db->where('id',$row->id);
 			$this->db->update('company');
-		}
+		}*/
 		
 		//add company
 		$comp_name=$this->input->post('cmpnyName');
@@ -146,10 +161,12 @@ class Resume_model extends CI_model{
 		$comp_from=$this->input->post('cmpnyFrom');
 		$comp_to=$this->input->post('cmpnyTo');
 		$comp_desc=$this->input->post('cmpnyDesc');
+		
+		$comp_id=$this->input->post('cmpnyNameID');
 
 		for($i=0;$i<sizeof($comp_name);$i++)
 		{
-			if($comp_name[$i])
+			if($comp_name[$i] && !$comp_id[$i])
 			{
 				$this->db->set('user_id', $user_id);
 				$this->db->set('name', $comp_name[$i]);
@@ -160,6 +177,18 @@ class Resume_model extends CI_model{
 				$this->db->set('status', '1');
 				$this->db->set('update_date','now()',FALSE);
 				$this->db->insert('company');
+			}
+			else if($comp_name[$i] && $comp_id[$i])
+			{
+				$this->db->set('name', $comp_name[$i]);
+				$this->db->set('designation', $comp_desg[$i]);
+				$this->db->set('from', $comp_from[$i]);
+				$this->db->set('to', $comp_to[$i]);
+				$this->db->set('description', $comp_desc[$i]);
+				$this->db->set('update_date', 'now()',FALSE);
+				
+				$this->db->where('id',$comp_id[$i]);
+				$this->db->update('company');
 			}
 		}
 		
@@ -172,7 +201,7 @@ class Resume_model extends CI_model{
 		}
 		
 		//update project
-		$this -> db -> select('id');
+		/*$this -> db -> select('id');
 		$this-> db -> from ('project');
 		$this-> db-> where('user_id',$user_id);
 		$query=$this-> db ->get();
@@ -187,7 +216,7 @@ class Resume_model extends CI_model{
 			
 			$this->db->where('id',$row->id);
 			$this->db->update('project');
-		}
+		}*/
 		
 		//add project
 		$proj_name=$this->input->post('projName');
@@ -195,10 +224,12 @@ class Resume_model extends CI_model{
 		$proj_from=$this->input->post('projFrom');
 		$proj_to=$this->input->post('projTo');
 		$proj_desc=$this->input->post('projDesc');
+		
+		$proj_id=$this->input->post('projNameID');
 
 		for($i=0;$i<sizeof($proj_name);$i++)
 		{
-			if($proj_name[$i])
+			if($proj_name[$i] && !$proj_id[$i])
 			{
 				$this->db->set('user_id', $user_id);
 				$this->db->set('name', $proj_name[$i]);
@@ -209,6 +240,18 @@ class Resume_model extends CI_model{
 				$this->db->set('status', '1');
 				$this->db->set('update_date','now()',FALSE);
 				$this->db->insert('project');
+			}
+			else if($proj_name[$i] && $proj_id[$i])
+			{
+				$this->db->set('name', $proj_name[$i]);
+				$this->db->set('role', $proj_role[$i]);
+				$this->db->set('from', $proj_from[$i]);
+				$this->db->set('to', $proj_to[$i]);
+				$this->db->set('description', $proj_desc[$i]);
+				$this->db->set('update_date', 'now()',FALSE);
+				
+				$this->db->where('id',$proj_id[$i]);
+				$this->db->update('project');
 			}
 		}
 		
@@ -221,7 +264,7 @@ class Resume_model extends CI_model{
 		}
 		
 		//update education
-		$this -> db -> select('id');
+		/*$this -> db -> select('id');
 		$this-> db -> from ('education');
 		$this-> db-> where('user_id',$user_id);
 		$query=$this-> db ->get();
@@ -236,7 +279,7 @@ class Resume_model extends CI_model{
 			
 			$this->db->where('id',$row->id);
 			$this->db->update('education');
-		}
+		}*/
 		
 		//add education
 		$edu_inst=$this->input->post('eduInst');
@@ -244,10 +287,12 @@ class Resume_model extends CI_model{
 		$edu_from=$this->input->post('eduFrom');
 		$edu_to=$this->input->post('eduTo');
 		$edu_score=$this->input->post('eduScore');
+		
+		$edu_id=$this->input->post('eduInstID');
 
 		for($i=0;$i<sizeof($edu_inst);$i++)
 		{
-			if($edu_inst[$i])
+			if($edu_inst[$i] && !$edu_id[$i])
 			{
 				$this->db->set('user_id', $user_id);
 				$this->db->set('institution', $edu_inst[$i]);
@@ -258,6 +303,18 @@ class Resume_model extends CI_model{
 				$this->db->set('status', '1');
 				$this->db->set('update_date','now()',FALSE);
 				$this->db->insert('education');
+			}
+			else if($edu_inst[$i] && $edu_id[$i])
+			{
+				$this->db->set('institution', $edu_inst[$i]);
+				$this->db->set('certification', $edu_cert[$i]);
+				$this->db->set('from', $edu_from[$i]);
+				$this->db->set('to', $edu_to[$i]);
+				$this->db->set('score', $edu_score[$i]);
+				$this->db->set('update_date', 'now()',FALSE);
+				
+				$this->db->where('id',$edu_id[$i]);
+				$this->db->update('education');
 			}
 		}
 	}

@@ -39,6 +39,7 @@ Class User extends CI_Model
   
 	$this->db->set('first_name',$data['firstname']);
 	$this->db->set('last_name',$data['lastname']);
+	$this->db->set('secondary_email',$data['email']);
 	$this->db->set('status','1');
 	$this->db->set('user_id',$this->db->insert_id());
 	$this->db->insert('user_detail');

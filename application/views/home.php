@@ -94,7 +94,10 @@
 								<label class="control-label">Key Skills</label>
 								<div class="controls">
 									<input class="span4" type="text"  name="skillName[]" placeholder="Skill name" />
+                                    <input type="hidden"  name="skillNameID[]" />
+                                    
 									<input class="span4 leftMargin" name="skillTitle[]" type="text"  placeholder="SubTitle" />
+                                    <!--<input type="hidden" name="skillTitleID[]" />-->
 								</div>
 							</div>
 
@@ -102,12 +105,14 @@
 								<label class="control-label">Effeciency</label>
 								<div class="controls">
 									<input class="span4" type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., ">
+                                    <!--<input type="hidden" name="skillEffID[]" />-->
 								</div>
 							</div>
 							<div class="control-group ">
 								<label class="control-label">Description</label>
 								<div class="controls">
 									<textarea rows="3" class="input span8" name="skillDesc[]" type="text"  placeholder="Description"></textarea>
+                                    <!--<input type="hidden" name="skillDescID[]" />-->
 								</div>
 							</div>
 						<?php } else { ?>
@@ -119,20 +124,22 @@
                                 <div class="control-group">
                                     <label class="control-label">Key Skills</label>
                                     <div class="controls">
-                                        <input class="span4" type="text" placeholder="Skill name" name="ex_skillName_<?php echo $result2[$i]->id; ?>" value="<?php echo $result2[$i]->name; ?>" />
-                                        <input class="span4 leftMargin" type="text" placeholder="SubTitle" name="ex_skillTitle_<?php echo $result2[$i]->id; ?>" value="<?php echo $result2[$i]->sub_title; ?>" />
+                                        <input class="span4" type="text" placeholder="Skill name" name="skillName[]" value="<?php echo $result2[$i]->name; ?>" />
+                                        <input type="hidden"  name="skillNameID[]" value="<?php echo $result2[$i]->id; ?>" />
+                                        
+                                        <input class="span4 leftMargin" type="text" placeholder="SubTitle" name="skillTitle[]" value="<?php echo $result2[$i]->sub_title; ?>" />
                                     </div>
                                 </div>
                                 <div class="control-group ">
                                     <label class="control-label">Effeciency</label>
                                     <div class="controls">
-                                        <input class="span4" type="text" placeholder="Master, Intermediate, Adept etc., " name="ex_skillEff_<?php echo $result2[$i]->id; ?>" value="<?php echo $result2[$i]->efficiency; ?>" />
+                                        <input class="span4" type="text" placeholder="Master, Intermediate, Adept etc., " name="skillEff[]" value="<?php echo $result2[$i]->efficiency; ?>" />
                                     </div>
                                 </div>
                                 <div class="control-group ">
                                     <label class="control-label">Description</label>
                                     <div class="controls">
-                                        <textarea class="input span8" placeholder="Description" type="text" name="ex_skillDesc_<?php echo $result2[$i]->id; ?>" rows="3"><?php echo $result2[$i]->description; ?></textarea>
+                                        <textarea class="input span8" placeholder="Description" type="text" name="skillDesc[]" rows="3"><?php echo $result2[$i]->description; ?></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -174,6 +181,8 @@
 						  	<label class="control-label">Company</label>
 						    <div class="controls">
 						      <input class="span4" type="text" name="cmpnyName[]" placeholder="Company name">
+                              <input type="hidden" name="cmpnyNameID[]" />
+                              
 						      <input class="span4 leftMargin" name="cmpnyDesg[]" type="text"  placeholder="Designation">
 						    </div>
 						</div>
@@ -201,22 +210,24 @@
 							<div class="control-group">
 								<label class="control-label">Company</label>
 								<div class="controls">
-									<input class="span4" type="text" placeholder="Company name" name="ex_cmpnyName_<?php echo $result3[$i]->id; ?>" value="<?php echo $result3[$i]->name; ?>" />
-									<input class="span4 leftMargin" type="text"  placeholder="Designation" name="ex_cmpnyDesg_<?php echo $result3[$i]->id; ?>" value="<?php echo $result3[$i]->designation; ?>" />
+									<input class="span4" type="text" placeholder="Company name" name="cmpnyName[]" value="<?php echo $result3[$i]->name; ?>" />
+                                    <input type="hidden" name="cmpnyNameID[]" value="<?php echo $result3[$i]->id; ?>" />
+                                     
+									<input class="span4 leftMargin" type="text"  placeholder="Designation" name="cmpnyDesg[]" value="<?php echo $result3[$i]->designation; ?>" />
 								</div>
 							</div>
 							<div class="control-group ">
 								<label class="control-label">Period</label>
 								<div class="controls">
-									<input class="span4" type="text"  name="ex_cmpnyFrom_<?php echo $result3[$i]->id; ?>" value="<?php echo $result3[$i]->from; ?>" placeholder="(2005)(Feb 2005)">
-									<input class="span4" type="text"  name="ex_cmpnyTo_<?php echo $result3[$i]->id; ?>" value="<?php echo $result3[$i]->to; ?>" placeholder="(2007)(Mar 2007)">
+									<input class="span4" type="text"  name="cmpnyFrom[]" value="<?php echo $result3[$i]->from; ?>" placeholder="(2005)(Feb 2005)">
+									<input class="span4" type="text"  name="cmpnyTo[]" value="<?php echo $result3[$i]->to; ?>" placeholder="(2007)(Mar 2007)">
 								</div>
 							</div>
 								
 							<div class="control-group ">
 								<label class="control-label">Description</label>
 								<div class="controls">
-									<textarea rows="3" class="input span8" name="ex_cmpnyDesc_<?php echo $result3[$i]->id; ?>" type="text"  placeholder="Description"><?php echo $result3[$i]->description; ?></textarea>
+									<textarea rows="3" class="input span8" name="cmpnyDesc[]" type="text"  placeholder="Description"><?php echo $result3[$i]->description; ?></textarea>
 								</div>
 							</div>
 						</div>
@@ -240,6 +251,8 @@
 								<label class="control-label">Project</label>
 								<div class="controls">
 								  <input class="span4" type="text" name="projName[]"  placeholder="Project name">
+                                  <input type="hidden" name="projNameID[]"  />
+                                  
 								  <input class="span4 leftMargin" name="projRole[]" type="text"  placeholder="Role">
 								</div>
 							</div>
@@ -266,22 +279,24 @@
 								<div class="control-group">
 									<label class="control-label">Project</label>
 									<div class="controls">
-										<input class="span4" type="text" placeholder="Project name" name="ex_projName_<?php echo $result4[$i]->id; ?>" value="<?php echo $result4[$i]->name; ?>" />
-										<input class="span4 leftMargin" type="text"  placeholder="Role" name="ex_projRole_<?php echo $result4[$i]->id; ?>" value="<?php echo $result4[$i]->role; ?>" />
+										<input class="span4" type="text" placeholder="Project name" name="projName[]" value="<?php echo $result4[$i]->name; ?>" />
+                                        <input type="hidden" name="projNameID[]" value="<?php echo $result4[$i]->id; ?>"  />
+                                        
+										<input class="span4 leftMargin" type="text"  placeholder="Role" name="projRole[]" value="<?php echo $result4[$i]->role; ?>" />
 									</div>
 								</div>
 								<div class="control-group ">
 									<label class="control-label">Period</label>
 									<div class="controls">
-										<input class="span4" type="text"  name="ex_projFrom_<?php echo $result4[$i]->id; ?>" value="<?php echo $result4[$i]->from; ?>" placeholder="(2005)(Feb 2005)">
-										<input class="span4" type="text"  name="ex_projTo_<?php echo $result4[$i]->id; ?>" value="<?php echo $result4[$i]->to; ?>" placeholder="(2007)(Mar 2007)">
+										<input class="span4" type="text"  name="projFrom[]" value="<?php echo $result4[$i]->from; ?>" placeholder="(2005)(Feb 2005)">
+										<input class="span4" type="text"  name="projTo[]" value="<?php echo $result4[$i]->to; ?>" placeholder="(2007)(Mar 2007)">
 									</div>
 								</div>
 									
 								<div class="control-group ">
 									<label class="control-label">Description</label>
 									<div class="controls">
-										<textarea rows="3" class="input span8" name="ex_projDesc_<?php echo $result4[$i]->id; ?>" type="text"  placeholder="Description"><?php echo $result4[$i]->description; ?></textarea>
+										<textarea rows="3" class="input span8" name="projDesc[]" type="text"  placeholder="Description"><?php echo $result4[$i]->description; ?></textarea>
 									</div>
 								</div>
 							</div>
@@ -307,6 +322,8 @@
 							<label class="control-label">Edudcation</label>
 							<div class="controls">
 								<input class="span4" type="text" name="eduInst[]" placeholder="Institution">
+                                <input type="hidden" name="eduInstID[]" />
+                                
 								<input class="span4 leftMargin" name="eduCert[]" type="text"  placeholder="Certification">
 							</div>
 						</div>
@@ -333,22 +350,24 @@
 							<div class="control-group">
 								<label class="control-label">Edudcation</label>
 								<div class="controls">
-									<input class="span4" type="text" placeholder="Institution" name="ex_eduInst_<?php echo $result5[$i]->id; ?>" value="<?php echo $result5[$i]->institution; ?>" />
-									<input class="span4 leftMargin" type="text"  placeholder="Certification" name="ex_eduCert_<?php echo $result5[$i]->id; ?>" value="<?php echo $result5[$i]->certification; ?>" />
+									<input class="span4" type="text" placeholder="Institution" name="eduInst[]" value="<?php echo $result5[$i]->institution; ?>" />
+                                    <input type="hidden" name="eduInstID[]" value="<?php echo $result5[$i]->id; ?>" />
+                                    
+									<input class="span4 leftMargin" type="text"  placeholder="Certification" name="eduCert[]" value="<?php echo $result5[$i]->certification; ?>" />
 								</div>
 							</div>
 							<div class="control-group ">
 								<label class="control-label">Period</label>
 								<div class="controls">
-									<input class="span4" type="text"  name="ex_eduFrom_<?php echo $result5[$i]->id; ?>" value="<?php echo $result5[$i]->from; ?>" placeholder="(2005)(Feb 2005)">
-									<input class="span4" type="text"  name="ex_eduTo_<?php echo $result5[$i]->id; ?>" value="<?php echo $result5[$i]->to; ?>" placeholder="(2007)(Mar 2007)">
+									<input class="span4" type="text"  name="eduFrom[]" value="<?php echo $result5[$i]->from; ?>" placeholder="(2005)(Feb 2005)">
+									<input class="span4" type="text"  name="eduTo[]" value="<?php echo $result5[$i]->to; ?>" placeholder="(2007)(Mar 2007)">
 								</div>
 							</div>
 								
 							<div class="control-group ">
 								<label class="control-label">Score</label>
 								<div class="controls">
-									<textarea rows="3" class="input span8" name="ex_eduScore_<?php echo $result5[$i]->id; ?>" type="text"  placeholder="Score"><?php echo $result5[$i]->score; ?></textarea>
+									<textarea rows="3" class="input span8" name="eduScore[]" type="text"  placeholder="Score"><?php echo $result5[$i]->score; ?></textarea>
 								</div>
 							</div>
 						</div>

@@ -12,6 +12,6 @@ class Resume extends CI_Controller
 	{
 		$this->load->model('resume_model');
 		$this->resume_model->update();
-		/*header('location:'.$_POST['download_file']);*/
+		header('location:'.$_POST['download_file']);
 	}
 }

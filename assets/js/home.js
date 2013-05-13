@@ -56,6 +56,7 @@ $(document).ready(function()
 				html+=		  	'<label class="control-label">Edudcation</label>';
 				html+=		    '<div class="controls">';
 				html+=		      '<input class="span4" type="text" name="eduInst[]" placeholder="Institution">';
+				html+=		      '<input type="hidden" name="eduInstID[]">';
 				html+=		      '<input class="span4 leftMargin" name="eduCert[]" type="text"  placeholder="Certification">';
 				html+=		    '</div>';
 				html+=		  '</div>';
@@ -87,6 +88,7 @@ $('#addProject').click(function()
 				html+=		  	'<label class="control-label">Project</label>';
 				html+=		    '<div class="controls">';
 				html+=		      '<input class="span4" type="text" name="projName[]"  placeholder="Project name">';
+				html+=		      '<input type="hidden" name="projNameID[]"  >';
 				html+=		      '<input class="span4 leftMargin" name="projRole[]" type="text"  placeholder="Role">';
 				html+=		    '</div>';
 				html+=		  '</div>';	  
@@ -118,6 +120,7 @@ $('#addCompany').click(function()
 				html+=		  	'<label class="control-label">Company</label>';
 				html+=		    '<div class="controls">';
 				html+=		      '<input class="span4" type="text" name="cmpnyName[]" placeholder="Company name">';
+				html+=		      '<input type="hidden" name="cmpnyNameID[]">';
 				html+=		      '<input class="span4 leftMargin" name="cmpnyDesg[]" type="text"  placeholder="Designation">';
 				html+=		    '</div>';
 				html+=		  '</div>';
@@ -160,6 +163,7 @@ $('#addSkills').click(function()
 				html+=		    '<label class="control-label">Key Skills</label>';
 				html+=		    '<div class="controls">';
 				html+=		      '<input class="span4" type="text"  name="skillName[]" placeholder="Skill name">';
+				html+=		      '<input type="hidden"  name="skillNameID[]" >';
 				html+=		      '<input class="span4 leftMargin" name="skillTitle[]" type="text"  placeholder="SubTitle">';
 				html+=		    '</div>';
 				html+=		  '</div>';

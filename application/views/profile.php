@@ -5,7 +5,9 @@
 </style>
 <?php
 	if($photo)
+	{
 		$img= base_url('profile_photo').'/'.$photo.'?'.rand();
+	}
 	else
 		$img=base_url('assets/img/userPhoto.png');
 		
@@ -23,7 +25,7 @@
 	<div class="head">Profile<span id="pr-edit-link" class="pr-edit-link"><a href="#">Edit profile</a></span></div>
     </div>
     <div style="float:right;">
-        	<img src="<?php echo $img; ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;&nbsp;<?php echo $last_name; ?>" class="img_update" />
+        	<img src="<?php echo $img; ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;<?php echo $last_name; ?>" class="img_update" />
         	<span id="uploadstate"></span>
     </div>
     <div class="clearBoth"></div>

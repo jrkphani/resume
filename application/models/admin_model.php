@@ -38,5 +38,17 @@ Class Admin_model extends CI_Model
     return false;
   }
  }
+ function deleteSearchList($strID)
+ {
+  $this->db->where('id',$strID);
+  if($this->db->delete('search_skills'))
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+ }
 }
 ?>

@@ -85,6 +85,28 @@ class Admin extends CI_Controller {
  		show_404();
  	}
  }
+ function deleteSearchList()
+ {
+ 	$strID = $this->input->get_post('sid', TRUE);
+ 	if($strID)
+ 	{
+		$this->load->model('admin_model');
+	 	if($this->admin_model->deleteSearchList($strID))
+	 	{
+	 		$data['resultset']['success']=1;
+	 	}
+	 	else
+	 	{
+	 		$data['resultset']['success']=-1;
+	 	}
+	 	
+	   	$this->load->view('json',$data);
+    }
+    else
+ 	{
+ 		show_404();
+ 	}
+ }
 }
 
 ?>

@@ -15,7 +15,7 @@
 		<table>
 			<? foreach($searchList as $single)
 			{?>
-			<tr><td><a href="<?=base_url('admin/searchSkills')?>/<?=$single->id?>" ><?=$single->string?></a></td></tr>
+			<tr id="<?=$single->id?>"><td><a href="<?=base_url('admin/searchSkills')?>/<?=$single->id?>" ><?=$single->string?></a><span onclick="remove('<?=$single->id?>');">X</span></td></tr>
 			<?}?>
 		</table>
 	</div>
@@ -37,5 +37,16 @@ function removeClass(attr)
 {
 	//alert(attr);
 	$('.'+attr).remove();
+}
+function remove(strID)
+{
+	$.ajax({
+			url:baseurl+"admin/deleteSearchList",
+			type:"POST",
+			data:{"sid":strID},
+			success:function(){
+				$('#'+strID).remove();
+			}
+		});
 }
 </script>

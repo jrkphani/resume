@@ -9,7 +9,15 @@
 			</div> 
 			
 		</div>
-		
+	</div>
+	<div class="span12">
+		Previous Search
+		<table>
+			<? foreach($searchList as $single)
+			{?>
+			<tr><td><a href="<?=base_url('admin/searchSkills')?>/<?=$single->id?>" ><?=$single->string?></a></td></tr>
+			<?}?>
+		</table>
 	</div>
 </div>
 <script>

@@ -1,15 +1,15 @@
-
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
 
  function __construct()
  {
-   parent::__construct();
-   if(!$this->session->userdata('logged_in'))
-   {
-   	redirect(base_url());
-   }
+	parent::__construct();
+	$current_user=$this->session->userdata('logged_in');
+	if($current_user['role']!='admin')
+	{
+		redirect(base_url());
+	}
  }
 
  function index()
@@ -107,7 +107,12 @@ class Admin extends CI_Controller {
  		show_404();
  	}
  }
+  function userList()
+ {
+ 	$this->load->model('user');
+ 	$data['userlist']=$this->user->userList();
+ 	$data['view_page'] = 'userList';
+ 	$this->load->view('template', $data);
+ }
 }
-
 ?>
-

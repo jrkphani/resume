@@ -27,9 +27,11 @@ class VerifyLogin extends CI_Controller {
    }
    else
    {
-      $data['success']='yes';
-      $result['resultset']=$data;
-      $this->load->view('json',$result);
+		$arr=$this->session->userdata('logged_in');
+		$data['role']=$arr['role'];
+		$data['success']='yes';
+		$result['resultset']=$data;
+		$this->load->view('json',$result);
    }
 
  }
@@ -50,7 +52,6 @@ class VerifyLogin extends CI_Controller {
        $sess_array = array(
          'id' => $row->id,
          'email' => $row->email,
-		 
        );
        /*$this->session->set_userdata('logged_in', $sess_array);*/
      }
@@ -60,6 +61,7 @@ class VerifyLogin extends CI_Controller {
 	 {
 		 $sess_array['firstname']=$name['first_name'];
 		 $sess_array['lastname']=$name['last_name'];
+		 $sess_array['role']=$name['role'];
 	 }
 	  $this->session->set_userdata('logged_in', $sess_array);
      return TRUE;

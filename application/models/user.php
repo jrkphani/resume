@@ -3,7 +3,7 @@ Class User extends CI_Model
 {
  function login($username, $password)
  {
-   $this -> db -> select('id, email');
+   $this -> db -> select('id,email');
    $this -> db -> from('users');
    $this -> db -> where('email', $username);
    $this -> db -> where('password', MD5($password));
@@ -23,7 +23,7 @@ Class User extends CI_Model
  }
  function name($id)
  {
-	$this -> db -> select('first_name,last_name');
+	$this -> db -> select('first_name,last_name,role');
 	$this -> db -> from('user_detail');
 	$this->db->where('user_id',$id);
 	$query=$this->db->get();
@@ -39,6 +39,7 @@ Class User extends CI_Model
   
 	$this->db->set('first_name',$data['firstname']);
 	$this->db->set('last_name',$data['lastname']);
+	$this->db->set('role','user');
 	$this->db->set('secondary_email',$data['email']);
 	$this->db->set('status','1');
 	$this->db->set('user_id',$this->db->insert_id());
@@ -102,6 +103,16 @@ Class User extends CI_Model
    {
 	   return false;
    }
+ }
+ function userList()
+ {
+  //$this -> db -> select('id');
+  $this -> db -> from('user_detail');
+  return $this -> db -> get()->result();
+ }
+ function userUpdate()
+ {
+  //user update
  }
 }
 ?>

@@ -52,8 +52,10 @@ $(document).ready(function()
 				{
 					if(data.resultset.success=='yes')
 					{
-						//window.location.reload();
-						window.location.href=baseurl+"home";
+						if(data.resultset.role=='user')
+							window.location.href=baseurl+"home";
+						else if(data.resultset.role=='admin')
+							window.location.href=baseurl+"admin";
 					}
 					else
 					{

@@ -5,9 +5,7 @@
 </style>
 <?php
 	if($photo)
-	{
 		$img= base_url('profile_photo').'/'.$photo.'?'.rand();
-	}
 	else
 		$img=base_url('assets/img/userPhoto.png');
 		

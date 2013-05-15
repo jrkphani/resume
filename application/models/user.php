@@ -110,9 +110,17 @@ Class User extends CI_Model
   $this -> db -> from('user_detail');
   return $this -> db -> get()->result();
  }
- function userUpdate()
+ function userDetails($id)
  {
-  //user update
+  //$this -> db -> select('id');
+  $this -> db -> from('user_detail');
+  $this->db->where('id',$id);
+  return $this -> db -> get()->result();
+ }
+ function userUpdate($data,$id)
+ {
+	$this->db->where('user_id',$id);
+	$this->db->update('user_detail', $data);
  }
 }
 ?>

@@ -132,7 +132,7 @@ class Resume_model extends CI_model{
 		//delete project
 		if(count($project['todelete']))
 		{
-			$this->db->where_in('id',$skill['todelete']);
+			$this->db->where_in('id',$project['todelete']);
 			$this->db->where('user_id',$user_id);
 			$result=$this->db->delete('project');
 		}
@@ -163,7 +163,7 @@ class Resume_model extends CI_model{
 		//delete education
 		if(count($education['todelete']))
 		{
-			$this->db->where_in('id',$company['todelete']);
+			$this->db->where_in('id',$education['todelete']);
 			$this->db->where('user_id',$user_id);
 			$result=$this->db->delete('education');
 		}

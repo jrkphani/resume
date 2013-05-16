@@ -153,7 +153,8 @@
 					<div class="control-group ">
 						   <!-- <label class="control-label">Add skill</label>-->
 						    <div class="controls">
-						      <span class="button"  id="addSkills">Add skill</span>
+						      <span class="button"  id="addSkills" 
+						    	<span class="button"  id="addOskills" value="0">Add skill</span>
 
 						    </div>
 						  </div>
@@ -167,7 +168,7 @@
 						      		</div>
 						    	</div>
 						    	<div class="controls">
-						    	<span class="button"  id="addOskills">Add skill</span>
+						    	<span class="button"  id="addOskills" value="0">Add skill</span>
 						    	</div>
 						  	</div>
 
@@ -240,7 +241,7 @@
 					<!--<label class="control-label">Add company</label>-->
 					<div class="control-group ">
 					    <div class="controls">
-					      <span class="button"  id="addCompany">Add company</span>
+					      <span class="button"  id="addCompany" value="0">Add company</span>
 					    </div>
 					  </div>
 						  	  <!--******************************************Project********************************/-->
@@ -309,7 +310,7 @@
 					<div class="control-group ">
 					<!--<label class="control-label">Add Project</label>-->
 						<div class="controls">
-						  <span class="button"  id="addProject">Add project</span>
+						  <span class="button"  id="addProject" value="0">Add project</span>
 						</div>
 					</div>
 					  

@@ -16,7 +16,7 @@
     	<?php foreach ($userlist as $user) {
 		$photo=$user->photo;
 		if($photo)
-			$img= base_url('profile_photo').'/'.$photo.'?'.rand();
+			$img= base_url($this->config->item('path_profile_img').$photo.'?'.rand());
 		else
 			$img=base_url('assets/img/userPhoto.png');
 		?>

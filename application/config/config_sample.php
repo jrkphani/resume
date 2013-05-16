@@ -357,6 +357,17 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
+/*---------------------------	New configs		---------------------------*/
+
+/* Path for temporary images */
+$config['path_temp_img'] = 'tmp/img/';
+
+/* Path for profile images */
+$config['path_profile_img'] = 'profile_photo/';
+
+
+/*---------------------------	End of New configs		---------------------------*/
+
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

@@ -3,14 +3,16 @@ Class User extends CI_Model
 {
  function login($username, $password)
  {
-   $this -> db -> select('id,email');
+   $this -> db -> select('users.id,users.email,user_detail.first_name,user_detail.last_name,user_detail.role,user_detail.limit');
    $this -> db -> from('users');
-   $this -> db -> where('email', $username);
-   $this -> db -> where('password', MD5($password));
-   $this -> db -> where('active', 1);
+   $this -> db -> where('users.email', $username);
+   $this -> db -> where('users.password', MD5($password));
+   $this -> db -> where('users.active', 1);
    $this -> db -> limit(1);
+   $this -> db -> join('user_detail','users.id=user_detail.user_id');
 
    $query = $this -> db -> get();
+   $this->db->last_query();
 
    if($query -> num_rows() == 1)
    {
@@ -20,14 +22,6 @@ Class User extends CI_Model
    {
      return false;
    }
- }
- function name($id)
- {
-	$this -> db -> select('first_name,last_name,role');
-	$this -> db -> from('user_detail');
-	$this->db->where('user_id',$id);
-	$query=$this->db->get();
-	return $query->result_array();
  }
  function add_user($data)
  {

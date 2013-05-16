@@ -20,7 +20,7 @@ class Upload extends CI_Controller
    $file_element_name = 'userfile';
    if ($status != "error")
    {
-      $config['upload_path'] = FCPATH.'tmp/img/';
+      $config['upload_path'] = FCPATH.$this->config->item('path_temp_img');
       $config['allowed_types'] = 'gif|jpg|png';
       $config['max_size']  = 1024 * 8;
       $config['encrypt_name'] = TRUE;
@@ -71,9 +71,9 @@ class Upload extends CI_Controller
 		unlink($data['full_path']);
         $result['status'] = "success";
         $result['msg'] = "File successfully uploaded";
-        $result['imgUrl'] = base_url('tmp/img').'/'.$new_file_name;
+        $result['imgUrl'] = base_url($this->config->item('path_temp_img')).'/'.$new_file_name;
         $result['fname'] = $new_file_name;
-		$result['imgRoot']=base_url('tmp/img');
+		$result['imgRoot']=base_url($this->config->item('path_temp_img'));
 		$result['imgName']=$tmp_name;
 		$result['imgExt']=$data['file_ext'];
 		}

@@ -160,7 +160,7 @@ class Admin extends CI_Controller {
 		{
 			$name =$this->input->post('photo_name').$this->input->post('photo_ext');
 			$new_name=$this->input->post('user_id').$this->input->post('photo_ext');
-			rename('./tmp/img/'.$name,'./profile_photo/'.$new_name);
+			rename("./".$this->config->item('path_temp_img').$name,"./".$this->config->item('path_profile_img').$new_name);
 			$data['photo']=$new_name;
 		}
 		

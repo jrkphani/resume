@@ -22,7 +22,6 @@ $(document).ready(function()
 						$("#preview").attr('href',baseurl+'preview/page/'+result.resultset.html)
 						$("#preview").click();
 						$("#download").click(function(){
-							alert('d');
 							window.location=baseurl+'preview/page/'+result.resultset.html;
 						});
 						//window.location=baseurl+'preview/page/'+result.resultset.html;

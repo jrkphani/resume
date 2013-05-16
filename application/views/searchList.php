@@ -5,7 +5,7 @@
 			<tr><td>Name</td><td>Mobile</td><td>Experience</td></tr>
 		<? foreach($result as $single)
 		{?>
-			<tr><td><a href="<?=$single->user_id?>"><?=$single->first_name?></a></td><td><?=$single->mobile?></td><td><?=$single->experience?></td></tr>
+			<tr><td><a href="<?php echo base_url('admin/user/'.$single->user_id); ?>"><?=$single->first_name?></a></td><td><?=$single->mobile?></td><td><?=$single->experience?></td></tr>
 		<?}?>
 		</table>	
 	</div>

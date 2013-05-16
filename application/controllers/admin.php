@@ -169,5 +169,33 @@ class Admin extends CI_Controller {
 		$this->userList();
 	}
  }
+ function user($id)
+ {
+	$this->load->model('resume_model');
+	$result=$this->resume_model->basic_details($id);
+	$data['result2']=$this->resume_model->skill_details($id);
+	$data['result3']=$this->resume_model->company_details($id);
+	$data['result4']=$this->resume_model->project_details($id);
+	$data['result5']=$this->resume_model->education_details($id);
+	
+	foreach($result as $row)
+		 {
+			 $data['first_name']=$row['first_name'];
+			 $data['last_name']=$row['last_name'];
+			 $data['tag_line']=$row['tag_line'];
+			 $data['secondary_email']=$row['secondary_email'];
+			 $data['mobile']=$row['mobile'];
+			 $data['landline']=$row['landline'];
+			 $data['address']=$row['address'];
+			 $data['website']=$row['website'];
+			 $data['photo']=$row['photo'];
+			 $data['experience']=$row['experience'];
+			 $data['objective']=$row['objective'];
+			 $data['summary']=$row['summary'];
+		 }
+	
+	$data['view_page']='userView';
+	$this->load->view('template',$data);
+ }
 }
 ?>

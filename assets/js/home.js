@@ -222,6 +222,7 @@ $('#addSkills').click(function()
 	
 	$(".remove_ex_skill").click(function(){
 		var id=$(this).attr('id');
+		mylength=$('input[name*="skillName[]"]').length;
 		var remove_skills=$("#remove_skills").val();
 		$('#ex_skill_'+id).remove();
 		
@@ -229,6 +230,11 @@ $('#addSkills').click(function()
 			$("#remove_skills").val(remove_skills+','+id);
 		else
 			$("#remove_skills").val(id);
+
+		if(mylength<=1)
+		{
+			$('#addSkills').click();
+		}
 		/*$.ajax({
 				url: baseurl+'resume/delete_exist', 
 				type: 'get',
@@ -249,15 +255,22 @@ $('#addSkills').click(function()
 	$(".remove_ex_company").click(function(){
 		var id=$(this).attr('id');
 		var remove_company=$("#remove_company").val();
+		mylength=$('input[name*="cmpnyName[]"]').length;
 		$('#ex_company_'+id).remove();
 		
 		if(remove_company)
 			$("#remove_company").val(remove_company+','+id);
 		else
 			$("#remove_company").val(id);
+
+		if(mylength<=1)
+		{
+			$('#addCompany').click();
+		}
 	});
 	$(".remove_ex_project").click(function(){
 		var id=$(this).attr('id');
+		mylength=$('input[name*="projName[]"]').length;
 		var remove_project=$("#remove_project").val();
 		$('#ex_project_'+id).remove();
 		
@@ -265,9 +278,15 @@ $('#addSkills').click(function()
 			$("#remove_project").val(remove_project+','+id);
 		else
 			$("#remove_project").val(id);
+
+		if(mylength<=1)
+		{
+			$('#addProject').click();
+		}
 	});
 	$(".remove_ex_education").click(function(){
 		var id=$(this).attr('id');
+		mylength=$('input[name*="eduInst[]"]').length;
 		var remove_education=$("#remove_education").val();
 		$('#ex_education_'+id).remove();
 		
@@ -275,6 +294,11 @@ $('#addSkills').click(function()
 			$("#remove_education").val(remove_education+','+id);
 		else
 			$("#remove_education").val(id);
+
+		if(mylength<=1)
+		{
+			$('#addEdudcation').click();
+		}
 	});
 });
 function removeId(ID)

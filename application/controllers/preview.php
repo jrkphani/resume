@@ -64,15 +64,30 @@ class Preview extends CI_Controller {
 	}
 	function page()
 	{
+		//preview inside application
 		$this->load->helper('file');
 		$html = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
-		//echo $html; die;
+		$data['online'] = false;
+		if($html==='online')
+		{
+			$html = ($this->uri->segment(4)) ? $this->uri->segment(4) : NULL;
+			$data['online'] = true;	
+		}
 		$content = read_file(FCPATH."/tmp/files/".$html.".html");
 		$data['html']=$content;
 		$data['link']=$html;
 		$data['view_page'] = 'preview';
 		//$this->load->view('template', $data);
 		$this->load->view('preview',$data);	
+	}
+	function resume()
+	{
+		//online link for user
+		$this->load->helper('file');
+		$data['link'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
+		$data['view_page'] = 'onlinePreview';
+		$this->load->view('template', $data);
+		//$this->load->view('onlinePreview',$data);	
 	}
 }
 

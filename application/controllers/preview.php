@@ -19,7 +19,7 @@ class Preview extends CI_Controller {
 	 */
 	public function index()
 	{
-		if($this->session->userdata('logged_in'))
+		if($userdata = $this->session->userdata('logged_in'))
 	   {
 		$this->load->helper('file');
 		if($postdata=$this->input->post())
@@ -32,7 +32,7 @@ class Preview extends CI_Controller {
 		//print_r($postdata);
 		$preview_html = $this->load->view('T/'.$postdata['template'].'_html',$postdata,true);
 		$tempnam=mt_rand().time();
-		$temppath=FCPATH.'tmp/files/'.$tempnam.'.html';
+		$temppath=FCPATH.'tmp/files/'.$userdata['id'].'.html';
 		if (!write_file($temppath, $preview_html))
 			{
 				$data['success']='no';
@@ -43,7 +43,7 @@ class Preview extends CI_Controller {
 			else
 			{
 				$data['success']='yes';
-				$data['html']=$tempnam;
+				$data['html']=$userdata['id'];
 				$result['resultset']=$data;
 				$this->load->view('json',$result);
 				//$data['html']=$preview_html;

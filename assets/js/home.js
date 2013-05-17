@@ -186,7 +186,7 @@ $('#addSkills').click(function()
 		$('#uploadstate').html("uploading..");
       e.preventDefault();
       $.ajaxFileUpload({
-         url         :'./upload/upload_file/',
+         url         :baseurl+'upload/upload_file/',
          secureuri      :false,
          fileElementId  :'userfile',
          dataType    : 'json',

@@ -46,6 +46,7 @@ class Home extends CI_Controller {
 			 $data['objective']=$row['objective'];
 			 $data['summary']=$row['summary'];
 		 }
+		 $data['user_id']=$session_data['id'];
 		 $this->load->view('template', $data);
 		 //$this->load->view('select_template');
 	   }

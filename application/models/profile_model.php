@@ -7,7 +7,7 @@ class Profile_model extends CI_Model{
 	}
 	public function get_profile()
 	{
-		$this->db->select('first_name,last_name,secondary_email,mobile,landline,address,website,photo');
+		$this->db->select('user_id,first_name,last_name,secondary_email,mobile,landline,address,website,photo');
 		$this->db->where('user_id',$this->get_userid());
 		$this->db->from('user_detail');
 		$query=$this->db->get();
@@ -27,9 +27,12 @@ class Profile_model extends CI_Model{
 					);	
 		if($_POST['photo_name'])
 		{
+			$user_id=$this->get_userid();
 			$name =$this->input->post('photo_name').$this->input->post('photo_ext');
-			$new_name=$this->get_userid().$this->input->post('photo_ext');
-			rename("./".$this->config->item('path_temp_img').$name,"./".$this->config->item('path_profile_img').$new_name);
+			$new_name=$user_id.$this->input->post('photo_ext');
+			if(!file_exists(FCPATH.$this->config->item('path_profile_img').$user_id))
+				 mkdir(FCPATH.$this->config->item('path_profile_img').$user_id);
+			rename(FCPATH.$this->config->item('path_temp_img').$name,FCPATH.$this->config->item('path_profile_img').$user_id.'/'.$new_name);
 			$data['photo']=$new_name;
 		}
 		$this->db->where('user_id',$this->get_userid());

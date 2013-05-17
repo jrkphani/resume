@@ -23,24 +23,25 @@ class Admin extends CI_Controller {
  function searchSkills()
  {
  	$userdata=$this->session->userdata('logged_in');
- 	$strID = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
+ 	//$strID = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
+	$strID=NULL;
  	if(!$strID)
  	{
  		$str = $this->input->get_post('search', TRUE);
 	 	if($str)
 	 	{
-	 		$this->load->model('admin_model');
+	 		$this->load->model('admin_model');/*print_r($str);*/
 		 	$data['result']=$this->admin_model->searchSkills($userdata['limit'],$str);
 		 	$data['view_page'] = 'searchList';
 		 	$data['strID'] = NULL;
 		 	$data['searchStr'] = $str;
+			$data['pagi']=$this->pagination($str);
 		 	$this->load->view('template', $data);
 	 	}
 	 	else
 	 	{
 	 		show_404();
 	 	}
-
  	}
  	else
  	{
@@ -50,7 +51,7 @@ class Admin extends CI_Controller {
 	 	$data['result']=$this->admin_model->searchSkills($userdata['limit'],$searchStr);
 	 	$data['view_page'] = 'searchList';
 	 	$data['strID'] = $strID;
-	 	$data['searchStr'] = $searchStr;
+		$data['searchStr'] = $searchStr;
 	 	$this->load->view('template', $data);
 
  	}
@@ -62,6 +63,35 @@ class Admin extends CI_Controller {
  		return $this->admin_model->loadSearchList($userdata['id']);
 	 	//$data['resultset']=$this->admin_model->loadSearchList($userdata['id']);
     	//$this->load->view('json',$data);
+ }
+ function pagination($str)
+ {
+	$this->load->library('jquery_pagination');
+	$config['div'] = '#search-content';
+	$config['additional_param']  = 'serialize_form()';
+	$config['base_url'] = base_url().'admin/searchSkillsAjax';
+	$config['total_rows'] =  $this->admin_model->totalSearchSkills($str);
+	$config['per_page'] = 2;
+	$this->jquery_pagination->initialize($config);
+	return $this->jquery_pagination->create_links();
+ }
+ function searchSkillsAjax()
+ {
+	$userdata=$this->session->userdata('logged_in');
+	$str = $this->input->get_post('search', TRUE);
+	if($str)
+	{
+		$this->load->model('admin_model');/*print_r($str);*/
+		$data['result']=$this->admin_model->searchSkills($userdata['limit'],$str);
+		$data['strID'] = NULL;
+		$data['searchStr'] = $str;
+		$data['pagi']=$this->pagination($str);
+		$this->load->view('searchList', $data);
+	}
+	else
+	{
+		show_404();
+	}
  }
  function saveSearchList()
  {
@@ -123,6 +153,7 @@ class Admin extends CI_Controller {
 	$this->load->model('user');
 	$data['userlist']=$this->user->userDetails($id);
 	$data['view_page'] = 'userEdit';
+	$data['user_id']=$id;
 	$this->load->view('template', $data);
  }
  function update()
@@ -158,9 +189,12 @@ class Admin extends CI_Controller {
 					);
 		if($_POST['photo_name'])
 		{
+			$user_id=$this->input->post('user_id');
 			$name =$this->input->post('photo_name').$this->input->post('photo_ext');
-			$new_name=$this->input->post('user_id').$this->input->post('photo_ext');
-			rename("./".$this->config->item('path_temp_img').$name,"./".$this->config->item('path_profile_img').$new_name);
+			$new_name=$user_id.$this->input->post('photo_ext');
+			if(!file_exists(FCPATH.$this->config->item('path_profile_img').$user_id))
+				 mkdir(FCPATH.$this->config->item('path_profile_img').$user_id);
+			rename(FCPATH.$this->config->item('path_temp_img').$name,FCPATH.$this->config->item('path_profile_img').$user_id.'/'.$new_name);
 			$data['photo']=$new_name;
 		}
 		

@@ -12,7 +12,7 @@
 	 			
 	 			<!--T1_form-->
 	 			<form class="form-horizontal" id="resume_form">
-	 			<input type="hidden" name="photo" id="photo" value="<?php if($photo) { echo base_url($this->config->item('path_profile_img').$photo); } ?>" />
+	 			<input type="hidden" name="photo" id="photo" value="<?php if($photo) { echo base_url($this->config->item('path_profile_img').$user_id.'/'.$photo); } ?>" />
 	 			<input type="hidden" value="" id="template" name="template" autocomplete="off" />
                 <input type="hidden" name="download_file" id="download_file" />
                 <input type="hidden" name="remove_skills" value="" id="remove_skills" />
@@ -29,7 +29,7 @@
 					  </div>
 					   <div style="float:right;">
                        		<?php if($photo) { ?>
-                            	<img src="<? echo base_url($this->config->item('path_profile_img').$photo); ?>" id="profile_pic" />
+                            	<img src="<? echo base_url($this->config->item('path_profile_img').$user_id.'/'.$photo); ?>" id="profile_pic" />
                             <?php } else { ?>
 								<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" id="profile_pic" />
                             <?php } ?>

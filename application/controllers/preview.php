@@ -32,7 +32,7 @@ class Preview extends CI_Controller {
 		//print_r($postdata);
 		$preview_html = $this->load->view('T/'.$postdata['template'].'_html',$postdata,true);
 		//$tempnam=mt_rand().time();
-		$temppath=FCPATH.'tmp/files/'.$userdata['id'].'.html';
+		$temppath=FCPATH.$this->config->item('path_temp_file').$userdata['id'].'.html';
 		if (!write_file($temppath, $preview_html))
 			{
 				$data['success']='no';
@@ -73,7 +73,7 @@ class Preview extends CI_Controller {
 			$html = ($this->uri->segment(4)) ? $this->uri->segment(4) : NULL;
 			$data['online'] = true;	
 		}
-		$content = read_file(FCPATH."/tmp/files/".$html.".html");
+		$content = read_file(FCPATH.$this->config->item('path_temp_file').$html.".html");
 		$data['html']=$content;
 		$data['link']=$html;
 		$data['view_page'] = 'preview';

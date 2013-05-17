@@ -365,6 +365,9 @@ $config['path_temp_img'] = 'tmp/img/';
 /* Path for profile images */
 $config['path_profile_img'] = 'profile_photo/';
 
+/* Path for temporary html files */
+$config['path_temp_file'] = 'tmp/files/';
+
 
 /*---------------------------	End of New configs		---------------------------*/
 

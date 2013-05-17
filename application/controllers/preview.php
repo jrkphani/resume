@@ -31,7 +31,7 @@ class Preview extends CI_Controller {
 		//echo "<pre>";
 		//print_r($postdata);
 		$preview_html = $this->load->view('T/'.$postdata['template'].'_html',$postdata,true);
-		$tempnam=mt_rand().time();
+		//$tempnam=mt_rand().time();
 		$temppath=FCPATH.'tmp/files/'.$userdata['id'].'.html';
 		if (!write_file($temppath, $preview_html))
 			{

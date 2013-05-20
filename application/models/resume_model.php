@@ -193,11 +193,28 @@ class Resume_model extends CI_model{
 		}
 	}
 	
-	/*public function delete_exist()
+	public function alreadyViewed($member_id,$resume_id)
 	{
-		$this->db->where('id', $this->input->get('id'));
-		$result=$this->db->delete($this->input->get('table'));
-		echo $result;
-	}*/
+		$where=array('user_id'=>$member_id,'resume_id'=>$resume_id);
+		$this->db->where($where);
+		$this->db->from('resume_log');
+		if($this->db->count_all_results()>0)
+			return TRUE;
+		else
+			return FALSE;
+	}
+
+	public function getReachedLimit($member_id)
+	{
+		$this->db->where('user_id',$member_id);
+		$this->db->from('resume_log');
+		return $this->db->count_all_results();
+	}
+
+	public function updateLimit($member_id,$resume_id)
+	{
+		$data = array('user_id' => $member_id, 'resume_id' => $resume_id);
+		$this->db->insert('resume_log', $data); 
+	}
 }
 ?>

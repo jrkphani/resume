@@ -1,13 +1,9 @@
 <div id="search-content">
-    <script type="text/javascript">function serialize_form()
-{
-     return $('#myform').serialize();
-}
-</script>
+Search String : <?=implode(' | ', $searchStr)?> <? if(!$strID) { ?><button search="<?=implode(' | ', $searchStr)?>" id="saveSearch">Save</button> <?} ?>
 <form id="myform">
     <input type="hidden" name="search[]" value="php" />
     <div class="row-fluid">
-        Search String : <?=implode(' | ', $searchStr)?> <? if(!$strID) { ?><button search="<?=implode(' | ', $searchStr)?>" id="saveSearch">Save</button> <?} ?>
+        
         <div class="span12">
             <table cellpadding="10">
                 <tr style="height:30px;"><td>Name</td><td>Mobile</td><td>Experience</td></tr>

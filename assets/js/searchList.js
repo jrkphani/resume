@@ -11,3 +11,7 @@ $(document).ready(function(){
 		});
 	});
 });
+function serialize_form()
+{
+     return $('#myform').serialize();
+}

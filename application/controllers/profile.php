@@ -17,18 +17,7 @@ class Profile extends CI_Controller{
 	function index($error='')
 	{
 		$result=$this->profile_model->get_profile();
-		foreach($result as $row)
-		{
-			$data['user_id']=$row['user_id'];
-			$data['first_name']=$row['first_name'];
-			$data['last_name']=$row['last_name'];
-			$data['secondary_email']=$row['secondary_email'];
-			$data['mobile']=$row['mobile'];
-			$data['landline']=$row['landline'];
-			$data['address']=$row['address'];
-			$data['website']=$row['website'];
-			$data['photo']=$row['photo'];
-		}
+		$data=$result[0];
 		if($error)
 			$data['error']=$error;
 		else

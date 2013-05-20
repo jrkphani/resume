@@ -6,43 +6,43 @@
 	 			<form class="form-horizontal" >
 					  <div class="control-group">
 					    <label class="control-label" >Name</label>
-					    <div class="controls"><?php echo $first_name.'&nbsp;&nbsp;'.$last_name; ?></div>
+					    <div class="controls"><?php echo $user_info['first_name'].'&nbsp;&nbsp;'.$user_info['last_name']; ?></div>
 					  </div>
 					   <div style="float:right;">
-                       		<?php if($photo) { ?>
-                            	<img src="<? echo base_url($this->config->item('path_profile_img').$photo); ?>" id="profile_pic" />
+                       		<?php if($user_info['photo']) { ?>
+                            	<img src="<? echo base_url($this->config->item('path_profile_img').$user_info['photo']); ?>" id="profile_pic" />
                             <?php } else { ?>
 								<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" id="profile_pic" />
                             <?php } ?>
 						</div>
 					  <div class="control-group ">
 					    <label class="control-label">Tag line</label>
-					    <div class="controls"><?php echo $tag_line; ?></div>
+					    <div class="controls"><?php echo $user_info['tag_line']; ?></div>
 					  </div>
 					   <div class="control-group">
 					    <label class="control-label">Contact</label>
 					    <div class="controls">
-					      <?php echo $secondary_email.'&nbsp;&nbsp;'; if($mobile) echo $mobile; else if($landline) echo $landline; ?>
+					      <?php echo $user_info['secondary_email'].'&nbsp;&nbsp;'; if($user_info['mobile']) echo $user_info['mobile']; else if($user_info['landline']) echo $user_info['landline']; ?>
 					    </div>
 					  </div>
 					  
 					  <div class="control-group ">
 					    <label class="control-label">Address</label>
 					    <div class="controls">
-					      <?php echo $address; ?>
+					      <?php echo $user_info['address']; ?>
 					    </div>
 					  </div>
 					  <div class="control-group ">
 					    <label class="control-label">Website</label>
 					    <div class="controls">
-					      <?php echo $website; ?>
+					      <?php echo $user_info['website']; ?>
 					    </div>
 					  </div>
 					  <!--******************************************Experience********************************/-->
 					  <div class="control-group ">
 					    <label class="control-label">Experience</label>
 					    <div class="controls">
-					      <?php echo $experience; ?>
+					      <?php echo $user_info['experience']; ?>
 					    </div>
 					  </div>
 					  
@@ -50,7 +50,7 @@
 					  <div class="control-group ">
 					    <label class="control-label">Objective</label>
 					    <div class="controls">
-					      <?php echo $objective; ?>
+					      <?php echo $user_info['objective']; ?>
 					    </div>
 					  </div>
 					  
@@ -58,7 +58,7 @@
 					  <div class="control-group ">
 					    <label class="control-label">Summary</label>
 					    <div class="controls">
-					      <?php echo $summary; ?>
+					      <?php echo $user_info['summary']; ?>
 					    </div>
 					  </div>
 

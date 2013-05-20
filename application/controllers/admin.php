@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
  {
 	parent::__construct();
 	$current_user=$this->session->userdata('logged_in');
-	if($current_user['role']!='admin')
+	if($current_user['role']!='admin' && $current_user['role']!='member')
 	{
 		redirect(base_url());
 	}
@@ -205,28 +205,31 @@ class Admin extends CI_Controller {
  }
  function user($id)
  {
-	$this->load->model('resume_model');
+ 	$this->load->model('resume_model');
+ 	$current_user=$this->session->userdata('logged_in');
+
+	if($current_user['role']=='member')
+	{
+		if($this->resume_model->alreadyViewed($current_user['id'],$id)==FALSE)
+		{
+			$reached_limit=$this->resume_model->getReachedLimit($current_user['id']);
+			if($current_user['limit']<=$reached_limit)
+			{
+				echo 'Your are reached max allowed limit.';die;
+			}
+			else
+			{
+				$this->resume_model->updateLimit($current_user['id'],$id);
+			}
+		}
+	}
+
 	$result=$this->resume_model->basic_details($id);
 	$data['result2']=$this->resume_model->skill_details($id);
 	$data['result3']=$this->resume_model->company_details($id);
 	$data['result4']=$this->resume_model->project_details($id);
 	$data['result5']=$this->resume_model->education_details($id);
-	
-	foreach($result as $row)
-		 {
-			 $data['first_name']=$row['first_name'];
-			 $data['last_name']=$row['last_name'];
-			 $data['tag_line']=$row['tag_line'];
-			 $data['secondary_email']=$row['secondary_email'];
-			 $data['mobile']=$row['mobile'];
-			 $data['landline']=$row['landline'];
-			 $data['address']=$row['address'];
-			 $data['website']=$row['website'];
-			 $data['photo']=$row['photo'];
-			 $data['experience']=$row['experience'];
-			 $data['objective']=$row['objective'];
-			 $data['summary']=$row['summary'];
-		 }
+	$data['user_info']=$result[0];
 	
 	$data['view_page']='userView';
 	$this->load->view('template',$data);

@@ -24,6 +24,7 @@ class Registration extends CI_Controller {
 		  $this->form_validation->set_rules('email_address', 'Email', 'trim|required|valid_email');
 		  $this->form_validation->set_rules('pass_word', 'Password', 'trim|required|min_length[4]|max_length[32]');
 		  //$this->form_validation->set_rules('con_password', 'Password Confirmation', 'trim|required|matches[password]');
+		  $this->form_validation->set_rules('role', 'Type', 'required');
 
 		  if($this->form_validation->run() == FALSE)
 		  {
@@ -40,6 +41,7 @@ class Registration extends CI_Controller {
 							'lastname'=>$this->input->post('lastname'),
 							'email'=>$this->input->post('email_address'),
 							'password'=>md5($this->input->post('pass_word')),
+							'role'=>$this->input->post('role'),
 							'active'=>sha1(mt_rand(10000,99999).time().$this->input->post('email_address'))
 						  );
 			$check_data=array('email'=>$post_data['email']);
@@ -58,8 +60,16 @@ class Registration extends CI_Controller {
 					$this->email->to($post_data['email']);
 					#$this->email->cc('another@another-example.com');
 					#$this->email->bcc('them@their-example.com');
-					$this->email->subject('Verify your account @ Digitalchakra');
-					$message= 'Verify your the registered account in <a href="'.base_url('registration/activation/'.$this->db->insert_id().'/'.$post_data['active']).'"> Digitalchakra Resume App </a>'; 
+					if($post_data['role']=='user')
+					{
+						$this->email->subject('Verify your account @ Digitalchakra');
+						$message= 'Verify your the registered account in <a href="'.base_url('registration/activation/'.$this->db->insert_id().'/'.$post_data['active']).'"> Digitalchakra Resume App </a>'; 
+					}
+					else if($post_data['role']=='member')
+					{
+						$this->email->subject('Thank you for register as member');
+						$message= 'We will alert you after admin approval'; 
+					}
 					$this->email->message($message);
 					if($this->email->send())
 					{

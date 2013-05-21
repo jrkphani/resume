@@ -46,7 +46,7 @@ Class User extends CI_Model
   
 	$this->db->set('first_name',$data['firstname']);
 	$this->db->set('last_name',$data['lastname']);
-	$this->db->set('role','user');
+	$this->db->set('role',$data['role']);
 	$this->db->set('secondary_email',$data['email']);
   $this->db->set('flag','1');
 	$this->db->set('status','1');
@@ -104,6 +104,7 @@ Class User extends CI_Model
    if($query -> num_rows() == 1)
    {
 	   $data = array('active' => 1);
+     $this -> db -> where('id', $id);
 	   $this ->db ->update('users',$data);
      return true;
    }

@@ -32,6 +32,13 @@
 			    </div>
 			  </div>
 			  <div class="control-group">
+			    <label class="control-label" for="inputType">Type</label>
+			    <div class="controls">
+			      <input type="radio" name="role" id="role" value="user" checked="checked" >User&nbsp&nbsp
+			      <input type="radio" name="role" id="role" value="member">Member
+			    </div>
+			  </div>
+			  <div class="control-group">
 			    <div class="controls">
 			        <span id="signupsubmit" class="signUpbutton">Sign Up</span>
 			    </div>

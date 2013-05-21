@@ -24,7 +24,8 @@ class Profile_model extends CI_Model{
 					'landline' => $this->input->post('landline'),
 					'website' => $this->input->post('website'),
 					'address' => $this->input->post('address'),
-					);	
+					);
+
 		if($_POST['photo_name'])
 		{
 			$user_id=$this->get_userid();
@@ -35,6 +36,26 @@ class Profile_model extends CI_Model{
 			rename(FCPATH.$this->config->item('path_temp_img').$name,FCPATH.$this->config->item('path_profile_img').$user_id.'/'.$new_name);
 			$data['photo']=$new_name;
 		}
+
+		if($data['first_name']!='' && $data['last_name']!='' && $data['secondary_email']!='' && $data['mobile']!='')
+		{
+			$arr=$this->session->userdata('logged_in');
+			if($arr['flag']=='1')
+			{
+				$data['flag']='0';
+				$sess_array = array(
+						         'id' => $arr['id'],
+						         'email' => $arr['email'],
+								 'firstname' => $arr['firstname'],
+								 'lastname' => $arr['lastname'],
+								 'role' => $arr['role'],
+						         'limit' => $arr['limit'],
+						         'flag' => '0',
+						       );
+				$this->session->set_userdata('logged_in', $sess_array);
+			}
+		}
+
 		$this->db->where('user_id',$this->get_userid());
 		$this->db->update('user_detail', $data); 
 	}

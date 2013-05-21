@@ -27,8 +27,13 @@ class VerifyLogin extends CI_Controller {
    }
    else
    {
-		$arr=$this->session->userdata('logged_in');
+    $arr=$this->session->userdata('logged_in');
+    /*if(!$this->user->profile_check($arr['id']))
+      $data['profile_check']=FALSE;
+    else
+      $data['profile_check']=TRUE;*/
 		$data['role']=$arr['role'];
+    $data['flag']=$arr['flag'];
 		$data['success']='yes';
 		$result['resultset']=$data;
 		$this->load->view('json',$result);
@@ -56,6 +61,7 @@ class VerifyLogin extends CI_Controller {
 		 'lastname' => $row->last_name,
 		 'role' => $row->role,
          'limit' => $row->limit,
+         'flag' => $row->flag,
        );
      }
 	 $this->session->set_userdata('logged_in', $sess_array);

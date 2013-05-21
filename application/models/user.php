@@ -3,7 +3,7 @@ Class User extends CI_Model
 {
  function login($username, $password)
  {
-   $this -> db -> select('users.id,users.email,user_detail.first_name,user_detail.last_name,user_detail.role,user_detail.limit');
+   $this -> db -> select('users.id,users.email,user_detail.first_name,user_detail.last_name,user_detail.role,user_detail.limit,user_detail.flag');
    $this -> db -> from('users');
    $this -> db -> where('users.email', $username);
    $this -> db -> where('users.password', MD5($password));
@@ -12,7 +12,7 @@ Class User extends CI_Model
    $this -> db -> join('user_detail','users.id=user_detail.user_id');
 
    $query = $this -> db -> get();
-   $this->db->last_query();
+   /*$this->db->last_query();*/
 
    if($query -> num_rows() == 1)
    {
@@ -23,6 +23,19 @@ Class User extends CI_Model
      return false;
    }
  }
+ /*function profile_check($id)
+ {
+  $this->db->select('first_name,last_name,secondary_email,mobile');
+  $this->db->where('user_id',$id);
+  $this->db->from('user_detail');
+  $query=$this->db->get();
+  $result=$query->result_array();
+  if($result[0]['first_name']=='' || $result[0]['last_name']=='' || $result[0]['secondary_email']=='' || $result[0]['mobile']=='')
+    return false;
+  else
+    return true;
+ }*/
+
  function add_user($data)
  {
 	// $code=sha1(mt_rand(10000,99999).time().$this->input->post('email_address'));
@@ -35,6 +48,7 @@ Class User extends CI_Model
 	$this->db->set('last_name',$data['lastname']);
 	$this->db->set('role','user');
 	$this->db->set('secondary_email',$data['email']);
+  $this->db->set('flag','1');
 	$this->db->set('status','1');
 	$this->db->set('user_id',$this->db->insert_id());
 	$this->db->insert('user_detail');

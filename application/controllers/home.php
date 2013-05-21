@@ -22,6 +22,9 @@ class Home extends CI_Controller {
 	   if($this->session->userdata('logged_in'))
 	   {
 		 $session_data = $this->session->userdata('logged_in');
+		 if($session_data['flag']==1)
+		 	redirect('profile', 'refresh');
+
 		 $data['email'] = $session_data['email'];
 		 $data['view_page'] = 'home';
 		 

@@ -9,19 +9,22 @@ class Login extends CI_Controller {
 
  function index()
  {
-	 if($this->session->userdata('logged_in'))
-	   {
-		 //$session_data = $this->session->userdata('logged_in');
-		 //$data['username'] = $session_data['username'];
-		 //$this->load->view('home', $data);
-		 redirect('home', 'refresh');
-	   }
-	   else
-	   {
-		$this->load->helper(array('form'));
-		$data['view_page'] = 'login_view';
-		$this->load->view('template', $data);
-	   }
+	$current_user=$this->session->userdata('logged_in');
+	if($current_user)
+	{
+		if($current_user['role']=='user')
+	 		redirect('home', 'refresh');
+	 	else if($current_user['role']=='member')
+	 		redirect('/admin', 'refresh');
+	 	else if($current_user['role']=='admin')
+	 		redirect('/admin/userlist', 'refresh');
+	}
+	else
+	{
+	$this->load->helper(array('form'));
+	$data['view_page'] = 'login_view';
+	$this->load->view('template', $data);
+	}
  }
  function login()
  {

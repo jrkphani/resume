@@ -52,10 +52,17 @@ $(document).ready(function()
 				{
 					if(data.resultset.success=='yes')
 					{
-						if(data.resultset.role=='user')
-							window.location.href=baseurl+"home";
-						else if(data.resultset.role=='admin' || data.resultset.role=='member')
-							window.location.href=baseurl+"admin";
+						if(data.resultset.flag==1)
+							window.location.href=baseurl+"profile";
+						else
+						{
+							if(data.resultset.role=='user')
+								window.location.href=baseurl+"home";
+							else if(data.resultset.role=='member')
+								window.location.href=baseurl+"admin";
+							else if(data.resultset.role=='admin')
+								window.location.href=baseurl+"admin/userlist";
+						}
 					}
 					else
 					{

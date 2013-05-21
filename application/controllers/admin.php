@@ -6,6 +6,8 @@ class Admin extends CI_Controller {
  {
 	parent::__construct();
 	$current_user=$this->session->userdata('logged_in');
+	if($current_user['flag']==1) //check for profile complition
+		redirect('profile', 'refresh');
 	if($current_user['role']!='admin' && $current_user['role']!='member')
 	{
 		redirect(base_url());
@@ -209,7 +211,7 @@ class Admin extends CI_Controller {
  	$current_user=$this->session->userdata('logged_in');
 
 	if($current_user['role']=='member')
-	{
+	{	
 		if($this->resume_model->alreadyViewed($current_user['id'],$id)==FALSE)
 		{
 			$reached_limit=$this->resume_model->getReachedLimit($current_user['id']);

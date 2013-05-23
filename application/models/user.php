@@ -49,7 +49,6 @@ Class User extends CI_Model
 	$this->db->set('role',$data['role']);
 	$this->db->set('secondary_email',$data['email']);
   $this->db->set('flag','1');
-	$this->db->set('status','1');
 	$this->db->set('user_id',$this->db->insert_id());
 	$this->db->insert('user_detail');
 	
@@ -113,9 +112,9 @@ Class User extends CI_Model
 	   return false;
    }
  }
- function userList()
+ function userList($current_user)
  {
-  //$this -> db -> select('id');
+  $this -> db -> where('user_id !=', $current_user);
   $this -> db -> from('user_detail');
   return $this -> db -> get()->result();
  }

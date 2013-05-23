@@ -11,6 +11,7 @@ $(document).ready(function()
 		}
 		else
 		{
+			update();
 			$.ajax({
 				url: baseurl+'preview', 
 				type: 'post',
@@ -304,11 +305,50 @@ function removeId(ID)
 {
 $('#'+ID).remove();
 }
-function testt(temp_link)
+function updateDownload(temp_link) //not in use
 {
 	document.getElementById('download_file').value=temp_link;
 	var form=document.getElementById('resume_form');
 	form.method="post";
 	form.action=baseurl+'resume/update_download';
 	form.submit();
+}
+function update()
+{
+	$.ajax({
+	url: baseurl+'resume/update_download', 
+	type: 'post',
+	data: $('#resume_form').serialize(),
+	error:function()
+	{
+		alert('Could not save. Internal error, Please try agian!');
+	}
+	});
+}
+function makeOnline(user_id)
+{
+	frames = document.getElementsByTagName('iframe');
+	frames[0].setAttribute("id", "iFrameID");
+	var ifrm = document.getElementById('iFrameID');
+	var doc = ifrm.contentDocument? ifrm.contentDocument: ifrm.contentWindow.document;
+
+	var img=document.getElementById('profile_pic').getAttribute('src');
+	
+	if (window.XMLHttpRequest)
+	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			doc.getElementById('msg_online').innerHTML=xmlhttp.responseText;
+		}
+	} 
+	xmlhttp.open("GET",baseurl+'resume/makeOnline/?user_id='+user_id+'&img='+img,true);
+	xmlhttp.send();
 }

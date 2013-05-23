@@ -71,6 +71,27 @@ class Resume extends CI_Controller
 		$education['id']=$this->input->post('eduInstID');
 
 		$this->resume_model->update($userdata['id'],$user_detail,$skill,$company,$project,$education);
-		header('location:'.$_POST['download_file']);
+		/*header('location:'.$_POST['download_file']);*/
+	}
+
+	function makeOnline()
+	{
+		$user_id=$_GET['user_id'];
+		$img=$_GET['img'];
+		$img_to=FCPATH.$this->config->item('path_profile_img').$user_id.'/'.$user_id.'.html';
+
+		if(!file_exists(FCPATH.$this->config->item('path_profile_img').$user_id))
+			 mkdir(FCPATH.$this->config->item('path_profile_img').$user_id);
+		$from=FCPATH.$this->config->item('path_temp_file').$user_id.'.html';
+		$to=FCPATH.$this->config->item('path_profile_img').$user_id.'/'.$user_id.'.html';
+		if (copy($from, $to))
+		{
+			/*$file_contents = file_get_contents($to);
+			$file_contents = str_replace($img,"http://www.mom2momkc.com/images/add_icon.gif",$file_contents);
+			file_put_contents($to,$file_contents);*/
+    		echo 'Now your resume will avail on online.';
+    	}
+    	else
+    		echo 'Internal Error.';
 	}
 }

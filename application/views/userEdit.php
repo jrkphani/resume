@@ -40,8 +40,9 @@
             <tr>
                 <td>Role</td>
                 <td>
-					<input type="radio" name="role" value="user" <?php if($user->role=='user') { ?> checked <?php } ?> />User&nbsp;&nbsp;
-                    <input type="radio" name="role" value="admin" <?php if($user->role=='admin') { ?> checked <?php } ?> />Admin
+					<input type="radio" name="role" value="user" <?php if($user->role=='user') { ?> checked="checked" <?php } ?> />User&nbsp;&nbsp;
+                    <input type="radio" name="role" value="member" <?php if($user->role=='member') { ?> checked="checked" <?php } ?> />Member&nbsp;&nbsp;
+                    <input type="radio" name="role" value="admin" <?php if($user->role=='admin') { ?> checked="checked" <?php } ?> />Admin
                 </td>
             </tr>
             <tr>

@@ -73,7 +73,7 @@ function updateUser()
 
 	if ($this->form_validation->run() === FALSE)
 	{
-		$this->edit($this->input->post('id'));
+		$this->editUser($this->input->post('user_id'));
 	}
 	else
 	{
@@ -101,10 +101,16 @@ function updateUser()
 			rename(FCPATH.$this->config->item('path_temp_img').$name,FCPATH.$this->config->item('path_profile_img').$user_id.'/'.$new_name);
 			$data['photo']=$new_name;
 		}
-		
+
+		//Set profile complition flag
+		if($data['first_name']!='' && $data['last_name']!='' && $data['secondary_email']!='' && $data['mobile']!='')
+			$data['flag']='0';
+		else
+			$data['flag']='1';
+
 		$this->user->userUpdate($data,$this->input->post('user_id'));
 		$msg=array('error'=>'Profile updated successfully.');
-		$this->userList();
+		redirect(base_url('admin/userList'));
 	}
 }
 

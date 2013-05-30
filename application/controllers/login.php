@@ -15,7 +15,7 @@ class Login extends CI_Controller {
 		if($current_user['role']=='user')
 	 		redirect('home', 'refresh');
 	 	else if($current_user['role']=='member')
-	 		redirect('/admin', 'refresh');
+	 		redirect('member', 'refresh');
 	 	else if($current_user['role']=='admin')
 	 		redirect('/admin/userlist', 'refresh');
 	}
@@ -35,7 +35,7 @@ class Login extends CI_Controller {
    $this->session->unset_userdata('logged_in');
    //session_destroy();
    $this->session->sess_destroy();
-   redirect('login', 'refresh');
+   redirect('home', 'refresh');
  }
 
 }

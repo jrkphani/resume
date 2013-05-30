@@ -1,154 +1,55 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
-
- function __construct()
- {
+function __construct()
+{
 	parent::__construct();
-	$current_user=$this->session->userdata('logged_in');
-	if($current_user['flag']==1) //check for profile complition
+	$this->current_user=$this->session->userdata('logged_in');
+	if($this->current_user['flag']==1) //check for profile complition
 		redirect('profile', 'refresh');
-	if($current_user['role']!='admin' && $current_user['role']!='member')
-	{
-		redirect(base_url());
-	}
- }
+	if($this->current_user['role']!='admin')
+		redirect('login', 'refresh');
+}
 
- function index()
- {
- 	$userdata=$this->session->userdata('logged_in');
- 	$data['view_page'] = 'admin';
- 	$data['searchList'] = $this->loadSearchList($userdata['id']);
+function index()
+{
+	$this->userList();
+}
+
+function userList()
+{
+	$arr=$this->session->userdata('logged_in');
+	$this->load->model('user');
+	$data['userlist']=$this->user->userList($arr['id']);
+	$data['view_page'] = 'userList';
 	$this->load->view('template', $data);
-	 
- }
- function searchSkills()
- {
- 	$userdata=$this->session->userdata('logged_in');
- 	//$strID = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
-	$strID=NULL;
- 	if(!$strID)
- 	{
- 		$str = $this->input->get_post('search', TRUE);
-	 	if($str)
-	 	{
-	 		$this->load->model('admin_model');/*print_r($str);*/
-		 	$data['result']=$this->admin_model->searchSkills($userdata['limit'],$str);
-		 	$data['view_page'] = 'searchList';
-		 	$data['strID'] = NULL;
-		 	$data['searchStr'] = $str;
-			$data['pagi']=$this->pagination($str);
-		 	$this->load->view('template', $data);
-	 	}
-	 	else
-	 	{
-	 		show_404();
-	 	}
- 	}
- 	else
- 	{
- 		$this->load->model('admin_model');
-	 	$result=$this->admin_model->loadSearchList($userdata['id'],$strID);
-	 	$searchStr=explode('|', $result[0]->string);
-	 	$data['result']=$this->admin_model->searchSkills($userdata['limit'],$searchStr);
-	 	$data['view_page'] = 'searchList';
-	 	$data['strID'] = $strID;
-		$data['searchStr'] = $searchStr;
-	 	$this->load->view('template', $data);
+}
 
- 	}
- }
-  function loadSearchList()
- {
- 		$userdata=$this->session->userdata('logged_in');
- 		$this->load->model('admin_model');
- 		return $this->admin_model->loadSearchList($userdata['id']);
-	 	//$data['resultset']=$this->admin_model->loadSearchList($userdata['id']);
-    	//$this->load->view('json',$data);
- }
- function pagination($str)
- {
-	$this->load->library('jquery_pagination');
-	$config['div'] = '#search-content';
-	$config['additional_param']  = 'serialize_form()';
-	$config['base_url'] = base_url().'admin/searchSkillsAjax';
-	$config['total_rows'] =  $this->admin_model->totalSearchSkills($str);
-	$config['per_page'] = 2;
-	$this->jquery_pagination->initialize($config);
-	return $this->jquery_pagination->create_links();
- }
- function searchSkillsAjax()
- {
-	$userdata=$this->session->userdata('logged_in');
-	$str = $this->input->get_post('search', TRUE);
-	if($str)
+function pendingUsers($msg='')
+{
+	$this->load->model('admin_model');
+	$data['userlist']=$this->admin_model->pendingUsers();
+	$data['view_page'] = 'pendingUsers';
+	$data['msg']=$msg;
+	$this->load->view('template', $data);
+}
+
+function activateUser($id='')
+{
+	$msg='';
+	if($id)
 	{
-		$this->load->model('admin_model');/*print_r($str);*/
-		$data['result']=$this->admin_model->searchSkills($userdata['limit'],$str);
-		$data['strID'] = NULL;
-		$data['searchStr'] = $str;
-		$data['pagi']=$this->pagination($str);
-		$this->load->view('searchList', $data);
+ 	$this->load->model('admin_model');
+ 	if($this->admin_model->activateUser($id))
+ 		$msg='Activated';
+ 	else
+ 		$msg='Internal Error.';
 	}
-	else
-	{
-		show_404();
-	}
- }
- function saveSearchList()
- {
- 	$str = $this->input->get_post('search', TRUE);
- 	if($str)
- 	{
- 		$userdata=$this->session->userdata('logged_in');
-		$this->load->model('admin_model');
-	 	if($this->admin_model->saveSearchList($userdata['id'],$str))
-	 	{
-	 		$data['resultset']['success']=1;
-	 	}
-	 	else
-	 	{
-	 		$data['resultset']['success']=-1;
-	 	}
-	 	
-	   	$this->load->view('json',$data);
-    }
-    else
- 	{
- 		show_404();
- 	}
- }
- function deleteSearchList()
- {
- 	$strID = $this->input->get_post('sid', TRUE);
- 	if($strID)
- 	{
-		$this->load->model('admin_model');
-	 	if($this->admin_model->deleteSearchList($strID))
-	 	{
-	 		$data['resultset']['success']=1;
-	 	}
-	 	else
-	 	{
-	 		$data['resultset']['success']=-1;
-	 	}
-	 	
-	   	$this->load->view('json',$data);
-    }
-    else
- 	{
- 		show_404();
- 	}
- }
- function userList()
- {
- 	$this->load->model('user');
- 	$data['userlist']=$this->user->userList();
- 	$data['view_page'] = 'userList';
- 	$this->load->view('template', $data);
- }
- function edit($id)
- {
+	$this->pendingUsers($msg);
+}
+
+function editUser($id)
+{
 	$this->load->helper('form');
 	$this->load->library('form_validation');
 		
@@ -157,9 +58,10 @@ class Admin extends CI_Controller {
 	$data['view_page'] = 'userEdit';
 	$data['user_id']=$id;
 	$this->load->view('template', $data);
- }
- function update()
- {
+}
+
+function updateUser()
+{
 	$this->load->helper('form');
 	$this->load->library('form_validation');
 	$this->load->model('user');
@@ -168,7 +70,7 @@ class Admin extends CI_Controller {
 	$this->form_validation->set_rules('last_name', 'Last Name', 'required');
 	$this->form_validation->set_rules('secondary_email', 'Secondary Email', 'required');
 	$this->form_validation->set_rules('mobile', 'Mobile Number', 'required');
-	
+
 	if ($this->form_validation->run() === FALSE)
 	{
 		$this->edit($this->input->post('id'));
@@ -204,37 +106,7 @@ class Admin extends CI_Controller {
 		$msg=array('error'=>'Profile updated successfully.');
 		$this->userList();
 	}
- }
- function user($id)
- {
- 	$this->load->model('resume_model');
- 	$current_user=$this->session->userdata('logged_in');
-
-	if($current_user['role']=='member')
-	{	
-		if($this->resume_model->alreadyViewed($current_user['id'],$id)==FALSE)
-		{
-			$reached_limit=$this->resume_model->getReachedLimit($current_user['id']);
-			if($current_user['limit']<=$reached_limit)
-			{
-				echo 'Your are reached max allowed limit.';die;
-			}
-			else
-			{
-				$this->resume_model->updateLimit($current_user['id'],$id);
-			}
-		}
-	}
-
-	$result=$this->resume_model->basic_details($id);
-	$data['result2']=$this->resume_model->skill_details($id);
-	$data['result3']=$this->resume_model->company_details($id);
-	$data['result4']=$this->resume_model->project_details($id);
-	$data['result5']=$this->resume_model->education_details($id);
-	$data['user_info']=$result[0];
-	
-	$data['view_page']='userView';
-	$this->load->view('template',$data);
- }
 }
+
+}//class end
 ?>

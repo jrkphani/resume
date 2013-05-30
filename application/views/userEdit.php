@@ -8,7 +8,7 @@
 <div class="row-fluid">
 	<div class="span12">
     	<span class="err-msg"><?php echo validation_errors(); if(@$error) echo @$error['error'];  ?></span>
-    	<?php $attributes = array('name' => 'form1', 'id' => 'form1'); echo form_open_multipart('admin/update',$attributes); ?>
+    	<?php $attributes = array('name' => 'form1', 'id' => 'form1'); echo form_open_multipart('admin/updateUser',$attributes); ?>
         <input type="hidden" name="photo_root" id="photo_root" value="" />
         <input type="hidden" name="photo_name" id="photo_name" value="" />
         <input type="hidden" name="photo_ext" id="photo_ext" value="" />

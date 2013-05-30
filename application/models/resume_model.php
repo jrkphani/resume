@@ -1,10 +1,5 @@
 <?php
 class Resume_model extends CI_model{
-	/*public function get_userid()
-	{
-		$arr=$this->session->userdata('logged_in');
-		return $arr['id'];
-	}*/
 	
 	function basic_details($id)
 	{
@@ -58,8 +53,6 @@ class Resume_model extends CI_model{
 		print_r($project); echo "<br>";
 		print_r($education); echo "<br>";
 		die;*/
-		
-		//$user_id=$this->get_userid();
 		
 		//update basic details
 		
@@ -191,30 +184,6 @@ class Resume_model extends CI_model{
 				$this->db->update('education',$educationdata);
 			}
 		}
-	}
-	
-	public function alreadyViewed($member_id,$resume_id)
-	{
-		$where=array('user_id'=>$member_id,'resume_id'=>$resume_id);
-		$this->db->where($where);
-		$this->db->from('resume_log');
-		if($this->db->count_all_results()>0)
-			return TRUE;
-		else
-			return FALSE;
-	}
-
-	public function getReachedLimit($member_id)
-	{
-		$this->db->where('user_id',$member_id);
-		$this->db->from('resume_log');
-		return $this->db->count_all_results();
-	}
-
-	public function updateLimit($member_id,$resume_id)
-	{
-		$data = array('user_id' => $member_id, 'resume_id' => $resume_id);
-		$this->db->insert('resume_log', $data); 
 	}
 }
 ?>

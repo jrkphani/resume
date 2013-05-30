@@ -18,10 +18,21 @@
 			<div class="headerLogo span2">
 				<h1><a href="<?=base_url()?>" title="Resume Builder">Resume Builder</a></h1>
 			</div>
-			<?php if($session_data = $this->session->userdata('logged_in')) {
-					?>
+			<?php if($session_data = $this->session->userdata('logged_in')) { ?>
 					<div class="span10 headerRight">
-						<p>Howdy! <?php echo $session_data['firstname']; ?> | <a href="<?php echo base_url('profile'); ?>">Profile</a> | <a href="<?php echo base_url('login/logout'); ?>">Logout</a></p>
+						<p>Howdy! <?php echo $session_data['firstname']; ?>&nbsp|&nbsp
+							<a href="<?php echo base_url('profile'); ?>">Profile</a>&nbsp|&nbsp
+							<?php if($session_data['role']=='user') { ?>
+								<a href="<?php echo base_url('home'); ?>">Resume</a>&nbsp|&nbsp
+							<?php } else if($session_data['role']=='member') { ?>
+								<a href="<?php echo base_url('member/searchresume'); ?>">Search</a>&nbsp|&nbsp
+								<a href="<?php echo base_url('member/selectedResume'); ?>">Selected Resume</a>&nbsp|&nbsp
+							<?php } else if($session_data['role']=='admin') { ?>
+								<a href="<?php echo base_url('admin'); ?>">User List</a>&nbsp|&nbsp
+								<a href="<?php echo base_url('admin/pendingusers'); ?>">Pending Members</a>&nbsp|&nbsp
+							<?php } ?>
+							<a href="<?php echo base_url('login/logout'); ?>">Logout</a>
+						</p>
 					</div>
 					<?php } else { ?>
 			<div class="span8 offset1 signIn">

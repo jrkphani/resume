@@ -59,5 +59,69 @@ function deleteSearchList($strID)
     return false;
 }
 
+public function checkViewed($member_id,$resume_id)
+{
+  $where=array('user_id'=>$member_id,'resume_id'=>$resume_id);
+  $this->db->where($where);
+  $this->db->from('resume_log');
+  if($this->db->count_all_results()>0)
+    return TRUE;
+  else
+    return FALSE;
+}
+
+public function getReachedLimit($member_id)
+{
+  $this->db->where('user_id',$member_id);
+  $this->db->from('resume_log');
+  return $this->db->count_all_results();
+}
+
+public function updateLimit($member_id,$resume_id)
+{
+  $data = array('user_id' => $member_id, 'resume_id' => $resume_id);
+  $this->db->insert('resume_log', $data); 
+}
+
+function selectResume($member_id,$resume_id)
+{
+  $this->db->set('select','1');
+  $where=array('user_id'=>$member_id,'resume_id'=>$resume_id);
+  $this->db->where($where);
+  return $this->db->update('resume_log');
+}
+
+function checkSelected($member_id,$resume_id)
+{
+  $where=array('user_id'=>$member_id,'resume_id'=>$resume_id,'select'=>'1');
+  $this->db->where($where);
+  $this->db->from('resume_log');
+  if($this->db->count_all_results()==1)
+      return true;
+  else
+      return false;
+}
+
+function selectedResume($user_id)
+{
+  $this-> db ->select('resume_log.resume_id,user_detail.first_name,user_detail.mobile,user_detail.experience');
+  $where=array('resume_log.select'=>'1','resume_log.user_id'=>$user_id);
+  $this -> db -> where ($where);
+  $this -> db -> from('resume_log');
+  $this ->  db -> join('user_detail','resume_log.resume_id=user_detail.user_id');
+  return $this -> db -> get()->result();
+}
+
+function downloadResume($ids,$fields='')
+{
+  if($fields)
+    $this->db->select($fields);
+  else
+    $this->db->select('first_name,mobile,experience');
+  $this->db->where_in('user_id',$ids);
+  $this->db->from('user_detail');
+  return $this->db->get()->result_array();
+}
+
 }//class end
 ?>

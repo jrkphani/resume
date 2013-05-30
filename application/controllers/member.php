@@ -78,7 +78,7 @@ function searchSkillsAjax()
 	$str = $this->input->get_post('search', TRUE);
 	if($str)
 	{
-		$this->load->model('member_model');/*print_r($str);*/
+		$this->load->model('member_model');
 		$data['result']=$this->member_model->searchSkills($this->current_user['limit'],$str);
 		$data['strID'] = NULL;
 		$data['searchStr'] = $str;
@@ -140,19 +140,20 @@ function deleteSearchList()
 function viewResume($id)
 {
  	$this->load->model('resume_model');
+ 	$this->load->model('member_model');
 
-	if($this->current_user['role']=='member')
+ 	if($this->current_user['role']=='member')
 	{	
-		if($this->resume_model->alreadyViewed($this->current_user['id'],$id)==FALSE)
+		if($this->member_model->checkViewed($this->current_user['id'],$id)==FALSE)
 		{
-			$reached_limit=$this->resume_model->getReachedLimit($this->current_user['id']);
+			$reached_limit=$this->member_model->getReachedLimit($this->current_user['id']);
 			if($this->current_user['limit']<=$reached_limit)
 			{
 				echo 'Your are reached max allowed limit.';die;
 			}
 			else
 			{
-				$this->resume_model->updateLimit($this->current_user['id'],$id);
+				$this->member_model->updateLimit($this->current_user['id'],$id);
 			}
 		}
 	}
@@ -163,6 +164,8 @@ function viewResume($id)
 	$data['result4']=$this->resume_model->project_details($id);
 	$data['result5']=$this->resume_model->education_details($id);
 	$data['user_info']=$result[0];
+	$data['resume_id']=$id;
+	$data['selected']=$this->member_model->checkSelected($this->current_user['id'],$id);
 	
 	$data['view_page']='viewResume';
 	$this->load->view('template',$data);
@@ -170,8 +173,38 @@ function viewResume($id)
 
 function selectResume($id)
 {
-	$this->load->model('resume_model');
-	echo $this->member->selectResume($this->current_user['id'],$id);
+	$this->load->model('member_model');
+	if($this->member_model->selectResume($this->current_user['id'],$id))
+		$this->viewResume($id);
+	else
+		echo 'Internal Error.';
+}
+
+function selectedResume()
+{
+	$this->load->model('member_model');
+	$data['userlist']=$this->member_model->selectedResume($this->current_user['id']);
+	$data['view_page'] = 'selectedResume';
+	$this->load->view('template', $data);
+}
+
+function downloadResume($type='')
+{
+	$this->load->model('member_model');
+	if($type=='custom')
+	{
+		$data['result']=$this->member_model->downloadResume($this->input->post('check'),$this->input->post('selected_fileds'));
+		$data['titles']=$this->input->post('selected_fileds');
+		//$data['titles']=$this->input->post('selected_titles');
+	}
+	else
+	{
+		$data['result']=$this->member_model->downloadResume($this->input->post('check'));
+		$data['titles']=array('Name','Mobile','Experience');
+	}
+
+	$data['view_page']='downloadResume';
+	$this->load->view('downloadResume',$data);
 }
 
 }//class end

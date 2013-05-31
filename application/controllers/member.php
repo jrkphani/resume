@@ -149,7 +149,7 @@ function viewResume($id)
 			$reached_limit=$this->member_model->getReachedLimit($this->current_user['id']);
 			if($this->current_user['limit']<=$reached_limit)
 			{
-				echo 'Your are reached max allowed limit.';die;
+				redirect(base_url('member/limitReached'));
 			}
 			else
 			{
@@ -168,6 +168,13 @@ function viewResume($id)
 	$data['selected']=$this->member_model->checkSelected($this->current_user['id'],$id);
 	
 	$data['view_page']='viewResume';
+	$this->load->view('template',$data);
+}
+
+function limitReached()
+{
+	$data['msg']='Your are reached max allowed limit.';
+	$data['view_page']='limitReached';
 	$this->load->view('template',$data);
 }
 

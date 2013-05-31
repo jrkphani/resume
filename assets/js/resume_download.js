@@ -1,12 +1,36 @@
 // JavaScript Document
 
 $(document).ready(function(){
-	$(".toggleCustomize").click(function(){
+	$(".toggleCustomize").click(function(){		//Toggle customize DIV
 		$("#customizeDownload").toggle();
 	});
 });
 
-function checkAll()		//check all sub check boxes and make color changes when main check box is cliked.
+function selectResume(id)
+{
+	if (window.XMLHttpRequest)
+	{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+			if(xmlhttp.responseText)
+				document.getElementById('select-control').innerHTML='Selected';
+			else
+				document.getElementById('msg').innerHTML='Internal Error';
+		}
+	} 
+	xmlhttp.open("GET",baseurl+'member/selectResume/?id='+id,true);
+	xmlhttp.send();
+}
+
+function checkAll()		//Check all sub check boxes
 {
 	val=document.getElementById('check_all');
 	var checks = document.getElementsByName('check[]');
@@ -23,7 +47,7 @@ function checkAll()		//check all sub check boxes and make color changes when mai
 	}
 }
 
-function downloadResume(type='')
+function downloadResume(type='')	//Download selected resumes with and without customize
 {
 	var checks = document.getElementsByName('check[]');
 	var boxLength = checks.length;

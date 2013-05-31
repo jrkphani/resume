@@ -178,13 +178,14 @@ function limitReached()
 	$this->load->view('template',$data);
 }
 
-function selectResume($id)
+function selectResume()
 {
+	$id=$this->input->get('id');
 	$this->load->model('member_model');
 	if($this->member_model->selectResume($this->current_user['id'],$id))
-		$this->viewResume($id);
+		echo true;
 	else
-		echo 'Internal Error.';
+		echo false;
 }
 
 function selectedResume()

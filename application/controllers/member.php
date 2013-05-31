@@ -198,14 +198,15 @@ function selectedResume()
 function downloadResume($type='')
 {
 	$this->load->model('member_model');
+	$checked=$this->input->post('check');
 	if($type=='custom')
 	{
-		$data['result']=$this->member_model->downloadResume($this->input->post('check'),$this->input->post('selected_fileds'));
+		$data['result']=$this->member_model->downloadResume($checked,$this->input->post('selected_fileds'));
 		$data['titles']=explode('|',$this->input->post('selected_titles'));
 	}
 	else
 	{
-		$data['result']=$this->member_model->downloadResume($this->input->post('check'));
+		$data['result']=$this->member_model->downloadResume($checked);
 		$data['titles']=array('Name','Mobile','Experience');
 	}
 

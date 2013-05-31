@@ -10,7 +10,7 @@
 				<tr>
 					<td>
 						<input type="checkbox" name="selected_fileds[]" value="first_name" style="display:inherit; " />
-						<input type="hidden" name="selected_titles[]" value="Name" style="display:inherit; " />
+						<input type="hidden" name="selected_titles" id="selected_titles" style="display:inherit; " />
 					</td>
 					<td>Name</td>
 				</tr>

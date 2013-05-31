@@ -194,8 +194,7 @@ function downloadResume($type='')
 	if($type=='custom')
 	{
 		$data['result']=$this->member_model->downloadResume($this->input->post('check'),$this->input->post('selected_fileds'));
-		$data['titles']=$this->input->post('selected_fileds');
-		//$data['titles']=$this->input->post('selected_titles');
+		$data['titles']=explode('|',$this->input->post('selected_titles'));
 	}
 	else
 	{

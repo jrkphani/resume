@@ -1,16 +1,15 @@
 <?php
-$fp = fopen(FCPATH.$this->config->item('path_temp_file').'Selected_Resumes.csv', 'w');
-fputcsv($fp, $titles);
+header("Content-Type: text/csv");  
+header("Cache-Control: no-store, no-cache");  
+header('Content-Disposition: attachment; Filename="Selected_Resumes.csv"');
+
+$outstream = fopen("php://output",'w');  
+
+//$outstream = fopen(FCPATH.$this->config->item('path_temp_file').'Selected_Resumes.csv', 'w');
+fputcsv($outstream, $titles);
 
 foreach ($result as $data) {
-    fputcsv($fp, $data);
+    fputcsv($outstream, $data);
 }
-fclose($fp);
-
-header("Content-Type: application/csv");
-header("Content-Disposition: attachment;Filename=Selected_Resumes.csv");
-
-// send file to browser
-readfile(FCPATH.$this->config->item('path_temp_file').'Selected_Resumes.csv');
-unlink(FCPATH.$this->config->item('path_temp_file').'Selected_Resumes.csv');
+fclose($outstream);
 ?>

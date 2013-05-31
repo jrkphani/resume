@@ -45,16 +45,26 @@ function downloadResume(type='')
 		var checks = document.getElementsByName('selected_fileds[]');
 		var boxLength = checks.length;
 		var checked=0;
+		var titles=new Array();
 		for(i=0;i<boxLength;i++)
 		{
 			if(checks[i].checked==true)
+			{
 				++checked;
+				if(checks[i].value=='first_name')
+					titles.push('Name');
+				else if(checks[i].value=='mobile')
+					titles.push('Mobile');
+				else if(checks[i].value=='experience')
+					titles.push('Experience');
+			}
 		}
 		if(checked==0)
 		{
 			alert("Please select atleast one categorie.");
 			return false;
 		}
+		document.getElementById('selected_titles').value=titles.join("|");
 		form.action=baseurl+'member/downloadResume/custom';
 	}
 	else

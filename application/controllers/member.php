@@ -183,9 +183,11 @@ function selectResume()
 	$id=$this->input->get('id');
 	$this->load->model('member_model');
 	if($this->member_model->selectResume($this->current_user['id'],$id))
-		echo true;
+		$data['success']='yes';
 	else
-		echo false;
+		$data['success']='no';
+	$result['resultset']=$data;
+    $this->load->view('json',$result);
 }
 
 function selectedResume()

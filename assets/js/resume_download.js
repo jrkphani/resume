@@ -4,33 +4,31 @@ $(document).ready(function(){
 	$(".toggleCustomize").click(function(){		//Toggle customize DIV
 		$("#customizeDownload").toggle();
 	});
+
+	$("#select-link").click(function(){
+		var id=$(this).attr('data');
+		$.ajax({
+			url: baseurl+'member/selectResume/', 
+			type: 'get',
+			data: {'id':id},
+			dataType: 'json',
+			success:function(data)
+			{
+				if(data.resultset.success=='yes')
+					document.getElementById('select-control').innerHTML='Selected';
+				else
+					document.getElementById('msg').innerHTML='Internal Error, Please try agian!';
+				
+			},
+			error:function()
+			{
+				alert('Internal error, Please try agian!');
+			}
+		});
+	})
 });
 
-function selectResume(id)
-{
-	if (window.XMLHttpRequest)
-	{// code for IE7+, Firefox, Chrome, Opera, Safari
-		xmlhttp=new XMLHttpRequest();
-	}
-	else
-	{// code for IE6, IE5
-		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xmlhttp.onreadystatechange=function()
-	{
-		if (xmlhttp.readyState==4 && xmlhttp.status==200)
-		{
-			if(xmlhttp.responseText)
-				document.getElementById('select-control').innerHTML='Selected';
-			else
-				document.getElementById('msg').innerHTML='Internal Error';
-		}
-	} 
-	xmlhttp.open("GET",baseurl+'member/selectResume/?id='+id,true);
-	xmlhttp.send();
-}
-
-function checkAll()		//Check all sub check boxes
+function checkAll()		//Check all sub checkboxes
 {
 	val=document.getElementById('check_all');
 	var checks = document.getElementsByName('check[]');

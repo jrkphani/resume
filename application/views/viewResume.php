@@ -4,7 +4,7 @@
 			<div style="float: right; padding: 10px;" id="select-control">
 				<span id="msg"></span>
 	 			<?php if($selected) echo 'Selected'; else { ?>
-	 			<a href="javascript:void(0);" onclick="return selectResume('<?php echo $resume_id; ?>');">Select resume</a>
+	 				<a href="javascript:void(0);" data="<?php echo $resume_id; ?>" id="select-link">Select resume</a>
 	 			<?php } ?>
 			</div>
 			<!--T1_form-->

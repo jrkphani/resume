@@ -112,7 +112,7 @@ function selectedResume($user_id)
   return $this -> db -> get()->result();
 }
 
-function downloadResume($ids,$fields='')
+function downloadResume($ids,$fields=NULL)
 {
   if($fields)
     $this->db->select($fields);

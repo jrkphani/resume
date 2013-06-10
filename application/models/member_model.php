@@ -50,6 +50,11 @@ function saveSearchList($userID,$str)
     return false;
 }
 
+function lastInsertID()
+{
+  return $this->db->insert_id();
+}
+
 function deleteSearchList($strID)
 {
   $this->db->where('id',$strID);

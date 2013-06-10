@@ -17,6 +17,8 @@ function index()
 
 function searchResume()
 {
+	$str = $this->input->get_post('search', TRUE);//new code
+	$data['searchStr'] = $str; //new code
 	$this->load->model('member_model');
 	$data['searchList']=$this->member_model->loadSearchList($this->current_user['id']);
 	$data['view_page'] = 'searchResume';
@@ -75,15 +77,32 @@ function pagination($str)
 
 function searchSkillsAjax()
 {
-	$str = $this->input->get_post('search', TRUE);
+	$strType = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
+	$this->load->model('member_model');
+
+	if($strType!='exist')
+	{
+		$str = $this->input->get_post('search', TRUE);
+		$data['strID'] = NULL;
+	}
+	else
+	{
+		$strID = $this->uri->segment(4);
+		$result=$this->member_model->loadSearchList($this->current_user['id'],$strID);
+	 	$str=explode('|', $result[0]->string);
+	 	$data['strID'] = $strID;
+	}
+
 	if($str)
 	{
-		$this->load->model('member_model');
 		$data['result']=$this->member_model->searchSkills($this->current_user['limit'],$str);
-		$data['strID'] = NULL;
+
+		//privious search list
+		$data['searchList']=$this->member_model->loadSearchList($this->current_user['id']);
+		$data['view_page'] = 'searchResume';
 		$data['searchStr'] = $str;
 		$data['pagi']=$this->pagination($str);
-		$this->load->view('searchList', $data);
+		$this->load->view('searchResume', $data);
 	}
 	else
 	{
@@ -100,6 +119,7 @@ function saveSearchList()
 	 	if($this->member_model->saveSearchList($this->current_user['id'],$str))
 	 	{
 	 		$data['resultset']['success']=1;
+	 		$data['resultset']['id']=$this->member_model->lastInsertID();
 	 	}
 	 	else
 	 	{

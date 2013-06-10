@@ -45,7 +45,7 @@ function checkAll()		//Check all sub checkboxes
 	}
 }
 
-function downloadResume(type='')	//Download selected resumes with and without customize
+function downloadResume(type)	//Download selected resumes with and without customize
 {
 	var checks = document.getElementsByName('check[]');
 	var boxLength = checks.length;

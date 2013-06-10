@@ -73,7 +73,7 @@ $(document).ready(function(){
                     var query=tmp_array.join(' | ');
 
                     var id=data.resultset.id;
-                    $('#previousSearch').prepend('<tr id='+id+'><td><a href="javascript:void(0);">'+query+'</a><span onclick="remove('+id+');">X</span></td></tr>');
+                    $('#previousSearch').prepend('<tr id='+id+'><td><a href="javascript:void(0);">'+query+'</a><span onclick="removeExistSearch('+id+');">X</span></td></tr>');
     				$('#saveSearch').remove();
                 }
                 else
@@ -96,7 +96,7 @@ function serialize_form()
 }
 
 //Remove saved skill
-function remove(strID)
+function removeExistSearch(strID)
 {
     $.ajax({
             url:baseurl+"member/deleteSearchList",

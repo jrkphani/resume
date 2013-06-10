@@ -46,7 +46,7 @@
             <tr id="<?=$single->id?>">
                 <td>
                     <a href="javascript:void(0);" data="<?=$single->id?>" class="existSearch"><?=$single->string?></a>
-                    <span onclick="remove('<?=$single->id?>');">X</span>
+                    <span onclick="removeExistSearch('<?=$single->id?>');">X</span>
                 </td>
             </tr>
             <?}?>

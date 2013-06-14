@@ -1,3 +1,4 @@
+<?php die; ?>
 <div class="row-fluid">
 	<div class="span12">
 		<div id="msg"><?php if($msg) echo $msg; ?></div>

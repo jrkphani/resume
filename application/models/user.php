@@ -12,8 +12,6 @@ Class User extends CI_Model
    $this -> db -> join('user_detail','users.id=user_detail.user_id');
 
    $query = $this -> db -> get();
-   /*$this->db->last_query();*/
-
    if($query -> num_rows() == 1)
    {
      return $query->result();
@@ -23,18 +21,6 @@ Class User extends CI_Model
      return false;
    }
  }
- /*function profile_check($id)
- {
-  $this->db->select('first_name,last_name,secondary_email,mobile');
-  $this->db->where('user_id',$id);
-  $this->db->from('user_detail');
-  $query=$this->db->get();
-  $result=$query->result_array();
-  if($result[0]['first_name']=='' || $result[0]['last_name']=='' || $result[0]['secondary_email']=='' || $result[0]['mobile']=='')
-    return false;
-  else
-    return true;
- }*/
 
  function add_user($data)
  {
@@ -111,24 +97,6 @@ Class User extends CI_Model
    {
 	   return false;
    }
- }
- function userList($current_user)
- {
-  $this -> db -> where('user_id !=', $current_user);
-  $this -> db -> from('user_detail');
-  return $this -> db -> get()->result();
- }
- function userDetails($id)
- {
-  //$this -> db -> select('id');
-  $this -> db -> from('user_detail');
-  $this->db->where('id',$id);
-  return $this -> db -> get()->result();
- }
- function userUpdate($data,$id)
- {
-	$this->db->where('user_id',$id);
-	$this->db->update('user_detail', $data);
  }
 }
 ?>

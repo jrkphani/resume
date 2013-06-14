@@ -29,7 +29,6 @@
 								<a href="<?php echo base_url('member/selectedResume'); ?>">Selected Resume</a>&nbsp|&nbsp
 							<?php } else if($session_data['role']=='admin') { ?>
 								<a href="<?php echo base_url('admin'); ?>">User List</a>&nbsp|&nbsp
-								<a href="<?php echo base_url('admin/pendingusers'); ?>">Pending Members</a>&nbsp|&nbsp
 							<?php } ?>
 							<a href="<?php echo base_url('login/logout'); ?>">Logout</a>
 						</p>

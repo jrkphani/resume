@@ -16,36 +16,94 @@ function index()
 	$this->userList();
 }
 
-function userList()
+function userList()	//Load at first time
 {
 	$arr=$this->session->userdata('logged_in');
-	$this->load->model('user');
-	$data['userlist']=$this->user->userList($arr['id']);
+	$this->load->model('admin_model');
+	$data['userlist']=$this->admin_model->userList($arr['id']);
+	$data['role']=NULL;
+	$data['status']=NULL;
+	$data['pagi']=$this->pagination();
 	$data['view_page'] = 'userList';
 	$this->load->view('template', $data);
 }
 
-function pendingUsers($msg='')
+function userListAjax()	//Load when pagination or other form submits
+{
+	$arr=$this->session->userdata('logged_in');
+	$this->load->model('admin_model');
+	$role=$this->input->post('role');
+	$status=$this->input->post('status');
+	$data['role']=$role;
+	$data['status']=$status;
+	$data['userlist']=$this->admin_model->userList($arr['id'],$role,$status);
+	$data['pagi']=$this->pagination($role,$status);
+	$this->load->view('userList', $data);
+}
+
+function pagination($role=NULL,$status=NULL)
+{
+	$this->load->library('jquery_pagination');
+	$config['div'] = '#ajax-content';
+	$config['additional_param']  = 'serialize_form()';
+	$config['base_url'] = base_url().'admin/userListAjax/';
+	$config['total_rows'] =  $this->admin_model->totalUserRecords($role,$status);
+	$config['per_page'] = 2;
+	$this->jquery_pagination->initialize($config);
+	return $this->jquery_pagination->create_links();
+}
+
+/*function pendingUsers($msg=NULL)
 {
 	$this->load->model('admin_model');
 	$data['userlist']=$this->admin_model->pendingUsers();
 	$data['view_page'] = 'pendingUsers';
 	$data['msg']=$msg;
 	$this->load->view('template', $data);
-}
+}*/
 
-function activateUser($id='')
+function activateUser($id,$type,$to_email)
 {
-	$msg='';
-	if($id)
-	{
  	$this->load->model('admin_model');
- 	if($this->admin_model->activateUser($id))
- 		$msg='Activated';
+ 	if($type=='activate')
+ 		$result=$this->admin_model->activateUser($id);
+ 	else if($type=='block')
+ 		$result=$this->admin_model->blockUser($id);
+ 	if($result)
+ 	{
+ 		$data['resultset']['success']=1;
+
+ 		$this->load->library('email');
+ 		$config['charset'] = 'iso-8859-1';
+		$config['wordwrap'] = TRUE;
+		$config['mailtype']='html';
+		$to_email=urldecode($to_email);
+		$this->email->initialize($config);
+		$this->email->from('resume@digitalchakra.in', 'Digital Chakra');
+		$this->email->to($to_email);
+ 		if($type=='activate')
+ 		{
+ 			$this->email->subject('Your Resume App account successfully activated.');
+			$message= 'Dear user,<br />Your account on Resume App has been activated. Now you can login here: <a href="'.base_url().'">Digitalchakra Resume App</a>.<br />Regards,<br />Resume App Team.';
+ 		}
+ 		else if($type=='block')
+ 		{
+ 			$this->email->subject('Your Resume App account was inactivated by admin.');
+ 			$message= 'Dear user,<br />Your account on Resume App has been inactivated by admin.';
+ 			$msg=$this->input->post('msg');
+ 			if($msg)
+				$message.='<br /><br />'.$msg;
+			$message.='<br />Regards,<br />Resume App Team.';
+ 		}
+ 		$this->email->message($message);
+		if(!$this->email->send())
+			$data['resultset']['mail']='no';
+ 	}
  	else
- 		$msg='Internal Error.';
-	}
-	$this->pendingUsers($msg);
+ 	{
+ 		$data['resultset']['success']=-1;
+ 	}
+   	$this->load->view('json',$data);
 }
 
 function editUser($id)
@@ -53,8 +111,9 @@ function editUser($id)
 	$this->load->helper('form');
 	$this->load->library('form_validation');
 		
-	$this->load->model('user');
-	$data['userlist']=$this->user->userDetails($id);
+	$this->load->model('admin_model');
+	$result=$this->admin_model->userDetails($id);
+	$data=$result[0];
 	$data['view_page'] = 'userEdit';
 	$data['user_id']=$id;
 	$this->load->view('template', $data);
@@ -64,12 +123,10 @@ function updateUser()
 {
 	$this->load->helper('form');
 	$this->load->library('form_validation');
-	$this->load->model('user');
+	$this->load->model('admin_model');
 		
-	$this->form_validation->set_rules('first_name', 'First Name', 'required');
-	$this->form_validation->set_rules('last_name', 'Last Name', 'required');
-	$this->form_validation->set_rules('secondary_email', 'Secondary Email', 'required');
-	$this->form_validation->set_rules('mobile', 'Mobile Number', 'required');
+	
+	$this->form_validation->set_rules('email', 'Primary Email', 'required');
 
 	if ($this->form_validation->run() === FALSE)
 	{
@@ -77,39 +134,7 @@ function updateUser()
 	}
 	else
 	{
-		$data = array(
-					'first_name' => $this->input->post('first_name'),
-					'last_name' => $this->input->post('last_name'),
-					'secondary_email' => $this->input->post('secondary_email'),
-					'mobile' => $this->input->post('mobile'),
-					'landline' => $this->input->post('landline'),
-					'website' => $this->input->post('website'),
-					'address' => $this->input->post('address'),
-					'tag_line' => $this->input->post('tag_line'),
-					'experience' => $this->input->post('experience'),
-					'objective' => $this->input->post('objective'),
-					'summary' => $this->input->post('summary'),
-					'role' => $this->input->post('role'),
-					);
-		if($_POST['photo_name'])
-		{
-			$user_id=$this->input->post('user_id');
-			$name =$this->input->post('photo_name').$this->input->post('photo_ext');
-			$new_name=$user_id.$this->input->post('photo_ext');
-			if(!file_exists(FCPATH.$this->config->item('path_profile_img').$user_id))
-				 mkdir(FCPATH.$this->config->item('path_profile_img').$user_id);
-			rename(FCPATH.$this->config->item('path_temp_img').$name,FCPATH.$this->config->item('path_profile_img').$user_id.'/'.$new_name);
-			$data['photo']=$new_name;
-		}
-
-		//Set profile complition flag
-		if($data['first_name']!='' && $data['last_name']!='' && $data['secondary_email']!='' && $data['mobile']!='')
-			$data['flag']='0';
-		else
-			$data['flag']='1';
-
-		$this->user->userUpdate($data,$this->input->post('user_id'));
-		$msg=array('error'=>'Profile updated successfully.');
+		$this->admin_model->userUpdate($this->input->post('user_id'));
 		redirect(base_url('admin/userList'));
 	}
 }

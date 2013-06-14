@@ -17,10 +17,17 @@ $(document).ready(function(){
 		var boxLength = querys.length;
 		if($("[name='search[]']").length>0)
 			$("[name='search[]']").remove();
+        var total_skills=0;
 		for(i=0;i<boxLength;i++)
 		{
+            total_skills=total_skills+1;
 			$('#search_form').prepend('<input type="hidden" name="search[]" value="'+querys[i].value+'"/>');
 		}
+        if(total_skills==0)
+        {
+            alert("Please enter atleast one query.");
+            return false;
+        }
 
         $.ajax({
                 url: baseurl+'member/searchSkillsAjax', 
@@ -83,9 +90,9 @@ $(document).ready(function(){
 
 			},
             error:function()
-                {
-                    alert('Internal error, Please try agian!');
-                }
+            {
+                alert('Internal error, Please try agian!');
+            }
 		});
 	});
 });
@@ -101,9 +108,16 @@ function removeExistSearch(strID)
     $.ajax({
             url:baseurl+"member/deleteSearchList",
             type:"POST",
+            dataType:"json",
             data:{"sid":strID},
-            success:function(){
-                $('#'+strID).remove();
+            success:function(data){
+                if(data.resultset.success=='1')
+                    $('#'+strID).remove();
+                else
+                    alert("Internal Error. Please try again!");
+            },
+            error:function(){
+                alert("Internal Error. Please try again!");
             }
         });
 }

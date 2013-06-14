@@ -17,50 +17,22 @@ function index()
 
 function searchResume()
 {
-	$str = $this->input->get_post('search', TRUE);//new code
-	$data['searchStr'] = $str; //new code
 	$this->load->model('member_model');
 	$data['searchList']=$this->member_model->loadSearchList($this->current_user['id']);
 	$data['view_page'] = 'searchResume';
 	$this->load->view('template', $data);
-	//$data['resultset']=$this->member_model->loadSearchList($this->current_user['id']);
-	//$this->load->view('json',$data);
 }
 
 function searchSkills()
 {
- 	//$strID = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
-	$strID=NULL;
- 	if(!$strID)
- 	{
- 		$str = $this->input->get_post('search', TRUE);
-	 	if($str)
-	 	{
-	 		$this->load->model('member_model');/*print_r($str);*/
-		 	$data['result']=$this->member_model->searchSkills($this->current_user['limit'],$str);
-		 	$data['view_page'] = 'searchList';
-		 	$data['strID'] = NULL;
-		 	$data['searchStr'] = $str;
-			$data['pagi']=$this->pagination($str);
-		 	$this->load->view('template', $data);
-	 	}
-	 	else
-	 	{
-	 		show_404();
-	 	}
- 	}
- 	else
- 	{
- 		$this->load->model('member_model');
-	 	$result=$this->member_model->loadSearchList($this->current_user['id'],$strID);
-	 	$searchStr=explode('|', $result[0]->string);
-	 	$data['result']=$this->member_model->searchSkills($this->current_user['limit'],$searchStr);
-	 	$data['view_page'] = 'searchList';
-	 	$data['strID'] = $strID;
-		$data['searchStr'] = $searchStr;
-	 	$this->load->view('template', $data);
-
- 	}
+	$str=$this->input->post('search');
+	$this->load->model('member_model');/*print_r($str);*/
+	$data['result']=$this->member_model->searchSkills($this->current_user['limit'],$str);
+	$data['view_page'] = 'searchList';
+	$data['strID'] = NULL;
+	$data['searchStr'] = $str;
+	$data['pagi']=$this->pagination($str);
+	$this->load->view('template', $data);
 }
 
 function pagination($str)
@@ -82,7 +54,7 @@ function searchSkillsAjax()
 
 	if($strType!='exist')
 	{
-		$str = $this->input->get_post('search', TRUE);
+		$str = $this->input->post('search');
 		$data['strID'] = NULL;
 	}
 	else
@@ -105,56 +77,35 @@ function searchSkillsAjax()
 		$this->load->view('searchResume', $data);
 	}
 	else
-	{
-		show_404();
-	}
+		redirect('my404');
 }
 
 function saveSearchList()
 {
- 	$str = $this->input->get_post('search', TRUE);
- 	if($str)
+ 	$str = $this->input->post('search'); 	
+	$this->load->model('member_model');
+ 	if($this->member_model->saveSearchList($this->current_user['id'],$str))
  	{
-		$this->load->model('member_model');
-	 	if($this->member_model->saveSearchList($this->current_user['id'],$str))
-	 	{
-	 		$data['resultset']['success']=1;
-	 		$data['resultset']['id']=$this->member_model->lastInsertID();
-	 	}
-	 	else
-	 	{
-	 		$data['resultset']['success']=-1;
-	 	}
-	 	
-	   	$this->load->view('json',$data);
-    }
-    else
- 	{
- 		show_404();
+ 		$data['resultset']['success']=1;
+ 		$data['resultset']['id']=$this->member_model->lastInsertID();
  	}
+ 	else
+ 	{
+ 		$data['resultset']['success']=-1;
+ 	}
+ 	
+   	$this->load->view('json',$data);
 }
 
 function deleteSearchList()
 {
- 	$strID = $this->input->get_post('sid', TRUE);
- 	if($strID)
- 	{
-		$this->load->model('member_model');
-	 	if($this->member_model->deleteSearchList($strID))
-	 	{
-	 		$data['resultset']['success']=1;
-	 	}
-	 	else
-	 	{
-	 		$data['resultset']['success']=-1;
-	 	}
-	 	
-	   	$this->load->view('json',$data);
-    }
-    else
- 	{
- 		show_404();
- 	}
+	$strID = $this->input->post('sid');
+	$this->load->model('member_model');
+ 	if($this->member_model->deleteSearchList($strID))
+ 		$data['resultset']['success']=1;
+ 	else
+ 		$data['resultset']['success']=-1;
+   	$this->load->view('json',$data);
 }
 
 function viewResume($id)

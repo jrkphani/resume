@@ -2,13 +2,16 @@
 .pr-edit{
     display:none;
 }
+.tbl{
+    font-size: 13px;
+    line-height: 16px;
+}
 </style>
 <?php
 	if($photo)
 		$img= base_url($this->config->item('path_profile_img').$user_id.'/'.$photo.'?'.rand());
 	else
 		$img=base_url('assets/img/userPhoto.png');
-		
  ?>
 <div class="container">
 <div id="file_upload" style="display:none;">
@@ -20,7 +23,7 @@
 </div>
 <div class="profile-outer">
 	<div style="float:left;">
-	<div class="head">Profile<span id="pr-edit-link" class="pr-edit-link"><a href="#">Edit profile</a></span></div>
+	<div style="font-size:20px; line-height:35px;">Profile</div><span id="pr-edit-link" class="pr-edit-link"><a href="#">Edit profile</a></span>
     </div>
     <div style="float:right;">
         	<img src="<?php echo $img; ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;<?php echo $last_name; ?>" class="img_update" />
@@ -33,9 +36,14 @@
         <input type="hidden" name="photo_root" id="photo_root" value="" />
         <input type="hidden" name="photo_name" id="photo_name" value="" />
         <input type="hidden" name="photo_ext" id="photo_ext" value="" />
-    	<table border="0" class="tbl">
+        <input type="hidden" id="profile_flag" value="<?php echo $profile_flag; ?>" />
+        <input type="hidden" name="primary_email" id="primary_email" value="<?php echo $email; ?>" />
+    	<table border="0" class="tbl" cellpadding="2">
         	<tr>
-            	<td><label for="first_name">Name*</label></td>
+            	<td>
+                    <span class="pr-view">Name</span>
+                    <span class="pr-edit"><label for="first_name">Name*</label></span>
+                </td>
                 <td>
                 	<span class="pr-view"><?php echo $first_name; ?>&nbsp;&nbsp;&nbsp;<?php echo $last_name; ?></span>
                     <span class="pr-edit"><input type="text" name="first_name" id="first_name" value="<?php echo $first_name; ?>" />&nbsp;&nbsp;&nbsp;<input type="text" name="last_name" id="last_name" value="<?php echo $last_name; ?>" /></span>
@@ -43,15 +51,29 @@
                 <td></td>
             </tr>
             <tr>
-            	<td><label for="secondary_email">Secondary Email*</label></td>
+                <td>Email</td>
+                <td><?php echo $email; ?>
+                    <span class="pr-edit">
+                        <input type="checkbox" name="email_toggle" id="email_toggle" style="display:inherit;" value="1" <?php if($email==$secondary_email) echo 'checked=checked'; ?> />Use this as display email.
+                    </span>
+                </td>
+                <td></td>
+            </tr>
+            <tr id="display_email">
+            	<td>
+                    <span class="pr-view">Display Email</span>
+                    <span class="pr-edit"><label for="secondary_email">Display Email*</label></span>
+                </td>
                 <td>
                 	<span class="pr-view"><?php echo $secondary_email; ?></span>
                     <span class="pr-edit"><input type="text" name="secondary_email" id="secondary_email" value="<?php echo $secondary_email; ?>"  /></span>
                 </td>
-                <td></td>
             </tr>
             <tr>
-            	<td><label for="mobile">Mobile Number*</label></td>
+            	<td>
+                    <span class="pr-view">Mobile Number</span>
+                    <span class="pr-edit"><label for="mobile">Mobile Number*</label></span>
+                </td>
                 <td>
                 	<span class="pr-view"><?php echo $mobile; ?></span>
                     <span class="pr-edit"><input type="text" name="mobile" id="mobile" value="<?php echo $mobile; ?>"  /></span>
@@ -59,7 +81,10 @@
                 <td></td>
             </tr>
             <tr>
-            	<td><label for="landline">Landline Number</label></td>
+            	<td>
+                    <span class="pr-view">Landline Number</span>
+                    <span class="pr-edit"><label for="landline">Landline Number</label></span>
+                </td>
                 <td>
                 	<span class="pr-view"><?php echo $landline; ?></span>
                     <span class="pr-edit"><input type="text" name="landline" id="landline" value="<?php echo $landline; ?>"  /></span>
@@ -67,7 +92,10 @@
                 <td></td>
             </tr>
             <tr>
-            	<td><label for="address">Address</label></td>
+            	<td>
+                    <span class="pr-view">Address</span>
+                    <span class="pr-edit"><label for="address">Address</label></span>
+                </td>
                 <td>
                 	<span class="pr-view"><?php echo $address; ?></span>
                     <span class="pr-edit"><textarea name="address" id="address"><?php echo $address; ?></textarea></span>
@@ -75,20 +103,16 @@
                 <td></td>
             </tr>
             <tr>
-            	<td><label for="website">Website</label></td>
+            	<td>
+                    <span class="pr-view">Website</span>
+                    <span class="pr-edit"><label for="website">Website</label></span>
+                </td>
                 <td>
                 	<span class="pr-view"><?php echo $website; ?></span>
                     <span class="pr-edit"><input type="text" name="website" id="website" value="<?php echo $website; ?>"  /></span>
                 </td>
                 <td></td>
             </tr>
-            <!--<tr class="pr-edit">
-            	<td><label for="photo">Photo</label></td>
-                <td>
-                    <input type="file" name="photo" id="file">
-                </td>
-                <td></td>
-            </tr>-->
             <tr class="pr-edit">
             	<td  style="border:none !important;;"></td>
                 <td  style="border:none !important;;">

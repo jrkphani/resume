@@ -23,8 +23,9 @@ class Profile extends CI_Controller{
 		else
 			$data['error']='';
 		$data['view_page'] = 'profile';
+		$this->current_user=$this->session->userdata('logged_in');
+		$data['profile_flag']=$this->current_user['flag'];
 		$this->load->view('template', $data);
-		//$this->load->view('profile',$data);
 	}
 	
 	function edit()

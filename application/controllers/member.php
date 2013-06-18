@@ -82,9 +82,11 @@ function searchSkillsAjax()
 
 function saveSearchList()
 {
- 	$str = $this->input->post('search'); 	
+ 	$str = $this->input->post('search');
+ 	$title = $this->input->post('title');
+ 	$insert= array('user_id'=>$this->current_user['id'],'title'=>$title,'string'=>$str);
 	$this->load->model('member_model');
- 	if($this->member_model->saveSearchList($this->current_user['id'],$str))
+ 	if($this->member_model->saveSearchList($insert))
  	{
  		$data['resultset']['success']=1;
  		$data['resultset']['id']=$this->member_model->lastInsertID();

@@ -1,12 +1,18 @@
+var search_query;
+
 $(document).ready(function(){
     //Add query for search
 	$('#add_search').click(function(){
         search_txt = $.trim($('#search_txt').val());
+        if(!search_txt)
+            return false;
         if(search_txt.length>0)
         {
             $('#search_form').prepend('<label class="button r'+search_txt+'">'+search_txt+'<span id="r'+search_txt+'" onclick="removeClass(\'r'+search_txt+'\');">X</span></label><input class="r'+search_txt+'" type="hidden" name="search_new[]" value="'+search_txt+'"/>');
         }
         $('#search_txt').val("");
+        if($('.download-main-inner').css('display')=='none')
+            $('.download-main-inner').show();
     });
 
     //Submit search
@@ -63,24 +69,25 @@ $(document).ready(function(){
     });
 
 	//Save current query
-    $('#saveSearch').click(function(){
+    function saveSearchAs(){
+    //$('#saveSearch').click(function(){
+        var title=$('#search_title').val().trim();
+        if(!title)
+        {
+            alert("The title cannot be empty.");
+            return false;
+        }
+
 		$.ajax({
 			url:baseurl+"member/saveSearchList",
 			type:"POST",
-			data:{"search":$(this).attr('search')},
+			data:{"search":window.search_query,"title":title},
             dataType: 'json',
 			success:function(data){
                 if(data.resultset.success=='1')
                 {
-                    //get current or saved query string and ID
-                    var tmp_array=new Array();
-                    $('input[name="search\\[\\]"]').each(function(){
-                        tmp_array.push(this.value);
-                    });
-                    var query=tmp_array.join(' | ');
-
                     var id=data.resultset.id;
-                    $('#previousSearch').prepend('<tr id='+id+'><td><a href="javascript:void(0);">'+query+'</a><span onclick="removeExistSearch('+id+');">X</span></td></tr>');
+                    $('#previousSearch').prepend('<tr id='+id+'><td><a href="javascript:void(0);">'+title+'</a><span onclick="removeExistSearch('+id+');">X</span></td></tr>');
     				$('#saveSearch').remove();
                 }
                 else
@@ -94,7 +101,23 @@ $(document).ready(function(){
                 alert('Internal error, Please try agian!');
             }
 		});
-	});
+	//});
+    }
+
+    //Configure dialog box
+    $( "#dialog_box" ).dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: [ { text: "Save Search", click: function() { if(saveSearchAs()!=false) $( this ).dialog("close"); } },
+        { text: "Cancel", click: function() { $( this ).dialog("close"); } } ]
+    });
+
+    //Open dialog box
+    $('#saveSearch').click(function(){
+        window.search_query=$(this).attr('search');
+        $('#search_title').val($('#current_search').html());
+        $("#dialog_box").dialog("open");
+    });
 });
 
 function serialize_form()

@@ -40,11 +40,9 @@ function loadSearchList($userID,$strID=NULL)
   return $this->db->get('search_skills')->result();
 }
 
-function saveSearchList($userID,$str)
+function saveSearchList($insert)
 {
-  $this->db->set('user_id',$userID);
-  $this->db->set('string',$str);
-  if($this->db->insert('search_skills'))
+  if($this->db->insert('search_skills',$insert))
     return true;
   else
     return false;

@@ -6,7 +6,7 @@
         <input type="text" id="search_txt"/><a id="add_search">Add</a><br />
 
         <?php if(@$searchStr) { ?>
-        Search String : <?=implode(' | ', $searchStr)?> 
+        Search String : <span id="current_search"><?=implode(' | ', $searchStr)?></span> 
         <? if(!$strID) { ?><a search="<?php echo implode(' | ', $searchStr); ?>" id="saveSearch">Save</a> <?} ?>
         <br />
         <?php foreach ($searchStr as $key => $searchSt) { ?><input type="hidden" name="search[]" class="search" value="<?=$searchSt?>" /><?php } ?>
@@ -33,7 +33,7 @@
     <!-- left box end -->
 
     <!-- right box start -->
-    <div class="download-main-inner" style="float:right">
+    <div class="download-main-inner" style="float:right; display:none;">
         <div id="search_form">
              <input type="button" value="Submit" id="restsubmit" class="btn btn-small btn-primary" />
         </div>
@@ -45,7 +45,9 @@
             {?>
             <tr id="<?=$single->id?>">
                 <td>
-                    <a href="javascript:void(0);" data="<?=$single->id?>" class="existSearch"><?=$single->string?></a>
+                    <a href="javascript:void(0);" data="<?=$single->id?>" class="existSearch">
+                        <?php echo $single->title; //echo $single->string; ?>
+                    </a>
                     <span onclick="removeExistSearch('<?=$single->id?>');">X</span>
                 </td>
             </tr>
@@ -56,6 +58,17 @@
     <div style="clear:both"></div>
     </form>
 
+    <div id="dialog_box" style="background-color: #CCCCFF; display:none;">
+    <table cellpadding="5">
+        <tr>
+            <td><strong>Save search as?</strong></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="search_title" /></td>
+        </tr>
+    </table>
+    </div>
+
     <script src="<?php echo base_url('assets/js/searchList.js');?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets/js/jquery-ui.min.js'); ?>"></script>
 </div>

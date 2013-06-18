@@ -15,6 +15,14 @@ $(document).ready(function(){
             $('.download-main-inner').show();
     });
 
+    $('#search_txt').keypress(function(e){
+        if(e.which==13)
+        {
+            $('#add_search').click();
+            return false;
+        }
+    });
+
     //Submit search
 	$('#restsubmit').click(function(){
 

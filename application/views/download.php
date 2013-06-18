@@ -4,7 +4,7 @@
 	</div>
 		
 	<div class="span6">
-		<div class="download-main">
+		<div id="countLayout" class="download-main">
 			Download will start in
 			<div class="download-main-inner">
 				<span id="glowingLayout"></span> Seconds	
@@ -27,6 +27,7 @@ $('#glowingLayout').countdown({until: austDay, compact: true, format: 'S', onExp
 });
 function download()
 {
+	$('#countLayout').html('Thank you for using EZCV!');
 	window.location="<?=$html?>";
 }
 </script>

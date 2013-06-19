@@ -113,7 +113,10 @@ $(document).ready(function(){
    //Toggel Display email
    $('#email_toggle').change(function(){
    		if($("#email_toggle:checked").length==1)
+   		{
    			$('#display_email').hide();
+   			$('#secondary_email').val($('#primary_email').val());
+   		}
    		else
    			$('#display_email').show();
    });

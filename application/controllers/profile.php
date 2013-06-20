@@ -5,7 +5,8 @@ class Profile extends CI_Controller{
 	function __construct()
 	{
 		parent::__construct();
-		if(!$this->session->userdata('logged_in'))
+		$this->current_user=$this->session->userdata('logged_in');
+		if(!$this->current_user)
 		{
 			redirect('home', 'refresh');
 		}
@@ -14,16 +15,15 @@ class Profile extends CI_Controller{
 		$this->load->library('form_validation');
 	}
 	
-	function index($error='')
+	function index($error=NULL)
 	{
 		$result=$this->profile_model->get_profile();
 		$data=$result[0];
 		if($error)
 			$data['error']=$error;
 		else
-			$data['error']='';
+			$data['error']=NULL;
 		$data['view_page'] = 'profile';
-		$this->current_user=$this->session->userdata('logged_in');
 		$data['profile_flag']=$this->current_user['flag'];
 		$this->load->view('template', $data);
 	}

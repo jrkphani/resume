@@ -2,10 +2,9 @@
 Class Admin_model extends CI_Model{
   
 //List users
-function userList($current_user,$role=NULL,$status=NULL)
+function userList($current_user,$role=NULL,$status=NULL,$from=NULL)
 {
-  $from=$this->uri->segment(3);
-  if($from=='')
+  if($from==NULL)
     $this->db->limit(2);
   else
     $this->db->limit(2,$from);
@@ -28,8 +27,9 @@ function userList($current_user,$role=NULL,$status=NULL)
 }
 
 //Total records in usesr list
-function totalUserRecords($role,$status)
+function totalUserRecords($current_user,$role,$status)
 {
+  $this->db->where('users.id !=',$current_user);
   if($role!=NULL && $status!=NULL)
   {
     $this->db->where('role',$role);
@@ -44,11 +44,14 @@ function totalUserRecords($role,$status)
   else
   {
     if($role==NULL && $status==NULL)
+    {
       $this->db->from('users');
+    }
     else if($role!=NULL)
     {
-      $this->db->where('role',$role);
-      $this->db->from('user_detail');
+      $this->db->where('user_detail.role',$role);
+      $this->db->from('users');
+      $this -> db -> join('user_detail','users.id=user_detail.user_id');
     }
     else if($status!=NULL)
     {
@@ -96,13 +99,13 @@ function userDetails($id)
   return $query->result_array();
 }
 
-function userUpdate($id)
+function userUpdate($id,$email,$role)
 {
   $this->db->where('id',$id);
-  $this->db->update('users',array('email'=>$this->input->post('email')));
+  $this->db->update('users',array('email'=>$email));
 
   $this->db->where('user_id',$id);
-  $this->db->update('user_detail',array('role'=>$this->input->post('role')));
+  $this->db->update('user_detail',array('role'=>$role));
 }
 
 }

@@ -8,7 +8,7 @@
 <div class="row-fluid">
 	<div class="span12">
     	<span class="err-msg"><?php echo validation_errors(); if(@$error) echo @$error['error'];  ?></span>
-    	<?php $attributes = array('name' => 'form1', 'id' => 'form1'); echo form_open('admin/updateUser',$attributes); ?>
+    	<?php $attributes = array('name' => 'form1', 'id' => 'form1'); echo form_open('admin/editUser/'.$id,$attributes); ?>
     	<table>
         <input type="hidden" name="user_id" id="user_id" value="<? echo $id; ?>" />
             <tr>
@@ -25,7 +25,7 @@
                 </td>
             </tr>
             <tr>
-                <td></td><td><input type="submit" value="Update" /></td>
+                <td></td><td><input type="submit" value="Update" name="submit_form1" /></td>
             </tr>
             </table>
             <?php echo form_close(); ?>

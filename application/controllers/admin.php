@@ -18,9 +18,8 @@ function index()
 
 function userList()	//Load at first time
 {
-	$arr=$this->session->userdata('logged_in');
 	$this->load->model('admin_model');
-	$data['userlist']=$this->admin_model->userList($arr['id']);
+	$data['userlist']=$this->admin_model->userList($this->current_user['id']);
 	$data['role']=NULL;
 	$data['status']=NULL;
 	$data['pagi']=$this->pagination();
@@ -30,13 +29,13 @@ function userList()	//Load at first time
 
 function userListAjax()	//Load when pagination or other form submits
 {
-	$arr=$this->session->userdata('logged_in');
+	$from=$this->uri->segment(3);
 	$this->load->model('admin_model');
 	$role=$this->input->post('role');
 	$status=$this->input->post('status');
 	$data['role']=$role;
 	$data['status']=$status;
-	$data['userlist']=$this->admin_model->userList($arr['id'],$role,$status);
+	$data['userlist']=$this->admin_model->userList($this->current_user['id'],$role,$status,$from);
 	$data['pagi']=$this->pagination($role,$status);
 	$this->load->view('userList', $data);
 }
@@ -47,7 +46,7 @@ function pagination($role=NULL,$status=NULL)
 	$config['div'] = '#ajax-content';
 	$config['additional_param']  = 'serialize_form()';
 	$config['base_url'] = base_url().'admin/userListAjax/';
-	$config['total_rows'] =  $this->admin_model->totalUserRecords($role,$status);
+	$config['total_rows'] =  $this->admin_model->totalUserRecords($this->current_user['id'],$role,$status);
 	$config['per_page'] = 2;
 	$this->jquery_pagination->initialize($config);
 	return $this->jquery_pagination->create_links();
@@ -106,36 +105,39 @@ function activateUser($id,$type,$to_email)
    	$this->load->view('json',$data);
 }
 
-function editUser($id)
+function editUser($id=NULL)
 {
 	$this->load->helper('form');
-	$this->load->library('form_validation');
-		
+	$this->load->library('form_validation');	
 	$this->load->model('admin_model');
+
+	if(!$id)
+		redirect('my404');
+
 	$result=$this->admin_model->userDetails($id);
 	$data=$result[0];
 	$data['view_page'] = 'userEdit';
 	$data['user_id']=$id;
-	$this->load->view('template', $data);
-}
 
-function updateUser()
-{
-	$this->load->helper('form');
-	$this->load->library('form_validation');
-	$this->load->model('admin_model');
-		
-	
-	$this->form_validation->set_rules('email', 'Primary Email', 'required');
-
-	if ($this->form_validation->run() === FALSE)
+	//Update
+	if(isset($_POST['submit_form1']))
 	{
-		$this->editUser($this->input->post('user_id'));
+		$this->form_validation->set_rules('email', 'Primary Email', 'required');
+		$this->form_validation->set_rules('role', 'Role', 'required');
+		if ($this->form_validation->run() === FALSE)
+		{
+			$this->load->view('template', $data);
+		}
+		else
+		{
+			$this->admin_model->userUpdate($this->input->post('user_id'),$this->input->post('email'),$this->input->post('role'));
+			redirect(base_url('admin/userList'));
+		}
 	}
 	else
 	{
-		$this->admin_model->userUpdate($this->input->post('user_id'));
-		redirect(base_url('admin/userList'));
+		//View
+		$this->load->view('template', $data);
 	}
 }
 

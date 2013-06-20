@@ -41,7 +41,7 @@ class Profile_model extends CI_Model{
 			$data['photo']=$new_name;
 		}
 
-		if($data['first_name']!='' && $data['last_name']!='' && $data['secondary_email']!='' && $data['mobile']!='')
+		if($data['first_name']!=NULL && $data['last_name']!=NULL && $data['secondary_email']!=NULL && $data['mobile']!=NULL)
 		{
 			$arr=$this->session->userdata('logged_in');
 			if($arr['flag']=='1')

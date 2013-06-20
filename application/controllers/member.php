@@ -171,7 +171,7 @@ function selectedResume()
 	$this->load->view('template', $data);
 }
 
-function downloadResume($type='')
+function downloadResume($type=NULL)
 {
 	$this->load->model('member_model');
 	$checked=$this->input->post('check');

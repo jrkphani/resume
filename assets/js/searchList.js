@@ -46,6 +46,7 @@ $(document).ready(function(){
         $.ajax({
                 url: baseurl+'member/searchSkillsAjax', 
                 type: 'post',
+                dataType: 'html',
                 data: $('#myform').serialize(),
                 success:function(result)
                 {

@@ -15,7 +15,7 @@ function totalSearchSkills($str)
 function searchSkills($limit,$str)
 {
   $from=$this->uri->segment(3);
-  if($from=='')
+  if($from==NULL)
   $this->db->limit(2);
   else
   $this->db->limit(2,$from);

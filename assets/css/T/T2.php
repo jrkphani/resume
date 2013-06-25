@@ -1,4 +1,9 @@
-
+<?php
+header("Content-type: text/css");
+/*use base url to specify the full image path inside css
+eg : <?=baseur?>assets/img/icon.png */  
+$baseurl=base_url();
+?>
  div,h1,h2,h3,h4,h5,h6,p,ul{	margin:0;	padding:0;}
 div{padding-top: 10px; padding-bottom: 10px;}	
 

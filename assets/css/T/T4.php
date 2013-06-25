@@ -1,3 +1,9 @@
+<?php
+header("Content-type: text/css");
+/*use base url to specify the full image path inside css
+eg : <?=baseur?>assets/img/icon.png */  
+$baseurl=base_url();
+?>
 @charset "utf-8";
 
 p {

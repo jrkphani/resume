@@ -1,7 +1,7 @@
-<!--<link rel="stylesheet" type="text/css" href="<?php echo base_url()."assets/css/T/".$css."_css.css"; ?>"/> -->
-<?php $string = read_file(FCPATH."/assets/css/T/".$template.".css"); ?>
 <style>
-<?=$string;?>
+<?
+include(FCPATH."/assets/css/T/".$template.".php");
+?>
 </style>
 <div class="resume">
 	<div class="inner"> 

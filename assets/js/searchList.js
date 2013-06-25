@@ -3,9 +3,9 @@ var search_query;
 $(document).ready(function(){
     //Add query for search
 	$('#add_search').click(function(){
+        //validate(Title,ElementID,Mandatory(true/false),MaxLength(Number/false),MinLength(Number/false),Type=(string/email/number/mobile/false),Display(DisplayID/false));
+        if(!validate('Search Query','search_txt',man=true,max=100)) return false;
         search_txt = $.trim($('#search_txt').val());
-        if(!search_txt)
-            return false;
         if(search_txt.length>0)
         {
             $('#search_form').prepend('<label class="button r'+search_txt+'">'+search_txt+'<span id="r'+search_txt+'" onclick="removeClass(\'r'+search_txt+'\');">X</span></label><input class="r'+search_txt+'" type="hidden" name="search_new[]" value="'+search_txt+'"/>');

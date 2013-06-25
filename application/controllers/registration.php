@@ -21,7 +21,7 @@ class Registration extends CI_Controller {
 		  // field name, error message, validation rules
 		  $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|min_length[2]|max_length[20]|xss_clean');
 		  $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|min_length[1]|max_length[20]|xss_clean');
-		  $this->form_validation->set_rules('email_address', 'Email', 'trim|required|valid_email');
+		  $this->form_validation->set_rules('email_address', 'Email', 'trim|required|valid_email|max_length[254]');
 		  $this->form_validation->set_rules('pass_word', 'Password', 'trim|required|min_length[4]|max_length[32]');
 		  //$this->form_validation->set_rules('con_password', 'Password Confirmation', 'trim|required|matches[password]');
 		  $this->form_validation->set_rules('role', 'Type', 'required');

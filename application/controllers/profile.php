@@ -30,10 +30,13 @@ class Profile extends CI_Controller{
 	
 	function edit()
 	{
-		$this->form_validation->set_rules('first_name', 'First Name', 'required');
-		$this->form_validation->set_rules('last_name', 'Last Name', 'required');
-		$this->form_validation->set_rules('secondary_email', 'Secondary Email', 'required');
-		$this->form_validation->set_rules('mobile', 'Mobile Number', 'required');
+		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required|min_length[3]|max_length[100],alpha_dash');
+		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|max_length[100],alpha_dash');
+		$this->form_validation->set_rules('secondary_email', 'Display Email', 'trim|required|max_length[254]|valid_email');
+		$this->form_validation->set_rules('mobile', 'Mobile Number', 'trim|required|max_length[17]');
+		$this->form_validation->set_rules('landline', 'Landline Number', 'trim|max_length[100]');
+		$this->form_validation->set_rules('address', 'Address Number', 'trim|max_length[100]');
+		$this->form_validation->set_rules('website', 'Website', 'trim|max_length[100]');
 		
 		if ($this->form_validation->run() === FALSE)
 		{

@@ -102,6 +102,12 @@ $(document).ready(function(){
 		else
 			ActivateOrBlock();
 	});
+
+	 $('#form1').submit(function(){
+	 	//validate(Title,ElementID,Mandatory(true/false),MaxLength(Number/false),MinLength(Number/false),Type=(string/email/number/mobile/false),Display(DisplayID/false));
+        if(!validate('Primary Email','email',man=true,max=254,min=false,type='email')) return false;
+	 	var email=$.trim($("#email").val());
+    });
 });
 
 function serialize_form()

@@ -35,35 +35,14 @@ $(document).ready(function(){
 	
 	//Submit form
 	$("#form1").submit(function(){
-		var first_name=$("#first_name").val();
-		var last_name=$("#last_name").val();
-		var email=$("#secondary_email").val();
-		var mobile=$("#mobile").val();
-		
-		if(!first_name)
-		{
-			alert("The First Name field is required.");
-			$("#first_name").focus();
-			return false;
-		}
-		else if(!last_name)
-		{
-			alert("The Last Name field is required.");
-			$("#last_name").focus();
-			return false;
-		}
-		else if(!email)
-		{
-			alert("The Secondary Email field is required.");
-			$("#secondary_email").focus();
-			return false;
-		}
-		else if(!mobile)
-		{
-			alert("The Mobile Number field is required.");
-			$("#mobile").focus();
-			return false;
-		}
+		//validate(Title,ElementID,Mandatory(true/false),MaxLength(Number/false),MinLength(Number/false),Type=(string/email/number/mobile/false),Display(DisplayID/false));
+		if(!validate('First Name','first_name',man=true,max=100,min=3,type='string',disp=false)) return false;
+		else if(!validate('Last Name','last_name',man=true,max=100,min=false,type='string',disp=false)) return false;
+		else if(!validate('Display Email','secondary_email',man=true,max=254,min=false,type='email',disp=false)) return false;
+		else if(!validate('Mobile Number','mobile',man=true,max=17,min=10,type='mobile',disp=false)) return false;
+		else if(!validate('Landline Number','landline',man=false,max=100)) return false;
+		else if(!validate('Address','address',man=false,max=1000)) return false;
+		else if(!validate('Website','website',man=false,max=100)) return false;
 	});
 	
 	//Upload profile image to temporary folder

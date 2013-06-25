@@ -31,3 +31,6 @@
             <?php echo form_close(); ?>
 	</div>
 </div>
+<script type="text/javascript" src="<?php echo base_url('assets/js/jquery-ui.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/validation.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/userList.js'); ?>"></script>

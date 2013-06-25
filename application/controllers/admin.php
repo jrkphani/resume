@@ -122,7 +122,7 @@ function editUser($id=NULL)
 	//Update
 	if(isset($_POST['submit_form1']))
 	{
-		$this->form_validation->set_rules('email', 'Primary Email', 'required');
+		$this->form_validation->set_rules('email', 'Primary Email', 'trim|required|valid_email|max_length[254]');
 		$this->form_validation->set_rules('role', 'Role', 'required');
 		if ($this->form_validation->run() === FALSE)
 		{

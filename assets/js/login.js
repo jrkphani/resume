@@ -25,21 +25,10 @@ $(document).ready(function()
 	$('#loginsubmit').click(function()
 	{
 		$('#error_msg').html("");
-		var email = $('#username').val();
+		var email = $.trim($('#username').val());
 		var password = $('#passowrd').val();
-		/*var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-		if(!pattern.test(email) || email.length <=0)
-		{
-			$('#apploginusernamecontainer').addClass('control-group error');
-		}
-		else if(password.length <=0)
-		{
-			$('#apploginpasswordcontainer').addClass('control-group error');
-		}*/
-		if(email.length <=0 || password.length <=0)
-		{
-			$('#error_msg').html("Enter your email and password.");
-		}
+		if(!validate('Email','username',man=true,max=254,min=false,type='email',disp='error_msg')) return false;
+		else if(!validate('Password','passowrd',man=true,max=100,min=4,type='false',disp='error_msg')) return false;
 		else
 		{
 			$.ajax(
@@ -79,26 +68,16 @@ $(document).ready(function()
 	$('#signupsubmit').click(function()
 	{
 		$('#error_msg1').html("");
-		var email = $('#inputEmail').val();
+		var email = $.trim($('#inputEmail').val());
 		var password = $('#inputPassword').val();
-		var firstname = $('#firstname').val();
-		var lastname = $('#lastname').val();
+		var firstname = $.trim($('#firstname').val());
+		var lastname = $.trim($('#lastname').val());
 		var role = $('input:radio[name=role]:checked').val();
-		var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
-		if(!pattern.test(email) || email.length <=0)
-		{
-			//alert('inv');
-			//$('#apploginusernamecontainer').addClass('control-group error');
-			$('#error_msg1').html("Enter valid email id.");
-		}
-		else if(firstname.length <=2 || lastname.length <=0)
-		{
-			$('#error_msg1').html("Enter your First name and Last name.");
-		}
-		else if(password.length <=4)
-		{
-			$('#error_msg1').html('Enter password.');
-		}
+
+		if(!validate('First Name','firstname',man=true,max=100,min=3,type='string',disp='error_msg1')) return false;
+		else if(!validate('Last Name','lastname',man=true,max=100,min=false,type='string',disp='error_msg1')) return false;
+		else if(!validate('Email','inputEmail',man=true,max=254,min=false,type='email',disp='error_msg1')) return false;
+		else if(!validate('Password','inputPassword',man=true,max=100,min=4,type='false',disp='error_msg1')) return false;
 		else
 		{
 			$.ajax(
@@ -128,7 +107,7 @@ $(document).ready(function()
 	$('#forgetsubmit').click(function()
 	{
 		$('#error_msg').html("");
-		var email = $('#fusername').val();
+		var email = $.trim($('#fusername').val());
 		//var password = $('#passowrd').val();
 		/*var pattern = new RegExp(/^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i);
 		if(!pattern.test(email) || email.length <=0)
@@ -139,10 +118,7 @@ $(document).ready(function()
 		{
 			$('#apploginpasswordcontainer').addClass('control-group error');
 		}*/
-		if(email.length <=0)
-		{
-			$('#error_msg').html("Enter your email.");
-		}
+		if(!validate('Email','fusername',man=true,max=254,min=false,type='email',disp='error_msg')) return false;
 		else
 		{
 			$.ajax(

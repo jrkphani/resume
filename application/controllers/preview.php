@@ -17,23 +17,29 @@ class Preview extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->current_user=$this->session->userdata('logged_in');
+	}
 	public function index()
 	{
-		if($userdata = $this->session->userdata('logged_in'))
-	   {
 		$this->load->helper('file');
 		if($postdata=$this->input->post())
 		{
-			/* POST START HERE
+			/*POST START HERE
 			$this->load->model('resume_model');
 			$this->resume_model->update();*/
 			
-		//echo "<pre>";
-		//print_r($postdata);
-		$preview_html = $this->load->view('T/'.$postdata['template'].'_html',$postdata,true);
-		//$tempnam=mt_rand().time();
-		$temppath=FCPATH.$this->config->item('path_temp_file').$userdata['id'].'.html';
-		if (!write_file($temppath, $preview_html))
+			//echo "<pre>";
+			//print_r($postdata);
+			$preview_html = $this->load->view('T/'.$postdata['template'].'_html',$postdata,true);
+			if($userdata = $this->session->userdata('logged_in'))
+				$file_name=$userdata['id'];
+			else
+				$file_name=mt_rand().time();
+			$temppath=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
+			if(!write_file($temppath, $preview_html))
 			{
 				$data['success']='no';
 				$data['msg']='Unable to write file';
@@ -43,24 +49,19 @@ class Preview extends CI_Controller {
 			else
 			{
 				$data['success']='yes';
-				$data['html']=$userdata['id'];
+				$data['html']=$file_name;
 				$result['resultset']=$data;
 				$this->load->view('json',$result);
 				//$data['html']=$preview_html;
 				//$data['css']=$postdata['css'];
 				//$data['link']=$tempnam;
-				//	$this->load->view('preview',$data);	
+				//$this->load->view('preview',$data);
 			}
 		}
 		else
 		{
-		redirect('login', 'home');	
+			redirect('home', 'refresh');	
 		}
-	}
-	else
-	{
-		redirect('login', 'refresh');
-	}
 	}
 	function page()
 	{
@@ -76,6 +77,7 @@ class Preview extends CI_Controller {
 		$content = read_file(FCPATH.$this->config->item('path_temp_file').$html.".html");
 		$data['html']=$content;
 		$data['link']=$html;
+		$data['user_id']=$this->current_user['id'];
 		$data['view_page'] = 'preview';
 		//$this->load->view('template', $data);
 		$this->load->view('preview',$data);	

@@ -1,4 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/colorbox.css"); ?>"/>
+<!--<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/jquery.toastmessage.css"); ?>"/>
+<div id="toast"></div>-->
 <div id="file_upload" style="display:none;">
    <form method="post" action="" id="upload_file">
      <label for="userfile">File</label>
@@ -12,6 +14,7 @@
 	 			
 	 			<!--T1_form-->
 	 			<form class="form-horizontal" id="resume_form">
+	 			<input type="hidden" name="user_id" value="<?php echo $user_id; ?>" id="user_id" />
 	 			<input type="hidden" name="photo" id="photo" value="<?php if($photo) { echo base_url($this->config->item('path_profile_img').$user_id.'/'.$photo); } ?>" />
 	 			<input type="hidden" value="" id="template" name="template" autocomplete="off" />
                 <input type="hidden" name="download_file" id="download_file" />
@@ -447,3 +450,5 @@
 		<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>
 		<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>
 		<script src="<?php echo base_url('assets/js/home.js');?>"></script>
+		<?php /* <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.toastmessage.js'); ?>" ></script>
+		<script type="text/javascript" src="<?php echo base_url('assets/js/sisyphus.js'); ?>" ></script> */ ?>

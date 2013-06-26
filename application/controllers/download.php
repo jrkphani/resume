@@ -17,6 +17,16 @@ class Download extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+	public function __construct()
+	{
+		parent::__construct();
+		$this->current_user=$this->session->userdata('logged_in');
+		if(!$this->current_user)
+		{
+			redirect('login', 'refresh');
+		}
+
+	}
 	public function index()
 	{
 		$html = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;

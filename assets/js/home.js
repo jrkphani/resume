@@ -3,7 +3,7 @@ $(document).ready(function()
 	$("#preview").colorbox({iframe:true, escKey:true, width:"860px", height:"100%"});
 	$("#resume_submit").click(function(e){
 		e.preventDefault();
-		if($('#template').val()==="")
+		if(!$('#template').val())
 		{
 			//return false;
 			alert('Please select a Template');
@@ -11,7 +11,8 @@ $(document).ready(function()
 		}
 		else
 		{
-			update();
+			if($('#user_id').val())
+				update();
 			$.ajax({
 				url: baseurl+'preview', 
 				type: 'post',
@@ -300,10 +301,45 @@ $('#addSkills').click(function()
 			$('#addEdudcation').click();
 		}
 	});
+
+	function update()
+	{
+		$.ajax({
+		url: baseurl+'resume/update_download', 
+		type: 'post',
+		data: $('#resume_form').serialize(),
+		//success:function(){
+			//$('body').data('changesMade','0');
+			//showNotice();
+		//},
+		error:function()
+		{
+			alert('Could not save. Internal error, Please try agian!');
+		}
+		});
+	}
+
+	//Auto save start
+	/*setInterval(function() {   //calls update every 120000ms(2 min)
+		if($('body').data('changesMade')=='1')
+   			update();
+	}, 8000);
+
+	$("input,textarea").live('change',function(){
+		$('body').data('changesMade','1');
+	});*/
+
+	/*$( function() {
+		$( "#resume_form" ).sisyphus();
+	} );*/
 });
+/*function showNotice()
+{
+	$('#toast').toastmessage('showNoticeToast', 'Resume Saved.');
+}*/
 function removeId(ID)
 {
-$('#'+ID).remove();
+	$('#'+ID).remove();
 }
 function updateDownload(temp_link) //not in use
 {
@@ -313,19 +349,7 @@ function updateDownload(temp_link) //not in use
 	form.action=baseurl+'resume/update_download';
 	form.submit();
 }
-function update()
-{
-	$.ajax({
-	url: baseurl+'resume/update_download', 
-	type: 'post',
-	data: $('#resume_form').serialize(),
-	error:function()
-	{
-		alert('Could not save. Internal error, Please try agian!');
-	}
-	});
-}
-function makeOnline(user_id)
+function makeOnline(user_id) //not in use
 {
 	frames = document.getElementsByTagName('iframe');
 	frames[0].setAttribute("id", "iFrameID");

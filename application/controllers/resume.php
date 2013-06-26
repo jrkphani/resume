@@ -2,15 +2,20 @@
 class Resume extends CI_Controller
 {
 	
-	/*public function delete_exist()
+	function __construct()
 	{
-		$this->load->model('resume_model');
-		$this->resume_model->delete_exist();
-	}*/
+		parent::__construct();
+		$this->current_user=$this->session->userdata('logged_in');
+		if(!$this->current_user)
+		{
+			redirect('home', 'refresh');
+		}
+		else if($this->current_user['flag']==1) //check for profile complition
+			redirect('profile', 'refresh');
+	}
 	
 	public function update_download()
 	{
-		$userdata=$this->session->userdata('logged_in');
 		$this->load->model('resume_model');
 
 		//user_detail
@@ -70,7 +75,7 @@ class Resume extends CI_Controller
 		$education['score']=$this->input->post('eduScore');
 		$education['id']=$this->input->post('eduInstID');
 
-		$this->resume_model->update($userdata['id'],$user_detail,$skill,$company,$project,$education);
+		$this->resume_model->update($this->current_user['id'],$user_detail,$skill,$company,$project,$education);
 		/*header('location:'.$_POST['download_file']);*/
 	}
 

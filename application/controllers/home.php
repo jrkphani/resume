@@ -19,8 +19,8 @@ class Home extends CI_Controller {
 	 */
 	public  function index()
 	 {
-	   if($this->session->userdata('logged_in'))
-	   {
+	   //if($this->session->userdata('logged_in'))
+	   //{
 		 $session_data = $this->session->userdata('logged_in');
 		 if($session_data['flag']==1)
 		 	redirect('profile', 'refresh');
@@ -34,30 +34,51 @@ class Home extends CI_Controller {
 		 $data['result3']=$this->resume_model->company_details($session_data['id']);
 		 $data['result4']=$this->resume_model->project_details($session_data['id']);
 		 $data['result5']=$this->resume_model->education_details($session_data['id']);
-		 foreach($result as $row)
+
+		 $data['user_id']=($session_data['id']?$session_data['id']:NULL);
+		 if(sizeof($result)==1)
 		 {
-			 $data['first_name']=$row['first_name'];
-			 $data['last_name']=$row['last_name'];
-			 $data['tag_line']=$row['tag_line'];
-			 $data['secondary_email']=$row['secondary_email'];
-			 $data['mobile']=$row['mobile'];
-			 $data['landline']=$row['landline'];
-			 $data['address']=$row['address'];
-			 $data['website']=$row['website'];
-			 $data['photo']=$row['photo'];
-			 $data['experience']=$row['experience'];
-			 $data['objective']=$row['objective'];
-			 $data['summary']=$row['summary'];
+			 foreach($result as $row)
+			 {
+				 $data['first_name']=$row['first_name'];
+				 $data['last_name']=$row['last_name'];
+				 $data['tag_line']=$row['tag_line'];
+				 $data['secondary_email']=$row['secondary_email'];
+				 $data['mobile']=$row['mobile'];
+				 $data['landline']=$row['landline'];
+				 $data['address']=$row['address'];
+				 $data['website']=$row['website'];
+				 $data['photo']=$row['photo'];
+				 $data['experience']=$row['experience'];
+				 $data['objective']=$row['objective'];
+				 $data['summary']=$row['summary'];
+			 }
 		 }
+		 else
+		 {
+			 $data['first_name']=NULL;
+			 $data['last_name']=NULL;
+			 $data['tag_line']=NULL;
+			 $data['secondary_email']=NULL;
+			 $data['mobile']=NULL;
+			 $data['landline']=NULL;
+			 $data['address']=NULL;
+			 $data['website']=NULL;
+			 $data['photo']=NULL;
+			 $data['experience']=NULL;
+			 $data['objective']=NULL;
+			 $data['summary']=NULL;
+		 }
+
 		 $data['user_id']=$session_data['id'];
 		 $this->load->view('template', $data);
 		 //$this->load->view('select_template');
-	   }
-	   else
+	   //}
+	   /*else
 	   {
 		 //If no session, redirect to login page
 		 redirect('login', 'refresh');
-	   }
+	   }*/
 	 }
 
  function logout()

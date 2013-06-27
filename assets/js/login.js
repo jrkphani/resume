@@ -74,17 +74,26 @@ $(document).ready(function()
 		var lastname = $.trim($('#lastname').val());
 		var role = $('input:radio[name=role]:checked').val();
 
+		var friend_email1 = $.trim($('#friend_email1').val());
+		var friend_email2 = $.trim($('#friend_email2').val());
+
 		if(!validate('First Name','firstname',man=true,max=100,min=3,type='string',disp='error_msg1')) return false;
 		else if(!validate('Last Name','lastname',man=true,max=100,min=false,type='string',disp='error_msg1')) return false;
 		else if(!validate('Email','inputEmail',man=true,max=254,min=false,type='email',disp='error_msg1')) return false;
 		else if(!validate('Password','inputPassword',man=true,max=100,min=4,type='false',disp='error_msg1')) return false;
+
+		else if(!validate('Friend 1 Email','friend_email1',man=true,max=254,min=false,type='email',disp='error_msg1')) return false;
+		else if(!validate('Friend 2 Email','friend_email2',man=true,max=254,min=false,type='email',disp='error_msg1')) return false;
 		else
 		{
+			/*$(".email_check").each(function(){
+				validate_email($(this).val(),$(this).attr('data'));
+			});*/
 			$.ajax(
 			{
 				url:baseurl+'registration',
 				type:'POST',
-				data:{'firstname':firstname,'lastname':lastname,'email_address':email,'pass_word':password,'role':role},
+				data:{'firstname':firstname,'lastname':lastname,'email_address':email,'pass_word':password,'role':role,'friend_email1':friend_email1,'friend_email2':friend_email2},
 				dataType: 'json',
 				success:function(data)
 				{
@@ -148,4 +157,37 @@ $(document).ready(function()
 			});
 		}
 	});
+
+	//Validate email is original
+	$('.email_check').change(function(){
+		validate_email($(this).val(),$(this).attr('data'));
+	});
 });
+
+function validate_email(email,person)
+{
+	$.ajax(
+	{
+		url:baseurl+'registration/validateEmail/',
+		type:'GET',
+		data: {'email':email},
+		dataType: 'json',
+		success:function(data)
+		{
+			if(data.resultset.success=='-1')
+			{
+				$('#error_msg1').html(person+' Email is invalid.');
+				return false;
+			}
+			else if(data.resultset.success=='-2')
+			{
+				$('#error_msg1').html(person+' Email is already registered with us.');
+				return false;
+			}
+		},
+		error:function()
+		{
+			$('#error_msg1').html('Internal error, try agian...');
+		}
+	});
+}

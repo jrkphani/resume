@@ -1,4 +1,4 @@
-	<div class="row-fluid loginPage" >
+	<div class="row-fluid loginPage" style="height:520px;">
 		<div class="span4 offset2 video">
  			
 		</div>
@@ -22,7 +22,7 @@
 			  <div class="control-group">
 			    <label class="control-label" for="inputEmail">Email</label>
 			    <div class="controls">
-			      <input type="text" class="input-xlarge" name="email_address" id="inputEmail" placeholder="Email">
+			      <input type="email" class="input-xlarge email_check" name="email_address" id="inputEmail" data="Primary" placeholder="Email">
 			    </div>
 			  </div>
 			  <div class="control-group">
@@ -38,6 +38,23 @@
 			      <input type="radio" name="role" id="role" value="member">Member
 			    </div>
 			  </div>
+			  <div class="control-group">
+			  	<div class="controls">
+				  <table>
+				  	<th>
+				  		<td colspan='2'>Reffer Friends</td>
+				  	</th>
+				  	<tr>
+				  		<td>Friend 1:</td>
+				  		<td>&nbsp<input type="email" name="friend_email1" class="email_check" id="friend_email1" data="Friend 1" /></td>
+				  	</tr>
+				  	<tr>
+				  		<td>Friend 2:</td>
+				  		<td>&nbsp<input type="email" name="friend_email2" class="email_check" id="friend_email2" data="Friend 2" /></td>
+				  	</tr>
+				  </table>
+			</div>
+			</div>
 			  <div class="control-group">
 			    <div class="controls">
 			        <span id="signupsubmit" class="signUpbutton">Sign Up</span>

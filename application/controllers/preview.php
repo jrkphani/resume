@@ -27,36 +27,62 @@ class Preview extends CI_Controller {
 		$this->load->helper('file');
 		if($postdata=$this->input->post())
 		{
-			/*POST START HERE
-			$this->load->model('resume_model');
-			$this->resume_model->update();*/
-			
-			//echo "<pre>";
-			//print_r($postdata);
-			$preview_html = $this->load->view('T/'.$postdata['template'].'_html',$postdata,true);
-			if($userdata = $this->session->userdata('logged_in'))
+			//load template to apply
+			$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$postdata,true);
+				
+			if($this->current_user)
+			{
+				//user logged in
+				$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
 				$file_name=$userdata['id'];
+			}
 			else
+			{
+				//user not logged in 
 				$file_name=mt_rand().time();
-			$temppath=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
-			if(!write_file($temppath, $preview_html))
+				$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
+				$temp_path_img=FCPATH.$this->config->item('path_temp_img').$file_name.'.jpg';
+				
+				$style="<style>body { background-image:url('".FCPATH."assets/img/digitalchakra_logo.jpg'); } </style>";
+				$preview_data = $style.$preview_data;
+				
+			}
+			if(!write_file($temp_path_html, $preview_data))
 			{
 				$data['success']='no';
 				$data['msg']='Unable to write file';
 				$result['resultset']=$data;
-				$this->load->view('json',$result);
 			}
 			else
 			{
+				$data['image']='no';
+				if(!$this->current_user)
+				{					
+					// Command to execute
+					$command = FCPATH."application/third_party/wkhtmltoimage-i386 --load-error-handling ignore";
+					
+					// Putting together the command for `shell_exec()`
+					$ex = "$command " . $temp_path_html ." ". $temp_path_img;
+					
+					// Generate the image
+					$output = shell_exec($ex);
+				
+					//remove html
+					unlink($temp_path_html);
+					
+					
+					//set returning image type yes
+					$data['image']='yes';
+				}
 				$data['success']='yes';
 				$data['html']=$file_name;
 				$result['resultset']=$data;
-				$this->load->view('json',$result);
 				//$data['html']=$preview_html;
 				//$data['css']=$postdata['css'];
 				//$data['link']=$tempnam;
 				//$this->load->view('preview',$data);
 			}
+			$this->load->view('json',$result);
 		}
 		else
 		{
@@ -68,13 +94,14 @@ class Preview extends CI_Controller {
 		//preview inside application
 		$this->load->helper('file');
 		$html = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
-		$data['online'] = false;
-		if($html==='online')
+		if($this->current_user)
 		{
-			$html = ($this->uri->segment(4)) ? $this->uri->segment(4) : NULL;
-			$data['online'] = true;	
+			$content = read_file(FCPATH.$this->config->item('path_temp_file').$html.".html");
 		}
-		$content = read_file(FCPATH.$this->config->item('path_temp_file').$html.".html");
+		else
+		{
+			$content = '<img src="'.base_url($this->config->item('path_temp_img').$html.'.jpg').'" >';
+		}
 		$data['html']=$content;
 		$data['link']=$html;
 		$data['user_id']=$this->current_user['id'];

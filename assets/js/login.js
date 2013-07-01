@@ -28,7 +28,7 @@ $(document).ready(function()
 		var email = $.trim($('#username').val());
 		var password = $('#passowrd').val();
 		if(!validate('Email','username',man=true,max=254,min=false,type='email',disp='error_msg')) return false;
-		else if(!validate('Password','passowrd',man=true,max=100,min=4,type='false',disp='error_msg')) return false;
+		else if(!validate('Password','passowrd',man=true,max=30,min=6,type='false',disp='error_msg')) return false;
 		else
 		{
 			$.ajax(
@@ -80,6 +80,7 @@ $(document).ready(function()
 		if(!validate('First Name','firstname',man=true,max=100,min=3,type='string',disp='error_msg1')) return false;
 		else if(!validate('Last Name','lastname',man=true,max=100,min=false,type='string',disp='error_msg1')) return false;
 		else if(!validate('Email','inputEmail',man=true,max=254,min=false,type='email',disp='error_msg1')) return false;
+		else if(!validate('Password','inputPassword',man=true,max=30,min=6,type=false,disp='error_msg1')) return false;
 		/*else if(email==friend_email1 || email==friend_email2)
 		{
 			$('#error_msg1').html('You can\'t refer your self.');

@@ -1,8 +1,15 @@
 //javascript file
 
 //validate(Title,ElementID,Mandatory(true/false),MaxLength(Number/false),MinLength(Number/false),Type=(string/email/number/mobile/false),Display(DisplayID/false));
-function validate(title,id,mandatory=false,max_length=false,min_length=false,type=false,display=false)
+//function validate(title,id,mandatory=false,max_length=false,min_length=false,type=false,display=false)
+function validate(title,id,mandatory,max_length,min_length,type,display)
 {
+	mandatory = (mandatory === undefined) ? false : mandatory;
+	max_length = (max_length === undefined) ? false : max_length;
+	min_length = (min_length === undefined) ? false : min_length;
+	type = (type === undefined) ? false : type;
+	display = (display === undefined) ? false : display;
+
 	var data=document.getElementById(id).value.trim();
 	
 	if(!data && mandatory==true)

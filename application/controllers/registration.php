@@ -19,14 +19,16 @@ class Registration extends CI_Controller {
 	   {
 		$this->load->library('form_validation');
 		  // field name, error message, validation rules
-		  $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|min_length[2]|max_length[20]|xss_clean');
-		  $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|min_length[1]|max_length[20]|xss_clean');
-		  $this->form_validation->set_rules('email_address', 'Email', 'trim|required|valid_email|max_length[254]');
-		  $this->form_validation->set_rules('pass_word', 'Password', 'trim|required|min_length[4]|max_length[32]');
+		  $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|min_length[2]|max_length[20]');
+		  $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|min_length[1]|max_length[20]');
+		  $this->form_validation->set_rules('email_address', 'Email', 'trim|required|valid_email|max_length[254]|xss_clean');
+		  $this->form_validation->set_rules('pass_word', 'Password', 'trim|required|min_length[4]|max_length[32]|xss_clean');
 		  //$this->form_validation->set_rules('con_password', 'Password Confirmation', 'trim|required|matches[password]');
-		  $this->form_validation->set_rules('friend_email1', 'Friend 1 Email', 'trim|required|valid_email|max_length[254]');
-		  $this->form_validation->set_rules('friend_email2', 'Friend 2 Email', 'trim|required|valid_email|max_length[254]');
+		  $this->form_validation->set_rules('friend_email[]', 'Referred Email', 'trim|required|valid_email|max_length[254]|callback_friend_check');
 		  $this->form_validation->set_rules('role', 'Type', 'required');
+
+		  $primary_email=$this->input->post('email_address');
+	  	  $friend_emails=$this->input->post('friend_email');
 
 		  if($this->form_validation->run() == FALSE)
 		  {
@@ -35,22 +37,34 @@ class Registration extends CI_Controller {
 			$result['resultset']=$data;
 			$this->load->view('json',$result);
 		  }
+		  else if(in_array($primary_email,$friend_emails))
+		  {
+			$data['errors']='You cannot refer your self.';
+			$data['success']='no';
+			$result['resultset']=$data;
+			$this->load->view('json',$result);
+		  }
+		  else if(sizeof($friend_emails)!=sizeof(array_unique($friend_emails)))
+		  {
+			$data['errors']='You cannot refer the same person twice.';
+			$data['success']='no';
+			$result['resultset']=$data;
+			$this->load->view('json',$result);
+		  }
+		  else if($not_valid=$this->validateEmail($friend_emails))
+		  {
+		  	$data['errors']=$not_valid.' not a valid email.';
+			$data['success']='no';
+			$result['resultset']=$data;
+			$this->load->view('json',$result);
+		  }
 		  else
 		  {
 		  	$this->load->model('user');
-		  	$primary_email=$this->input->post('email_address');
-		  	$friend_email1=$this->input->post('friend_email1');
-		  	$friend_email2=$this->input->post('friend_email2');
 
 		  	if($result_exist=$this->user->check_user(array('email'=>$primary_email)))
-		  		$data['errors']=$primary_email.' is already registered with us.';
-		  	else if($result_exist=$this->user->check_user(array('email'=>$friend_email1)))
-		  		$data['errors']=$friend_email1.' is already registered with us.';
-		  	else if($result_exist=$this->user->check_user(array('email'=>$friend_email2)))
-		  		$data['errors']=$friend_email2.' is already registered with us.';
-
-		  	if($result_exist)
 		  	{
+		  		$data['errors']=$primary_email.' is already registered with us.';
 				$data['success']='no';
 				$result['resultset']=$data;
 				$this->load->view('json',$result);
@@ -65,14 +79,8 @@ class Registration extends CI_Controller {
 				$results=$SMTP_Validator->validate(array($primary_email,$friend_email1,$friend_email2), $sender);
 
 				if(!$results[$primary_email])
-					$data['errors']=$primary_email.' is an invalid Email.';
-				else if(!$results[$friend_email1])
-					$data['errors']=$friend_email1.' is an invalid Email.';
-				else if(!$results[$friend_email2])
-					$data['errors']=$friend_email2.' is an invalid Email.';
-
-				if((!$results[$primary_email]) || (!$results[$friend_email1]) || (!$results[$friend_email2]) )
 				{
+					$data['errors']=$primary_email.' is an invalid Email.';
 					$data['success']='no';
 					$result['resultset']=$data;
 					$this->load->view('json',$result);
@@ -100,34 +108,36 @@ class Registration extends CI_Controller {
 							$config['mailtype']='html';
 							$this->email->initialize($config);
 							$this->email->from('resume@digitalchakra.in', 'Digital Chakra');
-							$this->email->to($post_data['email']);
 							#$this->email->cc('another@another-example.com');
 							#$this->email->bcc('them@their-example.com');
 							if($post_data['role']=='user')
 							{
-								$this->email->subject('Verify your account @ Digitalchakra');
-								$message= 'Verify your the registered account in <a href="'.base_url('registration/activation/'.$this->db->insert_id().'/'.$post_data['active']).'"> Digitalchakra Resume App </a>'; 
+								$insert_id=$this->db->insert_id();
+								$this->email->subject('Verify your account on EZCV');
+								$message= 'Dear User<br /><br />Thank you for your register on EZCV. Your account has been created successfully. Please click on below link to verify your account<br /><a href="'.base_url('registration/activation/'.$insert_id.'/'.$post_data['active']).'"> Activate my EZCV account </a><br /><br />Regards<br />EZCV'; 
+
+								$this->invite_friend($insert_id,$friend_emails,$post_data['firstname'].' '.$post_data['lastname']);
 							}
 							else if($post_data['role']=='member')
 							{
-								$this->email->subject('Thank you for register as member');
-								$message= 'We will alert you after admin approval'; 
+								$this->email->subject('Thank you for register with EZCV as a member');
+								$message= 'Dear User<br /><br />Thank you for your register on EZCV. Your account has been created successfully. We will alert you after admin approval.<br /><br />Regards<br />EZCV'; 
 							}
+							$this->email->to($post_data['email']);
 							$this->email->message($message);
-							if($this->email->send())
-							{
-								$data['mail']='yes';
-							}
-							else
-							{
+							if(!$this->email->send())
 								$data['mail']='no';
-							}
 							$data['success']='yes';
 							$result['resultset']=$data;
 							$this->load->view('json',$result);
 						}
-						//$this->load->view('login_view');
-						//redirect('home', 'refresh');
+						else
+						{
+							$data['errors']="Internal error, Please try agian!";
+							$data['success']='no';
+							$result['resultset']=$data;
+							$this->load->view('json',$result);
+						}
 					}
 					else
 					{
@@ -166,30 +176,100 @@ class Registration extends CI_Controller {
  }
 
 //validate entered email on onblur/onchange
- function validateEmail()
+ function validateEmail($email_arr)
  {
  	$this->load->model('user');
- 	$email = $_GET['email'];
+ 	/*$email = $_GET['email'];
  	if($this->user->check_user(array('email'=>$email)))
  	{
  		$data['resultset']['success']='-2';
  	}
  	else
- 	{
-	 	error_reporting(E_ERROR);
-	 	$this->load->library('smtp_validate_email');		
-		$sender = 'ramasamy.digitalchakra@gmail.com';
-		$SMTP_Validator = new Smtp_validate_email();
-		$SMTP_Validator->debug = false;
-
-		if($results=$SMTP_Validator->validate(array($email), $sender))
+ 	{*/
+ 	error_reporting(E_ERROR);
+ 	$this->load->library('smtp_validate_email');		
+	$sender = 'ramasamy.digitalchakra@gmail.com';
+	$SMTP_Validator = new Smtp_validate_email();
+	$SMTP_Validator->debug = false;
+	$not_valid=NULL;
+	$results=$SMTP_Validator->validate($email_arr, $sender);
+	if($results)
+	{
+		foreach($email_arr as $value)
+		{
+			if(isset($results[$value]) && ($results[$value]))
+			{
+				//true
+			}
+			else
+			{
+				$not_valid=$not_valid.$value.' ';
+			}
+		}
+	}
+	else
+	{
+		$not_valid=implode(',',$email_arr);
+	}
+		return $not_valid;
+	/*
 			$data['resultset']['success']=($results[$email] ? '1' : '-1');
 		else
 			$data['resultset']['success']='-1';
 	}
-	$this->load->view('json',$data);
+	$this->load->view('json',$data);*/
  }
 
+ function invite_friend($insert_id,$emails,$name)
+ {
+ 	$this->load->model('user');
+ 	foreach($emails as $email)
+ 	{
+ 		//Check email id is already referred
+ 		if($result=$this->user->check_friend($email))
+ 			$this->user->update_friend($email,$insert_id,$result[0]['referrer']);
+ 		else
+ 			$this->user->add_friend($email,$insert_id);
+ 		$this->email->to($email);
+ 		$this->email->subject($name.' invited you to join EZCV');
+		$message= 'Hello<br /><br />Your friend, '.$name.' has invited you to join EZCV, the best resume building service known to man.
+We helped them create a better resume - for free! Stand out in a overcrowded job market and get noticed by employers.
+Improve your chances of finding your dream job - jump start your career with EZCV.<br /><br />
+Visit http://ezcv.in to start building a better resume now!';
+		$this->email->message($message);
+		if(!$this->email->send())
+			$data['mail']='no';
+ 	}
+ }
+
+ //Check primary email and referring email are different
+function username_check($email_address)
+{
+	if(($email==$friend_email1) || ($email==$friend_email2))
+	{
+		$this->form_validation->set_message('username_check', 'You can not refer your self.');
+		return false;
+	}
+	else
+		return true;
 }
 
+function friend_check()
+{
+	$friend_emails=$this->input->post('friend_email');
+	$this->load->model('user');
+	$result=$this->user->check_registered($friend_emails);
+	$result_size=sizeof($result);
+	if($result_size>0)
+	{
+		$registered=$result[0]->email;
+		for($i=1;$i<$result_size;$i++)
+			$registered=$registered.', '.$result[$i]->email;
+		$this->form_validation->set_message('friend_check', $registered.' already registered with us.');
+		return false;
+	}
+	else
+		return true;
+}
+}
 ?>

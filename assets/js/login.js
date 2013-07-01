@@ -80,26 +80,32 @@ $(document).ready(function()
 		if(!validate('First Name','firstname',man=true,max=100,min=3,type='string',disp='error_msg1')) return false;
 		else if(!validate('Last Name','lastname',man=true,max=100,min=false,type='string',disp='error_msg1')) return false;
 		else if(!validate('Email','inputEmail',man=true,max=254,min=false,type='email',disp='error_msg1')) return false;
-		else if(!validate('Password','inputPassword',man=true,max=100,min=4,type='false',disp='error_msg1')) return false;
-
-		else if(!validate('Friend 1 Email','friend_email1',man=true,max=254,min=false,type='email',disp='error_msg1')) return false;
-		else if(!validate('Friend 2 Email','friend_email2',man=true,max=254,min=false,type='email',disp='error_msg1')) return false;
+		/*else if(email==friend_email1 || email==friend_email2)
+		{
+			$('#error_msg1').html('You can\'t refer your self.');
+			return false;
+		}
+		else if(friend_email1==friend_email2)
+		{
+			$('#error_msg1').html('Referring email can\'t be same.');
+			return false;
+		}*/
 		else
 		{
-			/*$(".email_check").each(function(){
-				validate_email($(this).val(),$(this).attr('data'));
-			});*/
 			$.ajax(
 			{
 				url:baseurl+'registration',
 				type:'POST',
-				data:{'firstname':firstname,'lastname':lastname,'email_address':email,'pass_word':password,'role':role,'friend_email1':friend_email1,'friend_email2':friend_email2},
+				//data:{'firstname':firstname,'lastname':lastname,'email_address':email,'pass_word':password,'role':role,'friend_email1':friend_email1,'friend_email2':friend_email2},
+				data: $('#registration_form').serialize(),
 				dataType: 'json',
 				success:function(data)
 				{
 					if(data.resultset.success=='yes')
 					{
 						$('#error_msg1').html("success msg");
+						if(data.resultset.mail=='no')
+							$('#error_msg1').append(' There was a problem occurred on sending mail.');
 					}
 					else
 					{
@@ -158,13 +164,15 @@ $(document).ready(function()
 		}
 	});
 
-	//Validate email is original
+	/*Validate email is original
 	$('.email_check').change(function(){
-		validate_email($(this).val(),$(this).attr('data'));
-	});
+		validate_email($(this).val());
+	});*/
 });
 
-function validate_email(email,person)
+
+// function not in use (function call commented)
+function validate_email(email)
 {
 	$.ajax(
 	{
@@ -176,12 +184,12 @@ function validate_email(email,person)
 		{
 			if(data.resultset.success=='-1')
 			{
-				$('#error_msg1').html(person+' Email is invalid.');
+				$('#error_msg1').html(email+' Email is invalid.');
 				return false;
 			}
 			else if(data.resultset.success=='-2')
 			{
-				$('#error_msg1').html(person+' Email is already registered with us.');
+				$('#error_msg1').html(email+' Email is already registered with us.');
 				return false;
 			}
 		},

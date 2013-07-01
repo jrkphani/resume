@@ -98,5 +98,45 @@ Class User extends CI_Model
 	   return false;
    }
  }
+
+ //Check referred is already registered
+ function check_registered($emails)
+ {
+   //$this->db->select('email');
+   //$this->db->where_in('email',$emails);
+   $query=$this->db->select('email')->where_in('email',$emails)->from('users')->get()->result();
+   return $query;
+
+ }
+
+ //Check email id is already referred
+ function check_friend($email)
+ {
+  $this->db->select('referrer');
+  $this->db->where('email',$email);
+  $this->db->from('referred_emails');
+  $query = $this -> db -> get();
+
+  if($query -> num_rows() == 1)
+    return $query->result_array();
+  else
+    return false;
+ }
+
+ //Add email id with referrer
+ function add_friend($email,$referrer)
+ {
+  $data = array('email' => $email,'referrer' => $referrer);
+  $this->db->insert('referred_emails',$data);
+ }
+
+ //Add new referrer for exist email
+ function update_friend($email,$referrer,$exist_referrer)
+ {
+    $referrers=$exist_referrer.','.$referrer;
+    $data = array('referrer' => $referrers);
+    $this->db->where('email',$email);
+    $this->db->update('referred_emails',$data);
+ }
 }
 ?>

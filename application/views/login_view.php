@@ -6,7 +6,7 @@
 			<h4>New to Resume Builder? Sign Up </h4>
 			<span id="error_msg1" class="errorMessage"></span>
 
-			<form class="form-horizontal">
+			<form class="form-horizontal" id="registration_form">
 				<div class="control-group">
 			    <label class="control-label" for="input">First name</label>
 			    <div class="controls">
@@ -22,7 +22,7 @@
 			  <div class="control-group">
 			    <label class="control-label" for="inputEmail">Email</label>
 			    <div class="controls">
-			      <input type="email" class="input-xlarge email_check" name="email_address" id="inputEmail" data="Primary" placeholder="Email">
+			      <input type="email" class="input-xlarge email_check" name="email_address" id="inputEmail" placeholder="Email">
 			    </div>
 			  </div>
 			  <div class="control-group">
@@ -46,11 +46,11 @@
 				  	</th>
 				  	<tr>
 				  		<td>Friend 1:</td>
-				  		<td>&nbsp<input type="email" name="friend_email1" class="email_check" id="friend_email1" data="Friend 1" /></td>
+				  		<td>&nbsp<input type="email" name="friend_email[]" class="email_check" /></td>
 				  	</tr>
 				  	<tr>
 				  		<td>Friend 2:</td>
-				  		<td>&nbsp<input type="email" name="friend_email2" class="email_check" id="friend_email2" data="Friend 2" /></td>
+				  		<td>&nbsp<input type="email" name="friend_email[]" class="email_check" /></td>
 				  	</tr>
 				  </table>
 			</div>

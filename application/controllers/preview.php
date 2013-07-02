@@ -26,15 +26,15 @@ class Preview extends CI_Controller {
 	{
 		$this->load->helper('file');
 		if($postdata=$this->input->post())
-		{
+		{//print_r($postdata);
 			//load template to apply
-			$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$postdata,true);
-				
+			//$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$postdata,true);
+			$preview_data = "Hello world";	
 			if($this->current_user)
 			{
 				//user logged in
+				$file_name=$this->current_user['id'];
 				$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
-				$file_name=$userdata['id'];
 			}
 			else
 			{

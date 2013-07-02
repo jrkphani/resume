@@ -5,19 +5,23 @@ class Registration extends CI_Controller {
  function __construct()
  {
    parent::__construct();
+   $this->current_user=$this->session->userdata('logged_in');
+   if($this->current_user)
+		redirect('home', 'refresh');
+   $this->load->library('session');
  }
 
  function index()
  {
-	 if($this->session->userdata('logged_in'))
+	 /*if($this->current_user)
 	   {
 		 $session_data = $this->session->userdata('logged_in');
 		 $data['username'] = $session_data['username'];
 		 $this->load->view('home', $data);
 	   }
 	   else
-	   {
-		$this->load->library('form_validation');
+	   {*/
+	   	  $this->load->library('form_validation');
 		  // field name, error message, validation rules
 		  $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|min_length[2]|max_length[20]');
 		  $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|min_length[1]|max_length[20]');
@@ -113,6 +117,11 @@ class Registration extends CI_Controller {
 							if($post_data['role']=='user')
 							{
 								$insert_id=$this->db->insert_id();
+								if($html_link=$this->updateUser($insert_id))
+									$data['html']=$html_link;
+								else
+									$data['html']='no';
+
 								$this->email->subject('Verify your account on EZCV');
 								$message= 'Dear User<br /><br />Thank you for your register on EZCV. Your account has been created successfully. Please click on below link to verify your account<br /><a href="'.base_url('registration/activation/'.$insert_id.'/'.$post_data['active']).'"> Activate my EZCV account </a><br /><br />Regards<br />EZCV'; 
 
@@ -149,9 +158,10 @@ class Registration extends CI_Controller {
 				}
 			}		  
 		  }
-	   }
+	 /*} */
    
  }
+
  function activation()
  {
 	 $id = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
@@ -271,5 +281,51 @@ function friend_check()
 	else
 		return true;
 }
+
+function updateUser($insert_id)
+{
+	$this->load->helper('file');
+
+	//Get user data from session
+	$user_detail=$this->session->userdata('user_detail');
+	$skill=$this->session->userdata('skill');
+	$company=$this->session->userdata('company');
+	$project=$this->session->userdata('project');
+	$education=$this->session->userdata('education');
+	$template=$this->session->userdata('template');
+
+	$this->load->model('resume_model');
+	//Update user exist session data from resume page
+	if($user_detail)
+		$this->resume_model->update($insert_id,$user_detail,$skill,$company,$project,$education);
+
+	//Merge data for generate HTML temporary file
+	//$post_array=array_merge($user_detail,$skill,$company,$project,$education,$template);
+	$post_array['basic']=$user_detail;
+	$post_array['skill']=$skill;
+	$post_array['company']=$company;
+	$post_array['project']=$project;
+	$post_array['education']=$education;
+	$post_array['template']=$template;
+
+	//print_r($post_array);
+
+	//Generate HTML temporary file for download
+	$preview_data = $this->load->view('T/'.$template['template'].'_html',$post_array,true);
+	$file_name=mt_rand().time();
+	$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
+
+	/*$this->session->unset_userdata('user_detail');
+	$this->session->unset_userdata('skill');
+	$this->session->unset_userdata('company');
+	$this->session->unset_userdata('project');
+	$this->session->unset_userdata('education');
+	$this->session->unset_userdata('template');*/
+	if(write_file($temp_path_html, $preview_data))
+		return $file_name;
+	else
+		return false;
+}
+
 }
 ?>

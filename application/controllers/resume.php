@@ -6,16 +6,78 @@ class Resume extends CI_Controller
 	{
 		parent::__construct();
 		$this->current_user=$this->session->userdata('logged_in');
-		if(!$this->current_user)
-		{
-			redirect('home', 'refresh');
-		}
-		else if($this->current_user['flag']==1) //check for profile complition
+		if($this->current_user['flag']==1) //check for profile complition
 			redirect('profile', 'refresh');
+	}
+
+	public function save_download()
+	{
+		$this->load->library('session');
+
+		$user_detail=array(
+			'first_name' => $this->input->post('fname'),
+			'last_name' => $this->input->post('lname'),
+			'tag_line' => $this->input->post('designation'),
+			'mobile' => $this->input->post('phone'),
+			'secondary_email' => $this->input->post('email'),
+			'address' => $this->input->post('address'),
+			'website' => $this->input->post('mysite'),
+			'experience' => $this->input->post('experience'),
+			'objective' => $this->input->post('objective'),
+			'summary' => $this->input->post('summary')
+		);
+
+		$skill=array(
+			'name' => $this->input->post('skillName'),
+			'title' => $this->input->post('skillTitle'),
+			'effeciency' => $this->input->post('skillEff'),
+			'description' => $this->input->post('skillDesc')
+		);
+
+		$company=array(
+			'name' => $this->input->post('cmpnyName'),
+			'designation' => $this->input->post('cmpnyDesg'),
+			'from' => $this->input->post('cmpnyFrom'),
+			'to' => $this->input->post('cmpnyTo'),
+			'description' => $this->input->post('cmpnyDesc')
+		);
+
+		$project=array(
+			'name' => $this->input->post('projName'),
+			'role' => $this->input->post('projRole'),
+			'from' => $this->input->post('projFrom'),
+			'to' => $this->input->post('projTo'),
+			'description' => $this->input->post('projDesc')
+		);
+
+		$education=array(
+			'institution' => $this->input->post('eduInst'),
+			'certification' => $this->input->post('eduCert'),
+			'from' => $this->input->post('eduFrom'),
+			'to' => $this->input->post('eduTo'),
+			'score' => $this->input->post('eduScore')
+		);
+
+		$template=array(
+			'photo' => $this->input->post('photo'),
+			'template' => $this->input->post('template')
+		);
+
+		$this->session->set_userdata('user_detail',$user_detail);
+		$this->session->set_userdata('skill',$skill);
+		$this->session->set_userdata('company',$company);
+		$this->session->set_userdata('project',$project);
+		$this->session->set_userdata('education',$education);
+		$this->session->set_userdata('template',$template);
+
+		$data['resultset']['success']=1;
+		$this->load->view('json',$data);
 	}
 	
 	public function update_download()
 	{
+		if(!$this->current_user)
+			redirect('home', 'refresh');
 		$this->load->model('resume_model');
 
 		//user_detail

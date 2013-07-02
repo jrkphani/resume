@@ -11,8 +11,7 @@ $(document).ready(function()
 		}
 		else
 		{
-			if($('#user_id').val())
-				update();
+			update();
 			$.ajax({
 				url: baseurl+'preview', 
 				type: 'post',
@@ -304,17 +303,26 @@ $('#addSkills').click(function()
 
 	function update()
 	{
+		if($('#user_id').val())
+			url= baseurl+'resume/update_download';
+		else
+			url= baseurl+'resume/save_download';
 		$.ajax({
-		url: baseurl+'resume/update_download', 
+		url: url, 
+		dataType: 'json',
 		type: 'post',
 		data: $('#resume_form').serialize(),
-		//success:function(){
-			//$('body').data('changesMade','0');
-			//showNotice();
-		//},
+		success:function(data){
+			if(data.resultset.success!=1)
+			{
+				alert('Could not save. Internal error, Please try agian!');
+				return false;
+			}
+		},
 		error:function()
 		{
 			alert('Could not save. Internal error, Please try agian!');
+			return false;
 		}
 		});
 	}

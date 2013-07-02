@@ -106,7 +106,11 @@ $(document).ready(function()
 					{
 						$('#error_msg1').html("success msg");
 						if(data.resultset.mail=='no')
-							$('#error_msg1').append(' There was a problem occurred on sending mail.');
+							$('#error_msg1').append(' There was a problem occurred on sending mail. <br />');
+						if(data.resultset.html=='no')
+							$('#error_msg1').append(' Cannot generate download file. Try again later. <br />');
+						else
+							window.location.replace(baseurl+'download/index/'+data.resultset.html);
 					}
 					else
 					{

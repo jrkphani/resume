@@ -21,11 +21,10 @@ class Download extends CI_Controller {
 	{
 		parent::__construct();
 		$this->current_user=$this->session->userdata('logged_in');
-		if(!$this->current_user)
+		/*if(!$this->current_user)
 		{
 			redirect('login', 'refresh');
-		}
-
+		}*/
 	}
 	public function index()
 	{
@@ -62,6 +61,7 @@ class Download extends CI_Controller {
 	$mpdf->WriteHTML($content);
 	//$mpdf->Output();
 	$mpdf->Output('Resume.pdf','D');
+	unlink($htmlpath);
 	}
 	else
 		{

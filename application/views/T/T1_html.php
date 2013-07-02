@@ -1,25 +1,25 @@
 <style>
 <?
-include(FCPATH."/assets/css/T/".$template.".php");
+include(FCPATH."/assets/css/T/".$template['template'].".php");
 ?>
 </style>
 <div class="resume">
-	<div class="inner"> 
+	<div class="inner">
 		<div class="resumeHeader">
 					<div class="headerLeft mainTitle">
 						<div class="photoBorder">
 							<?
-							if($photo=="")
+							if($template['photo']=="")
 							{ ?><img src="<? echo base_url('assets/img/userPhoto.png'); ?>" />
 							<? }
 							else
 							{ ?>
-								<img src="<? echo $photo; ?>">
+								<img src="<? echo $template['photo']; ?>">
 							<? } ?>
 						</div>
 						<div class="userName">
-							<h2><?=$fname;?> <?=$lname;?></h2>
-							<h3><?=$designation;?></h3>
+							<h2><?=$basic['first_name'];?> <?=$basic['last_name'];?></h2>
+							<h3><?=$basic['tag_line'];?></h3>
 						</div>
 					</div>
 		</div>
@@ -27,7 +27,7 @@ include(FCPATH."/assets/css/T/".$template.".php");
 		<div class="resumeBody">
 			
 <!--objective start-->
-<? if(trim($objective)!="")
+<? if(trim($basic['objective'])!="")
 { ?>
 					<div>
 						<div class="titleSection">
@@ -35,7 +35,7 @@ include(FCPATH."/assets/css/T/".$template.".php");
 						</div>
 						<div class="contentSection">
 							<p>
-								<?=nl2br($objective);?>
+								<?=nl2br($basic['objective']);?>
 							</p>
 						</div>
 					</div>
@@ -43,7 +43,7 @@ include(FCPATH."/assets/css/T/".$template.".php");
 <!--objective end-->
 
 <!--summary start-->
-<? if(trim($summary)!="")
+<? if(trim($basic['summary'])!="")
 { ?>
 					<div>
 						<div class="titleSection">
@@ -51,7 +51,7 @@ include(FCPATH."/assets/css/T/".$template.".php");
 						</div>
 						<div class="contentSection">
 							<p>
-								<?=nl2br($summary);?>
+								<?=nl2br($basic['summary']);?>
 							</p>
 						</div>
 					</div>
@@ -59,7 +59,7 @@ include(FCPATH."/assets/css/T/".$template.".php");
 <!--summary end-->
 
 <!--Company start-->
-<? if(array_filter($cmpnyName))
+<? if(array_filter($company['name']))
 { ?>
 					<div>
 						<div class="mainTitle">
@@ -69,15 +69,15 @@ include(FCPATH."/assets/css/T/".$template.".php");
 						<div>
 							<? 
 							$i=0;
-							foreach($cmpnyName as $cmpny) {
+							foreach($company['name'] as $cmpny) {
 							?>
 							<div class="titleSection">
-								<h2><?=$cmpnyName[$i];?></h2>
-								<h4><?=$cmpnyFrom[$i];?>-<?=$cmpnyTo[$i];?></h4>
+								<h2><?=$company['name'][$i];?></h2>
+								<h4><?=$company['from'][$i];?>-<?=$company['to'][$i];?></h4>
 							</div>
 							<div class="contentSection">
-								<h3><?=$cmpnyDesg[$i];?></h3>
-								<p><?=$cmpnyDesc[$i];?></p>
+								<h3><?=$company['designation'][$i];?></h3>
+								<p><?=$company['description'][$i];?></p>
 									<!--<ul>
 										<li>Accomplishments 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
 										<li>Accomplishments 2 Mauris at mauris tellus, ut convallis diam. </li>
@@ -91,7 +91,7 @@ include(FCPATH."/assets/css/T/".$template.".php");
 <!--Company end-->
 
 <!--Skill start-->
-<? if(array_filter($skillName))
+<? if(array_filter($skill['name']))
 { ?>
 					<div>
 						<div class="mainTitle">
@@ -100,15 +100,15 @@ include(FCPATH."/assets/css/T/".$template.".php");
 						<div  >
 							<? 
 							$i=0;
-							foreach($skillName as $skill) {
+							foreach($skill['name'] as $skil) {
 							?>
 								<div class="titleSection">
-									<h2><?=$skillName[$i];?></h2>
-									<h4><?=$skillTitle[$i];?></h4>
+									<h2><?=$skill['name'][$i];?></h2>
+									<h4><?=$skill['title'][$i];?></h4>
 								</div>
 								<div class="contentSection">
-									<h3><?=$skillEff[$i];?></h3>
-									<p><?=nl2br($skillDesc[$i]);?></p>
+									<h3><?=$skill['effeciency'][$i];?></h3>
+									<p><?=nl2br($skill['description'][$i]);?></p>
 									
 								</div>
 							<? $i++; } ?>
@@ -140,7 +140,7 @@ include(FCPATH."/assets/css/T/".$template.".php");
 	<!--OtherSkill end-->
 
 	<!--Projects start-->
-	<? if(array_filter($projName))
+	<? if(array_filter($project['name']))
 				{ ?>
 					<div>
 						<div class="mainTitle">
@@ -150,15 +150,15 @@ include(FCPATH."/assets/css/T/".$template.".php");
 						<div>
 							<? 
 							$i=0;
-							foreach($projName as $proj) {
+							foreach($project['name'] as $proj) {
 							?>
 							<div class="titleSection">
-								<h2><?=$projName[$i];?></h2>
-								<h4><?=$projFrom[$i];?>-<?=$projTo[$i];?></h4>
+								<h2><?=$project['name'][$i];?></h2>
+								<h4><?=$project['from'][$i];?>-<?=$project['to'][$i];?></h4>
 							</div>
 							<div class="contentSection">
-								<h3><?=$projRole[$i];?></h3>
-								<p><?=nl2br($projDesc[$i]);?></p>
+								<h3><?=$project['role'][$i];?></h3>
+								<p><?=nl2br($project['description'][$i]);?></p>
 									<!--<ul>
 										<li>Accomplishments 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. </li>
 										<li>Accomplishments 2 Mauris at mauris tellus, ut convallis diam. </li>
@@ -171,7 +171,7 @@ include(FCPATH."/assets/css/T/".$template.".php");
 <!--Projects end-->
 
 <!--Education start-->
-<? if(array_filter($eduInst))
+<? if(array_filter($education['institution']))
 				{ ?>
 					<div>
 						
@@ -180,15 +180,15 @@ include(FCPATH."/assets/css/T/".$template.".php");
 							</div>
 							<? 
 							$i=0;
-							foreach($eduInst as $edu) {
+							foreach($education['institution'] as $edu) {
 							?>
 								<div class="titleSection">
-									<h2><?=$eduInst[$i];?></h2>
-									<h4><?=$eduFrom[$i];?> to <?=$eduTo[$i];?> </h4>
+									<h2><?=$education['institution'][$i];?></h2>
+									<h4><?=$education['from'][$i];?> to <?=$education['to'][$i];?> </h4>
 								</div>
 								<div class="contentSection2 height40">
-									<h3><?=$eduCert[$i];?></h3>
-									<p><?=$eduScore[$i];?></p>
+									<h3><?=$education['certification'][$i];?></h3>
+									<p><?=$education['score'][$i];?></p>
 									
 								</div>
 							<? $i++; } ?>	
@@ -204,17 +204,17 @@ include(FCPATH."/assets/css/T/".$template.".php");
 							<div class="contentSection height200">
 								<div>
 									<h3>Phone</h3>
-									<p><?=$phone;?></p>
+									<p><?=$basic['mobile'];?></p>
 								</div>
 								<div>
 									<h3>Email</h3>
-									<p><?=$email;?></p>
+									<p><?=$basic['secondary_email'];?></p>
 								</div>
-								<? if(trim($objective)!="")
+								<? if(trim($basic['objective'])!="")
 								{ ?>
 								<div>
 									<h3>Site</h3>
-									<p><?=$mysite;?></p>
+									<p><?=$basic['website'];?></p>
 								</div>
 								<? } ?>
 								

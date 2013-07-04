@@ -24,12 +24,85 @@ class Preview extends CI_Controller {
 	}
 	public function index()
 	{
+		$url_array=array('mylink','twitter','facebook','linkedin');
+		$url_array=array_combine($url_array,$this->input->post('url'));
+		 $website = serialize($url_array);
+		/*print_r(serialize($url_array)); 
+		
+		echo '=====================';
+		
+		print_r(unserialize($website));
+		die;*/
 		$this->load->helper('file');
 		if($postdata=$this->input->post())
-		{//print_r($postdata);
-			//load template to apply
-			//$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$postdata,true);
-			$preview_data = "Hello world";	
+		{
+			
+			
+			$user_detail=array(
+			'first_name' => $this->input->post('fname'),
+			'last_name' => $this->input->post('lname'),
+			'tag_line' => $this->input->post('designation'),
+			'mobile' => $this->input->post('phone'),
+			'secondary_email' => $this->input->post('email'),
+			'address' => $this->input->post('address'),
+			'website' => $website,
+			'experience' => $this->input->post('experience'),
+			'objective' => $this->input->post('objective'),
+			'summary' => $this->input->post('summary')
+		);
+
+		$skill=array(
+			'name' => $this->input->post('skillName'),
+			'effeciency' => $this->input->post('skillEff'),
+		);
+
+	$otherSkills=$this->input->post('otherSkills');
+	
+		$company=array(
+			'name' => $this->input->post('cmpnyName'),
+			'designation' => $this->input->post('cmpnyDesg'),
+			'from' => $this->input->post('cmpnyFrom'),
+			'to' => $this->input->post('cmpnyTo')
+		);
+
+		$project=array(
+			'name' => $this->input->post('projName'),
+			'role' => $this->input->post('projRole'),
+			'from' => $this->input->post('projFrom'),
+			'to' => $this->input->post('projTo'),
+			'description' => $this->input->post('projDesc')
+		);
+
+		$education=array(
+			'institution' => $this->input->post('eduInst'),
+			'certification' => $this->input->post('eduCert'),
+			'from' => $this->input->post('eduFrom'),
+			'to' => $this->input->post('eduTo'),
+			'score' => $this->input->post('eduScore')
+		);
+
+		$template=array(
+			'photo' => $this->input->post('photo'),
+			'template' => $this->input->post('template')
+		);
+
+		$this->session->set_userdata('user_detail',$user_detail);
+		$this->session->set_userdata('skill',$skill);
+		$this->session->set_userdata('company',$company);
+		$this->session->set_userdata('project',$project);
+		$this->session->set_userdata('education',$education);
+		$this->session->set_userdata('template',$template);
+		
+		$post_array['basic']=$user_detail;
+		$post_array['skill']=$skill;
+		$post_array['company']=$company;
+		$post_array['project']=$project;
+		$post_array['education']=$education;
+		$post_array['template']=$template;
+		$post_array['otherSkills']=$otherSkills;
+		
+			$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
+
 			if($this->current_user)
 			{
 				//user logged in
@@ -43,7 +116,8 @@ class Preview extends CI_Controller {
 				$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
 				$temp_path_img=FCPATH.$this->config->item('path_temp_img').$file_name.'.jpg';
 				
-				$style="<style>body { background-image:url('".FCPATH."assets/img/digitalchakra_logo.jpg'); } </style>";
+				//$style="<style>body { background-image:url('".FCPATH."assets/img/digitalchakra_logo.jpg'); } </style>";
+				$style="";
 				$preview_data = $style.$preview_data;
 				
 			}

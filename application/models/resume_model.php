@@ -12,7 +12,7 @@ class Resume_model extends CI_model{
 	 
 	function skill_details($id)
 	{
-		$this -> db -> select('id,name,sub_title,efficiency,description');
+		$this -> db -> select('id,name,efficiency');
 		$this-> db -> from ('skill');
 		$this-> db-> where('user_id',$id);
 		$query=$this-> db ->get();
@@ -20,7 +20,7 @@ class Resume_model extends CI_model{
 	}
 	function company_details($id)
 	{
-		$this -> db -> select('id,name,designation,from,to,description');
+		$this -> db -> select('id,name,designation,from,to');
 		$this-> db -> from ('company');
 		$this-> db-> where('user_id',$id);
 		$query=$this-> db ->get();
@@ -72,9 +72,7 @@ class Resume_model extends CI_model{
 		{
 			$skilldata=array('user_id'=>$user_id,
 					'name'=>$skill['name'][$i],
-					'sub_title'=>$skill['title'][$i],
 					'efficiency '=>$skill['effeciency'][$i],
-					'description'=>$skill['description'][$i],
 					'update_date'=>'now()'
 					);
 
@@ -107,7 +105,6 @@ class Resume_model extends CI_model{
 					'designation'=> $company['designation'][$i],
 					'from '=> $company['from'][$i],
 					'to'=> $company['to'][$i],
-					'description'=> $company['description'][$i],
 					'update_date'=>'now()'
 					);
 			if($company['name'][$i] && !$company['id'][$i])

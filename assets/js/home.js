@@ -1,5 +1,16 @@
 $(document).ready(function()
 {
+	$('.tabs').hide();
+	$('#about_tab').show();
+	//tab navigation
+	$('.tab').click(function()
+	{
+		//alert($(this).attr('tab'));
+		$('.tabs').hide();
+		$($(this).attr('tab')).show();
+	});
+	
+	
 	$("#preview").colorbox({iframe:true, escKey:true, width:"860px", height:"100%"});
 	$("#resume_submit").click(function(e){
 		e.preventDefault();
@@ -11,7 +22,7 @@ $(document).ready(function()
 		}
 		else
 		{
-			update();
+			//update();
 			$.ajax({
 				url: baseurl+'preview', 
 				type: 'post',

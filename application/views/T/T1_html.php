@@ -104,11 +104,9 @@ include(FCPATH."/assets/css/T/".$template['template'].".php");
 							?>
 								<div class="titleSection">
 									<h2><?=$skill['name'][$i];?></h2>
-									<h4><?=$skill['title'][$i];?></h4>
 								</div>
 								<div class="contentSection">
 									<h3><?=$skill['effeciency'][$i];?></h3>
-									<p><?=nl2br($skill['description'][$i]);?></p>
 									
 								</div>
 							<? $i++; } ?>
@@ -210,11 +208,16 @@ include(FCPATH."/assets/css/T/".$template['template'].".php");
 									<h3>Email</h3>
 									<p><?=$basic['secondary_email'];?></p>
 								</div>
-								<? if(trim($basic['objective'])!="")
-								{ ?>
+								<? if(trim($basic['website'])!="")
+								{ 
+									$website = unserialize($basic['website']);
+									?>
 								<div>
-									<h3>Site</h3>
-									<p><?=$basic['website'];?></p>
+									<? foreach($website as $key=>$value)
+									{?>
+										<h3><?=$key?></h3>
+									<p><?=$value?></p>
+									<?}?>
 								</div>
 								<? } ?>
 								

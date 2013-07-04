@@ -246,30 +246,7 @@
 
 						<?php } else { ?>
 						<!-- Exist company start-->
-						<div class="topBorder">
-						<?php for($i=0; $i<sizeof($result3); $i++) { ?>
-						<div class="formBorder" id="ex_company_<?php echo $result3[$i]->id; ?>">
-							<span class="button formRemoveBtn remove_ex_company" id="<?php echo $result3[$i]->id; ?>">Remove</span>
-							<div class="control-group">
-								<label class="control-label">Company</label>
-								<div class="controls">
-									<input class="span4" type="text" placeholder="Company name" name="cmpnyName[]" value="<?php echo $result3[$i]->name; ?>" />
-                                    <input type="hidden" name="cmpnyNameID[]" value="<?php echo $result3[$i]->id; ?>" />
-                                     
-									<input class="span4 leftMargin" type="text"  placeholder="Designation" name="cmpnyDesg[]" value="<?php echo $result3[$i]->designation; ?>" />
-								</div>
-							</div>
-							<div class="control-group ">
-								<label class="control-label">Period</label>
-								<div class="controls">
-									<input class="span4" type="date"  name="cmpnyFrom[]" value="<?php echo $result3[$i]->from; ?>" placeholder="(2005)(Feb 2005)">
-									<input class="span4" type="date"  name="cmpnyTo[]" value="<?php echo $result3[$i]->to; ?>" placeholder="(2007)(Mar 2007)">
-								</div>
-							</div>
-								
-						</div>
-						<?php } ?>
-						</div>
+						
                         <!-- Exist company end-->
 						<?php } ?>
 					  </div>
@@ -336,26 +313,7 @@
 							
 						<?php } else { ?>
 						  <!-- Exist Skills start -->
-							<div class="topBorder">
-                            <?php for($i=0; $i<sizeof($result2); $i++) { ?>
-                            <div class="formBorder" id="ex_skill_<?php echo $result2[$i]->id; ?>">
-                                <span class="button formRemoveBtn remove_ex_skill" id="<?php echo $result2[$i]->id; ?>">Remove</span>
-                                <div class="control-group">
-                                    <label class="control-label">Key Skills</label>
-                                    <div class="controls">
-                                        <input class="span4" type="text" placeholder="Skill name" name="skillName[]" value="<?php echo $result2[$i]->name; ?>" />
-                                        <input type="hidden"  name="skillNameID[]" value="<?php echo $result2[$i]->id; ?>" />
-                                    </div>
-                                </div>
-                                <div class="control-group ">
-                                    <label class="control-label">Effeciency</label>
-                                    <div class="controls">
-                                        <input class="span4" type="text" placeholder="Master, Intermediate, Adept etc., " name="skillEff[]" value="<?php echo $result2[$i]->efficiency; ?>" />
-                                    </div>
-                                </div>
-                            </div>
-                            <?php } ?>
-							</div>
+							
                             <!--  Exist Skills end-->
 						<?php } ?>
 						</div>
@@ -401,48 +359,7 @@
 								</div>
 							<?php } else { ?>
 							<!--******************************************Exist project********************************/-->
-							<div class="topBorder">
-							<?php for($i=0; $i<sizeof($result4); $i++) { ?>
-							<div class="formBorder" id="ex_project_<?php echo $result4[$i]->id; ?>">
-								<span class="button formRemoveBtn remove_ex_project" id="<?php echo $result4[$i]->id; ?>">Remove</span>
-									<div class="control-group">
-										<label class="control-label">Project</label>
-										<div class="controls">
-											<input class="span4" type="text" placeholder="Project name" name="projName[]" value="<?php echo $result4[$i]->name; ?>" />
-											<input type="hidden" name="projNameID[]" value="<?php echo $result4[$i]->id; ?>"  />
-											
-											<input class="span4 leftMargin" type="text"  placeholder="Role" name="projRole[]" value="<?php echo $result4[$i]->role; ?>" />
-										</div>
-									</div>
-									<div class="control-group ">
-										<label class="control-label">Period</label>
-										<div class="controls">
-											<input class="span4" type="text"  name="projFrom[]" value="<?php echo $result4[$i]->from; ?>" placeholder="(2005)(Feb 2005)">
-											<input class="span4" type="text"  name="projTo[]" value="<?php echo $result4[$i]->to; ?>" placeholder="(2007)(Mar 2007)">
-										</div>
-									</div>
-									
-									<div class="control-group ">
-										<label class="control-label">Description 1</label>
-										<div class="controls">
-											<textarea rows="3" class="input span8" name="projDesc1[]" type="text"  placeholder="Description"><?php echo $result4[$i]->description; ?></textarea>
-										</div>
-									</div>
-									<div class="control-group ">
-										<label class="control-label">Description 2</label>
-										<div class="controls">
-											<textarea rows="3" class="input span8" name="projDesc2[]" type="text"  placeholder="Description"><?php echo $result4[$i]->description; ?></textarea>
-										</div>
-									</div>
-									<div class="control-group ">
-										<label class="control-label">Project Site</label>
-										<div class="controls">
-											<input name="projUrl[]" type="text"  placeholder="Project site" />
-										</div>
-									</div>
-							</div>
-							<?php } ?>
-							</div>
+							
 							<!--******************************************Exist Project********************************/-->
 							<?php } ?>
 						</div>
@@ -491,36 +408,7 @@
 						</div>
 						<?php } else { ?>
 						<!-- Exist project start-->
-						<div class="topBorder">
-						<?php for($i=0; $i<sizeof($result5); $i++) { ?>
-						<div class="formBorder" id="ex_education_<?php echo $result5[$i]->id; ?>">
-							<span class="button formRemoveBtn remove_ex_education" id="<?php echo $result5[$i]->id; ?>">Remove</span>
-							<div class="control-group">
-								<label class="control-label">Edudcation</label>
-								<div class="controls">
-									<input class="span4" type="text" placeholder="Institution" name="eduInst[]" value="<?php echo $result5[$i]->institution; ?>" />
-                                    <input type="hidden" name="eduInstID[]" value="<?php echo $result5[$i]->id; ?>" />
-                                    
-									<input class="span4 leftMargin" type="text"  placeholder="Certification" name="eduCert[]" value="<?php echo $result5[$i]->certification; ?>" />
-								</div>
-							</div>
-							<div class="control-group ">
-								<label class="control-label">Period</label>
-								<div class="controls">
-									<input class="span4" type="text"  name="eduFrom[]" value="<?php echo $result5[$i]->from; ?>" placeholder="(2005)(Feb 2005)">
-									<input class="span4" type="text"  name="eduTo[]" value="<?php echo $result5[$i]->to; ?>" placeholder="(2007)(Mar 2007)">
-								</div>
-							</div>
-								
-							<div class="control-group ">
-								<label class="control-label">Score</label>
-								<div class="controls">
-									<input rows="3" class="input span8" name="eduScore[]" type="text"  placeholder="Score" value="<?php echo $result5[$i]->score; ?>">
-								</div>
-							</div>
-						</div>
-						<?php } ?>
-						</div>
+
 						<!-- Exist project end-->
 						<?php } ?>
 					</div>

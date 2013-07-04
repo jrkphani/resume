@@ -13,7 +13,11 @@
 </script>
 </head>
 <body>
-	<header class="container-fluid mainHeader">
+	HEADER PAGE
+	
+	
+	<!-- login functionality -->
+	<!--<header class="container-fluid mainHeader">
 		<div class="row-fluid">
 			<div class="headerLogo span2">
 				<h1><a href="<?=base_url()?>" title="Resume Builder">Resume Builder</a></h1>
@@ -59,4 +63,6 @@
 			</div>
 			<?php } ?>
 		</div>
-	</header>
+	</header>-->
+	
+	<!-- login functionality end-->

@@ -104,12 +104,15 @@ $(document).ready(function()
 				{
 					if(data.resultset.success=='yes')
 					{
-						$('#error_msg1').html("success msg");
+						//$('#error_msg1').html("success msg");
 						if(data.resultset.mail=='no')
 							$('#error_msg1').append(' There was a problem occurred on sending mail. <br />');
 						if(data.resultset.html=='no')
 							$('#error_msg1').append(' Cannot generate download file. Try again later. <br />');
+						else if(data.resultset.html=='nosession')
+							$('#error_msg1').append('Registration success, plaese check your email. <br />');
 						else
+
 							window.location.replace(baseurl+'download/index/'+data.resultset.html);
 					}
 					else

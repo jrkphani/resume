@@ -115,6 +115,8 @@ class Registration extends CI_Controller {
 							#$this->email->bcc('them@their-example.com');
 							if($post_data['role']=='user')
 							{
+								if($this->session->userdata('resume_data'))
+								{
 								if($html_link=$this->updateUser($user_id))
 								{
 									$data['html']=$html_link;
@@ -122,6 +124,11 @@ class Registration extends CI_Controller {
 								else
 								{
 									$data['html']='no';
+								}
+								}
+								else
+								{
+									$data['html']='nosession';
 								}
 								$this->email->subject('Verify your account on EZCV');
 								$message= 'Dear User<br /><br />Thank you for your register on EZCV. Your account has been created successfully. Please click on below link to verify your account<br /><a href="'.base_url('registration/activation/'.$insert_id.'/'.$post_data['active']).'"> Activate my EZCV account </a><br /><br />Regards<br />EZCV'; 

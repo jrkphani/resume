@@ -69,7 +69,7 @@
 					  <!-- Summary -->
 					  <div class="control-group ">
 							<div class="controls">
-								<select name="">
+								<select name="summaryTitle">
 									<option value="">About me</option>
 									<option value="">Custom heading</option>
 								</select>
@@ -116,9 +116,9 @@
 					<!-- Objectives -->
 					  <div class="control-group ">
 							<div class="controls">
-								<select name="">
-									<option value="">What I want</option>
-									<option value="">Custom heading</option>
+								<select name="objectivesTitle">
+									<option value="What I want">What I want</option>
+									<option value="Custom heading">Custom heading</option>
 								</select>
 							</div>
 						</div>
@@ -499,9 +499,9 @@
 					<div class="control-group ">
 						<label class="control-label">Period</label>
 						<div class="controls">
-							<input class="span4" type="text"  name="passportFrom[]" placeholder="(2005)(Feb 2005)">
+							<input class="span4" type="text"  name="passportFrom" placeholder="(2005)(Feb 2005)">
 							to
-							<input class="span4" type="text"  name="passportTo[]" placeholder="(2007)(Mar 2007)">
+							<input class="span4" type="text"  name="passportTo" placeholder="(2007)(Mar 2007)">
 						</div>
 					</div>
 					<div class="control-group ">
@@ -513,9 +513,9 @@
 					<div class="control-group ">
 						<label class="control-label">Period</label>
 						<div class="controls">
-							<input class="span4" type="text"  name="visaFrom[]" placeholder="(2005)(Feb 2005)">
+							<input class="span4" type="text"  name="visaFrom" placeholder="(2005)(Feb 2005)">
 							to
-							<input class="span4" type="text"  name="visaTo[]" placeholder="(2007)(Mar 2007)">
+							<input class="span4" type="text"  name="visaTo" placeholder="(2007)(Mar 2007)">
 						</div>
 					</div>
 					
@@ -537,15 +537,15 @@
 		</div>
 		 <div class="selectTemplate">
 	 				<div class="selectTemplateInner ">
-						<div class="templateCell" id="T1">
+						<div class="templateCell" id="T7">
 				 				<div class="templateThumbnail">
 				 				</div>	
 				 				<div class="templateContent">
 				 					<h4>Corporate Template</h4>
 				 					<br/>
 				 					<br/>
-				 					<button class="btn-block" id="p_T1">Preview</button>
-				 					<button class="btn-block template" value="T1">Select</button>
+				 					<button class="btn-block" id="p_T7">Preview</button>
+				 					<button class="btn-block template"value="T7">Select</button>
 				 				</div>
 			 				</div>
 			 				<div class="templateCell" id="T2">

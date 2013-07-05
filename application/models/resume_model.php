@@ -3,7 +3,7 @@ class Resume_model extends CI_model{
 	
 	function basic_details($id)
 	{
-		$this -> db -> select('first_name,last_name,tag_line,secondary_email,mobile,landline,address,website,photo,experience,objective,summary');
+		$this -> db -> select('first_name,last_name,designation,secondary_email,mobile,skype,address,married,photo,experience');
 		$this-> db -> from ('user_detail');
 		$this->db->where('user_id',$id);
 		$query=$this->db->get();
@@ -20,7 +20,7 @@ class Resume_model extends CI_model{
 	}
 	function company_details($id)
 	{
-		$this -> db -> select('id,name,designation,from,to');
+		$this -> db -> select('id,name,designation,date');
 		$this-> db -> from ('company');
 		$this-> db-> where('user_id',$id);
 		$query=$this-> db ->get();
@@ -28,7 +28,7 @@ class Resume_model extends CI_model{
 	}
 	function project_details($id)
 	{
-		$this -> db -> select('id,name,role,from,to,description');
+		$this -> db -> select('id,name,role,description');
 		$this-> db -> from ('project');
 		$this-> db-> where('user_id',$id);
 		$query=$this-> db ->get();
@@ -36,7 +36,7 @@ class Resume_model extends CI_model{
 	}
 	function education_details($id)
 	{
-		$this -> db -> select('id,institution,certification,from,to,score');
+		$this -> db -> select('id,institution,certification,date,score');
 		$this-> db -> from ('education');
 		$this-> db-> where('user_id',$id);
 		$query=$this-> db ->get();

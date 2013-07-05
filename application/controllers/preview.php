@@ -24,83 +24,131 @@ class Preview extends CI_Controller {
 	}
 	public function index()
 	{
-		$url_array=array('mylink','twitter','facebook','linkedin');
-		$url_array=array_combine($url_array,$this->input->post('url'));
-		 $website = serialize($url_array);
-		/*print_r(serialize($url_array)); 
-		
-		echo '=====================';
-		
-		print_r(unserialize($website));
-		die;*/
 		$this->load->helper('file');
 		if($postdata=$this->input->post())
 		{
 			
-			
+			//user_detail table data
 			$user_detail=array(
 			'first_name' => $this->input->post('fname'),
 			'last_name' => $this->input->post('lname'),
-			'tag_line' => $this->input->post('designation'),
+			'designation' => $this->input->post('designation'),
 			'mobile' => $this->input->post('phone'),
+			'skype' => $this->input->post('skype'),
 			'secondary_email' => $this->input->post('email'),
 			'address' => $this->input->post('address'),
-			'website' => $website,
-			'experience' => $this->input->post('experience'),
-			'objective' => $this->input->post('objective'),
-			'summary' => $this->input->post('summary')
-		);
+			'married' => $this->input->post('married'),
+			'photo' => $this->input->post('photo'),
+			'experience' => $this->input->post('experience')
+			);
+			
+			//about table data
+			//custom title needs to be added
+			$passport_visa=array('passport'=>$this->input->post('passport'),
+							'passportdate'=>$this->input->post('passportFrom').'#'.$this->input->post('passportTo'),
+							'visa'=>$this->input->post('visa'),
+							'passportdate'=>$this->input->post('visaFrom').'#'.$this->input->post('visaTo')
+							);
+			$url_array=array('mylink','twitter','facebook','linkedin');
+			$url_array=array_combine($url_array,$this->input->post('url'));							
+			$about=array(
+			'objective' => serialize(array($this->input->post('objectivesTitle'),$this->input->post('objective'))),
+			'summary' => serialize(array($this->input->post('summaryTitle'),$this->input->post('summary'))),
+			'compensation' => serialize(array($this->input->post('current'),$this->input->post('expected'))),
+			'website' => serialize($url_array),
+			'mystrength' => $this->input->post('otherSkillsBrief'),
+			'passport_visa' => serialize($passport_visa)
+			);
+			
+			
+			//awards table data
+			$count=0;
+			$awdFrom = $this->input->post('awdFrom');
+			$awdTo = $this->input->post('awdTo');
+			$awdtitle = $this->input->post('awdtitle');
+			$award_date=array();
+			foreach($awdtitle as $single)
+			{
+				$award_date[] = $awdFrom[$count].'#'.$awdTo[$count];
+			}
+			$awards = array(
+			'title'=>serialize($awdtitle),
+			'date'=>serialize($award_date),
+			'description'=>serialize($this->input->post('awdDesc'))
+			);
 
+			//company table data
+			$count=0;
+			$cmpnyFrom = $this->input->post('cmpnyFrom');
+			$cmpnyTo = $this->input->post('cmpnyTo');
+			$cmpnyName = $this->input->post('cmpnyName');
+			$cmpny_date=array();
+			foreach($cmpnyName as $single)
+			{
+				$cmpny_date[] = $cmpnyFrom[$count].'#'.$cmpnyTo[$count];
+			}
+			$company=array(
+			'name' => serialize($cmpnyName),
+			'designation' => serialize($this->input->post('cmpnyDesg')),
+			'date' => serialize($cmpny_date),
+			);
+			
+			
+			//education table data
+			$count=0;
+			$eduFrom = $this->input->post('eduFrom');
+			$eduTo = $this->input->post('eduTo');
+			$eduInst = $this->input->post('eduInst');
+			$edu_date=array();
+			foreach($eduInst as $single)
+			{
+				$edu_date[] = $eduFrom[$count].'#'.$eduTo[$count];
+			}
+			$education = array(
+			'institution'=>serialize($eduInst),
+			'certification' => serialize($this->input->post('eduCert')),
+			'date'=>serialize($edu_date),
+			'score'=>serialize($this->input->post('eduScore'))
+			);
+			
+			//project table data
+			$project=array(
+			'name' => serialize($this->input->post('projName')),
+			'designation' => serialize($this->input->post('projRole')),
+			'url' => serialize($this->input->post('projUrl')),
+			'description' => serialize($this->input->post('projDesc'))
+			);
+			
+			
+			//skill table data
 		$skill=array(
-			'name' => $this->input->post('skillName'),
-			'effeciency' => $this->input->post('skillEff'),
+			'name' => serialize($this->input->post('skillName')),
+			'effeciency' => serialize($this->input->post('skillEff')),
 		);
 
-	$otherSkills=$this->input->post('otherSkills');
+	$otherSkills=serialize($this->input->post('otherSkills'));
 	
-		$company=array(
-			'name' => $this->input->post('cmpnyName'),
-			'designation' => $this->input->post('cmpnyDesg'),
-			'from' => $this->input->post('cmpnyFrom'),
-			'to' => $this->input->post('cmpnyTo')
-		);
+		
 
-		$project=array(
-			'name' => $this->input->post('projName'),
-			'role' => $this->input->post('projRole'),
-			'from' => $this->input->post('projFrom'),
-			'to' => $this->input->post('projTo'),
-			'description' => $this->input->post('projDesc')
-		);
-
-		$education=array(
-			'institution' => $this->input->post('eduInst'),
-			'certification' => $this->input->post('eduCert'),
-			'from' => $this->input->post('eduFrom'),
-			'to' => $this->input->post('eduTo'),
-			'score' => $this->input->post('eduScore')
-		);
+		
+		
 
 		$template=array(
 			'photo' => $this->input->post('photo'),
 			'template' => $this->input->post('template')
 		);
-
-		$this->session->set_userdata('user_detail',$user_detail);
-		$this->session->set_userdata('skill',$skill);
-		$this->session->set_userdata('company',$company);
-		$this->session->set_userdata('project',$project);
-		$this->session->set_userdata('education',$education);
-		$this->session->set_userdata('template',$template);
 		
-		$post_array['basic']=$user_detail;
+		$post_array['user_detail']=$user_detail;
+		$post_array['about']=$about;
+		$post_array['awards']=$awards;
 		$post_array['skill']=$skill;
 		$post_array['company']=$company;
 		$post_array['project']=$project;
 		$post_array['education']=$education;
 		$post_array['template']=$template;
 		$post_array['otherSkills']=$otherSkills;
-		
+		$this->session->set_userdata('resume_data',$post_array);
+		//print_r($this->session->userdata('resume_data'));
 			$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
 
 			if($this->current_user)

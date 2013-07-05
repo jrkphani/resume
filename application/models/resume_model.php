@@ -43,144 +43,38 @@ class Resume_model extends CI_model{
 		return $query -> result();
 	}
 	
-	public function update($user_id,$user_detail,$skill,$company,$project,$education)
+	public function update($user_id,$about,$awards,$skill,$otherSkills,$company,$project,$education)
 	{
-		/*echo "<pre>";
-		print_r($user_id); echo "<br>";
-		print_r($user_detail); echo "<br>";
-		print_r($skill); echo "<br>";
-		print_r($company); echo "<br>";
-		print_r($project); echo "<br>";
-		print_r($education); echo "<br>";
-		die;*/
-		
-		//update basic details
-		
-		$this->db->where('user_id',$user_id);
-		$this->db->update('user_detail',$user_detail);
-		
-		//delete skill
-		if(count($skill['todelete']))
-		{
-			$this->db->where_in('id',$skill['todelete']);
-			$this->db->where('user_id',$user_id);
-			$result=$this->db->delete('skill');
-		}
-		
-		//add / update skill
-		for($i=0;$i<count($skill['name']);$i++)
-		{
-			$skilldata=array('user_id'=>$user_id,
-					'name'=>$skill['name'][$i],
-					'efficiency '=>$skill['effeciency'][$i],
-					'update_date'=>'now()'
-					);
+		//add / update about table
+				$this->db->set('user_id', $user_id);
+				$this->db->insert('about',$about);
+				
+		//add / update awards table
+		$this->db->set('user_id', $user_id);
+				$this->db->insert('awards',$awards);
+						
+		//add / update skill table
+		$this->db->set('user_id', $user_id);
+				$this->db->insert('skill',$skill);
 
-			if($skill['name'][$i] && !$skill['id'][$i])
-			{
-				$this->db->insert('skill',$skilldata);
-			}
-			else if($skill['name'][$i] && $skill['id'][$i])
-			{				
-				$this->db->where('id',$skill['id'][$i]);
-				$this->db->where('user_id',$user_id);
-				$this->db->update('skill',$skilldata);
-			}
-		}
-		
-		//delete company
-		if(count($company['todelete']))
-		{
-			$this->db->where_in('id',$company['todelete']);
-			$this->db->where('user_id',$user_id);
-			$result=$this->db->delete('company');
-		}
-		
-		//add / update company
-		for($i=0;$i<count($company['name']);$i++)
-		{
+		//add / update otherskill table
+		$this->db->set('user_id', $user_id);
+				$this->db->insert('otherskill',$otherSkills);
+				
+		//add / update company table
+		$this->db->set('user_id', $user_id);
+				$this->db->insert('company',$company);
 
-		$companydata=array('user_id'=>$user_id,
-					'name'=> $company['name'][$i],
-					'designation'=> $company['designation'][$i],
-					'from '=> $company['from'][$i],
-					'to'=> $company['to'][$i],
-					'update_date'=>'now()'
-					);
-			if($company['name'][$i] && !$company['id'][$i])
-			{
-				$this->db->insert('company',$companydata);
-			}
-			else if($company['name'][$i] && $company['id'][$i])
-			{
-				$this->db->where('id',$company['id'][$i]);
-				$this->db->where('user_id',$user_id);
-				$this->db->update('company',$companydata);
-			}
-		}
 		
-		//delete project
-		if(count($project['todelete']))
-		{
-			$this->db->where_in('id',$project['todelete']);
-			$this->db->where('user_id',$user_id);
-			$result=$this->db->delete('project');
-		}
-		
-		//add / update project
-		for($i=0;$i<count($project['name']);$i++)
-		{
-			$projectdata=array('user_id'=> $user_id,
-				'name'=> $project['name'][$i],
-				'role'=> $project['role'][$i],
-				'from '=> $project['from'][$i],
-				'to'=> $project['to'][$i],
-				'description'=> $project['description'][$i],
-				'update_date'=>'now()'
-				);
-			if($project['name'][$i] && !$project['id'][$i])
-			{
-				$this->db->insert('project',$projectdata);
-			}
-			else if($project['name'][$i] && $project['id'][$i])
-			{
-				$this->db->where('id',$project['id'][$i]);
-				$this->db->where('user_id',$user_id);
-				$this->db->update('project',$projectdata);
-			}
-		}
-		
-		//delete education
-		if(count($education['todelete']))
-		{
-			$this->db->where_in('id',$education['todelete']);
-			$this->db->where('user_id',$user_id);
-			$result=$this->db->delete('education');
-		}
-		
-		//add / update education
-		for($i=0;$i<sizeof($education['institution']);$i++)
-		{
-			$educationdata=array('user_id' =>$user_id,
-				'institution'=> $education['institution'][$i],
-				'certification'=> $education['certification'][$i],
-				'from '=> $education['from'][$i],
-				'to'=> $education['to'][$i],
-				'score'=> $education['score'][$i],
-				'update_date'=>'now()'
+		//add / update project table
+		$this->db->set('user_id', $user_id);
+				$this->db->insert('project',$project);
 
-			 );
-			if($education['institution'][$i] && !$education['id'][$i])
-			{
-				$this->db->insert('education',$educationdata);
-			}
-			else if($education['institution'][$i] && $education['id'][$i])
-			{
-				$this->db->where('id',$education['id'][$i]);
-				$this->db->where('user_id',$user_id);
-				$this->db->update('education',$educationdata);
-			}
-		}
+		
+		//add / update education table
+		$this->db->set('user_id', $user_id);
+				$this->db->insert('education',$education);
+
 	}
 }
 ?>

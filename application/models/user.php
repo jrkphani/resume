@@ -29,19 +29,19 @@ Class User extends CI_Model
 	$this->db->set('password',$data['password']);
 	$this->db->set('active',$data['active']);
 	$newuser=$this->db->insert('users'); 
-  
+	$user_id = $this->db->insert_id();
 	$this->db->set('first_name',$data['firstname']);
 	$this->db->set('last_name',$data['lastname']);
 	$this->db->set('role',$data['role']);
 	$this->db->set('secondary_email',$data['email']);
-  $this->db->set('flag','1');
+	$this->db->set('flag','1');
 	$this->db->set('user_id',$this->db->insert_id());
 	$this->db->insert('user_detail');
 	
 	
   if($newuser)
   {
-		return true;
+		return $user_id;
   }
   else
   {

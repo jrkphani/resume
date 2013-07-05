@@ -6,8 +6,6 @@ class Registration extends CI_Controller {
  {
    parent::__construct();
    $this->current_user=$this->session->userdata('logged_in');
-   if($this->current_user)
-		redirect('home', 'refresh');
    $this->load->library('session');
  }
 
@@ -28,7 +26,7 @@ class Registration extends CI_Controller {
 		  $this->form_validation->set_rules('email_address', 'Email', 'trim|required|valid_email|max_length[254]|xss_clean');
 		  $this->form_validation->set_rules('pass_word', 'Password', 'trim|required|min_length[6]|max_length[30]|xss_clean');
 		  //$this->form_validation->set_rules('con_password', 'Password Confirmation', 'trim|required|matches[password]');
-		  $this->form_validation->set_rules('friend_email[]', 'Referred Email', 'trim|required|valid_email|max_length[254]|callback_friend_check');
+		  $this->form_validation->set_rules('friend_email[]', 'Referred Email', 'trim|required|valid_email|max_length[254]');
 		  $this->form_validation->set_rules('role', 'Type', 'required');
 
 		  $primary_email=$this->input->post('email_address');
@@ -55,13 +53,13 @@ class Registration extends CI_Controller {
 			$result['resultset']=$data;
 			$this->load->view('json',$result);
 		  }
-		  else if($not_valid=$this->validateEmail($friend_emails))
+		/*  else if($not_valid=$this->validateEmail($friend_emails))
 		  {
 		  	$data['errors']=$not_valid.' not a valid email.';
 			$data['success']='no';
 			$result['resultset']=$data;
 			$this->load->view('json',$result);
-		  }
+		  }*/
 		  else
 		  {
 		  	$this->load->model('user');
@@ -80,7 +78,7 @@ class Registration extends CI_Controller {
 				$sender = 'ramasamy.digitalchakra@gmail.com';
 				$SMTP_Validator = new Smtp_validate_email();
 				$SMTP_Validator->debug = false;
-				$results=$SMTP_Validator->validate(array($primary_email,$friend_email1,$friend_email2), $sender);
+				/*$results=$SMTP_Validator->validate(array($primary_email,$friend_email1,$friend_email2), $sender);
 
 				if(!$results[$primary_email])
 				{
@@ -89,7 +87,8 @@ class Registration extends CI_Controller {
 					$result['resultset']=$data;
 					$this->load->view('json',$result);
 				}
-				else
+				else*/
+				if(1)
 				{
 					$post_data=array(
 									'firstname'=>$this->input->post('firstname'),
@@ -102,7 +101,7 @@ class Registration extends CI_Controller {
 					$check_data=array('email'=>$post_data['email']);
 					if(!$this->user->check_user($check_data))
 					{
-						if($this->user->add_user($post_data))
+						if($user_id=$this->user->add_user($post_data))
 						{
 							$this->load->library('email');
 							#$config['protocol'] = 'sendmail';
@@ -116,16 +115,18 @@ class Registration extends CI_Controller {
 							#$this->email->bcc('them@their-example.com');
 							if($post_data['role']=='user')
 							{
-								$insert_id=$this->db->insert_id();
-								if($html_link=$this->updateUser($insert_id))
+								if($html_link=$this->updateUser($user_id))
+								{
 									$data['html']=$html_link;
+								}
 								else
+								{
 									$data['html']='no';
-
+								}
 								$this->email->subject('Verify your account on EZCV');
 								$message= 'Dear User<br /><br />Thank you for your register on EZCV. Your account has been created successfully. Please click on below link to verify your account<br /><a href="'.base_url('registration/activation/'.$insert_id.'/'.$post_data['active']).'"> Activate my EZCV account </a><br /><br />Regards<br />EZCV'; 
 
-								$this->invite_friend($insert_id,$friend_emails,$post_data['firstname'].' '.$post_data['lastname']);
+								$this->invite_friend($user_id,$friend_emails,$post_data['firstname'].' '.$post_data['lastname']);
 							}
 							else if($post_data['role']=='member')
 							{
@@ -282,49 +283,34 @@ function friend_check()
 		return true;
 }
 
-function updateUser($insert_id)
+function updateUser($user_id)
 {
 	$this->load->helper('file');
 
 	//Get user data from session
-	$user_detail=$this->session->userdata('user_detail');
-	$skill=$this->session->userdata('skill');
-	$company=$this->session->userdata('company');
-	$project=$this->session->userdata('project');
-	$education=$this->session->userdata('education');
-	$template=$this->session->userdata('template');
-
+	$session_data = $this->session->userdata('resume_data');
+	//print_r($session_data); die;
 	$this->load->model('resume_model');
 	//Update user exist session data from resume page
-	if($user_detail)
-		$this->resume_model->update($insert_id,$user_detail,$skill,$company,$project,$education);
-
-	//Merge data for generate HTML temporary file
-	//$post_array=array_merge($user_detail,$skill,$company,$project,$education,$template);
-	$post_array['basic']=$user_detail;
-	$post_array['skill']=$skill;
-	$post_array['company']=$company;
-	$post_array['project']=$project;
-	$post_array['education']=$education;
-	$post_array['template']=$template;
-
-	//print_r($post_array);
-
-	//Generate HTML temporary file for download
-	$preview_data = $this->load->view('T/'.$template['template'].'_html',$post_array,true);
-	$file_name=mt_rand().time();
-	$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
-
-	/*$this->session->unset_userdata('user_detail');
-	$this->session->unset_userdata('skill');
-	$this->session->unset_userdata('company');
-	$this->session->unset_userdata('project');
-	$this->session->unset_userdata('education');
-	$this->session->unset_userdata('template');*/
-	if(write_file($temp_path_html, $preview_data))
-		return $file_name;
-	else
+	if(!$user_id)
+	{
 		return false;
+	}
+		$this->resume_model->update($user_id,$session_data['about'],$session_data['awards'],$session_data['skill'],$session_data['otherSkills'],$session_data['company'],$session_data['project'],$session_data['education']);
+		if($this->current_user)
+	   {
+		   return $this->current_user['id'];
+	   }
+	   else
+	   {
+		   $preview_data = $this->load->view('T/'.$session_data['template'].'_html',$session_data,true);
+		   $temp_path_html=FCPATH.$this->config->item('path_temp_file').$user_id.'.html';
+		   if(!write_file($temp_path_html, $preview_data))
+			{
+				return false;
+			}
+	   }
+		return $user_id;
 }
 
 }

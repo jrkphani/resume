@@ -75,7 +75,7 @@ class Resume extends CI_Controller
 	public function save_download()
 	{
 		$this->load->library('session');
-
+/*
 		$user_detail=array(
 			'first_name' => $this->input->post('fname'),
 			'last_name' => $this->input->post('lname'),
@@ -134,6 +134,7 @@ class Resume extends CI_Controller
 
 		$data['resultset']['success']=1;
 		$this->load->view('json',$data);
+		* */
 	}
 	
 	public function update_download()

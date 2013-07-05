@@ -74,7 +74,8 @@ class Preview extends CI_Controller {
 			$awards = array(
 			'title'=>serialize($awdtitle),
 			'date'=>serialize($award_date),
-			'description'=>serialize($this->input->post('awdDesc'))
+			'description'=>serialize($this->input->post('awdDesc')),
+			'update_date'=>'now()'
 			);
 
 			//company table data
@@ -91,6 +92,7 @@ class Preview extends CI_Controller {
 			'name' => serialize($cmpnyName),
 			'designation' => serialize($this->input->post('cmpnyDesg')),
 			'date' => serialize($cmpny_date),
+			'update_date'=>'now()'
 			);
 			
 			
@@ -108,35 +110,30 @@ class Preview extends CI_Controller {
 			'institution'=>serialize($eduInst),
 			'certification' => serialize($this->input->post('eduCert')),
 			'date'=>serialize($edu_date),
-			'score'=>serialize($this->input->post('eduScore'))
+			'score'=>serialize($this->input->post('eduScore')),
+			'update_date'=>'now()'
 			);
 			
 			//project table data
 			$project=array(
 			'name' => serialize($this->input->post('projName')),
-			'designation' => serialize($this->input->post('projRole')),
+			'role' => serialize($this->input->post('projRole')),
 			'url' => serialize($this->input->post('projUrl')),
-			'description' => serialize($this->input->post('projDesc'))
+			'description' => serialize($this->input->post('projDesc')),
+			'update_date'=>'now()'
 			);
 			
 			
 			//skill table data
 		$skill=array(
 			'name' => serialize($this->input->post('skillName')),
-			'effeciency' => serialize($this->input->post('skillEff')),
+			'efficiency' => serialize($this->input->post('skillEff')),
+			'update_date'=>'now()'
 		);
 
-	$otherSkills=serialize($this->input->post('otherSkills'));
+	$otherSkills['name']=serialize($this->input->post('otherSkills'));
 	
-		
-
-		
-		
-
-		$template=array(
-			'photo' => $this->input->post('photo'),
-			'template' => $this->input->post('template')
-		);
+	$template= $this->input->post('template');
 		
 		$post_array['user_detail']=$user_detail;
 		$post_array['about']=$about;
@@ -147,19 +144,21 @@ class Preview extends CI_Controller {
 		$post_array['education']=$education;
 		$post_array['template']=$template;
 		$post_array['otherSkills']=$otherSkills;
-		$this->session->set_userdata('resume_data',$post_array);
-		//print_r($this->session->userdata('resume_data'));
-			$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
-
+		$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
+		
 			if($this->current_user)
 			{
 				//user logged in
-				$file_name=$this->current_user['id'];
+				$this->load->model('resume_model');
+				$user_id=$this->current_user['id'];
+				$this->resume_model->update($user_id,$user_detail,$skill,$company,$project,$education);
+				$file_name=$user_id;
 				$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
 			}
 			else
 			{
-				//user not logged in 
+				//user not logged in
+				$this->session->set_userdata('resume_data',$post_array);
 				$file_name=mt_rand().time();
 				$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
 				$temp_path_img=FCPATH.$this->config->item('path_temp_img').$file_name.'.jpg';
@@ -199,10 +198,6 @@ class Preview extends CI_Controller {
 				$data['success']='yes';
 				$data['html']=$file_name;
 				$result['resultset']=$data;
-				//$data['html']=$preview_html;
-				//$data['css']=$postdata['css'];
-				//$data['link']=$tempnam;
-				//$this->load->view('preview',$data);
 			}
 			$this->load->view('json',$result);
 		}

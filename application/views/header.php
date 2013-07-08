@@ -1,20 +1,58 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Resume Builder</title>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/bootstrap.css"); ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/css_site.css"); ?>" />
-<!--<script src="http://code.jquery.com/jquery-latest.min.js"></script>-->
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="keywords" content="Create cv online, create resume online,  Resume builder, EZCV">
+<meta name="description" content="Get noticed in a see of Resume">
+<title>EZCV | Get noticed in the sea of resumes</title>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_header.css"); ?>" />
 <script src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
-
 <script type="text/javascript">
   var baseurl = "<?php print base_url(); ?>";
 </script>
 </head>
 <body>
-	HEADER PAGE
-	
+<header id="ezcv_header">
+
+		<h1><a class="ezcv_logo" href="#"><img src="<?php echo base_url("assets/img/ezcv-logo.png"); ?>"> </a></h1>
+		<nav>
+			<a href="#" class="ezcv_header_current">Home</a>
+			<a href="#">Why EZCV</a>
+			<a href="#">Resume Templates</a>
+			<a href="#">Blog</a>
+			<a href="#">Testimonials</a>
+		</nav>
+		<hr/>
+		<nav>
+			<p>User Name</p>
+			<a href="#">My Resume Templates</a>
+			<a href="#">My Recommendations</a>
+			<a href="#">Refer Friends</a>
+			<a href="#">My Page</a>
+			<a href="#">My Portfolio Space</a>
+			<a href="#">My Contact List</a>
+			<a href="#">Resume On Mobile</a>
+		</nav>
+		
+	</header>
+	<div id="ezcv_content">
+		<div class="ezcv_content_inner">
+		<header class="topheader">
+			<h1>Get noticed in a sea of resumes</h1>
+			<div class="topheader_contact">
+				<h4>Contact us</h4>
+				<ul>
+					<li><a class="c1" href="">Mail EZCV</a></li>
+					<li><a class="c2" href="">Twitter EZCV</a></li>
+					<li><a class="c3" href="">Facebook EZCV</a></li>
+					<li><a class="c4" href="">Dribble EZCV</a></li>
+					<li><a class="c5" href="">Phone EZCV</a></li>
+				</ul>
+			</div>
+			
+		</header>
 	
 	<!-- login functionality -->
 	<!--<header class="container-fluid mainHeader">

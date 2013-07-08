@@ -505,28 +505,6 @@
 				 					<button class="btn-block  template" value="T2">Select</button>
 				 				</div>
 			 				</div>
-			 				<div class="templateCell" id="T3">
-				 				<div class="templateThumbnail">
-				 				</div>	
-				 				<div class="templateContent">
-				 					<h4>Corporate Template</h4>
-				 					<br/>
-				 					<br/>
-				 					<button class="btn-block" id="p_T3">Preview</button>
-				 					<button class="btn-block template" value="T3">Select</button>
-				 				</div>
-			 				</div>
-						<div class="templateCell" id="T5">
-				 				<div class="templateThumbnail">
-				 				</div>	
-				 				<div class="templateContent">
-				 					<h4>Corporate Template</h4>
-				 					<br/>
-				 					<br/>
-				 					<button class="btn-block" id="p_T5">Preview</button>
-				 					<button class="btn-block template" value="T5">Select</button>
-				 				</div>
-			 				</div>
 					</div>
 				 </div>
 

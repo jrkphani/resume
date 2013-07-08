@@ -380,7 +380,7 @@
 					<p>In this section you can give all the details of the vaious awards that you have received from college as well as various companies that you have worked with. This can also include other interests that you would like to share with the recruiter. </p>
 				</div>
 				<div>
-					<input rows="3" cname="awdtitle[]" type="text"  placeholder="Award Title">
+					<input rows="3" name="awdtitle[]" type="text"  placeholder="Award Title">
 				</div>
 				<div>
 					<label >For the period From</label>
@@ -479,7 +479,7 @@
 
 
 		
-		<!-- <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 		 <div class="selectTemplate">
 	 				<div class="selectTemplateInner ">
@@ -528,14 +528,14 @@
 				 				</div>
 			 				</div>
 					</div>
-				 </div> -->
+				 </div>
 
 		
 			</div>
 		</div>
-				 <!-- <div id="preview" class="stop-theme" title="Resume" href=""></div> -->
+				 <div id="preview" class="stop-theme" title="Resume" href=""></div>
 		<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>
 		<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>
-		<script src="<?php echo base_url('assets/js/home.js');?>"></script>
+		<script src="<?php echo base_url('assets/js/resume.js');?>"></script>
 		<?php /* <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.toastmessage.js'); ?>" ></script>
 		<script type="text/javascript" src="<?php echo base_url('assets/js/sisyphus.js'); ?>" ></script> */ ?>

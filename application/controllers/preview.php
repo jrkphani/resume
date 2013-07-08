@@ -39,7 +39,8 @@ class Preview extends CI_Controller {
 			'address' => $this->input->post('address'),
 			'married' => $this->input->post('married'),
 			'photo' => $this->input->post('photo'),
-			'experience' => $this->input->post('experience')
+			'experience' => $this->input->post('experience'),
+			'contactTitle' => $this->input->post('contactTitle')
 			);
 			
 			//about table data
@@ -47,7 +48,7 @@ class Preview extends CI_Controller {
 			$passport_visa=array('passport'=>$this->input->post('passport'),
 							'passportdate'=>$this->input->post('passportFrom').'#'.$this->input->post('passportTo'),
 							'visa'=>$this->input->post('visa'),
-							'passportdate'=>$this->input->post('visaFrom').'#'.$this->input->post('visaTo')
+							'visadate'=>$this->input->post('visaFrom').'#'.$this->input->post('visaTo')
 							);
 			$url_array=array('mylink','twitter','facebook','linkedin');
 			$url_array=array_combine($url_array,$this->input->post('url'));							
@@ -57,7 +58,10 @@ class Preview extends CI_Controller {
 			'compensation' => serialize(array($this->input->post('current'),$this->input->post('expected'))),
 			'website' => serialize($url_array),
 			'mystrength' => $this->input->post('otherSkillsBrief'),
-			'passport_visa' => serialize($passport_visa)
+			'passport_visa' => serialize($passport_visa),
+			'intresttitle' => serialize($this->input->post('intresttitle')),
+			'intrestDesc' => serialize($this->input->post('intrestDesc')),
+			'intrestUrl' => serialize($this->input->post('intrestUrl')),
 			);
 			
 			

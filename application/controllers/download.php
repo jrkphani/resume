@@ -83,7 +83,7 @@ class Download extends CI_Controller {
 		$html = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
 		if($html)
 		{
-			if($this->current_user)
+			/*if($this->current_user)
 			{
 				$pdf_name=$this->current_user['id'].'.pdf';		// If user logged in user ID will the name, else random number and current time.
 				$download_pdf_name=$this->current_user['firstname'].' '.$this->current_user['lastname'].' Resume.pdf';	// If user logged in, First and Last Name used for name the downloading pdf file
@@ -92,8 +92,11 @@ class Download extends CI_Controller {
 			{
 				$pdf_name=mt_rand().'_'.time().'.pdf';
 				$download_pdf_name='Resume.pdf';
-			}
-
+			}*/
+			
+			$pdf_name=$html.'.pdf';
+			$download_pdf_name='Resume.pdf';
+				
 			$html_path=FCPATH.$this->config->item('path_temp_file').$html.'.html';	// html file path
 			$pdf_path=FCPATH.$this->config->item('path_temp_file').$pdf_name;	// path for where generated pdf file have to save
 			$wk_path=FCPATH.'application/third_party/./wkhtmltopdf-i386';	// wkhtmlpdf file path

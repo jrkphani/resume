@@ -90,7 +90,7 @@
 			</div>
 		</div>
 		
-		<hr/>
+		<!-- <hr/>
 		<section class="services">
 			<h2>EZCV Services</h2>
 			<ul>
@@ -103,7 +103,7 @@
 				<li><span class="s7"></span><p>A living My Page where you can discuss your daily work activities and share your discoveries at work with others online. </p></li>
 				<li><span class="s8"></span><p>A responsive resume that helps recruiters view your profile through mobile  </p></li>
 			</ul>	
-		</section>
+		</section> -->
 		<div class="clearboth"></div>
 		<hr/>
 		<section class="whyezcv">
@@ -129,7 +129,7 @@
 			</div>
 		</section>
 		<div class="clearboth"></div>
-		<hr/>
+		<!-- <hr/>
 		<div class="bt">
 			<section class="blog">
 				<h2>BLOG</h2>
@@ -149,9 +149,11 @@
 				</ul>
 			</section>
 			<div class="clearboth"></div>
-		</div>
+		</div> -->
 		<footer>
 			© copyright 2013 | www.ezcv.com | All Rights Reserved
+			<a class="dc_logo" href="http://www.digitalchakra.in" target="_blank"></a>
+			<p>Powered by</p>
 		</footer>
 		</div>
 	</div>

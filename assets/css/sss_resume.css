@@ -31,10 +31,45 @@
 	background: #FFF;	border-left: solid 1px #E8E8E8;	
 }
 
-.right_nav span{ 
+.rns{ 
 	display: block; cursor:pointer; 
-	padding-left: 40px; height: 40px;	text-align: left; line-height: 40px;
+	padding-left: 20px; height: 40px;	text-align: left; line-height: 40px;
 	font-size: .9em;	
+}
+.rns_a{
+	font-family: segoeuib;
+	color: #f07057;
+}
+.rns_inner{
+	padding-left: 60px;
+}
+
+
+.rnd{
+	width: 26px; height: 26px; display: inline-block;
+	background: url(../img/sprites.png) no-repeat left top;
+	background-position: -326px 0; font-size: .8em; color: #fff;
+	text-align: center; line-height: 26px; margin-right: 10px;
+}
+
+
+
+.rnd_a{
+	width: 26px; height: 26px; display: inline-block;
+	background: url(../img/sprites.png) no-repeat left top;
+	background-position: -353px 0; font-size: .8em; color: #fff;
+	text-align: center; line-height: 26px; margin-right: 10px;
+}
+.rnd_inner{
+	width: 14px; height: 14px; display: inline-block;
+	background: url(../img/sprites.png) no-repeat left top;
+	background-position: -284px 0;  margin-right: 10px; 
+}
+
+.rnd_inner_a{
+	width: 14px; height: 14px; display: inline-block;
+	background: url(../img/sprites.png) no-repeat left top;
+	background-position: -299px 0;  margin-right: 10px; margin-top: 4px;
 }
 .right_nav h3{ 
 	display:blocl; margin: 20px 0 20px 0;}
@@ -96,4 +131,55 @@ input, select{
 .awards_or h3, .awards_or p{
 
 	margin: 10px 0 0 0;
+}
+
+
+/******************************** CHOOSE RESUME STYLE ***********************************/
+.t_list{
+		width: 80%; 
+		margin: 50px auto;
+}
+
+.t_list_t{
+	width: 220px; height: 289px; float: left; position: relative;
+	margin: 20px 0 20px 20px; cursor: pointer;
+	background:#f2f2f2 url(../img/shadow_strip_1.png) no-repeat center bottom;
+	border-top: solid 1px #266a86;
+}
+
+.t_list_s{
+	width: 100%;	min-height: 40px;	position: absolute;
+	bottom: 9px; left: 0px;  background-color: #323232;
+	color: #fff; border-top: solid 1px  #121212;
+}
+
+.t_list_s p{
+	margin:10px;
+}
+.t_select, .load_more{
+	display:block; color: #fff; text-decoration:none;	text-align: center;
+	border:solid 1px #de6047;  background:#f07057;	
+}
+
+.t_select{
+	width:140px;	height:30px;  margin:0 0 10px 10px; 
+	line-height:30px;
+}
+
+.load_more{
+	width: 400px; 	height: 40px;	margin: 0 auto; 	
+	border-radius: 20px;line-height: 40px; 	
+ }
+
+ .load_more:hover, .t_select:hover{
+	background-color: #e8674e; cursor:pointer;
+ }
+
+
+ .t_select{
+	visibility: visible;
+}
+
+.t_list_t:hover .t_Select{
+	visibility: visible;
 }

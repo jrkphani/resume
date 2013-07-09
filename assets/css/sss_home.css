@@ -4,10 +4,10 @@
 
 .slide_top_1, .slide_top_2{	
 	width:50%; height:100px; float: left;
-	background: #424242; color: #fff;	text-align: center;
+	background: #525252; color: #fff;	text-align: center;
 }
 .slide_top_1 {	 
-	background: #232323;
+	background: #f07057;
 }
 .slide_top_1 h3{
 	margin-left: 140px;	
@@ -156,9 +156,13 @@
 
 footer{
 	padding: 20px;
-	background: #3dbfd9; color: #fff; 	border-top: solid 1px #fff;	font-size: .8em;
+	background: #525252; color: #fff; 	border-top: solid 1px #fff;	font-size: .8em;
 }
 
+footer p{
+	float: right;
+	margin-top:7px;
+}
 
 /************************** Large desktop **************************/
 @media (min-width: 1200px) { ... }
@@ -173,3 +177,7 @@ footer{
 @media (max-width: 480px) { ... }
 
 
+.dc_logo{
+	width: 258px; height: 30px; display: block; float: right; margin-top: 0px;
+	background: transparent url(../img/dc_logo.png) no-repeat left top;
+}

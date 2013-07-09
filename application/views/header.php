@@ -20,9 +20,9 @@
 		<nav>
 			<a href="#" class="ezcv_header_current">Home</a>
 			<a href="#">Why EZCV</a>
-			<a href="#">Resume Templates</a>
-			<a href="#">Blog</a>
-			<a href="#">Testimonials</a>
+			<a href="<?=base_url('templates'); ?>">Resume Templates</a>
+			<!--<a href="<?=base_url('blog'); ?>">Blog</a>
+			<a href="<?=base_url('testimonials'); ?>">Testimonials</a>-->
 		</nav>
 		<hr/>
 		<nav>
@@ -37,8 +37,7 @@
 			<a href="#">Resume On Mobile</a>
 			<a href="<?php echo base_url('login/logout'); ?>">Logout</a>
 			<?php } else { ?>
-			<a href="<?php echo base_url('login'); ?>">Register</a>
-			<a href="<?php echo base_url('login'); ?>">Signin</a>
+			<a href="<?php echo base_url('login'); ?>">Register / Signin</a>
 			<?php } ?>
 		</nav>
 		
@@ -60,12 +59,8 @@
 			
 		</header>
 	
-	<!-- login functionality -->
-	<!--<header class="container-fluid mainHeader">
-		<div class="row-fluid">
-			<div class="headerLogo span2">
-				<h1><a href="<?=base_url()?>" title="Resume Builder">Resume Builder</a></h1>
-			</div>
+	<!-- login functionality 
+
 			<?php if($session_data = $this->session->userdata('logged_in')) { ?>
 					<div class="span10 headerRight">
 						<p>Howdy! <?php echo $session_data['firstname']; ?>&nbsp|&nbsp
@@ -82,29 +77,7 @@
 						</p>
 					</div>
 					<?php } else { ?>
-			<div class="span8 offset1 signIn">
-				<div class="signIn-Inner">
-					<span id="error_msg" class="signInError"></span>
-					<form class"signInRight">
-						<div class="signIn-email">
-							<input type="text"  class="login" placeholder="Email" id="username" name="username">
-							<input type="checkbox" id="c1" />
-	            			<label for="c1" class="checkbox" style="display:none;"><span></span>Remember me</label>
-						</div>
-						<div class="signIn-pass">
-							<input type="password" class="login" placeholder="Password" id="passowrd" name="password">
-							<input type="text"  class="forget" placeholder="Email" id="fusername" name="fusername" style="display:none;">
-							<span id="forget" class="signIn-fp login" >Forgot Password?</span>
-							<span id="login" class="forget signIn-fp" style="display:none;">Login</span>
-						</div>
-	 					<div class="signIn-Button">
-	 						<span id="loginsubmit" class="button login">Sign in</span>
-					    	<span id="forgetsubmit" class="forget button" style="display:none;">Submit</span>
-	 					</div>
-				     
-					</form>
-				</div>		
-			</div>
+					
 			<?php } ?>
 		</div>
 	</header>-->

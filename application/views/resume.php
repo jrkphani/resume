@@ -34,7 +34,7 @@
 	<form id="resume_form">
 		<input type="hidden" name="user_id" value="<?php echo $user_id; ?>" id="user_id" />
 		<input type="hidden" name="photo" id="photo" value="<?php if($photo) { echo base_url($this->config->item('path_profile_img').$user_id.'/'.$photo); } ?>" />
-		<input type="hidden" value="" id="template" name="template" autocomplete="off" />
+		<input type="hidden" value="<?=$templateValue;?>" id="template" name="template" autocomplete="off" />
         <input type="hidden" name="download_file" id="download_file" />
         <input type="hidden" name="remove_skills" value="" id="remove_skills" />
 		<input type="hidden" name="remove_company" value="" id="remove_company" />
@@ -511,10 +511,7 @@
 			 				</div>
 					</div>
 				 </div>
-
-		
-			</div>
-		</div>
+				 
 				 <div id="preview" class="stop-theme" title="Resume" href=""></div>
 		<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>
 		<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>

@@ -19,7 +19,7 @@ class Resume extends CI_Controller
 
 		 $data['email'] = $session_data['email'];
 		 $data['view_page'] = 'resume';
-		 
+		 $data['templateValue'] = ($this->input->post('templateValue'))?$this->input->post('templateValue'):NULL;
 		 $this->load->model('resume_model');
 		 $result=$this->resume_model->basic_details($session_data['id']);
 		 $data['result2']=$this->resume_model->skill_details($session_data['id']);

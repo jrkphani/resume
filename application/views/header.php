@@ -26,7 +26,8 @@
 		</nav>
 		<hr/>
 		<nav>
-			<p>User Name</p>
+			<?php if($session_data = $this->session->userdata('logged_in')) { ?>
+			<p><a href="<?php echo base_url('profile'); ?>"><?php echo $session_data['firstname']; ?></a></p>
 			<a href="#">My Resume Templates</a>
 			<a href="#">My Recommendations</a>
 			<a href="#">Refer Friends</a>
@@ -34,6 +35,11 @@
 			<a href="#">My Portfolio Space</a>
 			<a href="#">My Contact List</a>
 			<a href="#">Resume On Mobile</a>
+			<a href="<?php echo base_url('login/logout'); ?>">Logout</a>
+			<?php } else { ?>
+			<a href="<?php echo base_url('login'); ?>">Register</a>
+			<a href="<?php echo base_url('login'); ?>">Signin</a>
+			<?php } ?>
 		</nav>
 		
 	</header>

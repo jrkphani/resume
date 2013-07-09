@@ -40,9 +40,6 @@ $(document).ready(function(){
 		else if(!validate('Last Name','last_name',man=true,max=100,min=false,type='string',disp=false)) return false;
 		else if(!validate('Display Email','secondary_email',man=true,max=254,min=false,type='email',disp=false)) return false;
 		else if(!validate('Mobile Number','mobile',man=true,max=17,min=10,type='mobile',disp=false)) return false;
-		else if(!validate('Landline Number','landline',man=false,max=100)) return false;
-		else if(!validate('Address','address',man=false,max=1000)) return false;
-		else if(!validate('Website','website',man=false,max=100)) return false;
 	});
 	
 	//Upload profile image to temporary folder

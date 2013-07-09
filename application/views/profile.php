@@ -26,7 +26,7 @@
 	<div style="font-size:20px; line-height:35px;">Profile</div><span id="pr-edit-link" class="pr-edit-link"><a href="#">Edit profile</a></span>
     </div>
     <div style="float:right;">
-        	<img src="<?php echo $img; ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;<?php echo $last_name; ?>" class="img_update" />
+        	<img src="<?php echo $img; ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;<?php echo $last_name; ?>" class="img_update" alt="Profile photo" />
         	<span id="uploadstate"></span>
     </div>
     <div class="clearBoth"></div>
@@ -81,13 +81,13 @@
                 <td></td>
             </tr>
             <tr>
-            	<td>
-                    <span class="pr-view">Landline Number</span>
-                    <span class="pr-edit"><label for="landline">Landline Number</label></span>
+                <td>
+                    <span class="pr-view">Skype</span>
+                    <span class="pr-edit"><label for="skype">Skype</label></span>
                 </td>
                 <td>
-                	<span class="pr-view"><?php echo $landline; ?></span>
-                    <span class="pr-edit"><input type="text" name="landline" id="landline" value="<?php echo $landline; ?>"  /></span>
+                    <span class="pr-view"><?php echo $skype; ?></span>
+                    <span class="pr-edit"><input type="text" name="skype" id="skype" value="<?php echo $skype; ?>"  /></span>
                 </td>
                 <td></td>
             </tr>
@@ -103,13 +103,30 @@
                 <td></td>
             </tr>
             <tr>
-            	<td>
-                    <span class="pr-view">Website</span>
-                    <span class="pr-edit"><label for="website">Website</label></span>
+                <td>
+                    <span class="pr-view">Marital Status</span>
+                    <span class="pr-edit"><label for="married">Marital Status</label></span>
                 </td>
                 <td>
-                	<span class="pr-view"><?php echo $website; ?></span>
-                    <span class="pr-edit"><input type="text" name="website" id="website" value="<?php echo $website; ?>"  /></span>
+                    <span class="pr-view"><?php if($married==NULL) echo 'Not specified'; else if($married=='0') echo 'Not Married'; else if($married=='1') echo 'Married'; ?></span>
+                    <span class="pr-edit">
+                        <select name="married" id="married">
+                            <option value="NULL" <?php if($married==NULL) { ?> selected="selected" <?php } ?>>Not specified</option>
+                            <option value="1" <?php if($married=='1') { ?> selected="selected" <?php } ?>>Married</option>
+                            <option value="0" <?php if($married=='0') { ?> selected="selected" <?php } ?>>Unmarried</option>
+                        </select>
+                    </span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="pr-view">Designation</span>
+                    <span class="pr-edit"><label for="designation">Designation</label></span>
+                </td>
+                <td>
+                    <span class="pr-view"><?php echo $designation; ?></span>
+                    <span class="pr-edit"><input type="text" name="designation" id="designation" value="<?php echo $designation; ?>"  /></span>
                 </td>
                 <td></td>
             </tr>

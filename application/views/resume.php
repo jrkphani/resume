@@ -32,15 +32,13 @@
 	<div >
 		<!-- ================================ form start ================================ -->
 	<form id="resume_form">
-		<input type="hidden" name="user_id" value="<?php echo $user_id; ?>" id="user_id" />
-		<input type="hidden" name="photo" id="photo" value="<?php if($photo) { echo base_url($this->config->item('path_profile_img').$user_id.'/'.$photo); } ?>" />
 		<input type="hidden" value="<?=$templateValue;?>" id="template" name="template" autocomplete="off" />
         <input type="hidden" name="download_file" id="download_file" />
         <input type="hidden" name="remove_skills" value="" id="remove_skills" />
 		<input type="hidden" name="remove_company" value="" id="remove_company" />
 		<input type="hidden" name="remove_project" value="" id="remove_project" />
 		<input type="hidden" name="remove_education" value="" id="remove_education" />
-		
+		<? //print_r($user_detail) ;die; ?>
 		<!-- ============================================================================= About tab start ==================================-->
 		<div id="about_tab" class="tabs">
 			<!-- First & Last name -->
@@ -53,22 +51,29 @@
 			
 			<div class="form_sections">
 				<div>
-					<input type="text" name="fname"  placeholder="First name"  value="<?php echo $first_name; ?>" maxlength="30" required/>
-					<input name="lname" type="text"  placeholder="Last name" value="<?php echo $last_name; ?>" maxlength="30" required/>
+					<input type="text" name="fname"  placeholder="First name"  value="<? if(isset($user_detail[0]['first_name'])) echo $user_detail[0]['first_name']; ?>" maxlength="30" required/>
+					<input name="lname" type="text"  placeholder="Last name" value="<? if(isset($user_detail[0]['last_name'])) echo $user_detail[0]['last_name']; ?>" maxlength="30" required/>
 				</div>
 			<!-- DOB -->
 				<div>
 				    <label >Date of Birth</label>
-				    <input  type="date"  name="dob" placeholder="dd-mm-yyyy" required/>
+				    <input  type="date"  name="dob" placeholder="dd-mm-yyyy" value="<? if(isset($user_detail[0]['dob'])) echo $user_detail[0]['dob']; ?>" required/>
 				</div>
 			<!-- Address -->
 				<div >
 				    <label >Current Location</label>
-				    <textarea rows="3"  type="text"  name="address" placeholder="Address" maxlength="90"><?php echo $address; ?></textarea>
+				    <textarea rows="3"  type="text"  name="address" placeholder="Address" maxlength="90"><? if(isset($user_detail[0]['address'])) echo $user_detail[0]['address']; ?></textarea>
 				</div>
 			<!-- Summary -->
 				<div>
 					<select name="summaryTitle">
+						<?
+						if(isset($about[0]['summary']))
+						{
+						$summary=unserialize($about[0]['summary']);
+						echo '<option value="'.$summary[0].'">'.$summary[0].'</option>';
+						}
+						?>
 						<option value="Who i am">Who i am</option>
 						<option value="About me">About me</option>
 						<option value="Summary">Summary</option>
@@ -78,12 +83,15 @@
 				</div>
 				<div>
 				    <!-- <label >Summary</label> -->
-				   	<textarea rows="3" name="summary" type="text"  placeholder="Enter text here" maxlength="1000" class="h200"><?php echo $summary; ?></textarea>
+				   	<textarea rows="3" name="summary" type="text"  placeholder="Enter text here" maxlength="1000" class="h200">
+						<?if(isset($about[0]['summary']))echo $summary[1];?>
+					</textarea>
 				</div>
 				<span class="clickr">Save & Continue</span>
 			</div>
 		</div>
 		<!-- ===================================================================== About tab end ==================-->
+		
 		<!-- <div style="float:right;">
        		<?php if($photo) { ?>
             	<img src="<? echo base_url($this->config->item('path_profile_img').$user_id.'/'.$photo); ?>" id="profile_pic" />
@@ -104,11 +112,18 @@
 		<!-- Designation -->
 			<div >
 				<!-- <label >Tag line</label> -->
-				  <input  type="text"  name="designation" placeholder="Current Designation" value="<?php echo $tag_line; ?>" />
+				  <input  type="text"  name="designation" placeholder="Current Designation" value="<? if(isset($user_detail[0]['designation'])) echo $user_detail[0]['designation']; ?>" />
 			 </div>
 			<!-- Objectives -->
 			<div>
 				<select name="objectivesTitle">
+					<?
+					if(isset($about[0]['objective']))
+					{
+					$objective=unserialize($about[0]['objective']);
+					echo '<option value="'.$objective[0].'">'.$objective[0].'</option>';
+					}
+					?>
 					<option value="What I want">What I want</option>
 					<option value="Purpose">Purpose</option>
 					<option value="Objective">Objective</option>
@@ -118,7 +133,12 @@
 			</div>
 			<div >
 			    <!-- <label >Objective</label> -->
-			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here" class="h200"><?php echo $objective; ?></textarea>
+			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here" class="h200">
+				<?
+				if(isset($about[0]['objective']))
+				echo $objective[1];
+				?>
+				</textarea>
 			</div>
 			<span class="clickr">Save & Continue</span>
 		</div>
@@ -138,34 +158,44 @@
 			<div class="form_sections">
 			<div >
 				<select name="contactTitle">
+					<?
+					if(isset($user_detail[0]['contactTitle']))
+					{
+					echo '<option value="'.$user_detail[0]['contactTitle'].'">'.$user_detail[0]['contactTitle'].'</option>';
+					}
+					?>
 					<option value="How to reach me">How to reach me</option>
 					<option value="Custom heading">Custom heading</option>
 				</select>
 				<input  type="text"  name="" placeholder="Custom title" />
 			</div>
 			<div >
-			    <input  type="text"  name="phone" placeholder="Phone" value="<?php if($mobile) echo $mobile; else if($landline) echo $landline; ?>" />
-				<input   name="email" type="email"  placeholder="Email" value="<?php echo $secondary_email; ?>" />
+			    <input  type="text"  name="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
+				<input   name="email" type="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
 			</div>
 			<div>
-			    <label c>Website</label>
-			    <input  class="w400" type="url"  name="url[]" placeholder="url" value="<?php echo $website; ?>" />
+			    <label>Website</label>
+			    <? 
+			    if(isset($about[0]['website']))
+			    $website= unserialize($about[0]['website']);
+			    ?>
+			    <input  class="w400" type="url"  name="url[]" placeholder="url" value="<? if(isset($about[0]['website'])) echo $website['mylink']; ?>" />
 			</div>
 			<div>
 			    <label >Skype</label>
-			    <input class="w400" type="text"  name="skype" placeholder="skype" value="<?php echo $website; ?>" />
+			    <input class="w400" type="text"  name="skype" placeholder="skype" value="<? if(isset($user_detail[0]['skype'])) echo $user_detail[0]['skype']; ?>" />
 			</div>
 			<div>
 				<label >twitter</label>
-				<input class="w400" type="url"  name="url[]" placeholder="twitter" value="<?php echo $website; ?>" />
+				<input class="w400" type="url"  name="url[]" placeholder="twitter" value="<? if(isset($about[0]['website'])) echo $website['twitter']; ?>" />
 			</div>
 			<div>
 				<label >facebook</label>
-				<input class="w400" type="url"  name="url[]" placeholder="facebook" value="<?php echo $website; ?>" />
+				<input class="w400" type="url"  name="url[]" placeholder="facebook" value="<? if(isset($about[0]['website'])) echo $website['facebook']; ?>" />
 			</div>
 			<div>
 			    <label >linkedin</label>
-			    <input class="w400" type="url"  name="url[]" placeholder="linkedin" value="<?php echo $website; ?>" />
+			    <input class="w400" type="url"  name="url[]" placeholder="linkedin" value="<? if(isset($about[0]['website'])) echo $website['linkedin']; ?>" />
 			</div>
 			<span class="clickr">Save & Continue</span>
 		</div>
@@ -185,34 +215,65 @@
 			<!-- Experience -->
 			<div >
 			    <label >Total years of experience</label>
-			    <input  type="text" name="experience" placeholder="No of years" value="<?php echo $experience; ?>" />
+			    <input  type="text" name="experience" placeholder="No of years" value="<? if(isset($user_detail[0]['experience'])) echo$user_detail[0]['experience']; ?>" />
 			 </div>
 			<!-- CTC -->
 			<div >
 			    <label >Compensation Details</label>
-			    <input  type="text" name="current" placeholder="Current" value="" />
-			    <input  type="text" name="expected" placeholder="Expected" value="" /> INR per annum
+			    <input  type="text" name="current" placeholder="Current" 
+			    value="
+			    <? 
+			    if(isset($about[0]['compensation']))
+			    {
+			    $compensation = unserialize($about[0]['compensation']);
+			     echo $compensation[0];
+				}
+			    ?>
+			     " />
+			    <input  type="text" name="expected" placeholder="Expected" value="<?  if(isset($about[0]['compensation'])) echo $compensation[1];?>" /> INR per annum
 			</div>
 			<!-- Company start-->
 			<div id="company">
-			  <div id="c0">
-				<?php if(sizeof($result3)==0) { ?>
-				<div >
-				  	<label >Company</label>
-				    <input  type="text" name="cmpnyName[]" placeholder="Company name">
-                    <input type="hidden" name="cmpnyNameID[]" /><br/>
-                    <input  name="cmpnyDesg[]" type="text"  placeholder="Designation">
-					<label >From</label>
-					<input  type="date"  name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)" />
-					<label >To</label>
-					<input  type="date"  name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" />
-				</div>
-				<?php } else { ?>
-				<!-- Exist company start-->
-				
-                <!-- Exist company end-->
-				<?php } ?>
-			  </div>
+			<label >Company</label>
+				  	<?
+				  	if(isset($company[0]))
+				  	{
+						$companyNames = unserialize($company[0]['name']);
+						$companyDesc = unserialize($company[0]['designation']);
+						$companyDate = unserialize($company[0]['date']);
+						$i=0;
+						foreach($companyNames as $record)
+						{
+							$fromtoDate = explode('#',$companyDate[$i]);
+						?>
+					<div id="c<?=$i;?>">
+							<div >
+								<input  type="text" name="cmpnyName[]" placeholder="Company name" value="<?=$record;?>">
+								<input  name="cmpnyDesg[]" type="text"  placeholder="Designation" value="<?=$companyDesc[$i];?>">
+								<label >From</label>
+								<input  type="date"  name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)" value="<?=$fromtoDate[0];?>" />
+								<label >To</label>
+								<input  type="date"  name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" value="<?=$fromtoDate[1];?>" />
+							</div>
+					  </div>
+						<?
+						$i++;
+						}
+					}
+					else
+					{
+				  	?>
+				  	<div id="c0">
+						<div >
+							<input  type="text" name="cmpnyName[]" placeholder="Company name">
+							<input  name="cmpnyDesg[]" type="text"  placeholder="Designation">
+							<label >From</label>
+							<input  type="date"  name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)" />
+							<label >To</label>
+							<input  type="date"  name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" />
+						</div>
+					</div >
+					<? } ?>
 			</div>
 		    <div>
 			    <span  class="clickr"  id="addCompany" value="0">Add another</span>
@@ -238,9 +299,28 @@
 			<div>
 		    	<label >My Strengths</label>
 		    	<div  id="oskills">
-		    		<div id="os0">
-		      			<input  type="text"  name="otherSkills[]" placeholder="Skill name">
+		    	<? 
+		    	if(isset($otherskill[0]))
+		    	{
+					$i=0;
+					$otherskill = unserialize($otherskill[0]['name']);
+				foreach($otherskill as $record)
+				{
+				?>
+					<div id="os<?=$i;?>">
+		      			<input  type="text"  name="otherSkills[]" placeholder="Skill name" value="<?=$record?>">
 		      		</div>
+				<?
+				$i++;
+				}
+				}
+				else
+				{
+				?>
+					<div id="os0">
+		      			<input  type="text"  name="otherSkills[]" placeholder="Skill name" >
+		      		</div>
+				<? }?>		    		
 		    	</div>
 		    	<div>
 		    		<span class="clickr"  id="addOskills" value="0">Add skill</span>
@@ -249,7 +329,7 @@
 		  	<!-- strength briefly -->
 			<div>
 				<label >You can write about your strengths briefly here	</label>
-			    <textarea rows="3"  type="text"  name="otherSkillsBrief" placeholder="Brief about strength"></textarea>
+			    <textarea rows="3"  type="text"  name="otherSkillsBrief" placeholder="Brief about strength"><?if(isset($about[0]['mystrength'])) echo $about[0]['mystrength'];?></textarea>
 			</div>
 			<span class="clickr">Skip</span>
 			<span class="clickr">Save & Continue</span>
@@ -268,20 +348,37 @@
 			<div class="form_sections">
 			<!-- Skills -->
 			 <div id="skills">
+				 <?
+				 if(isset($skill[0]))
+				 {
+					 $i=0;
+					 $skillName = unserialize($skill[0]['name']);
+					 $skillEff = unserialize($skill[0]['efficiency']);
+					 foreach($skillName as $row)
+					 {
+				?>
+						 <div id="s<?=$i;?>">
+							<div>
+								
+								<input  type="text"  name="skillName[]" placeholder="Skill name" value="<?=$row;?>"/>
+								<input  type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., " value="<?=$skillEff[$i];?>">
+							</div>
+						</div>
+				<?
+				$i++;
+					 }
+				 }
+				 else
+				 {
+				 ?>
 			 	<div id="s0">
-					<?php if(sizeof($result2)==0) { ?>
 					<div >
 						
 						<input  type="text"  name="skillName[]" placeholder="Skill name" />
-                        <input type="hidden"  name="skillNameID[]" />
 						<input  type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., ">
 					</div>
-					<?php } else { ?>
-					  <!-- Exist Skills start -->
-						
-	                    <!--  Exist Skills end-->
-					<?php } ?>
 				</div>
+				<? } ?>
 			</div>
 			<div>
 			   <span class="clickr"  id="addSkills"  value="0">Add another</span>
@@ -304,11 +401,41 @@
 			<div class="form_sections">
 			<!--******************************************Project********************************/-->
 			<div id="project">
+				<?
+				if(isset($project[0]))
+				{
+					$i=0;
+					$projectName = unserialize($project[0]['name']);
+					$projectRole = unserialize($project[0]['role']);
+					$projectDesc = unserialize($project[0]['description']);
+					$projectUrl = unserialize($project[0]['url']);
+					foreach($projectName as $record)
+					{
+				?>
+						<div id="p<?=$i;?>">
+							<div>
+								<input  type="text" name="projName[]"  placeholder="Enter Project Name/Title" value="<?=$record;?>"
+								<input  name="projRole[]" type="text"  placeholder="My Position" value="<?=$projectRole[$i];?>">
+							</div>
+							<div>
+								<textarea rows="3"  name="projDesc[]" type="text"  placeholder="Enter project description and your role in it">
+								<?=$projectDesc[$i]?>
+								</textarea>
+							</div>
+							<div>
+								<input name="projUrl[]" type="text"  placeholder="Project web address" value="<?=$projectUrl[$i];?>"/>
+							</div>
+						</div>
+				<?	
+				$i++;
+					}
+				}
+				else
+				{
+				?>
 				<div id="p0">
-					<?php if(sizeof($result4)==0) { ?>
 					<div >
 						<input  type="text" name="projName[]"  placeholder="Enter Project Name/Title">
-						<input type="hidden" name="projNameID[]"  />
 						<input  name="projRole[]" type="text"  placeholder="My Position">
 					</div>
 					<div>
@@ -319,12 +446,8 @@
 						
 						<input name="projUrl[]" type="text"  placeholder="Project web address" />
 					</div>
-					<?php } else { ?>
-					<!--******************************************Exist project********************************/-->
-					
-					<!--******************************************Exist Project********************************/-->
-					<?php } ?>
 				</div>
+			<? } ?>
 			</div>
 			<div >
 			<!--<label >Add Project</label>-->
@@ -348,12 +471,45 @@
 			</div>
 			<div class="form_sections">
 			<div id="edudcation">
+				<?
+				if(isset($education[0]))
+				{
+					$i=0;
+					$educationIns = unserialize($education[0]['institution']);
+					$educationCert = unserialize($education[0]['certification']);
+					$educationDate = unserialize($education[0]['date']);
+					$educationScore = unserialize($education[0]['score']);
+					foreach($educationCert as $record)
+					{
+						$fromtoDate = explode('#',$educationDate[$i]);
+				?>
+					<div id="e<?=$i;?>">
+						<div> 
+							<input  name="eduCert[]" type="text"  placeholder="Name of Degree" value="<?=$record;?>">
+							<input  type="text" name="eduInst[]" placeholder="University/Board" value="<?=$educationIns[$i];?>">
+						</div>
+						<div>
+							<input rows="3"  name="eduScore[]" type="text"  placeholder="Score: % or GPA" value="<?=$educationScore[$i];?>">
+						</div>
+						<div>
+							<label >From</label>
+							<input type="text"  name="eduFrom[]" placeholder="(2005)(Feb 2005)" value="<?=$fromtoDate[0];?>">
+							<label >To</label>
+							<input  type="text"  name="eduTo[]" placeholder="(2007)(Mar 2007)" value="<?=$fromtoDate[1];?>">
+						</div>
+					</div>
+				<?
+				$i++;
+					}
+					
+				}
+				else
+				{
+				?>
 				<div id="e0">
-					<?php if(sizeof($result5)==0) { ?>
 					<div> 
 						<input  name="eduCert[]" type="text"  placeholder="Name of Degree">
 						<input  type="text" name="eduInst[]" placeholder="University/Board">
-	                    <input type="hidden" name="eduInstID[]" />
 	                </div>
 					<div>
 						<input rows="3"  name="eduScore[]" type="text"  placeholder="Score: % or GPA">
@@ -364,13 +520,8 @@
 						<label >To</label>
 						<input  type="text"  name="eduTo[]" placeholder="(2007)(Mar 2007)">
 					</div>
-					
-					<?php } else { ?>
-					<!-- Exist project start-->
-
-					<!-- Exist project end-->
-					<?php } ?>
 				</div>
+				<? } ?>
 			</div>	  
 			<div>
 			    <!--<label >Add Education</label>-->
@@ -383,17 +534,56 @@
 					<div class="clearboth"></div>
 					<p>In this section you can give all the details of the vaious awards that you have received from college as well as various companies that you have worked with. This can also include other interests that you would like to share with the recruiter. </p>
 				</div>
-				<div>
-					<input rows="3" name="awdtitle[]" type="text"  placeholder="Award Title">
-				</div>
-				<div>
-					<label >For the period From</label>
-					<input  type="text"  name="awdFrom[]" placeholder="(2005)(Feb 2005)">
-					<label >To</label>
-					<input  type="text"  name="awdTo[]" placeholder="(2007)(Mar 2007)">
-				</div>
-				<div>
-					<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description"></textarea>
+				<div id="award">
+					<?
+					if(isset($award[0]))
+					{
+						$i=0;
+						$awardTitle = unserialize($award[0]['title']);
+						$awardDate = unserialize($award[0]['date']);
+						$awardDesc = unserialize($award[0]['description']);
+						foreach($awardTitle as $record)
+						{
+							$fromtoDate = explode('#',$awardDate[$i]);
+					?>
+					<div id="aw<?=$i;?>">
+						<div>
+						<input rows="3" name="awdtitle[]" type="text"  placeholder="Award Title" value="<?=$record;?>">
+						</div>
+						<div>
+							<label >For the period From</label>
+							<input  type="text"  name="awdFrom[]" placeholder="(2005)(Feb 2005)" value="<?=$fromtoDate[0];?>">
+							<label >To</label>
+							<input  type="text"  name="awdTo[]" placeholder="(2007)(Mar 2007)" value="<?=$fromtoDate[1];?>">
+						</div>
+						<div>
+							<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description">
+							<?=$awardDesc[$i];?>
+							</textarea>
+						</div>
+					</div>
+					<?
+						$i++;
+						}
+					}
+					else
+					{
+					?>
+					<div id="aw0">				
+						<div>
+							<input rows="3" name="awdtitle[]" type="text"  placeholder="Award Title">
+						</div>
+						<div>
+							<label >For the period From</label>
+							<input  type="text"  name="awdFrom[]" placeholder="(2005)(Feb 2005)">
+							<label >To</label>
+							<input  type="text"  name="awdTo[]" placeholder="(2007)(Mar 2007)">
+						</div>
+						<div>
+							<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description"></textarea>
+						</div>
+					</div>
+					<? } ?>
 				</div>
 				<div>
 					<span class="clickr"  id="addawd" value="0">Add New</span>
@@ -416,19 +606,55 @@
 				<div class="clearboth"></div>
 				<p>This the last section but it is as important. It describes your personality that is beyond work. This section gives you an avenue to talk about things you like to do and are interested to pursue </p>
 			</div>
-			<div class="form_sections">
-			<div>
-				<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest">
-				E.g, Blogging, Sports, Trekking, Photography.
-			</div>
-			<div>
-				<label >Description</label>
-				<textarea class="h200" rows="3"  name="intrestDesc[]" type="text"  placeholder="Enter short description on other interests you might have"></textarea>
-			</div>
-			<div>
-				<label >Site Url</label>
-				<input name="intrestUrl[]" type="text"  placeholder="Web address of interest (blog, photo, gallery)" />
-			</div>
+			<div id="moreabout" class="form_sections">
+				<? if(isset($about[0]))
+				{
+					$i=0;
+					$intresttitle = unserialize($about[0]['intresttitle']);
+					$intrestDesc = unserialize($about[0]['intrestDesc']);
+					$intrestUrl = unserialize($about[0]['intrestUrl']);
+					foreach($intresttitle as $record)
+					{
+				?>
+					<div id="ma<?=$i;?>">
+						<div>
+							<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest" value="<?=$record;?>">
+							E.g, Blogging, Sports, Trekking, Photography.
+						</div>
+						<div>
+							<label >Description</label>
+							<textarea class="h200" rows="3"  name="intrestDesc[]" type="text"  placeholder="Enter short description on other interests you might have">
+							<?=$intrestDesc[$i];?>
+							</textarea>
+						</div>
+						<div>
+							<label >Site Url</label>
+							<input name="intrestUrl[]" type="text"  placeholder="Web address of interest (blog, photo, gallery)" value="<?=$intrestUrl[$i];?>"/>
+						</div>
+					</div>
+				<?
+					$i++;
+					}
+				}
+				else
+				{
+				?>
+				<div id="ma0">
+					<div>
+						<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest">
+						E.g, Blogging, Sports, Trekking, Photography.
+					</div>
+					<div>
+						<label >Description</label>
+						<textarea class="h200" rows="3"  name="intrestDesc[]" type="text"  placeholder="Enter short description on other interests you might have"></textarea>
+					</div>
+					<div>
+						<label >Site Url</label>
+						<input name="intrestUrl[]" type="text"  placeholder="Web address of interest (blog, photo, gallery)" />
+					</div>
+				</div>
+				<? } ?>
+				
 			<div>
 				<span class="clickr"  id="addintrest" value="0">Add New</span>
 			</div>
@@ -438,32 +664,75 @@
 			<div>
 				<label >Marital Status</label>
 				<select name="marital">
+					<?
+					if(isset($user_detail[0]['married']))
+					{?>
+						<option value="NULL" <?if($user_detail[0]['married']==NULL) echo 'selected="selected"';?>  >Not specified</option>
+						<option value=1 <?if($user_detail[0]['married']==1) echo 'selected="selected"';?>  >Married</option>
+						<option value=0 <?if($user_detail[0]['married']==0) echo 'selected="selected"';?>  >Unmarried</option>
+					<?
+					}
+					else
+					{
+					?>
 					<option value="NULL">Not specified</option>
 					<option value="1">Married</option>
 					<option value="0">Unmarried</option>
+					<? } ?>
 				</select>
 			</div>
-			<div>
-				<label >Passport details</label>
-				<input name="passport" type="text"  placeholder="Passport Number" />
-			</div>
-			<div>
-				<label >Valid through</label>
-				<input  type="text"  name="passportFrom" placeholder="(2005)(Feb 2005)">
-				to
-				<input  type="text"  name="passportTo" placeholder="(2007)(Mar 2007)">
-			</div>
-			<div>
-				<label >Visa details</label>
-				<input name="visa" type="text"  placeholder="Visa details" />
-			</div>
-			<div>
-				<label >Valid through</label>
-				<input  type="text"  name="visaFrom" placeholder="(2005)(Feb 2005)">
-				to
-				<input  type="text"  name="visaTo" placeholder="(2007)(Mar 2007)">
-			</div>
-			
+			<?
+			if(isset($about[0]['passport_visa']))
+			{
+				$passport_visa = unserialize($about[0]['passport_visa']);
+				$passportDate = explode('#',$passport_visa['passportdate']); 
+				$visaDate = explode('#',$passport_visa['visadate']);
+			?>
+				<div>
+					<label >Passport details</label>
+					<input name="passport" type="text"  placeholder="Passport Number" value="<?=$passport_visa['passport'];?>"/>
+				</div>
+				<div>
+					<label >Valid through</label>
+					<input  type="text"  name="passportFrom" placeholder="(2005)(Feb 2005)" value="<?=$passportDate[0];?>">
+					to
+					<input  type="text"  name="passportTo" placeholder="(2007)(Mar 2007)" value="<?=$passportDate[1];?>">
+				</div>
+				<div>
+					<label >Visa details</label>
+					<input name="visa" type="text"  placeholder="Visa details"  value="<?=$passport_visa['visa'];?>"/>
+				</div>
+				<div>
+					<label >Valid through</label>
+					<input  type="text"  name="visaFrom" placeholder="(2005)(Feb 2005)" value="<?=$visaDate[0];?>">
+					to
+					<input  type="text"  name="visaTo" placeholder="(2007)(Mar 2007)" value="<?=$visaDate[1];?>">
+				</div>
+			<?}
+			else
+			{
+			?>
+				<div>
+					<label >Passport details</label>
+					<input name="passport" type="text"  placeholder="Passport Number" />
+				</div>
+				<div>
+					<label >Valid through</label>
+					<input  type="text"  name="passportFrom" placeholder="(2005)(Feb 2005)">
+					to
+					<input  type="text"  name="passportTo" placeholder="(2007)(Mar 2007)">
+				</div>
+				<div>
+					<label >Visa details</label>
+					<input name="visa" type="text"  placeholder="Visa details" />
+				</div>
+				<div>
+					<label >Valid through</label>
+					<input  type="text"  name="visaFrom" placeholder="(2005)(Feb 2005)">
+					to
+					<input  type="text"  name="visaTo" placeholder="(2007)(Mar 2007)">
+				</div>
+			<? } ?>
 			<!-- final save buttons -->
 			<div>
 			    <span  id="resume_submit" class="clickr"> Save & Finish</span>
@@ -482,7 +751,7 @@
 </div>
 
 
-		
+		<!-- need make as popup -->
 		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 		 <div class="selectTemplate">

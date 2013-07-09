@@ -7,6 +7,12 @@ $(document).ready(function()
 	{
 		//alert($(this).attr('tab'));
 		$('.tabs').hide();
+		$('.tabs').each(function(index, domEle)
+		{
+		//	alert($(domEle).attr('tab'));
+			$(domEle).removeClass('rns_a');
+		});
+		$(this).addClass('rns_a');
 		$($(this).attr('tab')).show();
 	});
 	

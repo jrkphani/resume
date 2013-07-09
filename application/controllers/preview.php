@@ -34,6 +34,7 @@ class Preview extends CI_Controller {
 			'last_name' => $this->input->post('lname'),
 			'designation' => $this->input->post('designation'),
 			'mobile' => $this->input->post('phone'),
+			'dob' => $this->input->post('dob'),
 			'skype' => $this->input->post('skype'),
 			'secondary_email' => $this->input->post('email'),
 			'address' => $this->input->post('address'),
@@ -155,7 +156,7 @@ class Preview extends CI_Controller {
 				//user logged in
 				$this->load->model('resume_model');
 				$user_id=$this->current_user['id'];
-				$this->resume_model->update($user_id,$user_detail,$skill,$company,$project,$education);
+				$this->resume_model->update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education);
 				$file_name=$user_id;
 				$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
 			}
@@ -174,8 +175,9 @@ class Preview extends CI_Controller {
 			}
 			if(!write_file($temp_path_html, $preview_data))
 			{
+				//Unable to write file
 				$data['success']='no';
-				$data['msg']='Unable to write file';
+				$data['msg']='Internal error';
 				$result['resultset']=$data;
 			}
 			else

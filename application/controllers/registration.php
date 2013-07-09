@@ -120,6 +120,7 @@ class Registration extends CI_Controller {
 								if($html_link=$this->updateUser($user_id))
 								{
 									$data['html']=$html_link;
+									$this->session->sess_destroy();
 								}
 								else
 								{
@@ -303,7 +304,7 @@ function updateUser($user_id)
 	{
 		return false;
 	}
-		$this->resume_model->update($user_id,$session_data['about'],$session_data['awards'],$session_data['skill'],$session_data['otherSkills'],$session_data['company'],$session_data['project'],$session_data['education']);
+		$this->resume_model->update($user_id,$session_data['user_detail'],$session_data['about'],$session_data['awards'],$session_data['skill'],$session_data['otherSkills'],$session_data['company'],$session_data['project'],$session_data['education']);
 		if($this->current_user)
 	   {
 		   return $this->current_user['id'];

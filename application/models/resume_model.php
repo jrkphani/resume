@@ -66,74 +66,108 @@ class Resume_model extends CI_model{
 		$query=$this-> db ->get();
 		return $query -> result_array();
 	}
-	public function update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education,$loggedin=NULL)
+	public function update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education)
 	{
-		//add / update user_detail table
+		//update user_detail table
 		// this will be always update, because a record for the user will be created in in this table while registration
 				$this->db->where('user_id', $user_id);
 				$this->db->update('user_detail',$user_detail);
-				
-		if($loggedin)
-		{
-			//update about table
-			$this->db->where('user_id', $user_id);
-			$this->db->update('about',$about);
+
+			//insert / update about table
+			$exists = $this->db->select('id')->where('user_id', $user_id)->from('about')->count_all_results();
+			if($exists)
+			{
+				$this->db->where('user_id', $user_id);
+				$this->db->update('about',$about);
+			}
+			else
+			{
+				$this->db->set('user_id', $user_id);
+				$this->db->insert('about',$about);
+			}
 			
-			//update awards table
-			$this->db->where('user_id', $user_id);
-			$this->db->update('awards',$awards);
+			//insert / update awards table
+			$exists = $this->db->select('id')->where('user_id', $user_id)->from('awards')->count_all_results();
+			if($exists)
+			{
+				$this->db->where('user_id', $user_id);
+				$this->db->update('awards',$awards);
+			}
+			else
+			{
+				$this->db->set('user_id', $user_id);
+				$this->db->insert('awards',$awards);
+			}
+			
 						
-			//update skill table
-			$this->db->where('user_id', $user_id);
-			$this->db->update('skill',$skill);
-
-			//update otherskill table
-			$this->db->where('user_id', $user_id);
-			$this->db->update('otherskill',$otherSkills);
-				
-			//update company table
-			$this->db->where('user_id', $user_id);
-			$this->db->update('company',$company);
-
-			//update project table
-			$this->db->where('user_id', $user_id);
-			$this->db->update('project',$project);
-
-			//update education table
-			$this->db->where('user_id', $user_id);
-			$this->db->update('education',$education);
+			//insert / update skill table
+			$exists = $this->db->select('id')->where('user_id', $user_id)->from('skill')->count_all_results();
+			if($exists)
+			{
+				$this->db->where('user_id', $user_id);
+				$this->db->update('skill',$skill);
+			}
+			else
+			{
+				$this->db->set('user_id', $user_id);
+				$this->db->insert('skill',$skill);
+			}
 			
-		}
-		else
-		{
-			//insert about table
-			$this->db->set('user_id', $user_id);
-			$this->db->insert('about',$about);
+
+			//insert / update otherskill table
+			$exists = $this->db->select('id')->where('user_id', $user_id)->from('otherskill')->count_all_results();
+			if($exists)
+			{
+				$this->db->where('user_id', $user_id);
+				$this->db->update('otherskill',$otherSkills);
+			}
+			else
+			{
+				$this->db->set('user_id', $user_id);
+				$this->db->insert('otherskill',$otherSkills);
+			}
 			
-			//insert awards table
-			$this->db->set('user_id', $user_id);
-			$this->db->insert('awards',$awards);
-						
-			//insert skill table
-			$this->db->set('user_id', $user_id);
-			$this->db->insert('skill',$skill);
-
-			//insert otherskill table
-			$this->db->set('user_id', $user_id);
-			$this->db->insert('otherskill',$otherSkills);
 				
-			//insert company table
-			$this->db->set('user_id', $user_id);
-			$this->db->insert('company',$company);
+			//insert / update company table
+			$exists = $this->db->select('id')->where('user_id', $user_id)->from('company')->count_all_results();
+			if($exists)
+			{
+				$this->db->where('user_id', $user_id);
+				$this->db->update('company',$company);
+			}
+			else
+			{
+				$this->db->set('user_id', $user_id);
+				$this->db->insert('company',$company);
+			}
+			
 
-			//insert project table
-			$this->db->set('user_id', $user_id);
-			$this->db->insert('project',$project);
+			//insert / update project table
+			$exists = $this->db->select('id')->where('user_id', $user_id)->from('project')->count_all_results();
+			if($exists)
+			{
+				$this->db->where('user_id', $user_id);
+				$this->db->update('project',$project);
+			}
+			else
+			{
+				$this->db->set('user_id', $user_id);
+				$this->db->insert('project',$project);
+			}
+			
 
-			//insert education table
-			$this->db->set('user_id', $user_id);
-			$this->db->insert('education',$education);
-		}
+			//insert / update education table
+			$exists = $this->db->select('id')->where('user_id', $user_id)->from('education')->count_all_results();
+			if($exists)
+			{
+				$this->db->where('user_id', $user_id);
+				$this->db->update('education',$education);
+			}
+			else
+			{
+				$this->db->set('user_id', $user_id);
+				$this->db->insert('education',$education);
+			}
 
 	}
 }

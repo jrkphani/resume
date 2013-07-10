@@ -1,5 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/colorbox.css"); ?>"/>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_resume.css"); ?>" />
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/pepper-grinder/jquery-ui.css" />
 <!--<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/jquery.toastmessage.css"); ?>"/>
 <div id="toast"></div>-->
 <div class="form_title">
@@ -57,7 +58,7 @@
 			<!-- DOB -->
 				<div>
 				    <label >Date of Birth</label>
-				    <input  type="date"  name="dob" placeholder="dd-mm-yyyy" value="<? if(isset($user_detail[0]['dob'])) echo $user_detail[0]['dob']; ?>" required/>
+				    <input  type="text"  class="full_date_picker" name="dob" placeholder="dd-mm-yyyy" value="<? if(isset($user_detail[0]['dob'])) echo $user_detail[0]['dob']; ?>"  readonly="readonly" required/>
 				</div>
 			<!-- Address -->
 				<div >
@@ -215,7 +216,24 @@
 			<!-- Experience -->
 			<div >
 			    <label >Total years of experience</label>
-			    <input  type="text" name="experience" placeholder="No of years" value="<? if(isset($user_detail[0]['experience'])) echo$user_detail[0]['experience']; ?>" />
+			    <?
+			    $expdate[0]=0;
+			    $expdate[1]=0;
+			    if(isset($user_detail[0]['experience']))
+			    {
+					$expdate = explode('.',$user_detail[0]['experience']);
+				}
+			    ?>
+			    <select name='expYr'>
+					<?for($i=0;$i<=20;$i++){?>
+						<option value='<?=$i;?>' <?if($i==$expdate[0]) echo 'selected="selected"';?>><?=$i;?></option>
+					<? } ?>
+			    </select> Years
+			     <select name='expMon'>
+			    <?for($i=0;$i<=12;$i++){?>
+						<option value='<?=$i;?>' <?if($i==$expdate[1]) echo 'selected="selected"';?>><?=$i;?></option>
+					<? } ?>
+			    </select> Months
 			 </div>
 			<!-- CTC -->
 			<div >
@@ -236,26 +254,29 @@
 			<div id="company">
 			<label >Company</label>
 				  	<?
+				  	$i=0;
 				  	if(isset($company[0]))
 				  	{
 						$companyNames = unserialize($company[0]['name']);
 						$companyDesc = unserialize($company[0]['designation']);
 						$companyDate = unserialize($company[0]['date']);
-						$i=0;
 						foreach($companyNames as $record)
 						{
 							$fromtoDate = explode('#',$companyDate[$i]);
 						?>
-					<div id="c<?=$i;?>">
+						<div id="c<?=$i;?>">
+						<? if($i) {?>
+						<span class="button remove formRemoveBtn" onclick=removeId("c<?=$i;?>");>Remove</span>
+						<? } ?>
 							<div >
 								<input  type="text" name="cmpnyName[]" placeholder="Company name" value="<?=$record;?>">
 								<input  name="cmpnyDesg[]" type="text"  placeholder="Designation" value="<?=$companyDesc[$i];?>">
 								<label >From</label>
-								<input  type="date"  name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)" value="<?=$fromtoDate[0];?>" />
+								<input  type="text"  name="cmpnyFrom[]" class="full_date_picker" placeholder="(2005)(Feb 2005)" value="<?=$fromtoDate[0];?>" />
 								<label >To</label>
-								<input  type="date"  name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" value="<?=$fromtoDate[1];?>" />
+								<input  type="text"  name="cmpnyTo[]" class="full_date_picker" placeholder="(2007)(Mar 2007)" value="<?=$fromtoDate[1];?>" />
 							</div>
-					  </div>
+						</div>
 						<?
 						$i++;
 						}
@@ -268,15 +289,15 @@
 							<input  type="text" name="cmpnyName[]" placeholder="Company name">
 							<input  name="cmpnyDesg[]" type="text"  placeholder="Designation">
 							<label >From</label>
-							<input  type="date"  name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)" />
+							<input  type="text" class="full_date_picker" name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)" />
 							<label >To</label>
-							<input  type="date"  name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" />
+							<input  type="text" class="full_date_picker" name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" />
 						</div>
 					</div >
 					<? } ?>
 			</div>
 		    <div>
-			    <span  class="clickr"  id="addCompany" value="0">Add another</span>
+			    <span  class="clickr"  id="addCompany" value="<?=$i;?>">Add New</span>
 			</div>
 			<span  class="clickr next" href='#strength_tab'>Continue</span>
 		</div>
@@ -298,15 +319,18 @@
 			<div>
 		    	<label >My Strengths</label>
 		    	<div  id="oskills">
-		    	<? 
+		    	<?
+		    	$i=0; 
 		    	if(isset($otherskill[0]))
 		    	{
-					$i=0;
 					$otherskill = unserialize($otherskill[0]['name']);
 				foreach($otherskill as $record)
 				{
 				?>
 					<div id="os<?=$i;?>">
+					<? if($i) {?>
+						<span class="button remove formRemoveBtn" onclick=removeId("os<?=$i;?>");>Remove</span>
+					<? } ?>
 		      			<input  type="text"  name="otherSkills[]" placeholder="Skill name" value="<?=$record?>">
 		      		</div>
 				<?
@@ -322,7 +346,7 @@
 				<? }?>		    		
 		    	</div>
 		    	<div>
-		    		<span class="clickr"  id="addOskills" value="0">Add skill</span>
+		    		<span class="clickr"  id="addOskills" value="<?=$i;?>">Add New</span>
 		    	</div>
 		  	</div>
 		  	<!-- strength briefly -->
@@ -347,19 +371,25 @@
 			<!-- Skills -->
 			 <div id="skills">
 				 <?
+				 $i=0;
 				 if(isset($skill[0]))
 				 {
-					 $i=0;
 					 $skillName = unserialize($skill[0]['name']);
 					 $skillEff = unserialize($skill[0]['efficiency']);
 					 foreach($skillName as $row)
 					 {
 				?>
 						 <div id="s<?=$i;?>">
+						 <? if($i) {?>
+						<span class="button remove formRemoveBtn" onclick=removeId("s<?=$i;?>");>Remove</span>
+						<? } ?>
 							<div>
-								
 								<input  type="text"  name="skillName[]" placeholder="Skill name" value="<?=$row;?>"/>
-								<input  type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., " value="<?=$skillEff[$i];?>">
+								<select name="skillEff[]">
+									<?for($j=0;$j<=10;$j++){?>
+									<option value='<?=$j;?>' <?if($j==$skillEff[$i]) echo 'selected="selected"';?>><?=$j;?></option>
+									<? } ?>
+								</select>
 							</div>
 						</div>
 				<?
@@ -373,13 +403,17 @@
 					<div >
 						
 						<input  type="text"  name="skillName[]" placeholder="Skill name" />
-						<input  type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., ">
+						<select name="skillEff[]">
+							<?for($j=0;$j<=10;$j++){?>
+								<option value='<?=$j;?>'><?=$j;?></option>
+							<? } ?>
+						</select>
 					</div>
 				</div>
 				<? } ?>
 			</div>
 			<div>
-			   <span class="clickr"  id="addSkills"  value="0">Add another</span>
+			   <span class="clickr"  id="addSkills"  value="<?=$i;?>">Add New</span>
 			</div>
 			<span class="clickr next" href='#milestones_tab'>Continue</span>
 		</div>
@@ -399,9 +433,9 @@
 			<!--******************************************Project********************************/-->
 			<div id="project">
 				<?
+				$i=0;
 				if(isset($project[0]))
 				{
-					$i=0;
 					$projectName = unserialize($project[0]['name']);
 					$projectRole = unserialize($project[0]['role']);
 					$projectDesc = unserialize($project[0]['description']);
@@ -410,8 +444,11 @@
 					{
 				?>
 						<div id="p<?=$i;?>">
+						<? if($i) {?>
+						<span class="button remove formRemoveBtn" onclick=removeId("p<?=$i;?>");>Remove</span>
+						<? } ?>
 							<div>
-								<input  type="text" name="projName[]"  placeholder="Enter Project Name/Title" value="<?=$record;?>"
+								<input  type="text" name="projName[]"  placeholder="Enter Project Name/Title" value="<?=$record;?>">
 								<input  name="projRole[]" type="text"  placeholder="My Position" value="<?=$projectRole[$i];?>">
 							</div>
 							<div>
@@ -448,7 +485,7 @@
 			</div>
 			<div >
 			<!--<label >Add Project</label>-->
-				<span class="clickr" id="addProject" value="0">Add another</span>
+				<span class="clickr" id="addProject" value="<?=$i;?>">Add New</span>
 			</div>
 			<span  class="clickr next" href='#edication_tab'>Continue</span>
 		</div>
@@ -492,9 +529,9 @@
 						</div>
 						<div>
 							<label >From</label>
-							<input type="text"  name="eduFrom[]" placeholder="(2005)(Feb 2005)" value="<?=$fromtoDate[0];?>">
+							<input type="text"  name="eduFrom[]" class="half_date_picker" placeholder="Feb 2005" value="<?=$fromtoDate[0];?>">
 							<label >To</label>
-							<input  type="text"  name="eduTo[]" placeholder="(2007)(Mar 2007)" value="<?=$fromtoDate[1];?>">
+							<input  type="text"  name="eduTo[]" class="half_date_picker" placeholder="Mar 2007" value="<?=$fromtoDate[1];?>">
 						</div>
 					</div>
 				<?
@@ -515,9 +552,9 @@
 					</div>
 					<div>
 						<label >From</label>
-						<input type="text"  name="eduFrom[]" placeholder="(2005)(Feb 2005)">
+						<input type="text" class="half_date_picker" name="eduFrom[]" placeholder="(2005)(Feb 2005)">
 						<label >To</label>
-						<input  type="text"  name="eduTo[]" placeholder="(2007)(Mar 2007)">
+						<input  type="text" class="half_date_picker" name="eduTo[]" placeholder="(2007)(Mar 2007)">
 					</div>
 				</div>
 				<? } ?>
@@ -535,9 +572,9 @@
 				</div>
 				<div id="award">
 					<?
+					$i=0;
 					if(isset($award[0]))
 					{
-						$i=0;
 						$awardTitle = unserialize($award[0]['title']);
 						$awardDate = unserialize($award[0]['date']);
 						$awardDesc = unserialize($award[0]['description']);
@@ -546,14 +583,17 @@
 							$fromtoDate = explode('#',$awardDate[$i]);
 					?>
 					<div id="aw<?=$i;?>">
+					<? if($i) {?>
+					<span class="button remove formRemoveBtn" onclick=removeId("aw<?=$i;?>");>Remove</span>
+					<? } ?>
 						<div>
 						<input rows="3" name="awdtitle[]" type="text"  placeholder="Award Title" value="<?=$record;?>">
 						</div>
 						<div>
 							<label >For the period From</label>
-							<input  type="text"  name="awdFrom[]" placeholder="(2005)(Feb 2005)" value="<?=$fromtoDate[0];?>">
+							<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="(2005)(Feb 2005)" value="<?=$fromtoDate[0];?>">
 							<label >To</label>
-							<input  type="text"  name="awdTo[]" placeholder="(2007)(Mar 2007)" value="<?=$fromtoDate[1];?>">
+							<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="(2007)(Mar 2007)" value="<?=$fromtoDate[1];?>">
 						</div>
 						<div>
 							<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description">
@@ -574,9 +614,9 @@
 						</div>
 						<div>
 							<label >For the period From</label>
-							<input  type="text"  name="awdFrom[]" placeholder="(2005)(Feb 2005)">
+							<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="(2005)(Feb 2005)">
 							<label >To</label>
-							<input  type="text"  name="awdTo[]" placeholder="(2007)(Mar 2007)">
+							<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="(2007)(Mar 2007)">
 						</div>
 						<div>
 							<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description"></textarea>
@@ -585,7 +625,7 @@
 					<? } ?>
 				</div>
 				<div>
-					<span class="clickr"  id="addawd" value="0">Add New</span>
+					<span class="clickr"  id="addawd" value="<?=$i;?>">Add New</span>
 				</div>
 			</div>
 			 <!-- Award end -->
@@ -605,9 +645,10 @@
 				<p>This the last section but it is as important. It describes your personality that is beyond work. This section gives you an avenue to talk about things you like to do and are interested to pursue </p>
 			</div>
 			<div id="moreabout" class="form_sections">
-				<? if(isset($about[0]))
+				<? 
+				$i=0;
+				if(isset($about[0]))
 				{
-					$i=0;
 					$intresttitle = unserialize($about[0]['intresttitle']);
 					$intrestDesc = unserialize($about[0]['intrestDesc']);
 					$intrestUrl = unserialize($about[0]['intrestUrl']);
@@ -615,6 +656,9 @@
 					{
 				?>
 					<div id="ma<?=$i;?>">
+					<? if($i) {?>
+					<span class="button remove formRemoveBtn" onclick=removeId("ma<?=$i;?>");>Remove</span>
+					<? } ?>
 						<div>
 							<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest" value="<?=$record;?>">
 							E.g, Blogging, Sports, Trekking, Photography.
@@ -652,9 +696,9 @@
 					</div>
 				</div>
 				<? } ?>
-				
+			</div>	
 			<div>
-				<span class="clickr"  id="addintrest" value="0">Add New</span>
+				<span class="clickr"  id="addintrest" value="<?=$i;?>">Add New</span>
 			</div>
 			
 			<!-- other details -->
@@ -692,9 +736,9 @@
 				</div>
 				<div>
 					<label >Valid through</label>
-					<input  type="text"  name="passportFrom" placeholder="(2005)(Feb 2005)" value="<?=$passportDate[0];?>">
+					<input  type="text" class="half_date_picker" name="passportFrom" placeholder="(2005)(Feb 2005)" value="<?=$passportDate[0];?>">
 					to
-					<input  type="text"  name="passportTo" placeholder="(2007)(Mar 2007)" value="<?=$passportDate[1];?>">
+					<input  type="text" class="feature_date_picker" name="passportTo" placeholder="(2007)(Mar 2007)" value="<?=$passportDate[1];?>">
 				</div>
 				<div>
 					<label >Visa details</label>
@@ -702,9 +746,9 @@
 				</div>
 				<div>
 					<label >Valid through</label>
-					<input  type="text"  name="visaFrom" placeholder="(2005)(Feb 2005)" value="<?=$visaDate[0];?>">
+					<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)" value="<?=$visaDate[0];?>">
 					to
-					<input  type="text"  name="visaTo" placeholder="(2007)(Mar 2007)" value="<?=$visaDate[1];?>">
+					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="(2007)(Mar 2007)" value="<?=$visaDate[1];?>">
 				</div>
 			<?}
 			else
@@ -716,9 +760,9 @@
 				</div>
 				<div>
 					<label >Valid through</label>
-					<input  type="text"  name="passportFrom" placeholder="(2005)(Feb 2005)">
+					<input  type="text" class="half_date_picker" name="passportFrom" placeholder="(2005)(Feb 2005)">
 					to
-					<input  type="text"  name="passportTo" placeholder="(2007)(Mar 2007)">
+					<input  type="text" class="feature_date_picker" name="passportTo" placeholder="(2007)(Mar 2007)">
 				</div>
 				<div>
 					<label >Visa details</label>
@@ -726,9 +770,9 @@
 				</div>
 				<div>
 					<label >Valid through</label>
-					<input  type="text"  name="visaFrom" placeholder="(2005)(Feb 2005)">
+					<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)">
 					to
-					<input  type="text"  name="visaTo" placeholder="(2007)(Mar 2007)">
+					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="(2007)(Mar 2007)">
 				</div>
 			<? } ?>
 			<!-- final save buttons -->

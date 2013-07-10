@@ -1,5 +1,7 @@
 $(document).ready(function()
-{
+{    
+	datepic();
+	//let tab menu and continue button function start
 	$('.tabs').hide();
 	$('#about_tab').show();
 	//tab navigation
@@ -11,7 +13,7 @@ $(document).ready(function()
 		$(this).addClass('rns_a');
 		$($(this).attr('tab')).show();
 	});
-	
+
 	$('.next').click(function()
 	{
 		$('.tab').removeClass('rns_a');
@@ -19,6 +21,7 @@ $(document).ready(function()
 		$(".tab[tab='" + $(this).attr('href') + "']").addClass('rns_a');
 		$($(this).attr('href')).show();
 	});
+	//let tab menu and continue button function start
 	
 	
 	$("#preview").colorbox({iframe:true, escKey:true, width:"860px", height:"100%"});
@@ -82,43 +85,32 @@ $(document).ready(function()
 		html+=			'</div>';
 		html+=			'<div>';
 		html+=				'<label >From</label>';
-		html+=				'<input type="text"  name="eduFrom[]" placeholder="(2005)(Feb 2005)">';
+		html+=				'<input type="text" class="half_date_picker" name="eduFrom[]" placeholder="(2005)(Feb 2005)">';
 		html+=				'<label >To</label>';
-		html+=				'<input  type="text"  name="eduTo[]" placeholder="(2007)(Mar 2007)">';
+		html+=				'<input  type="text" class="half_date_picker" name="eduTo[]" placeholder="(2007)(Mar 2007)">';
 		html+=			'</div>';
 		html+=		'</div>';
 		$('#edudcation').append(html);
+		datepic();
 	});
 $('#addProject').click(function()
 	{
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="p"+id;
-				html=	'<div id="'+rid+'" class="formBorder">';
-				html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
-				html+=		  '<div class="control-group">';
-				html+=		  	'<label class="control-label">Project</label>';
-				html+=		    '<div class="controls">';
-				html+=		      '<input class="span4" type="text" name="projName[]"  placeholder="Project name">';
-				html+=		      '<input type="hidden" name="projNameID[]"  >';
-				html+=		      '<input class="span4 leftMargin" name="projRole[]" type="text"  placeholder="Role">';
-				html+=		    '</div>';
-				html+=		  '</div>';	  
-				html+=		  '<div class="control-group ">';
-				html+=		    '<label class="control-label">Period</label>';
-				html+=		    '<div class="controls">';
-				html+=		      '<input class="span4" type="text"  name="projFrom[]" placeholder="(2005)(Feb 2005)">';
-				html+=		      'to';
-				html+=		      '<input class="span4" type="text"  name="projTo[]" placeholder="(2007)(Mar 2007)">';
-				html+=		    '</div>';
-				html+=		  '</div>';
-				html+=		  '<div class="control-group ">';
-				html+=		    '<label class="control-label">Description</label>';
-				html+=		    '<div class="controls">';
-				html+=		      '<textarea rows="3" class="input span8" name="projDesc[]" type="text"  placeholder="Description"></textarea>';
-				html+=		    '</div>';
-				html+=		  '</div>';
-				html+=	'</div>';
+			html=	'<div id="'+rid+'">';
+			html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
+			html+=		'<div >';
+			html+=			'<input  type="text" name="projName[]"  placeholder="Enter Project Name/Title">';
+			html+=			'<input  name="projRole[]" type="text"  placeholder="My Position">';
+			html+=		'</div>';
+			html+=		'<div>';			
+			html+=			'<textarea rows="3"  name="projDesc[]" type="text"  placeholder="Enter project description and your role in it"></textarea>';
+			html+=		'</div>';
+			html+=		'<div>';			
+			html+=			'<input name="projUrl[]" type="text"  placeholder="Project web address" />';
+			html+=		'</div>';
+			html+=	'</div>';
 		$('#project').append(html);
 	});
 $('#addCompany').click(function()
@@ -126,42 +118,29 @@ $('#addCompany').click(function()
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="c"+id;
-				html=	'<div id="'+rid+'" class="formBorder">';
-				html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
-				html+=	  '<div class="control-group">';
-				html+=		  	'<label class="control-label">Company</label>';
-				html+=		    '<div class="controls">';
-				html+=		      '<input class="span4" type="text" name="cmpnyName[]" placeholder="Company name">';
-				html+=		      '<input type="hidden" name="cmpnyNameID[]">';
-				html+=		      '<input class="span4 leftMargin" name="cmpnyDesg[]" type="text"  placeholder="Designation">';
-				html+=		    '</div>';
-				html+=		  '</div>';
-				html+=		  '<div class="control-group ">';
-				html+=		    '<label class="control-label">Period</label>';
-				html+=		    '<div class="controls">';
-				html+=		      '<input class="span4" type="text"  name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)">';
-				html+=		      'to';
-				html+=		      '<input class="span4" type="text"  name="cmpnyTo[]" placeholder="(2007)(Mar 2007)">';
-				html+=		    '</div>';
-				html+=		  '</div>';
-				html+=		  '<div class="control-group ">';
-				html+=		    '<label class="control-label">Description</label>';
-				html+=		    '<div class="controls">';
-				html+=		      '<textarea rows="3" class="input span8" name="cmpnyDesc[]" type="text"  placeholder="Description"></textarea>';
-				html+=		    '</div>';
-				html+=		  '</div>';
-				html+=	'</div>';
+			html=	'<div id="'+rid+'">';
+			html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
+			html+=			'<div >';
+			html+=				'<input  type="text" name="cmpnyName[]" placeholder="Company name">';
+			html+=				'<input  name="cmpnyDesg[]" type="text"  placeholder="Designation">';
+			html+=				'<label >From</label>';
+			html+=				'<input  type="date"  class="full_date_picker" name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)" />';
+			html+=				'<label >To</label>';
+			html+=				'<input  type="date"  class="full_date_picker" name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" />';
+			html+=			'</div>';
+			html+=		'</div >';
 		$('#company').append(html);
+		datepic();
 	});
 $('#addOskills').click(function()
 	{
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="os"+id;
-				html=	'<div id="'+rid+'"class="otherSkillBox">';
-				html+=		'<input class="span4" type="text"  name="otherSkills[]" state="pending" placeholder="Skill name">';
-				html+=		'<span class="button remove otherSkillButton" onclick=removeId("'+rid+'");>Remove</span>';
-				html+=	'</div>';
+			html=	'<div id="'+rid+'">';
+			html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
+		    html+=  		'<input  type="text"  name="otherSkills[]" placeholder="Skill name">';
+		    html+=  	'</div>';
 		$('#oskills').append(html);
 	});
 $('#addSkills').click(function()
@@ -169,31 +148,75 @@ $('#addSkills').click(function()
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="s"+id;
-				html=	'<div id="'+rid+'" class="formBorder">';
-				html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
-				html+=	  '<div class="control-group">';
-				html+=		    '<label class="control-label">Key Skills</label>';
-				html+=		    '<div class="controls">';
-				html+=		      '<input class="span4" type="text"  name="skillName[]" placeholder="Skill name">';
-				html+=		      '<input type="hidden"  name="skillNameID[]" >';
-				html+=		      '<input class="span4 leftMargin" name="skillTitle[]" type="text"  placeholder="SubTitle">';
-				html+=		    '</div>';
-				html+=		  '</div>';
-				html+=		  '<div class="control-group ">';
-				html+=		    '<label class="control-label">Effeciency</label>';
-				html+=		    '<div class="controls">';
-				html+=		      '<input class="span4" type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., ">';
-				html+=		    '</div>';
-				html+=		  '</div>';
-				html+=		  '<div class="control-group ">';
-				html+=		    '<label class="control-label">Description</label>';
-				html+=		    '<div class="controls">';
-				html+=		      '<textarea rows="3" class="input span8" name="skillDesc[]" type="text"  placeholder="Description"></textarea>';
-				html+=		    '</div>';
-				html+=		  '</div>';
-				html+=	'</div>';
+		html=	'<div id="'+rid+'">';
+		html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
+		html+=			'<div >';
+		html+=				'<input  type="text"  name="skillName[]" placeholder="Skill name" />';
+		html+=				'<select name="skillEff[]">';
+		html+=				'<option value="0">0</option>';
+		html+=				'<option value="1">1</option>';
+		html+=				'<option value="2">2</option>';
+		html+=				'<option value="3">3</option>';
+		html+=				'<option value="4">4</option>';
+		html+=				'<option value="5">5</option>';
+		html+=				'<option value="6">6</option>';
+		html+=				'<option value="7">7</option>';
+		html+=				'<option value="8">8</option>';
+		html+=				'<option value="9">9</option>';
+		html+=				'<option value="10">10</option>';
+		html+=				'</select>';
+		html+=			'</div>';
+		html+=		'</div>';
 		$('#skills').append(html);
 	});
+	
+	$('#addawd').click(function()
+	{
+		id=parseInt($(this).attr('value'))+1;
+		$(this).attr('value',id);
+		rid="aw"+id;
+		html=	'<div id="'+rid+'">';
+		html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';	
+		html+=				'<div>';
+		html+=					'<input rows="3" name="awdtitle[]" type="text"  placeholder="Award Title">';
+		html+=				'</div>';
+		html+=				'<div>';
+		html+=					'<label >For the period From</label>';
+		html+=					'<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="(2005)(Feb 2005)">';
+		html+=					'<label >To</label>';
+		html+=					'<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="(2007)(Mar 2007)">';
+		html+=				'</div>';
+		html+=				'<div>';
+		html+=					'<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description"></textarea>';
+		html+=				'</div>';
+		html+=			'</div>';
+		$('#award').append(html);
+		datepic();
+	});
+	
+	$('#addintrest').click(function()
+	{
+		id=parseInt($(this).attr('value'))+1;
+		$(this).attr('value',id);
+		rid="ma"+id;
+		html=	'<div id="'+rid+'">';
+		html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';	
+		html+=			'<div>';
+		html+=				'<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest">';
+		html+=				'E.g, Blogging, Sports, Trekking, Photography.';
+		html+=			'</div>';
+		html+=			'<div>';
+		html+=				'<label >Description</label>';
+		html+=				'<textarea class="h200" rows="3"  name="intrestDesc[]" type="text"  placeholder="Enter short description on other interests you might have"></textarea>';
+		html+=			'</div>';
+		html+=			'<div>';
+		html+=				'<label >Site Url</label>';
+		html+=				'<input name="intrestUrl[]" type="text"  placeholder="Web address of interest (blog, photo, gallery)" />';
+		html+=			'</div>';
+		$('#moreabout').append(html);
+	});
+	
+	
 	$('#uploadstate').html("");
 	$('#upload_file').submit(function(e) {
 		$('#uploadstate').html("uploading..");
@@ -395,4 +418,41 @@ function makeOnline(user_id) //not in use
 	} 
 	xmlhttp.open("GET",baseurl+'resume/makeOnline/?user_id='+user_id+'&img='+img,true);
 	xmlhttp.send();
+}
+function datepic()
+{
+	//date
+	$('.full_date_picker').datepicker({
+		changeMonth: true,
+        changeYear: true,
+        //showButtonPanel: true,
+        dateFormat: 'M-dd-yy',
+        maxDate: new Date(),
+        yearRange:'c-80:c',
+		});
+	
+	$('.half_date_picker').datepicker( {
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'MM-yy',
+        maxDate: new Date(),
+        yearRange:'c-80:c',
+        /*onClose: function(dateText, inst) { 
+            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(year, month, 1));
+        }*/
+    });
+    
+    $('.feature_date_picker').datepicker({
+		changeMonth: true,
+        changeYear: true,
+        dateFormat: 'MM-yy',
+        yearRange:'c-80:c+80',
+		});
+    
+   /* $('.half_date_picker').click(function()
+	{
+		$('.ui-datepicker-calendar').hide();
+	});*/
 }

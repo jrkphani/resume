@@ -5,7 +5,7 @@
 <div class="right_nav">
 	<h3> YOU ARE HERE </h3>
 	<span class="rns rns_a"><span class="rnd_a">1</span>Choose Resume Style</span>
-	<span class="rns"><span class="rnd">2</span>Discover Yourself</span>
+	<a href="<?=base_url('resume'); ?>"class="rns"><span class="rnd">2</span>Discover Yourself</a>
 	<!--<span tab='#about_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>About</span>
 	<span tab='#objective_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>Designation,Objective</span>
 	<span tab='#contact_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>Contact Me</span>
@@ -15,27 +15,33 @@
 	<span tab='#milestones_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>My Milestones</span>
 	<span tab='#edication_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>Edjucation & Awards</span>
 	<span tab='#moreabout_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>More About Me</span>-->
-	<span class="rns"><span class="rnd">3</span>Build Your Image</span>
-	<span class="rns"><span class="rnd">4</span>Register with EZCV</span>
+	<!-- <span class="rns"><span class="rnd">3</span>Build Your Image</span> -->
+	<a href="<?=base_url('login'); ?>"class="rns"><span class="rnd">3</span>Register with EZCV</a>
 	 
 </div>
 
 <div class="left_form">
-	<div class="t_list">
-		<div class="t_list_t">
-				<img src="<?php echo base_url("assets/img/t1_thumb.jpg"); ?>" alt="Template thumbnail"/>
-				<div class="t_list_s">
-					<p>Template 1</p>
-					<a class="t_select" tvalue="T1">Select</a>
+		<div class="t_list">
+			<div class="t_list_bg">
+				<div class="t_list_t">
+					<img src="<?php echo base_url("assets/img/t1_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<div class="t_list_s">
+						<p>Template 1</p>
+						<a class="t_select" tvalue="T1">Select</a>
+					</div>
 				</div>
 			</div>
-			<div class="t_list_t">
-				<img src="<?php echo base_url("assets/img/t2_thumb.jpg"); ?>" alt="Template thumbnail"/>
-				<div class="t_list_s">
-					<p>Template 1</p>
-					<a class="t_select">Select</a>
+		
+			<div class="t_list_bg">
+				<div class="t_list_t">
+					<img src="<?php echo base_url("assets/img/t2_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<div class="t_list_s">
+						<p>Template 1</p>
+						<a class="t_select">Select</a>
+					</div>
 				</div>
 			</div>
+			<div class="t_list_bg">
 			<div class="t_list_t">
 				<img src="<?php echo base_url("assets/img/t3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 				<div class="t_list_s">
@@ -43,6 +49,8 @@
 					<a class="t_select">Select</a>
 				</div>
 			</div>
+		</div>
+			<div class="t_list_bg">
 			<div class="t_list_t">
 				<img src="<?php echo base_url("assets/img/t4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 				<div class="t_list_s">
@@ -50,11 +58,14 @@
 					<a class="t_select">Select</a>
 				</div>
 			</div>
+		</div>
+			<div class="t_list_bg">
 			<div class="t_list_t">
 				<img src="<?php echo base_url("assets/img/t_thumb.jpg"); ?>" alt="Template thumbnail"/>
 			</div>
+		</div>
 		<div class="clearboth"></div>
-		<a href="#" class="load_more">LOAD MORE</a>
+		<!-- <a href="#" class="load_more">LOAD MORE</a> -->
 	</div>
 </div>
 

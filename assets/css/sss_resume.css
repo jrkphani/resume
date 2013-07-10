@@ -42,11 +42,12 @@
 .rns{ 
 	display: block; cursor:pointer; 
 	padding-left: 20px; height: 40px;	text-align: left; line-height: 40px;
-	font-size: .9em;	
+	font-size: .9em;	text-decoration: none; color: #232323;
 }
 .rns_a{
 	font-family: segoeuib;
 	color: #f07057;
+	cursor:default !important;
 }
 .rns_inner{
 	padding-left: 60px;
@@ -62,6 +63,7 @@
 	background: url(../img/sprites.png) no-repeat left top;
 	background-position: -353px 0; font-size: .8em; color: #fff;
 	text-align: center; line-height: 26px; margin-right: 10px;
+	cursor:default !important;
 }
 .rnd_inner{
 	width: 14px; height: 14px; display: inline-block;
@@ -145,20 +147,37 @@ input [type="checkbox"]{
 }
 
 .t_list_t{
-	width: 220px; height: 289px; float: left; position: relative;
-	margin: 20px 0 20px 20px; cursor: pointer;
+	overflow: hidden;
+	width: 220px; height: 289px;  position: relative;
+	cursor: pointer;	background: #fff;
+	border-left:1px solid #e1e1e1;
+	border-right:1px solid #e1e1e1;
+	border-top: 1px solid #e1e1e1;
+
+}
+
+
+.t_list_bg{
+	width: 220px; height: 297px; float: left;
+	margin: 20px 0 20px 20px;	
 	background:#f2f2f2 url(../img/shadow_strip_1.png) no-repeat center bottom;
-	border-top: solid 1px #266a86;
 }
 
 .t_list_s{
 	width: 100%;	min-height: 40px;	position: absolute;
 	bottom: 9px; left: 0px;  background-color: #323232;
 	color: #fff; border-top: solid 1px  #121212;
+	margin-bottom: -52px;	display: block;
+	 -webkit-transition:margin-bottom .2s ease-in-out;
+}
+
+.t_list_t:hover .t_list_s{
+	margin-bottom: -9px;	
 }
 
 .t_list_s p{
 	margin:10px;
+	height: 35px;
 }
 .t_select, .load_more{
 	display:block; color: #fff; text-decoration:none;	text-align: center;
@@ -187,3 +206,5 @@ input [type="checkbox"]{
 .t_list_t:hover .t_Select{
 	visibility: visible;
 }
+
+

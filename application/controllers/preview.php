@@ -38,7 +38,7 @@ class Preview extends CI_Controller {
 			'skype' => $this->input->post('skype'),
 			'secondary_email' => $this->input->post('email'),
 			'address' => $this->input->post('address'),
-			'married' => $this->input->post('married'),
+			'married' => $this->input->post('marital'),
 			'photo' => $this->input->post('photo'),
 			'experience' => $this->input->post('experience'),
 			'contactTitle' => $this->input->post('contactTitle')
@@ -156,7 +156,7 @@ class Preview extends CI_Controller {
 				//user logged in
 				$this->load->model('resume_model');
 				$user_id=$this->current_user['id'];
-				$this->resume_model->update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education);
+				$this->resume_model->update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education,1);
 				$file_name=$user_id;
 				$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
 			}

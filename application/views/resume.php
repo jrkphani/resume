@@ -87,7 +87,7 @@
 						<?if(isset($about[0]['summary']))echo $summary[1];?>
 					</textarea>
 				</div>
-				<span class="clickr">Save & Continue</span>
+				<span class="clickr next" href='#objective_tab'>Continue</span>
 			</div>
 		</div>
 		<!-- ===================================================================== About tab end ==================-->
@@ -140,7 +140,7 @@
 				?>
 				</textarea>
 			</div>
-			<span class="clickr">Save & Continue</span>
+			<span class="clickr next" href='#contact_tab'>Continue</span>
 		</div>
 		</div>
 		
@@ -197,7 +197,7 @@
 			    <label >linkedin</label>
 			    <input class="w400" type="url"  name="url[]" placeholder="linkedin" value="<? if(isset($about[0]['website'])) echo $website['linkedin']; ?>" />
 			</div>
-			<span class="clickr">Save & Continue</span>
+			<span class="clickr next" href='#experience_tab'>Continue</span>
 		</div>
 		</div>
 		<!-- ===================================================================== Contact Me tab end ==================-->
@@ -276,10 +276,9 @@
 					<? } ?>
 			</div>
 		    <div>
-			    <span  class="clickr"  id="addCompany" value="0">Add another</span>
+			    <span  class="clickr next"  id="addCompany" value="0">Add another</span>
 			</div>
-			<span  class="clickr">Skip</span>
-			<span  class="clickr">Save & Continue</span>
+			<span  class="clickr next" href='#strength_tab'>Continue</span>
 		</div>
 		</div>
 		
@@ -323,7 +322,7 @@
 				<? }?>		    		
 		    	</div>
 		    	<div>
-		    		<span class="clickr"  id="addOskills" value="0">Add skill</span>
+		    		<span class="clickr next"  id="addOskills" value="0">Add skill</span>
 		    	</div>
 		  	</div>
 		  	<!-- strength briefly -->
@@ -331,8 +330,7 @@
 				<label >You can write about your strengths briefly here	</label>
 			    <textarea rows="3"  type="text"  name="otherSkillsBrief" placeholder="Brief about strength"><?if(isset($about[0]['mystrength'])) echo $about[0]['mystrength'];?></textarea>
 			</div>
-			<span class="clickr">Skip</span>
-			<span class="clickr">Save & Continue</span>
+			<span class="clickr next" href='#tool_tab'>Continue</span>
 		</div>
 		</div>
 		<!-- ===================================================================== My Strength tab end ==================-->
@@ -381,10 +379,9 @@
 				<? } ?>
 			</div>
 			<div>
-			   <span class="clickr"  id="addSkills"  value="0">Add another</span>
+			   <span class="clickr next"  id="addSkills"  value="0">Add another</span>
 			</div>
-			<span class="clickr">Skip</span>
-			<span class="clickr">Save & Continue</span>
+			<span class="clickr next" href='#milestones_tab'>Continue</span>
 		</div>
 		</div>
 		
@@ -451,10 +448,9 @@
 			</div>
 			<div >
 			<!--<label >Add Project</label>-->
-				<span class="clickr" id="addProject" value="0">Add another</span>
+				<span class="clickr next" id="addProject" value="0">Add another</span>
 			</div>
-			<span  class="clickr">Skip</span>
-			<span  class="clickr">Save & Continue</span>
+			<span  class="clickr next" href='#edication_tab'>Continue</span>
 		</div>
 		</div>
 		
@@ -525,7 +521,7 @@
 			</div>	  
 			<div>
 			    <!--<label >Add Education</label>-->
-			    <span class="clickr"  id="addEdudcation" value="0">Add New</span>
+			    <span class="clickr next"  id="addEdudcation" value="0">Add New</span>
 			</div>
 			<!-- Awards start-->
 			<div class="award">
@@ -586,12 +582,11 @@
 					<? } ?>
 				</div>
 				<div>
-					<span class="clickr"  id="addawd" value="0">Add New</span>
+					<span class="clickr next"  id="addawd" value="0">Add New</span>
 				</div>
 			</div>
 			 <!-- Award end -->
-			 <span class="clickr">Skip</span>
-			<span class="clickr">Save & Continue</span>
+			<span class="clickr next" href='#moreabout_tab'>Continue</span>
 		</div>
 		</div>
 		
@@ -656,7 +651,7 @@
 				<? } ?>
 				
 			<div>
-				<span class="clickr"  id="addintrest" value="0">Add New</span>
+				<span class="clickr next"  id="addintrest" value="0">Add New</span>
 			</div>
 			
 			<!-- other details -->
@@ -736,7 +731,7 @@
 			<!-- final save buttons -->
 			<div>
 			    <span  id="resume_submit" class="clickr"> Save & Finish</span>
-			    <span  class="clickr" >Reset</span>
+			    <span  class="clickr next" >Reset</span>
 			</div>
 		</div>
 		</div>
@@ -784,6 +779,7 @@
 				 <div id="preview" class="stop-theme" title="Resume" href=""></div>
 		<!--<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>-->
 		<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>
+		<script src="<?php echo base_url('assets/js/jquery-ui.min.js');?>"></script>
 		<script src="<?php echo base_url('assets/js/resume.js');?>"></script>
 		<?php /* <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.toastmessage.js'); ?>" ></script>
 		<script type="text/javascript" src="<?php echo base_url('assets/js/sisyphus.js'); ?>" ></script> */ ?>

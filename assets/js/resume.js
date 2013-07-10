@@ -6,14 +6,18 @@ $(document).ready(function()
 	$('.tab').click(function()
 	{
 		//alert($(this).attr('tab'));
+		$('.tab').removeClass('rns_a');
 		$('.tabs').hide();
-		$('.tabs').each(function(index, domEle)
-		{
-		//	alert($(domEle).attr('tab'));
-			$(domEle).removeClass('rns_a');
-		});
 		$(this).addClass('rns_a');
 		$($(this).attr('tab')).show();
+	});
+	
+	$('.next').click(function()
+	{
+		$('.tab').removeClass('rns_a');
+		$('.tabs').hide();
+		$(".tab[tab='" + $(this).attr('href') + "']").addClass('rns_a');
+		$($(this).attr('href')).show();
 	});
 	
 	

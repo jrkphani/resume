@@ -139,8 +139,8 @@ $('#addOskills').click(function()
 		rid="os"+id;
 			html=	'<div id="'+rid+'">';
 			html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
-		    html=  		'<input  type="text"  name="otherSkills[]" placeholder="Skill name">';
-		    html=  	'</div>';
+		    html+=  		'<input  type="text"  name="otherSkills[]" placeholder="Skill name">';
+		    html+=  	'</div>';
 		$('#oskills').append(html);
 	});
 $('#addSkills').click(function()

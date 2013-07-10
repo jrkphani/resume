@@ -77,31 +77,31 @@ class Resume_model extends CI_model{
 		{
 			//update about table
 			$this->db->where('user_id', $user_id);
-			$this->db->insert('about',$about);
+			$this->db->update('about',$about);
 			
 			//update awards table
 			$this->db->where('user_id', $user_id);
-			$this->db->insert('awards',$awards);
+			$this->db->update('awards',$awards);
 						
 			//update skill table
 			$this->db->where('user_id', $user_id);
-			$this->db->insert('skill',$skill);
+			$this->db->update('skill',$skill);
 
 			//update otherskill table
 			$this->db->where('user_id', $user_id);
-			$this->db->insert('otherskill',$otherSkills);
+			$this->db->update('otherskill',$otherSkills);
 				
 			//update company table
 			$this->db->where('user_id', $user_id);
-			$this->db->insert('company',$company);
+			$this->db->update('company',$company);
 
 			//update project table
 			$this->db->where('user_id', $user_id);
-			$this->db->insert('project',$project);
+			$this->db->update('project',$project);
 
 			//update education table
 			$this->db->where('user_id', $user_id);
-			$this->db->insert('education',$education);
+			$this->db->update('education',$education);
 			
 		}
 		else

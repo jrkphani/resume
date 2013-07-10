@@ -276,7 +276,7 @@
 					<? } ?>
 			</div>
 		    <div>
-			    <span  class="clickr next"  id="addCompany" value="0">Add another</span>
+			    <span  class="clickr"  id="addCompany" value="0">Add another</span>
 			</div>
 			<span  class="clickr next" href='#strength_tab'>Continue</span>
 		</div>
@@ -322,7 +322,7 @@
 				<? }?>		    		
 		    	</div>
 		    	<div>
-		    		<span class="clickr next"  id="addOskills" value="0">Add skill</span>
+		    		<span class="clickr"  id="addOskills" value="0">Add skill</span>
 		    	</div>
 		  	</div>
 		  	<!-- strength briefly -->
@@ -379,7 +379,7 @@
 				<? } ?>
 			</div>
 			<div>
-			   <span class="clickr next"  id="addSkills"  value="0">Add another</span>
+			   <span class="clickr"  id="addSkills"  value="0">Add another</span>
 			</div>
 			<span class="clickr next" href='#milestones_tab'>Continue</span>
 		</div>
@@ -448,7 +448,7 @@
 			</div>
 			<div >
 			<!--<label >Add Project</label>-->
-				<span class="clickr next" id="addProject" value="0">Add another</span>
+				<span class="clickr" id="addProject" value="0">Add another</span>
 			</div>
 			<span  class="clickr next" href='#edication_tab'>Continue</span>
 		</div>
@@ -468,9 +468,9 @@
 			<div class="form_sections">
 			<div id="edudcation">
 				<?
+				$i=0;
 				if(isset($education[0]))
 				{
-					$i=0;
 					$educationIns = unserialize($education[0]['institution']);
 					$educationCert = unserialize($education[0]['certification']);
 					$educationDate = unserialize($education[0]['date']);
@@ -480,6 +480,9 @@
 						$fromtoDate = explode('#',$educationDate[$i]);
 				?>
 					<div id="e<?=$i;?>">
+					<? if($i) {?>
+					<span class="button remove formRemoveBtn" onclick=removeId("e<?=$i;?>");>Remove</span>
+					<? } ?>
 						<div> 
 							<input  name="eduCert[]" type="text"  placeholder="Name of Degree" value="<?=$record;?>">
 							<input  type="text" name="eduInst[]" placeholder="University/Board" value="<?=$educationIns[$i];?>">
@@ -521,7 +524,7 @@
 			</div>	  
 			<div>
 			    <!--<label >Add Education</label>-->
-			    <span class="clickr next"  id="addEdudcation" value="0">Add New</span>
+			    <span class="clickr"  id="addEdudcation" value="<?=$i;?>">Add New</span>
 			</div>
 			<!-- Awards start-->
 			<div class="award">
@@ -582,7 +585,7 @@
 					<? } ?>
 				</div>
 				<div>
-					<span class="clickr next"  id="addawd" value="0">Add New</span>
+					<span class="clickr"  id="addawd" value="0">Add New</span>
 				</div>
 			</div>
 			 <!-- Award end -->
@@ -651,7 +654,7 @@
 				<? } ?>
 				
 			<div>
-				<span class="clickr next"  id="addintrest" value="0">Add New</span>
+				<span class="clickr"  id="addintrest" value="0">Add New</span>
 			</div>
 			
 			<!-- other details -->

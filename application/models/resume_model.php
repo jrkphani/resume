@@ -66,41 +66,74 @@ class Resume_model extends CI_model{
 		$query=$this-> db ->get();
 		return $query -> result_array();
 	}
-	public function update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education)
+	public function update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education,$loggedin=NULL)
 	{
 		//add / update user_detail table
-				$this->db->set('user_id', $user_id);
+		// this will be always update, because a record for the user will be created in in this table while registration
+				$this->db->where('user_id', $user_id);
 				$this->db->update('user_detail',$user_detail);
 				
-		//add / update about table
-				$this->db->set('user_id', $user_id);
-				$this->db->insert('about',$about);
-				
-		//add / update awards table
-		$this->db->set('user_id', $user_id);
-				$this->db->insert('awards',$awards);
+		if($loggedin)
+		{
+			//update about table
+			$this->db->where('user_id', $user_id);
+			$this->db->insert('about',$about);
+			
+			//update awards table
+			$this->db->where('user_id', $user_id);
+			$this->db->insert('awards',$awards);
 						
-		//add / update skill table
-		$this->db->set('user_id', $user_id);
-				$this->db->insert('skill',$skill);
+			//update skill table
+			$this->db->where('user_id', $user_id);
+			$this->db->insert('skill',$skill);
 
-		//add / update otherskill table
-		$this->db->set('user_id', $user_id);
-				$this->db->insert('otherskill',$otherSkills);
+			//update otherskill table
+			$this->db->where('user_id', $user_id);
+			$this->db->insert('otherskill',$otherSkills);
 				
-		//add / update company table
-		$this->db->set('user_id', $user_id);
-				$this->db->insert('company',$company);
+			//update company table
+			$this->db->where('user_id', $user_id);
+			$this->db->insert('company',$company);
 
-		
-		//add / update project table
-		$this->db->set('user_id', $user_id);
-				$this->db->insert('project',$project);
+			//update project table
+			$this->db->where('user_id', $user_id);
+			$this->db->insert('project',$project);
 
-		
-		//add / update education table
-		$this->db->set('user_id', $user_id);
-				$this->db->insert('education',$education);
+			//update education table
+			$this->db->where('user_id', $user_id);
+			$this->db->insert('education',$education);
+			
+		}
+		else
+		{
+			//insert about table
+			$this->db->set('user_id', $user_id);
+			$this->db->insert('about',$about);
+			
+			//insert awards table
+			$this->db->set('user_id', $user_id);
+			$this->db->insert('awards',$awards);
+						
+			//insert skill table
+			$this->db->set('user_id', $user_id);
+			$this->db->insert('skill',$skill);
+
+			//insert otherskill table
+			$this->db->set('user_id', $user_id);
+			$this->db->insert('otherskill',$otherSkills);
+				
+			//insert company table
+			$this->db->set('user_id', $user_id);
+			$this->db->insert('company',$company);
+
+			//insert project table
+			$this->db->set('user_id', $user_id);
+			$this->db->insert('project',$project);
+
+			//insert education table
+			$this->db->set('user_id', $user_id);
+			$this->db->insert('education',$education);
+		}
 
 	}
 }

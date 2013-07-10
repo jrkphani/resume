@@ -386,28 +386,28 @@ $passport_visa = unserialize($about['passport_visa']);
   
     <div class="right_content">
       <h1>Other Details</h1>
-      <? if($user_detail['married'])
+      <? if($user_detail['married']!=NULL)
       {
 		  if($user_detail['married'] == 1)
 		  $married = 'Married';
 		  else
 		  $married = 'Unmarried';
 		  ?>
-        <p>Marital status : <?=$user_detail['married'];?></p>
+        <p>Marital status : <?=$married?></p>
       <?}?>
       <? if($passport_visa['passport'])
       {
 		  $passportDate=explode('#',$passport_visa['passportdate']);
 		  ?>
         <p>Passport details : <?=$passport_visa['passport'];?></p>
-        <p>Passport details : <?=$passportDate[0];?> to <?=$passportDate[1];?></p>
+        <p>Validity : <?=$passportDate[0];?> to <?=$passportDate[1];?></p>
       <?}?>
       <? if($passport_visa['visa'])
       {
 		  $visaDate= explode('#',$passport_visa['visadate']);
 		  ?>
         <p>Visa details : <?=$passport_visa['visa'];?></p>
-        <p>Visa details : <?=$visaDate[0];?> to <?=$visaDate[1];?></p>
+        <p>Validity : <?=$visaDate[0];?> to <?=$visaDate[1];?></p>
       <?}?>
     </div>
    </div>    

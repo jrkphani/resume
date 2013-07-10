@@ -5,6 +5,14 @@
 .form_title h3{
 	line-height: 60px;	margin-left: 20px;	text-transform: uppercase;
 }
+
+.form_title a{
+	width: 200px; height: 59px; display: block; float: left;
+	line-height: 60px;	text-transform: uppercase; text-align: center;
+	border: solid 1px #44494a; background-color: #f07057;	color: #ffffff; text-decoration: none; font-size: 1.2em; 
+}
+
+
 .left_form{
 	width: 80%;	float: right;
 	background-color: #f4f4f4;
@@ -43,17 +51,12 @@
 .rns_inner{
 	padding-left: 60px;
 }
-
-
 .rnd{
 	width: 26px; height: 26px; display: inline-block;
 	background: url(../img/sprites.png) no-repeat left top;
 	background-position: -326px 0; font-size: .8em; color: #fff;
 	text-align: center; line-height: 26px; margin-right: 10px;
 }
-
-
-
 .rnd_a{
 	width: 26px; height: 26px; display: inline-block;
 	background: url(../img/sprites.png) no-repeat left top;
@@ -65,7 +68,6 @@
 	background: url(../img/sprites.png) no-repeat left top;
 	background-position: -284px 0;  margin-right: 10px; 
 }
-
 .rnd_inner_a{
 	width: 14px; height: 14px; display: inline-block;
 	background: url(../img/sprites.png) no-repeat left top;
@@ -73,8 +75,6 @@
 }
 .right_nav h3{ 
 	display:blocl; margin: 20px 0 20px 0;}
-
-
 
 
 /********************************Form Common***********************************/
@@ -119,17 +119,21 @@ input, select{
 	padding: 10px 30px 10px 30px; display: inline-block;
 	background: #f07057;	border: solid 1px #c5533d;	color: #fff;	
 }
-
-
+input[type="radio"]{
+	width:25px;
+	height:25px;
+}
+input [type="checkbox"]{
+	width:30px;
+	height:30px;
+}
 /********************************Form overrides***********************************/
 
 .awards_or{
-	  
 	border-top: solid 1px #929292;
 }
 
 .awards_or h3, .awards_or p{
-
 	margin: 10px 0 0 0;
 }
 

@@ -164,6 +164,11 @@ footer p{
 	margin-top:7px;
 }
 
+.dc_logo{
+	width: 258px; height: 30px; display: block; float: right; margin-top: 0px;
+	background: transparent url(../img/dc_logo.png) no-repeat left top;
+}
+
 /************************** Large desktop **************************/
 @media (min-width: 1200px) { ... }
  
@@ -175,9 +180,3 @@ footer p{
  
 /************************** Landscape phones and down **************************/
 @media (max-width: 480px) { ... }
-
-
-.dc_logo{
-	width: 258px; height: 30px; display: block; float: right; margin-top: 0px;
-	background: transparent url(../img/dc_logo.png) no-repeat left top;
-}

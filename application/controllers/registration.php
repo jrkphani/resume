@@ -131,10 +131,9 @@ class Registration extends CI_Controller {
 								{
 									$data['html']='nosession';
 								}
+								$this->invite_friend($user_id,$friend_emails,$post_data['firstname'].' '.$post_data['lastname']);								
 								$this->email->subject('Verify your account on EZCV');
-								$message= 'Dear User<br /><br />Thank you for your register on EZCV. Your account has been created successfully. Please click on below link to verify your account<br /><a href="'.base_url('registration/activation/'.$insert_id.'/'.$post_data['active']).'"> Activate my EZCV account </a><br /><br />Regards<br />EZCV'; 
-
-								$this->invite_friend($user_id,$friend_emails,$post_data['firstname'].' '.$post_data['lastname']);
+								$message= 'Dear User<br /><br />Thank you for your register on EZCV. Your account has been created successfully. Please click on below link to verify your account<br /><a href="'.base_url('registration/activation/'.$user_id.'/'.$post_data['active']).'"> Activate my EZCV account </a><br /><br />Regards<br />EZCV';							
 							}
 							else if($post_data['role']=='member')
 							{

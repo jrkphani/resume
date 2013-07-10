@@ -236,17 +236,20 @@
 			<div id="company">
 			<label >Company</label>
 				  	<?
+				  	$i=0;
 				  	if(isset($company[0]))
 				  	{
 						$companyNames = unserialize($company[0]['name']);
 						$companyDesc = unserialize($company[0]['designation']);
 						$companyDate = unserialize($company[0]['date']);
-						$i=0;
 						foreach($companyNames as $record)
 						{
 							$fromtoDate = explode('#',$companyDate[$i]);
 						?>
-					<div id="c<?=$i;?>">
+						<div id="c<?=$i;?>">
+						<? if($i) {?>
+						<span class="button remove formRemoveBtn" onclick=removeId("c<?=$i;?>");>Remove</span>
+						<? } ?>
 							<div >
 								<input  type="text" name="cmpnyName[]" placeholder="Company name" value="<?=$record;?>">
 								<input  name="cmpnyDesg[]" type="text"  placeholder="Designation" value="<?=$companyDesc[$i];?>">
@@ -255,7 +258,7 @@
 								<label >To</label>
 								<input  type="date"  name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" value="<?=$fromtoDate[1];?>" />
 							</div>
-					  </div>
+						</div>
 						<?
 						$i++;
 						}
@@ -276,7 +279,7 @@
 					<? } ?>
 			</div>
 		    <div>
-			    <span  class="clickr"  id="addCompany" value="0">Add another</span>
+			    <span  class="clickr"  id="addCompany" value="<?=$i;?>">Add New</span>
 			</div>
 			<span  class="clickr next" href='#strength_tab'>Continue</span>
 		</div>
@@ -298,15 +301,18 @@
 			<div>
 		    	<label >My Strengths</label>
 		    	<div  id="oskills">
-		    	<? 
+		    	<?
+		    	$i=0; 
 		    	if(isset($otherskill[0]))
 		    	{
-					$i=0;
 					$otherskill = unserialize($otherskill[0]['name']);
 				foreach($otherskill as $record)
 				{
 				?>
 					<div id="os<?=$i;?>">
+					<? if($i) {?>
+						<span class="button remove formRemoveBtn" onclick=removeId("os<?=$i;?>");>Remove</span>
+					<? } ?>
 		      			<input  type="text"  name="otherSkills[]" placeholder="Skill name" value="<?=$record?>">
 		      		</div>
 				<?
@@ -322,7 +328,7 @@
 				<? }?>		    		
 		    	</div>
 		    	<div>
-		    		<span class="clickr"  id="addOskills" value="0">Add skill</span>
+		    		<span class="clickr"  id="addOskills" value="<?=$i;?>">Add New</span>
 		    	</div>
 		  	</div>
 		  	<!-- strength briefly -->
@@ -347,17 +353,19 @@
 			<!-- Skills -->
 			 <div id="skills">
 				 <?
+				 $i=0;
 				 if(isset($skill[0]))
 				 {
-					 $i=0;
 					 $skillName = unserialize($skill[0]['name']);
 					 $skillEff = unserialize($skill[0]['efficiency']);
 					 foreach($skillName as $row)
 					 {
 				?>
 						 <div id="s<?=$i;?>">
+						 <? if($i) {?>
+						<span class="button remove formRemoveBtn" onclick=removeId("s<?=$i;?>");>Remove</span>
+						<? } ?>
 							<div>
-								
 								<input  type="text"  name="skillName[]" placeholder="Skill name" value="<?=$row;?>"/>
 								<input  type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., " value="<?=$skillEff[$i];?>">
 							</div>
@@ -379,7 +387,7 @@
 				<? } ?>
 			</div>
 			<div>
-			   <span class="clickr"  id="addSkills"  value="0">Add another</span>
+			   <span class="clickr"  id="addSkills"  value="<?=$i;?>">Add New</span>
 			</div>
 			<span class="clickr next" href='#milestones_tab'>Continue</span>
 		</div>
@@ -399,9 +407,9 @@
 			<!--******************************************Project********************************/-->
 			<div id="project">
 				<?
+				$i=0;
 				if(isset($project[0]))
 				{
-					$i=0;
 					$projectName = unserialize($project[0]['name']);
 					$projectRole = unserialize($project[0]['role']);
 					$projectDesc = unserialize($project[0]['description']);
@@ -410,6 +418,9 @@
 					{
 				?>
 						<div id="p<?=$i;?>">
+						<? if($i) {?>
+						<span class="button remove formRemoveBtn" onclick=removeId("p<?=$i;?>");>Remove</span>
+						<? } ?>
 							<div>
 								<input  type="text" name="projName[]"  placeholder="Enter Project Name/Title" value="<?=$record;?>"
 								<input  name="projRole[]" type="text"  placeholder="My Position" value="<?=$projectRole[$i];?>">
@@ -448,7 +459,7 @@
 			</div>
 			<div >
 			<!--<label >Add Project</label>-->
-				<span class="clickr" id="addProject" value="0">Add another</span>
+				<span class="clickr" id="addProject" value="<?=$i;?>">Add New</span>
 			</div>
 			<span  class="clickr next" href='#edication_tab'>Continue</span>
 		</div>
@@ -535,9 +546,9 @@
 				</div>
 				<div id="award">
 					<?
+					$i=0;
 					if(isset($award[0]))
 					{
-						$i=0;
 						$awardTitle = unserialize($award[0]['title']);
 						$awardDate = unserialize($award[0]['date']);
 						$awardDesc = unserialize($award[0]['description']);
@@ -546,6 +557,9 @@
 							$fromtoDate = explode('#',$awardDate[$i]);
 					?>
 					<div id="aw<?=$i;?>">
+					<? if($i) {?>
+					<span class="button remove formRemoveBtn" onclick=removeId("aw<?=$i;?>");>Remove</span>
+					<? } ?>
 						<div>
 						<input rows="3" name="awdtitle[]" type="text"  placeholder="Award Title" value="<?=$record;?>">
 						</div>
@@ -585,7 +599,7 @@
 					<? } ?>
 				</div>
 				<div>
-					<span class="clickr"  id="addawd" value="0">Add New</span>
+					<span class="clickr"  id="addawd" value="<?=$i;?>">Add New</span>
 				</div>
 			</div>
 			 <!-- Award end -->
@@ -605,9 +619,10 @@
 				<p>This the last section but it is as important. It describes your personality that is beyond work. This section gives you an avenue to talk about things you like to do and are interested to pursue </p>
 			</div>
 			<div id="moreabout" class="form_sections">
-				<? if(isset($about[0]))
+				<? 
+				$i=0;
+				if(isset($about[0]))
 				{
-					$i=0;
 					$intresttitle = unserialize($about[0]['intresttitle']);
 					$intrestDesc = unserialize($about[0]['intrestDesc']);
 					$intrestUrl = unserialize($about[0]['intrestUrl']);
@@ -615,6 +630,9 @@
 					{
 				?>
 					<div id="ma<?=$i;?>">
+					<? if($i) {?>
+					<span class="button remove formRemoveBtn" onclick=removeId("ma<?=$i;?>");>Remove</span>
+					<? } ?>
 						<div>
 							<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest" value="<?=$record;?>">
 							E.g, Blogging, Sports, Trekking, Photography.
@@ -654,7 +672,7 @@
 				<? } ?>
 				
 			<div>
-				<span class="clickr"  id="addintrest" value="0">Add New</span>
+				<span class="clickr"  id="addintrest" value="<?=$i;?>">Add New</span>
 			</div>
 			
 			<!-- other details -->

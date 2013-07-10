@@ -21,13 +21,13 @@
 	<span class="rns"><span class="rnd">3</span>Build Your Image</span>
 	<span class="rns"><span class="rnd">4</span>Register with EZCV</span>
 </div>
-<div id="file_upload" style="display:none;">
+<!--<div id="file_upload" style="display:none;">
    <form method="post" action="" id="upload_file">
      <label for="userfile">File</label>
      <input type="file" name="userfile" id="userfile" size="20" value=""/>
      <input type="submit" name="submit" id="fsubmit" value="Upload"/>
    </form>
-</div>
+</div>-->
 <div class="left_form">
 	<div >
 		<!-- ================================ form start ================================ -->
@@ -782,7 +782,7 @@
 				 </div>
 				 
 				 <div id="preview" class="stop-theme" title="Resume" href=""></div>
-		<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>
+		<!--<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>-->
 		<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>
 		<script src="<?php echo base_url('assets/js/resume.js');?>"></script>
 		<?php /* <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.toastmessage.js'); ?>" ></script>

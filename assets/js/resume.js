@@ -1,5 +1,7 @@
 $(document).ready(function()
-{
+{    
+	datepic();
+	//let tab menu and continue button function start
 	$('.tabs').hide();
 	$('#about_tab').show();
 	//tab navigation
@@ -11,7 +13,7 @@ $(document).ready(function()
 		$(this).addClass('rns_a');
 		$($(this).attr('tab')).show();
 	});
-	
+
 	$('.next').click(function()
 	{
 		$('.tab').removeClass('rns_a');
@@ -19,6 +21,7 @@ $(document).ready(function()
 		$(".tab[tab='" + $(this).attr('href') + "']").addClass('rns_a');
 		$($(this).attr('href')).show();
 	});
+	//let tab menu and continue button function start
 	
 	
 	$("#preview").colorbox({iframe:true, escKey:true, width:"860px", height:"100%"});
@@ -82,12 +85,13 @@ $(document).ready(function()
 		html+=			'</div>';
 		html+=			'<div>';
 		html+=				'<label >From</label>';
-		html+=				'<input type="text"  name="eduFrom[]" placeholder="(2005)(Feb 2005)">';
+		html+=				'<input type="text" class="half_date_picker" name="eduFrom[]" placeholder="(2005)(Feb 2005)">';
 		html+=				'<label >To</label>';
-		html+=				'<input  type="text"  name="eduTo[]" placeholder="(2007)(Mar 2007)">';
+		html+=				'<input  type="text" class="half_date_picker" name="eduTo[]" placeholder="(2007)(Mar 2007)">';
 		html+=			'</div>';
 		html+=		'</div>';
 		$('#edudcation').append(html);
+		datepic();
 	});
 $('#addProject').click(function()
 	{
@@ -120,12 +124,13 @@ $('#addCompany').click(function()
 			html+=				'<input  type="text" name="cmpnyName[]" placeholder="Company name">';
 			html+=				'<input  name="cmpnyDesg[]" type="text"  placeholder="Designation">';
 			html+=				'<label >From</label>';
-			html+=				'<input  type="date"  name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)" />';
+			html+=				'<input  type="date"  class="full_date_picker" name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)" />';
 			html+=				'<label >To</label>';
-			html+=				'<input  type="date"  name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" />';
+			html+=				'<input  type="date"  class="full_date_picker" name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" />';
 			html+=			'</div>';
 			html+=		'</div >';
 		$('#company').append(html);
+		datepic();
 	});
 $('#addOskills').click(function()
 	{
@@ -165,15 +170,16 @@ $('#addSkills').click(function()
 		html+=				'</div>';
 		html+=				'<div>';
 		html+=					'<label >For the period From</label>';
-		html+=					'<input  type="text"  name="awdFrom[]" placeholder="(2005)(Feb 2005)">';
+		html+=					'<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="(2005)(Feb 2005)">';
 		html+=					'<label >To</label>';
-		html+=					'<input  type="text"  name="awdTo[]" placeholder="(2007)(Mar 2007)">';
+		html+=					'<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="(2007)(Mar 2007)">';
 		html+=				'</div>';
 		html+=				'<div>';
 		html+=					'<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description"></textarea>';
 		html+=				'</div>';
 		html+=			'</div>';
 		$('#award').append(html);
+		datepic();
 	});
 	
 	$('#addintrest').click(function()
@@ -400,4 +406,41 @@ function makeOnline(user_id) //not in use
 	} 
 	xmlhttp.open("GET",baseurl+'resume/makeOnline/?user_id='+user_id+'&img='+img,true);
 	xmlhttp.send();
+}
+function datepic()
+{
+	//date
+	$('.full_date_picker').datepicker({
+		changeMonth: true,
+        changeYear: true,
+        //showButtonPanel: true,
+        dateFormat: 'M-dd-yy',
+        maxDate: new Date(),
+        yearRange:'c-80:c',
+		});
+	
+	$('.half_date_picker').datepicker( {
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'MM-yy',
+        maxDate: new Date(),
+        yearRange:'c-80:c',
+        /*onClose: function(dateText, inst) { 
+            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+            $(this).datepicker('setDate', new Date(year, month, 1));
+        }*/
+    });
+    
+    $('.feature_date_picker').datepicker({
+		changeMonth: true,
+        changeYear: true,
+        dateFormat: 'MM-yy',
+        yearRange:'c-80:c+80',
+		});
+    
+   /* $('.half_date_picker').click(function()
+	{
+		$('.ui-datepicker-calendar').hide();
+	});*/
 }

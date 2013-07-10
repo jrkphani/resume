@@ -156,7 +156,7 @@ class Preview extends CI_Controller {
 				//user logged in
 				$this->load->model('resume_model');
 				$user_id=$this->current_user['id'];
-				$this->resume_model->update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education,1);
+				$this->resume_model->update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education);
 				$file_name=$user_id;
 				$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
 			}

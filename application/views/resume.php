@@ -696,7 +696,7 @@
 					</div>
 				</div>
 				<? } ?>
-				
+			</div>	
 			<div>
 				<span class="clickr"  id="addintrest" value="<?=$i;?>">Add New</span>
 			</div>

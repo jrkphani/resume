@@ -66,7 +66,7 @@ class Resume_model extends CI_model{
 		$query=$this-> db ->get();
 		return $query -> result_array();
 	}
-	public function update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education,$loggedin=NULL)
+	public function update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education)
 	{
 		//update user_detail table
 		// this will be always update, because a record for the user will be created in in this table while registration

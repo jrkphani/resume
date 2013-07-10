@@ -40,7 +40,7 @@ class Preview extends CI_Controller {
 			'address' => $this->input->post('address'),
 			'married' => $this->input->post('marital'),
 			'photo' => $this->input->post('photo'),
-			'experience' => $this->input->post('experience'),
+			'experience' => $this->input->post('expYr').'.'.$this->input->post('expMon'),
 			'contactTitle' => $this->input->post('contactTitle')
 			);
 			

@@ -216,7 +216,24 @@
 			<!-- Experience -->
 			<div >
 			    <label >Total years of experience</label>
-			    <input  type="text" name="experience" placeholder="No of years" value="<? if(isset($user_detail[0]['experience'])) echo$user_detail[0]['experience']; ?>" />
+			    <?
+			    $expdate[0]=0;
+			    $expdate[1]=0;
+			    if(isset($user_detail[0]['experience']))
+			    {
+					$expdate = explode('.',$user_detail[0]['experience']);
+				}
+			    ?>
+			    <select name='expYr'>
+					<?for($i=0;$i<=20;$i++){?>
+						<option value='<?=$i;?>' <?if($i==$expdate[0]) echo 'selected="selected"';?>><?=$i;?></option>
+					<? } ?>
+			    </select> Years
+			     <select name='expMon'>
+			    <?for($i=0;$i<=12;$i++){?>
+						<option value='<?=$i;?>' <?if($i==$expdate[1]) echo 'selected="selected"';?>><?=$i;?></option>
+					<? } ?>
+			    </select> Months
 			 </div>
 			<!-- CTC -->
 			<div >
@@ -368,7 +385,11 @@
 						<? } ?>
 							<div>
 								<input  type="text"  name="skillName[]" placeholder="Skill name" value="<?=$row;?>"/>
-								<input  type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., " value="<?=$skillEff[$i];?>">
+								<select name="skillEff[]">
+									<?for($j=0;$j<=10;$j++){?>
+									<option value='<?=$j;?>' <?if($j==$skillEff[$i]) echo 'selected="selected"';?>><?=$j;?></option>
+									<? } ?>
+								</select>
 							</div>
 						</div>
 				<?
@@ -382,7 +403,11 @@
 					<div >
 						
 						<input  type="text"  name="skillName[]" placeholder="Skill name" />
-						<input  type="text"  name="skillEff[]" placeholder="Master, Intermediate, Adept etc., ">
+						<select name="skillEff[]">
+							<?for($j=0;$j<=10;$j++){?>
+								<option value='<?=$j;?>'><?=$j;?></option>
+							<? } ?>
+						</select>
 					</div>
 				</div>
 				<? } ?>

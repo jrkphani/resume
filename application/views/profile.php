@@ -14,24 +14,41 @@
 		$img=base_url('assets/img/userPhoto.png');
  ?>
 <div class="container">
+
+<!--    File upload form start    -->
 <div id="file_upload" style="display:none;">
-   <form method="post" action="" id="upload_file">
+   <form method="post" action="" id="upload_file" name="upload_file">
      <label for="userfile">File</label>
      <input type="file" name="userfile" id="userfile" size="20" value=""/>
      <input type="submit" name="submit" id="fsubmit" value="Upload"/>
    </form>
 </div>
+<!--    File upload form end    -->
+
 <div class="profile-outer">
+
+    <!-- Control Links  start-->
 	<div style="float:left;">
-	<div style="font-size:20px; line-height:35px;">Profile</div><span id="pr-edit-link" class="pr-edit-link"><a href="#">Edit profile</a></span>
+    	<div style="font-size:20px; line-height:35px;">Profile</div>
+        <a href="javascript:void(0);" id="pr-edit-link">Edit profile</a>
+        <a href="javascript:void(0);" id="show_change_password">Change Password</a>
     </div>
+    <!-- Control Links  end-->
+
+    <!--    Profile photo start  -->
     <div style="float:right;">
         	<img src="<?php echo $img; ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;<?php echo $last_name; ?>" class="img_update" alt="Profile photo" />
         	<span id="uploadstate"></span>
     </div>
     <div class="clearBoth"></div>
+    <!--    Profile photo end   -->
+
+
     <div class="profile-body">
     	<span class="err-msg"><?php echo validation_errors(); if($error) echo $error['error'];  ?></span>
+
+        <!-- Profile start   -->
+        <div id="profile_div">
     	<?php $attributes = array('name' => 'form1', 'id' => 'form1'); echo form_open_multipart('profile/edit',$attributes); ?>
         <input type="hidden" name="photo_root" id="photo_root" value="" />
         <input type="hidden" name="photo_name" id="photo_name" value="" />
@@ -131,14 +148,48 @@
                 <td></td>
             </tr>
             <tr class="pr-edit">
-            	<td  style="border:none !important;;"></td>
-                <td  style="border:none !important;;">
-                	<input type="submit" name="submit" value="Update" class="button1" />
-                	<span id="pr-cancel-link" >&nbsp;&nbsp;<input type="button" value="Cancel" class="button0" /></span></td>
-                <td  style="border:none !important;;"></td>
+            	<td></td>
+                <td>
+                    <input type="submit" name="submit" value="Update"/>&nbsp;&nbsp;
+                    <input type="button" value="Cancel" id="pr-cancel-link"  />
+                </td>
+                <td></td>
             </tr>
         </table>
         <?php echo form_close(); ?>
+        </div>
+        <!-- Profile end   -->
+
+        <!-- Forgot Password start-->
+        <div id="change_password_div" style="display:none;">
+        <div id="change_password_msg"></div>
+        <form name="form2" id="form2" method="post">
+            <table>
+                <tr>
+                    <td><label for="current_password">Current Password*</label></td>
+                    <td><input type="password" name="current_password" id="current_password" /><td>
+                </tr>
+                <tr>
+                    <td><label for="new_password">New Password*</label></td>
+                    <td><input type="password" name="new_password" id="new_password" /><td>
+                </tr>
+                <tr>
+                    <td><label for="confirm_password">Confirm Password*</label></td>
+                    <td><input type="password" name="confirm_password" id="confirm_password" /><td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="button" name="submit_form2" id="submit_form2" value="Update" />&nbsp;&nbsp;
+                        <input type="button" value="Cancel" id="hide_change_password"  />
+                    <td>
+                </tr>
+            </table>
+        </form>
+        </div>
+        <!-- Forgot Password end-->
+
+
     </div>
 </div>
 </div>

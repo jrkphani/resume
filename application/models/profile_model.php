@@ -14,5 +14,22 @@ class Profile_model extends CI_Model{
 		$this->db->where('user_id',$id);
 		$this->db->update('user_detail', $data); 
 	}
+
+	public function check_password($where)
+	{
+		$this->db->where($where);
+		$this->db->from('users');
+
+		if($this->db->count_all_results()==1)
+			return true;
+		else
+			return false;
+	}
+
+	public function change_password($data,$where)
+	{
+		$this->db->where($where);
+		return $this->db->update('users', $data); 
+	}
 }
 ?>

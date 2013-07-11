@@ -38,8 +38,10 @@ $(document).ready(function(){
 		//validate(Title,ElementID,Mandatory(true/false),MaxLength(Number/false),MinLength(Number/false),Type=(string/email/number/mobile/false),Display(DisplayID/false));
 		if(!validate('First Name','first_name',man=true,max=100,min=3,type='string',disp=false)) return false;
 		else if(!validate('Last Name','last_name',man=true,max=100,min=false,type='string',disp=false)) return false;
-		else if(!validate('Display Email','secondary_email',man=true,max=254,min=false,type='email',disp=false)) return false;
 		else if(!validate('Mobile Number','mobile',man=true,max=17,min=10,type='mobile',disp=false)) return false;
+
+		if(!$('#email_toggle').is(':checked'))
+			if(!validate('Display Email','secondary_email',man=true,max=254,min=false,type='email',disp=false)) return false;
 	});
 	
 	//Upload profile image to temporary folder
@@ -86,14 +88,72 @@ $(document).ready(function(){
 	   $('#userfile').click();
 	});
 
-   //Toggel Display email
+   // Toggel Display email
    $('#email_toggle').change(function(){
-   		if($("#email_toggle:checked").length==1)
+   		if($('#email_toggle').is(':checked'))
    		{
    			$('#display_email').hide();
-   			$('#secondary_email').val($('#primary_email').val());
+   			//$('#secondary_email').val($('#primary_email').val());
    		}
    		else
    			$('#display_email').show();
    });
+
+   // Show Change Password
+   $('#show_change_password').click(function(){
+   		$('#change_password_div').show();
+   		$('#profile_div').hide();
+   		$(this).hide();
+   		$('#change_password_msg').html('');
+   		$('.err-msg').html('');
+   		$('#current_password').val('');
+   		$('#new_password').val('');
+   		$('#confirm_password').val('');
+   });
+
+   // Hide Change Password
+   $('#hide_change_password').click(function(){
+   		$('#change_password_div').hide();
+   		$('#profile_div').show();
+   		$('#show_change_password').show();
+   });
+
+   // Update password
+   $('#submit_form2').click(function(){
+   		//validate(Title,ElementID,Mandatory(true/false),MaxLength(Number/false),MinLength(Number/false),Type=(string/email/number/mobile/false),Display(DisplayID/false));
+		if(!validate('Current Password','current_password',man=true,max=30,min=6,type=false,disp=false)) return false;
+		else if(!validate('New Password','new_password',man=true,max=30,min=6,type=false,disp=false)) return false;
+		else if(!validate('Confirm Password','confirm_password',man=true,max=30,min=6,type=false,disp=false)) return false;
+		//same(title1,title2,ElementID1,ElementID2,Display(DisplayID/false));
+		else if(!same('New Password','Confirm Password','new_password','confirm_password')) return false;
+
+		$.ajax({
+			url: baseurl+'profile/change_password',
+			type:'POST',
+			data: $('#form2').serialize(),
+			dataType: 'json',
+			success:function(data){
+				if(data.resultset.success=='yes')
+				{
+					$('#change_password_div').hide();
+			   		$('#profile_div').show();
+			   		$('#show_change_password').show();
+			   		$('.err-msg').html('Password updated successfully.');
+				}
+				else if(data.resultset.success=='missmatch')
+				{
+					$('#change_password_msg').html('Incorrect current password.');
+				}
+				else
+				{
+					alert('Internal error, Please try agian!');
+				}
+			},
+			error:function()
+			{
+				alert('Internal error, Please try agian!');
+			}
+		});
+   })
+
 });

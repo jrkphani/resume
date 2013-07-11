@@ -28,10 +28,11 @@ class Profile extends CI_Controller{
 	
 	function edit()
 	{
+		$email_toggle=$this->input->post('email_toggle');
+
 		// Backend validation
 		$this->form_validation->set_rules('first_name', 'First Name', 'trim|required|min_length[3]|max_length[100],alpha_dash');
 		$this->form_validation->set_rules('last_name', 'Last Name', 'trim|required|max_length[100],alpha_dash');
-		$this->form_validation->set_rules('secondary_email', 'Display Email', 'trim|required|max_length[254]|valid_email');
 		$this->form_validation->set_rules('mobile', 'Mobile Number', 'trim|required|max_length[17]');
 		$this->form_validation->set_rules('landline', 'Landline Number', 'trim|max_length[100]');
 		$this->form_validation->set_rules('address', 'Address Number', 'trim|max_length[100]');
@@ -39,6 +40,9 @@ class Profile extends CI_Controller{
 		$this->form_validation->set_rules('designation', 'Designation', 'trim|max_length[50]');
 		$this->form_validation->set_rules('skype', 'Skype', 'trim|max_length[50]');
 		$this->form_validation->set_rules('married', 'Married', 'trim|max_length[4]');
+
+		if(!$email_toggle)
+			$this->form_validation->set_rules('secondary_email', 'Display Email', 'trim|required|max_length[254]|valid_email');
 		
 		if ($this->form_validation->run() === FALSE)
 		{
@@ -56,7 +60,7 @@ class Profile extends CI_Controller{
 				'designation' => $this->input->post('designation'),
 				'address' => $this->input->post('address'),
 			);
-			if($this->input->post('email_toggle')=='1')
+			if($email_toggle)
 				$data['secondary_email'] = $this->input->post('primary_email');
 			else
 				$data['secondary_email'] = $this->input->post('secondary_email');
@@ -99,6 +103,28 @@ class Profile extends CI_Controller{
 			$msg=array('error'=>'Profile updated successfully.');
 			$this->index($msg);
 		}
+	}
+
+	// Change password
+	function change_password()
+	{
+		$current_password=md5($this->input->post('current_password'));
+		$new_password=md5($this->input->post('new_password'));
+
+		$where1=array('id'=>$this->current_user['id'],'password'=>$current_password);
+		$where2=array('id'=>$this->current_user['id']);
+
+		if($this->profile_model->check_password($where1))
+		{
+			$values=array('password'=>$new_password);
+			if($this->profile_model->change_password($values,$where2))
+				$data['success']='yes';
+		}
+		else
+			$data['success']='missmatch';
+
+		$result['resultset']=$data;
+		$this->load->view('json',$result);
 	}
 }
 ?>

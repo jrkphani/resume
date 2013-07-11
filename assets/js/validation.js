@@ -106,3 +106,23 @@ function validate(title,id,mandatory,max_length,min_length,type,display)
 	}
 	return true;
 }
+
+//Match two fields and If matched return true, else return false.
+function same(title1,title2,id1,id2,display)
+{
+	var data1=document.getElementById(id1).value.trim();
+	var data2=document.getElementById(id2).value.trim();
+	display = (display === undefined) ? false : display;
+
+	if(data1!=data2)
+	{
+		var msg=title1+' and '+title2+' are missmatched.';
+		if(!display)
+			alert(msg);
+		else
+			document.getElementById(display).innerHTML=msg;
+		return false;
+	}
+	else
+		return true;
+}

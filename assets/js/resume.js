@@ -1,6 +1,21 @@
 $(document).ready(function()
-{    
-	datepic();
+{   
+	datepic(); 
+	//custum title text enabling
+	$('.custTitle').change(function()
+	{
+		if($(this).attr('value') === 'Custom heading')
+		{
+			$('#'+$(this).attr('name')).show();	
+		}
+		else
+		{
+			$('#'+$(this).attr('name')).val('');
+			$('#'+$(this).attr('name')).hide();
+		}
+	});
+	
+	
 	//let tab menu and continue button function start
 	$('.tabs').hide();
 	$('#about_tab').show();

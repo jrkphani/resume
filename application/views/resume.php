@@ -67,20 +67,32 @@
 				</div>
 			<!-- Summary -->
 				<div>
-					<select name="summaryTitle">
+					<select class="custTitle" name="summaryTitle">
 						<?
+						$summary[0]=NULL;
+						$summary[1]=NULL;
+						$found=0;
 						if(isset($about[0]['summary']))
 						{
 						$summary=unserialize($about[0]['summary']);
-						echo '<option value="'.$summary[0].'">'.$summary[0].'</option>';
-						}
 						?>
-						<option value="Who i am">Who i am</option>
-						<option value="About me">About me</option>
-						<option value="Summary">Summary</option>
-						<option value="Custom heading">Custom heading</option>
+						<option value="Who i am" <? if($summary[0] == 'Who i am') {echo 'selected="selected"'; $found=1; } ?>>Who i am</option>
+						<option value="About me" <? if($summary[0] == 'About me') {echo 'selected="selected"'; $found=1; } ?>>About me</option>
+						<option value="Summary" <? if($summary[0] == 'Summary') {echo 'selected="selected"'; $found=1; } ?>>Summary</option>
+						<option value="Custom heading" <?if(!$found)echo 'selected="selected"';?> >Custom heading</option>					
+						<?
+						}
+						else
+						{?>
+						<option value="Who i am" >Who i am</option>
+						<option value="About me" >About me</option>
+						<option value="Summary" >Summary</option>
+						<option value="Custom heading" >Custom heading</option>
+						<?}
+						?>
+						
 					</select>
-					<input  type="text"  name="" placeholder="Enter Text"  maxlength="25"/>
+					<input  id="summaryTitle" name='cusSummaryTitle' <?if(isset($about[0]['summary']) && (!$found)) {echo 'value="'.$summary[0].'"'; } else{ echo 'style="display:none;"'; }?> type="text"  placeholder="Enter Text"  maxlength="25"/>
 				</div>
 				<div>
 				    <!-- <label >Summary</label> -->
@@ -117,20 +129,31 @@
 			 </div>
 			<!-- Objectives -->
 			<div>
-				<select name="objectivesTitle">
+				<select class="custTitle" name="objectivesTitle">
 					<?
+					$objective[0]=NULL;
+					$objective[1]=NULL;
+					$found=0;
 					if(isset($about[0]['objective']))
 					{
 					$objective=unserialize($about[0]['objective']);
-					echo '<option value="'.$objective[0].'">'.$objective[0].'</option>';
-					}
 					?>
-					<option value="What I want">What I want</option>
-					<option value="Purpose">Purpose</option>
-					<option value="Objective">Objective</option>
-					<option value="Custom heading">Custom heading</option>
+					<option value="What I want" <? if($objective[0] == 'What I want') {echo 'selected="selected"'; $found=1; } ?>>What I want</option>
+					<option value="Purpose" <? if($objective[0] == 'Purpose') {echo 'selected="selected"'; $found=1; } ?>>Purpose</option>
+					<option value="Objective" <? if($objective[0] == 'Objective') {echo 'selected="selected"'; $found=1; } ?>>Objective</option>
+					<option value="Custom heading" <?if(!$found)echo 'selected="selected"';?>>Custom heading</option>
+					<?
+					}
+					else
+					{
+					?>
+					<option value="What I want" >What I want</option>
+					<option value="Purpose" >Purpose</option>
+					<option value="Objective" >Objective</option>
+					<option value="Custom heading" >Custom heading</option>
+					<? }?>
 				</select>
-				<input  type="text"  name="" placeholder="Enter text here" />
+				<input id="objectivesTitle" name="cusObjectivesTitle" type="text" <?if(isset($about[0]['objective']) && (!$found)) {echo 'value="'.$objective[0].'"'; } else{ echo 'style="display:none;"'; }?> placeholder="Enter text here" />
 			</div>
 			<div >
 			    <!-- <label >Objective</label> -->
@@ -158,17 +181,19 @@
 			</div>
 			<div class="form_sections">
 			<div >
-				<select name="contactTitle">
+				<select class="custTitle" name="contactTitle">
 					<?
+					$found=0;
 					if(isset($user_detail[0]['contactTitle']))
-					{
-					echo '<option value="'.$user_detail[0]['contactTitle'].'">'.$user_detail[0]['contactTitle'].'</option>';
-					}
-					?>
+					{?>
+					<option <? if($user_detail[0]['contactTitle'] == 'How to reach me') {echo 'selected="selected"'; $found=1; } ?> value="How to reach me">How to reach me</option>
+					<option <?if(!$found)echo 'selected="selected"';?> value="Custom heading">Custom heading</option>
+					<?} else {?>
 					<option value="How to reach me">How to reach me</option>
 					<option value="Custom heading">Custom heading</option>
+					<? }?>					
 				</select>
-				<input  type="text"  name="" placeholder="Custom title" />
+				<input id="contactTitle" name="cusContactTitle" <?if(isset($user_detail[0]['contactTitle']) && (!$found)) {echo 'value="'.$user_detail[0]['contactTitle'].'"'; } else{ echo 'style="display:none;"'; }?> type="text"  placeholder="Custom title" />
 			</div>
 			<div >
 			    <input  type="text"  name="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />

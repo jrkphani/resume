@@ -29,6 +29,15 @@ class Preview extends CI_Controller {
 		{
 			
 			//user_detail table data
+			
+			if($this->input->post('cusContactTitle'))
+			{
+				$contactTitle = $this->input->post('cusContactTitle');
+			}
+			else
+			{
+				$contactTitle = $this->input->post('contactTitle');
+			}
 			$user_detail=array(
 			'first_name' => $this->input->post('fname'),
 			'last_name' => $this->input->post('lname'),
@@ -41,11 +50,26 @@ class Preview extends CI_Controller {
 			'married' => $this->input->post('marital'),
 			'photo' => $this->input->post('photo'),
 			'experience' => $this->input->post('expYr').'.'.$this->input->post('expMon'),
-			'contactTitle' => $this->input->post('contactTitle')
+			'contactTitle' => $contactTitle
 			);
 			
 			//about table data
-			//custom title needs to be added
+			if($this->input->post('cusSummaryTitle'))
+			{
+				$summaryTitle =$this->input->post('cusSummaryTitle');
+			}
+			else
+			{
+				$summaryTitle =$this->input->post('summaryTitle');
+			}
+			if($this->input->post('cusObjectivesTitle'))
+			{
+				$objectivesTitle =$this->input->post('cusObjectivesTitle');
+			}
+			else
+			{
+				$objectivesTitle =$this->input->post('objectivesTitle');
+			}
 			$passport_visa=array('passport'=>$this->input->post('passport'),
 							'passportdate'=>$this->input->post('passportFrom').'#'.$this->input->post('passportTo'),
 							'visa'=>$this->input->post('visa'),
@@ -54,8 +78,8 @@ class Preview extends CI_Controller {
 			$url_array=array('mylink','twitter','facebook','linkedin');
 			$url_array=array_combine($url_array,$this->input->post('url'));							
 			$about=array(
-			'objective' => serialize(array($this->input->post('objectivesTitle'),$this->input->post('objective'))),
-			'summary' => serialize(array($this->input->post('summaryTitle'),$this->input->post('summary'))),
+			'objective' => serialize(array($objectivesTitle,$this->input->post('objective'))),
+			'summary' => serialize(array($summaryTitle,$this->input->post('summary'))),
 			'compensation' => serialize(array($this->input->post('current'),$this->input->post('expected'))),
 			'website' => serialize($url_array),
 			'mystrength' => $this->input->post('otherSkillsBrief'),

@@ -1,13 +1,39 @@
 $(document).ready(function()
 {
+	// If username avail of browser cookie, show it.
+	var username=$.cookie("username");
+	if(username!=undefined)
+		$("#username").val(username);
+
+	// Show signin option and hide register option
+	$('#signin_link').click(function(){
+		$('#form_reg').hide();
+		$('#form_sig').show();
+		$(this).addClass('tab_hightlight');
+		$('#register_link').removeClass('tab_hightlight');
+	});
+
+	// Show register option and hide signin option
+	$('#register_link').click(function(){
+		$('#form_sig').hide();
+		$('#form_reg').show();
+		$(this).addClass('tab_hightlight');
+		$('#signin_link').removeClass('tab_hightlight');
+	});
+
+	// Show forgotpassword option and hide login option
 	$('#forget').click(function(){
 		$('.login').hide();
 		$('.forget').show();
 	});
-	$('#login').click(function(){
+
+	// Show login option and hide forgotpassword option
+	$('#back_to_login').click(function(){
 		$('.forget').hide();
 		$('.login').show();
 	});
+
+	// Submit signup when press enter on input fields
 	$('#firstname , #lastname , #inputEmail , #inputPassword').keypress(function(e) 
 	{
 		if(e.which == 13) 
@@ -15,6 +41,8 @@ $(document).ready(function()
 			$('#signupsubmit').click();
 		}
 	});
+
+	// Submit signin when press enter on input fields
 	$('#username , #passowrd').keypress(function(e) 
 	{
 		if(e.which == 13) 
@@ -22,6 +50,8 @@ $(document).ready(function()
 			$('#loginsubmit').click();
 		}
 	});
+
+	// Submit login form
 	$('#loginsubmit').click(function()
 	{
 		$('#error_msg').html("");
@@ -31,6 +61,11 @@ $(document).ready(function()
 		else if(!validate('Password','passowrd',man=true,max=30,min=6,type='false',disp='error_msg')) return false;
 		else
 		{
+			if($('#c1').is(':checked'))
+			{
+				$.cookie("username", email, { expires: 365 }); // Remember username for 1 year
+			}
+			
 			$.ajax(
 			{
 				url:baseurl+'verifylogin',
@@ -65,68 +100,91 @@ $(document).ready(function()
 			});
 		}
 	});
+
+	//Submit signup form
 	$('#signupsubmit').click(function()
 	{
 		$('#error_msg1').html("");
 		var email = $.trim($('#inputEmail').val());
-		var password = $('#inputPassword').val();
-		var firstname = $.trim($('#firstname').val());
-		var lastname = $.trim($('#lastname').val());
-		var role = $('input:radio[name=role]:checked').val();
-
-		var friend_email1 = $.trim($('#friend_email1').val());
-		var friend_email2 = $.trim($('#friend_email2').val());
 
 		if(!validate('First Name','firstname',man=true,max=100,min=3,type='string',disp='error_msg1')) return false;
 		else if(!validate('Last Name','lastname',man=true,max=100,min=false,type='string',disp='error_msg1')) return false;
 		else if(!validate('Email','inputEmail',man=true,max=254,min=false,type='email',disp='error_msg1')) return false;
 		else if(!validate('Password','inputPassword',man=true,max=30,min=6,type=false,disp='error_msg1')) return false;
-		/*else if(email==friend_email1 || email==friend_email2)
-		{
-			$('#error_msg1').html('You can\'t refer your self.');
-			return false;
-		}
-		else if(friend_email1==friend_email2)
-		{
-			$('#error_msg1').html('Referring email can\'t be same.');
-			return false;
-		}*/
-		else
-		{
-			$.ajax(
-			{
-				url:baseurl+'registration',
-				type:'POST',
-				//data:{'firstname':firstname,'lastname':lastname,'email_address':email,'pass_word':password,'role':role,'friend_email1':friend_email1,'friend_email2':friend_email2},
-				data: $('#registration_form').serialize(),
-				dataType: 'json',
-				success:function(data)
-				{
-					if(data.resultset.success=='yes')
-					{
-						//$('#error_msg1').html("success msg");
-						if(data.resultset.mail=='no')
-							$('#error_msg1').append(' There was a problem occurred on sending mail. <br />');
-						if(data.resultset.html=='no')
-							$('#error_msg1').append(' Cannot generate download file. Try again later. <br />');
-						else if(data.resultset.html=='nosession')
-							$('#error_msg1').append('Registration success, plaese check your email. <br />');
-						else
 
-							window.location.replace(baseurl+'download/index/'+data.resultset.html);
-					}
-					else
-					{
-						$('#error_msg1').html(data.resultset.errors);	
-					}
-				},
-				error:function()
-				{
-					$('#error_msg1').html('Internal error, try agian...');
-				}
-			});
+		/* Validate referred friends email addresses
+				1. Check emapty and valid email format
+				2. Check for repeated entries
+				3. Check primary email and referred email are same */
+		var friends_array = [];
+		var friends_result=true;
+		var format = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+		$(".friend_emails").each(function(){
+			var temp_email=$.trim($(this).val());
+			if(!temp_email)
+			{
+				$('#error_msg1').html('The Referred Email field is required.');
+				friends_result=false;
+				return false;
+			}
+			else if(!temp_email.match(format))
+			{
+				$('#error_msg1').html('Referred Email is invalid.');
+				friends_result=false;
+				return false;
+			}
+			else if(temp_email==email)
+			{
+				$('#error_msg1').html('You cannot refer your self.');
+				friends_result=false;
+				return false;
+			}
+			friends_array.push(temp_email);
+		});
+		if(!friends_result)
+			return false;
+		else if($(friends_array).size() != $($.unique(friends_array)).size())
+		{
+			$('#error_msg1').html('You cannot refer the same person twice.');
+			return false;
 		}
+
+		$.ajax(
+		{
+			url:baseurl+'registration',
+			type:'POST',
+			//data:{'firstname':firstname,'lastname':lastname,'email_address':email,'pass_word':password,'role':role,'friend_email1':friend_email1,'friend_email2':friend_email2},
+			data: $('#registration_form').serialize(),
+			dataType: 'json',
+			success:function(data)
+			{
+				if(data.resultset.success=='yes')
+				{
+					//$('#error_msg1').html("success msg");
+					if(data.resultset.mail=='no')
+						$('#error_msg1').append(' There was a problem occurred on sending mail. <br />');
+					if(data.resultset.html=='no')
+						$('#error_msg1').append(' Cannot generate download file. Try again later. <br />');
+					else if(data.resultset.html=='nosession')
+						$('#error_msg1').append('Registration success, plaese check your email. <br />');
+					else
+
+						window.location.replace(baseurl+'download/index/'+data.resultset.html);
+				}
+				else
+				{
+					$('#error_msg1').html(data.resultset.errors);	
+				}
+			},
+			error:function()
+			{
+				$('#error_msg1').html('Internal error, try agian...');
+			}
+		});
 	});
+
+	// Submit forgot password form
 	$('#forgetsubmit').click(function()
 	{
 		$('#error_msg').html("");

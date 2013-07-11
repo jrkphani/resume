@@ -184,12 +184,12 @@ class Registration extends CI_Controller {
 		 }
 		 else
 		 {
-			 redirect('login', 'refresh');
+			redirect('my404');
 		 }
 	 }
 	 else
 	 {
-		 redirect('login', 'refresh');
+		 redirect('my404');
 	 }
  }
 
@@ -253,7 +253,7 @@ class Registration extends CI_Controller {
 		$message= 'Hello<br /><br />Your friend, '.$name.' has invited you to join EZCV, the best resume building service known to man.
 We helped them create a better resume - for free! Stand out in a overcrowded job market and get noticed by employers.
 Improve your chances of finding your dream job - jump start your career with EZCV.<br /><br />
-Visit http://ezcv.in to start building a better resume now!';
+Visit http://ezcv.in to start building a better resume now!<br /><br />Thanks!<br />The EZCV Team';
 		$this->email->message($message);
 		if(!$this->email->send())
 			$data['mail']='no';

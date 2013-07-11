@@ -19,11 +19,10 @@
 	border-bottom: solid 5px #232323;
 }
 
-
 .tab_hightlight{
-	background: #df634b;
-	border:none;
-	border-bottom: solid 5px #232323;
+	background: #df634b!important;
+	border:none!important;
+	border-bottom: solid 5px #232323!important;
 }
 
 .left_form{

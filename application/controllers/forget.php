@@ -55,7 +55,7 @@ class Forget extends CI_Controller {
 			}
 			else
 			{
-				$data['errors']="invalid email";
+				$data['errors']="There is no account exist with this email address.";
 				$data['success']='no';
 				$result['resultset']=$data;
       			$this->load->view('json',$result);

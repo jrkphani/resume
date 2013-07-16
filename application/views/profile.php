@@ -1,19 +1,17 @@
-<style>
-.pr-edit{
-    display:none;
-}
-.tbl{
-    font-size: 13px;
-    line-height: 16px;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_login.css"); ?>" />
 <?php
 	if($photo)
 		$img= base_url($this->config->item('path_profile_img').$user_id.'/'.$photo.'?'.rand());
 	else
 		$img=base_url('assets/img/userPhoto.png');
  ?>
-<div class="container">
+
+
+<div class="form_title">
+<h3>Profile</h3>
+</div>
+
+<div class="container left_form">
 
 <!--    File upload form start    -->
 <div id="file_upload" style="display:none;">
@@ -28,15 +26,15 @@
 <div class="profile-outer">
 
     <!-- Control Links  start-->
-	<div style="float:left;">
-    	<div style="font-size:20px; line-height:35px;">Profile</div>
-        <a href="javascript:void(0);" id="pr-edit-link">Edit profile</a>
-        <a href="javascript:void(0);" id="show_change_password">Change Password</a>
+	<div >
+    	
+        <a href="javascript:void(0);" class="clickr" id="pr-edit-link">Edit profile</a>
+        <a href="javascript:void(0);" class="clickr" id="show_change_password">Change Password</a>
     </div>
     <!-- Control Links  end-->
 
     <!--    Profile photo start  -->
-    <div style="float:right;">
+    <div class="profile_photo">
         	<img src="<?php echo $img; ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;<?php echo $last_name; ?>" class="img_update" alt="Profile photo" />
         	<span id="uploadstate"></span>
     </div>
@@ -58,7 +56,7 @@
     	<table border="0" class="tbl" cellpadding="2">
         	<tr>
             	<td>
-                    <span class="pr-view">Name</span>
+                    <span class="pr-view pr_left">Name</span>
                     <span class="pr-edit"><label for="first_name">Name*</label></span>
                 </td>
                 <td>
@@ -68,7 +66,7 @@
                 <td></td>
             </tr>
             <tr>
-                <td>Email</td>
+                <td class="pr_left">Email</td>
                 <td><?php echo $email; ?>
                     <span class="pr-edit">
                         <input type="checkbox" name="email_toggle" id="email_toggle" style="display:inherit;" value="1" <?php if($email==$secondary_email) echo 'checked=checked'; ?> />Use this as display email.
@@ -78,54 +76,54 @@
             </tr>
             <tr id="display_email">
             	<td>
-                    <span class="pr-view">Display Email</span>
+                    <span class="pr-view pr_left">Display Email</span>
                     <span class="pr-edit"><label for="secondary_email">Display Email*</label></span>
                 </td>
                 <td>
-                	<span class="pr-view"><?php echo $secondary_email; ?></span>
+                	<span class="pr-view pr_left"><?php echo $secondary_email; ?></span>
                     <span class="pr-edit"><input type="text" name="secondary_email" id="secondary_email" value="<?php echo $secondary_email; ?>"  /></span>
                 </td>
             </tr>
             <tr>
             	<td>
-                    <span class="pr-view">Mobile Number</span>
-                    <span class="pr-edit"><label for="mobile">Mobile Number*</label></span>
+                    <span class="pr-view pr_left">Mobile</span>
+                    <span class="pr-edit"><label for="mobile">Mobile*</label></span>
                 </td>
                 <td>
-                	<span class="pr-view"><?php echo $mobile; ?></span>
+                	<span class="pr-view "><?php echo $mobile; ?></span>
                     <span class="pr-edit"><input type="text" name="mobile" id="mobile" value="<?php echo $mobile; ?>"  /></span>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td>
-                    <span class="pr-view">Skype</span>
+                    <span class="pr-view pr_left">Skype</span>
                     <span class="pr-edit"><label for="skype">Skype</label></span>
                 </td>
                 <td>
-                    <span class="pr-view"><?php echo $skype; ?></span>
+                    <span class="pr-view "><?php echo $skype; ?></span>
                     <span class="pr-edit"><input type="text" name="skype" id="skype" value="<?php echo $skype; ?>"  /></span>
                 </td>
                 <td></td>
             </tr>
             <tr>
             	<td>
-                    <span class="pr-view">Address</span>
+                    <span class="pr-view pr_left">Address</span>
                     <span class="pr-edit"><label for="address">Address</label></span>
                 </td>
                 <td>
-                	<span class="pr-view"><?php echo $address; ?></span>
+                	<span class="pr-view "><?php echo $address; ?></span>
                     <span class="pr-edit"><textarea name="address" id="address"><?php echo $address; ?></textarea></span>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td>
-                    <span class="pr-view">Marital Status</span>
+                    <span class="pr-view pr_left">Marital Status</span>
                     <span class="pr-edit"><label for="married">Marital Status</label></span>
                 </td>
                 <td>
-                    <span class="pr-view"><?php if($married==NULL) echo 'Not specified'; else if($married=='0') echo 'Not Married'; else if($married=='1') echo 'Married'; ?></span>
+                    <span class="pr-view "><?php if($married==NULL) echo 'Not specified'; else if($married=='0') echo 'Not Married'; else if($married=='1') echo 'Married'; ?></span>
                     <span class="pr-edit">
                         <select name="married" id="married">
                             <option value="NULL" <?php if($married==NULL) { ?> selected="selected" <?php } ?>>Not specified</option>
@@ -138,11 +136,11 @@
             </tr>
             <tr>
                 <td>
-                    <span class="pr-view">Designation</span>
+                    <span class="pr-view pr_left">Designation</span>
                     <span class="pr-edit"><label for="designation">Designation</label></span>
                 </td>
                 <td>
-                    <span class="pr-view"><?php echo $designation; ?></span>
+                    <span class="pr-view "><?php echo $designation; ?></span>
                     <span class="pr-edit"><input type="text" name="designation" id="designation" value="<?php echo $designation; ?>"  /></span>
                 </td>
                 <td></td>

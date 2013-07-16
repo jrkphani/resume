@@ -96,6 +96,17 @@
 				</div>
 				<div>
 				    <!-- <label >Summary</label> -->
+				    <div>
+				    	<span>Versatile</span>
+				    	<span>Creative</span>
+				    	<span>Focussed</span>
+				    	<span>Process oriented</span>
+				    	<span>Energetic</span>
+				    	<span>Proficient</span>
+				    	<span>Excellent track record</span>
+				    	<span>Good understanding</span>
+				    	<span>Emphasis</span>
+				    </div>
 				   	<textarea rows="3" name="summary" type="text"  placeholder="Enter text here" maxlength="1000" class="h200">
 						<?if(isset($about[0]['summary']))echo $summary[1];?>
 					</textarea>
@@ -157,6 +168,17 @@
 			</div>
 			<div >
 			    <!-- <label >Objective</label> -->
+			    <div>
+			    	<span>Versatile</span>
+				    	<span>Creative</span>
+				    	<span>Focussed</span>
+				    	<span>Process oriented</span>
+				    	<span>Energetic</span>
+				    	<span>Proficient</span>
+				    	<span>Excellent track record</span>
+				    	<span>Good understanding</span>
+				    	<span>Emphasis</span>
+			    </div>
 			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here" class="h200">
 				<?
 				if(isset($about[0]['objective']))
@@ -343,6 +365,23 @@
 			 <!-- Other skills -->
 			<div>
 		    	<label >My Strengths</label>
+
+		    	<div id="sugg_strnth_list">
+		    		<div id="sugg_strnth_1">Creative<span class="sugg_strnth" value="Creative" data="1">+</span></div>
+		    		<div id="sugg_strnth_2">Proficient<span class="sugg_strnth" value="Proficient" data="2">+</span></div>
+		    		<div id="sugg_strnth_3">Problem Solving<span class="sugg_strnth" value="Problem Solving" data="3">+</span></div>
+		    		<div id="sugg_strnth_4">Focused<span class="sugg_strnth" value="Focused" data="4">+</span></div>
+		    		<div id="sugg_strnth_5">Energetic<span class="sugg_strnth" value="Energetic" data="5">+</span></div>
+		    		<div id="sugg_strnth_6">Client Management<span class="sugg_strnth" value="Client Management" data="6">+</span></div>
+		    		<div id="sugg_strnth_7">Process oriented<span class="sugg_strnth" value="Process oriented" data="7">+</span></div>
+		    		<div id="sugg_strnth_8">Excellent track record<span class="sugg_strnth" value="Excellent track record" data="8">+</span></div>
+		    		<div id="sugg_strnth_9">Versatile<span class="sugg_strnth" value="Versatile" data="9">+</span></div>
+		    		<div id="sugg_strnth_10">Emphasis<span class="sugg_strnth" value="Emphasis" data="10">+</span></div>
+		    		<div id="sugg_strnth_11">Collaborate with teams<span class="sugg_strnth" value="Collaborate with teams" data="11">+</span></div>
+		    		<div id="sugg_strnth_12">Resourceful<span class="sugg_strnth" value="Resourceful" data="12">+</span></div>
+		    		<div id="sugg_strnth_13">Budget Driven<span class="sugg_strnth" value="Budget Driven" data="13">+</span></div>
+		    	</div>
+
 		    	<div  id="oskills">
 		    	<?
 		    	$i=0; 

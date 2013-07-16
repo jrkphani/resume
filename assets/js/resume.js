@@ -158,22 +158,6 @@ $('#addOskills').click(function()
 		    html+=  	'</div>';
 		$('#oskills').append(html);
 	});
-
-$('.sugg_strnth').live('click',function(){
-	var data=decodeURIComponent($(this).attr('value'));
-	var div_id=$(this).attr('data');
-
-	$('#sugg_strnth_'+div_id).remove();
-	id=parseInt($('#addOskills').attr('value'))+1;
-		$('#addOskills').attr('value',id);
-		rid="os"+id;
-			html=	'<div id="'+rid+'">';
-			html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'","'+encodeURIComponent(data)+'","'+div_id+'");>Remove</span>';
-		    html+=  		'<input  type="text"  name="otherSkills[]" placeholder="Skill name" value="'+data+'" />';
-		    html+=  	'</div>';
-		$('#oskills').append(html);
-});
-
 $('#addSkills').click(function()
 	{
 		id=parseInt($(this).attr('value'))+1;
@@ -411,16 +395,9 @@ $('#addSkills').click(function()
 {
 	$('#toast').toastmessage('showNoticeToast', 'Resume Saved.');
 }*/
-function removeId(ID,data,mid)
+function removeId(ID)
 {
 	$('#'+ID).remove();
-
-	var data = (data === undefined) ? false : data;
-	var mid = (mid === undefined) ? false : mid;
-	if(data)
-	{
-		$('#sugg_strnth_list').append("<div id='sugg_strnth_"+mid+"'>"+decodeURIComponent(data)+"<span class='sugg_strnth' value="+data+" data="+mid+">+</span></div>");
-	}
 }
 function updateDownload(temp_link) //not in use
 {

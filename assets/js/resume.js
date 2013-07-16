@@ -15,7 +15,50 @@ $(document).ready(function()
 		}
 	});
 	
+	var websitetime, linkedintime, twittertime, facebooktime= null;
+	//get web tiny url
+	$('#website').keydown(function()
+	{
+       clearTimeout(websitetime); 
+       websitetime = setTimeout(function()
+       {
+		   $('#website_err').html('');
+		   gettiny('#website');
+		}, 1000)
+	});
 	
+	//get linkedin tiny url
+	$('#linkedin').keydown(function()
+	{
+       clearTimeout(linkedintime); 
+       linkedintime = setTimeout(function()
+       {
+		   $('#linkedin_err').html('');
+		   gettiny('#linkedin');
+		}, 1000)
+	});
+	
+	//get twitter tiny url
+	$('#twitter').keydown(function()
+	{
+       clearTimeout(twittertime); 
+       twittertime = setTimeout(function()
+       {
+		   $('#twitter_err').html('');
+		   gettiny('#twitter');
+		}, 1000)
+	});
+	
+	//get facebook tiny url
+	$('#facebook').keydown(function()
+	{
+       clearTimeout(facebooktime); 
+       facebooktime = setTimeout(function()
+       {
+		   $('#facebook_err').html('');
+		   gettiny('#facebook');
+		}, 1000)
+	});
 	//let tab menu and continue button function start
 	$('.tabs').hide();
 	$('#about_tab').show();
@@ -150,14 +193,37 @@ $('#addCompany').click(function()
 $('#addOskills').click(function()
 	{
 		id=parseInt($(this).attr('value'))+1;
+		value=$('#temp_skill').val();
+		if(!value)
+		{
+			$('#temp_skill').focus();
+			return false;
+		}
+		$('#temp_skill').val('');
 		$(this).attr('value',id);
 		rid="os"+id;
 			html=	'<div id="'+rid+'">';
 			html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
-		    html+=  		'<input  type="text"  name="otherSkills[]" placeholder="Skill name">';
+		    html+=  		'<input  type="text"  name="otherSkills[]" value="'+value+'" placeholder="Skill name">';
 		    html+=  	'</div>';
 		$('#oskills').append(html);
 	});
+
+$('.sugg_strnth').live('click',function(){
+	var data=decodeURIComponent($(this).attr('value'));
+	var div_id=$(this).attr('data');
+
+	//$('#sugg_strnth_'+div_id).remove();
+	id=parseInt($('#addOskills').attr('value'))+1;
+		$('#addOskills').attr('value',id);
+		rid="os"+id;
+			html=	'<div id="'+rid+'">';
+			html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'","'+encodeURIComponent(data)+'","'+div_id+'");>Remove</span>';
+		    html+=  		'<input  type="text"  name="otherSkills[]" placeholder="Skill name" value="'+data+'" />';
+		    html+=  	'</div>';
+		$('#oskills').append(html);
+});
+
 $('#addSkills').click(function()
 	{
 		id=parseInt($(this).attr('value'))+1;
@@ -395,9 +461,16 @@ $('#addSkills').click(function()
 {
 	$('#toast').toastmessage('showNoticeToast', 'Resume Saved.');
 }*/
-function removeId(ID)
+function removeId(ID,data,mid)
 {
 	$('#'+ID).remove();
+
+	/*var data = (data === undefined) ? false : data;
+	var mid = (mid === undefined) ? false : mid;
+	if(data)
+	{
+		$('#sugg_strnth_list').append("<div id='sugg_strnth_"+mid+"'>"+decodeURIComponent(data)+"<span class='sugg_strnth' value="+data+" data="+mid+">+</span></div>");
+	}*/
 }
 function updateDownload(temp_link) //not in use
 {
@@ -470,4 +543,25 @@ function datepic()
 	{
 		$('.ui-datepicker-calendar').hide();
 	});*/
+}
+function gettiny(divID)
+{
+	var str1 = $(divID).val();
+	var str2 = "tinyurl";
+	if(str1.length>20)
+	{
+		if(str1.indexOf(str2) != -1){
+			return true;
+		}
+		else
+		{
+			$(divID+'_err').html('Converting to tiny url...');
+			$.getJSON("http://json-tinyurl.appspot.com/?&callback=?", {
+				url: str1
+			}, function(data) {
+				$(divID).val(data.tinyurl);
+				$(divID+'_err').html('Verify <a href="'+data.tinyurl+'" target="_blank">url</a>');
+			});	
+		}
+	}
 }

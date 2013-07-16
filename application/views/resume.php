@@ -96,6 +96,17 @@
 				</div>
 				<div>
 				    <!-- <label >Summary</label> -->
+				    <div>
+				    	<span>Versatile</span>
+				    	<span>Creative</span>
+				    	<span>Focussed</span>
+				    	<span>Process oriented</span>
+				    	<span>Energetic</span>
+				    	<span>Proficient</span>
+				    	<span>Excellent track record</span>
+				    	<span>Good understanding</span>
+				    	<span>Emphasis</span>
+				    </div>
 				   	<textarea rows="3" name="summary" type="text"  placeholder="Enter text here" maxlength="1000" class="h200">
 						<?if(isset($about[0]['summary']))echo $summary[1];?>
 					</textarea>
@@ -157,6 +168,17 @@
 			</div>
 			<div >
 			    <!-- <label >Objective</label> -->
+			    <div>
+			    	<span>Versatile</span>
+				    	<span>Creative</span>
+				    	<span>Focussed</span>
+				    	<span>Process oriented</span>
+				    	<span>Energetic</span>
+				    	<span>Proficient</span>
+				    	<span>Excellent track record</span>
+				    	<span>Good understanding</span>
+				    	<span>Emphasis</span>
+			    </div>
 			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here" class="h200">
 				<?
 				if(isset($about[0]['objective']))
@@ -205,7 +227,11 @@
 			    if(isset($about[0]['website']))
 			    $website= unserialize($about[0]['website']);
 			    ?>
-			    <input  class="w400" type="url"  name="url[]" placeholder="url" value="<? if(isset($about[0]['website'])) echo $website['mylink']; ?>" />
+			    <input  class="w400" id="website" type="url"  name="url[]" placeholder="http://digitalchakra.in/" value="<? if(isset($about[0]['website'])) echo $website['mylink']; ?>" /> <span id="website_err"></span>
+			</div>
+			<div>
+			    <label >linkedin</label>
+			    <input class="w400" type="url" id="linkedin" name="url[]" placeholder="http://digitalchakra.in/linkedin" value="<? if(isset($about[0]['website'])) echo $website['linkedin']; ?>" /> <span id="linkedin_err"></span>
 			</div>
 			<div>
 			    <label >Skype</label>
@@ -213,15 +239,11 @@
 			</div>
 			<div>
 				<label >twitter</label>
-				<input class="w400" type="url"  name="url[]" placeholder="twitter" value="<? if(isset($about[0]['website'])) echo $website['twitter']; ?>" />
+				<input class="w400" type="url" id="twitter" name="url[]" placeholder="http://twitter.com/Digitalchakra" value="<? if(isset($about[0]['website'])) echo $website['twitter']; ?>" /><span id="twitter_err"></span>
 			</div>
 			<div>
 				<label >facebook</label>
-				<input class="w400" type="url"  name="url[]" placeholder="facebook" value="<? if(isset($about[0]['website'])) echo $website['facebook']; ?>" />
-			</div>
-			<div>
-			    <label >linkedin</label>
-			    <input class="w400" type="url"  name="url[]" placeholder="linkedin" value="<? if(isset($about[0]['website'])) echo $website['linkedin']; ?>" />
+				<input class="w400" type="url" id="facebook" name="url[]" placeholder="http://www.facebook.com/digitalchakra" value="<? if(isset($about[0]['website'])) echo $website['facebook']; ?>" /><span id="facebook_err"></span>
 			</div>
 			<span class="clickr next" href='#experience_tab'>Continue</span>
 		</div>
@@ -343,36 +365,79 @@
 			 <!-- Other skills -->
 			<div>
 		    	<label >My Strengths</label>
-		    	<div  id="oskills">
-		    	<?
-		    	$i=0; 
-		    	if(isset($otherskill[0]))
-		    	{
-					$otherskill = unserialize($otherskill[0]['name']);
-				foreach($otherskill as $record)
-				{
-				?>
-					<div id="os<?=$i;?>">
-					<? if($i) {?>
+
+		    	<div id="sugg_strnth_list" style="float:left;">
+		    		<div id="sugg_strnth_1">Creative<span class="sugg_strnth" value="Creative" data="1">+</span></div>
+		    		<div id="sugg_strnth_2">Proficient<span class="sugg_strnth" value="Proficient" data="2">+</span></div>
+		    		<div id="sugg_strnth_3">Problem Solving<span class="sugg_strnth" value="Problem Solving" data="3">+</span></div>
+		    		<div id="sugg_strnth_4">Focused<span class="sugg_strnth" value="Focused" data="4">+</span></div>
+		    		<div id="sugg_strnth_5">Energetic<span class="sugg_strnth" value="Energetic" data="5">+</span></div>
+		    		<div id="sugg_strnth_6">Client Management<span class="sugg_strnth" value="Client Management" data="6">+</span></div>
+		    		<div id="sugg_strnth_7">Process oriented<span class="sugg_strnth" value="Process oriented" data="7">+</span></div>
+		    		<div id="sugg_strnth_8">Excellent track record<span class="sugg_strnth" value="Excellent track record" data="8">+</span></div>
+		    		<div id="sugg_strnth_9">Versatile<span class="sugg_strnth" value="Versatile" data="9">+</span></div>
+		    		<div id="sugg_strnth_10">Emphasis<span class="sugg_strnth" value="Emphasis" data="10">+</span></div>
+		    		<div id="sugg_strnth_11">Collaborate with teams<span class="sugg_strnth" value="Collaborate with teams" data="11">+</span></div>
+		    		<div id="sugg_strnth_12">Resourceful<span class="sugg_strnth" value="Resourceful" data="12">+</span></div>
+		    		<div id="sugg_strnth_13">Budget Driven<span class="sugg_strnth" value="Budget Driven" data="13">+</span></div>
+		    	</div>
+
+		    	<div style="float:right">
+			    	<div  id="oskills">
+			    	<div id="os0">
+		      			<input  type="hidden"  name="otherSkills[]" placeholder="Skill name" >
+		      		</div>
+		      		<?php
+			    	$i=0; 
+			    	if(isset($otherskill[0]))
+			    	{
+						$otherskill = unserialize($otherskill[0]['name']);
+						foreach($otherskill as $record)
+						{
+						?>
+							<? if($i) {?>
+							<div id="os<?=$i;?>">
+								<span class="button remove formRemoveBtn" onclick=removeId("os<?=$i;?>");>Remove</span>
+								<input  type="text"  name="otherSkills[]" placeholder="Skill name" value="<?=$record?>">
+							</div>
+							<?  } ?>
+						<?
+						$i++;
+						}
+					} ?>
+					
+			    	<? /*
+			    	$i=0; 
+			    	if(isset($otherskill[0]))
+			    	{
+						$otherskill = unserialize($otherskill[0]['name']);
+					foreach($otherskill as $record)
+					{
+					?>
+						<div id="os<?=$i;?>">
+						<? if($i) {?>
 						<span class="button remove formRemoveBtn" onclick=removeId("os<?=$i;?>");>Remove</span>
-					<? } ?>
-		      			<input  type="text"  name="otherSkills[]" placeholder="Skill name" value="<?=$record?>">
-		      		</div>
-				<?
-				$i++;
-				}
-				}
-				else
-				{
-				?>
+						<?  } ?>
+			      		<input  type="text"  name="otherSkills[]" placeholder="Skill name" value="<?=$record?>">
+			      		</div>
+					<?
+					$i++;
+					}
+					}
+					else { ?>
 					<div id="os0">
-		      			<input  type="text"  name="otherSkills[]" placeholder="Skill name" >
+		      			<input  type="hidden"  name="otherSkills[]" placeholder="Skill name" >
 		      		</div>
-				<? }?>		    		
-		    	</div>
-		    	<div>
-		    		<span class="clickr"  id="addOskills" value="<?=$i;?>">Add New</span>
-		    	</div>
+					<?  } */ ?>		    		
+			    	</div>
+			    	<div>
+			    		<input type="text" id="temp_skill" placeholder="Add another" />
+			    		<span class="clickr"  id="addOskills" value="<?=$i;?>">Add</span>
+			    	</div>
+			    </div>
+			    <div style="clear:both"></div>
+			    <br />
+
 		  	</div>
 		  	<!-- strength briefly -->
 			<div>

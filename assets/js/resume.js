@@ -551,6 +551,7 @@ function gettiny(divID)
 	if(str1.length>20)
 	{
 		if(str1.indexOf(str2) != -1){
+			$(divID+'_err').html('<a href="'+str1+'" target="_blank">Check</a>');
 			return true;
 		}
 		else
@@ -560,8 +561,12 @@ function gettiny(divID)
 				url: str1
 			}, function(data) {
 				$(divID).val(data.tinyurl);
-				$(divID+'_err').html('Verify <a href="'+data.tinyurl+'" target="_blank">url</a>');
+				$(divID+'_err').html('<a href="'+data.tinyurl+'" target="_blank">Check</a>');
 			});	
 		}
+	}
+	else
+	{
+		$(divID+'_err').html('<a href="'+str1+'" target="_blank">Check</a>');
 	}
 }

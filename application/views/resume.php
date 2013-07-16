@@ -227,7 +227,7 @@
 			    if(isset($about[0]['website']))
 			    $website= unserialize($about[0]['website']);
 			    ?>
-			    <input  class="w400" id="website" type="url"  name="url[]" placeholder="http://digitalchakra.in/" value="<? if(isset($about[0]['website'])) echo $website['mylink']; ?>" /> <span id="website_err"></span>
+			    <input  class="w400" id="website" type="url"  name="url[]" placeholder="http://digitalchakra.in/" value="<? if(isset($about[0]['website'])) echo $website['mylink']; ?>" /><span id="website_err"></span>
 			</div>
 			<div>
 			    <label >linkedin</label>

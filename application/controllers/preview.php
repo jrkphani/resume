@@ -80,7 +80,7 @@ class Preview extends CI_Controller {
 			$about=array(
 			'objective' => serialize(array($objectivesTitle,$this->input->post('objective'))),
 			'summary' => serialize(array($summaryTitle,$this->input->post('summary'))),
-			'compensation' => serialize(array($this->input->post('current'),$this->input->post('expected'))),
+			'compensation' => serialize(array($this->input->post('current'),$this->input->post('expected'),$this->input->post('currency'))),
 			'website' => serialize($url_array),
 			'mystrength' => $this->input->post('otherSkillsBrief'),
 			'passport_visa' => serialize($passport_visa),

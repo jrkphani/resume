@@ -102,8 +102,7 @@ $passport_visa = unserialize($about['passport_visa']);
   <div class="clearall"></div>
   <? } ?>
   <!---------------------------experience---------------------------->
-  <?
-  if(array_filter($cmpnyName)){ ?>
+  
   <div class="experience">
     <div class="left_content">
       <div class="left_icon"></div>
@@ -114,12 +113,14 @@ $passport_visa = unserialize($about['passport_visa']);
       <h4>
       	    <p>Total: <?=$user_detail['experience'];?> </p>
       </h4> <div class="clearall"></div>
-       <h2><i>Current CTC: &nbsp;INR <?=$compensation[0];?>/-</i></h2>
-        <h3><i>Expected CTC: &nbsp;INR <?=$compensation[1];?>/-</i></h3><div class="clearall"></div>
+       <h2><i>Current CTC: &nbsp;<?=$compensation[2];?> <?=$compensation[0];?>/-</i></h2>
+        <h3><i>Expected CTC: &nbsp;<?=$compensation[2];?> <?=$compensation[1];?>/-</i></h3><div class="clearall"></div>
         <div class="spr">&nbsp;</div>
     </div>
     <div class="clearall"></div>
     <? 
+		if(array_filter($cmpnyName))
+			{
 							$i=0;
 							foreach($cmpnyName as $cmpny) {
 								$cpmpanyData= explode('#',$cmpnyData[$i]);
@@ -149,11 +150,10 @@ $passport_visa = unserialize($about['passport_visa']);
         </h3>
       </div>
       <div class="clearall"></div>
-      <? $i++; } ?>
+      <? $i++; } }?>
     </div>
   </div>
   <div class="clearall"></div>
-  <? } ?>
   
   
   

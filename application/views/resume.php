@@ -285,17 +285,40 @@
 			<!-- CTC -->
 			<div >
 			    <label >Compensation Details</label>
-			    <input  type="text" name="current" placeholder="Current" 
-			    value="
-			    <? 
+			    <?
+			    $compensation[2]='INR';
 			    if(isset($about[0]['compensation']))
 			    {
 			    $compensation = unserialize($about[0]['compensation']);
-			     echo $compensation[0];
 				}
 			    ?>
-			     " />
-			    <input  type="text" name="expected" placeholder="Expected" value="<?  if(isset($about[0]['compensation'])) echo $compensation[1];?>" /> INR per annum
+			    <input  type="text" name="current" placeholder="Current" value="<?  if(isset($about[0]['compensation'])) echo $compensation[0];?>" />
+			    <input  type="text" name="expected" placeholder="Expected" value="<?  if(isset($about[0]['compensation'])) echo $compensation[1];?>" /> 
+			    <?
+			    //ref: http://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CCsQFjAA&url=http%3A%2F%2Fwww.gbta.org%2FLists%2FResource%2520Library%2FISOCurrencyCodes081507.xls&ei=0TblUfnPC8jlrAfLh4CwDw&usg=AFQjCNEeKOFmJeEYDLF9aSu3_6Fbrh3XZw&sig2=A9oxM1mM8osy9oozCmC3qg&bvm=bv.48705608,d.bmk 
+			    $currency_list = array("AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN",
+						"BAM","BBD","BDT","BGN","BHD","BIF","BMD","BND","BOB","BOV",
+						"BRL","BSD","BTN","BWP","BYR","BZD","CAD","CDF","CHE","CHF",
+						"CHW","CLF","CLP","CNY","COP","COU","CRC","CUP","CVE","CYP",
+						"CZK","DJF","DKK","DOP","DZD","EEK","EGP","ERN","ETB","EUR",
+						"FJD","FKP","GBP","GEL","GHS","GIP","GMD","GNF","GTQ","GYD",
+						"HKD","HNL","HRK","HTG","HUF","IDR","ILS","INR","IQD","IRR",
+						"ISK","JMD","JOD","JPY","KES","KGS","KHR","KMF","KPW","KRW",
+						"KWD","KYD","KZT","LAK","LBP","LKR","LRD","LSL","LTL","LVL",
+						"LYD","MAD","MDL","MGA","MKD","MMK","MNT","MOP","MRO","MTL",
+						"MUR","MVR","MWK","MXN","MXV","MYR","MZN","NAD","NGN","NIO",
+						"NOK","NPR","NZD","OMR","PAB","PEN","PGK","PHP","PKR","PLN",
+						"PYG","QAR","RON","RSD","RUB","RWF","SAR","SBD","SCR","SDG",
+						"SEK","SGD","SHP","SKK","SLL","SOS","SRD","STD","SYP","SZL",
+						"THB","TJS","TMM","TND","TOP","TRY","TTD","TWD","TZS","UAH",
+						"UGX","USD","USN","USS","UYU","UZS","VEB","VND","VUV","WST",
+						"XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XFO",
+						"XFU","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZWD");?>
+			    <select name="currency">
+					<?foreach($currency_list as $row){?>
+						<option value="<?=$row;?>" <?if($row==$compensation[2]) echo 'selected="selected"';?>><?=$row;?></option>
+					<? } ?>
+				</select>per annum
 			</div>
 			<!-- Company start-->
 			<div id="company">

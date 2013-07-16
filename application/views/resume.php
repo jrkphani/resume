@@ -840,28 +840,28 @@
 			if(isset($about[0]['passport_visa']))
 			{
 				$passport_visa = unserialize($about[0]['passport_visa']);
-				$passportDate = explode('#',$passport_visa['passportdate']); 
-				$visaDate = explode('#',$passport_visa['visadate']);
+				//$passportDate = explode('#',$passport_visa['passportdate']); 
+				//$visaDate = explode('#',$passport_visa['visadate']);
 			?>
 				<div>
 					<label >Passport details</label>
 					<input name="passport" type="text"  placeholder="Passport Number" value="<?=$passport_visa['passport'];?>"/>
 				</div>
 				<div>
-					<label >Valid through</label>
-					<input  type="text" class="half_date_picker" name="passportFrom" placeholder="(2005)(Feb 2005)" value="<?=$passportDate[0];?>">
-					to
-					<input  type="text" class="feature_date_picker" name="passportTo" placeholder="(2007)(Mar 2007)" value="<?=$passportDate[1];?>">
+					<label >Valid till</label>
+					<!--<input  type="text" class="half_date_picker" name="passportFrom" placeholder="(2005)(Feb 2005)" value="<?=$passportDate[0];?>">
+					to-->
+					<input  type="text" class="feature_date_picker" name="passportTo" placeholder="(2007)(Mar 2007)" value="<?=$passport_visa['passportTo'];?>">
 				</div>
 				<div>
 					<label >Visa details</label>
 					<input name="visa" type="text"  placeholder="Visa details"  value="<?=$passport_visa['visa'];?>"/>
 				</div>
 				<div>
-					<label >Valid through</label>
-					<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)" value="<?=$visaDate[0];?>">
-					to
-					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="(2007)(Mar 2007)" value="<?=$visaDate[1];?>">
+					<label >Valid till</label>
+					<!--<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)" value="<?=$visaDate[0];?>">
+					to-->
+					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="(2007)(Mar 2007)" value="<?=$passport_visa['visaTo'];?>">
 				</div>
 			<?}
 			else
@@ -872,9 +872,9 @@
 					<input name="passport" type="text"  placeholder="Passport Number" />
 				</div>
 				<div>
-					<label >Valid through</label>
-					<input  type="text" class="half_date_picker" name="passportFrom" placeholder="(2005)(Feb 2005)">
-					to
+					<label >Valid till</label>
+					<!--<input  type="text" class="half_date_picker" name="passportFrom" placeholder="(2005)(Feb 2005)">
+					to-->
 					<input  type="text" class="feature_date_picker" name="passportTo" placeholder="(2007)(Mar 2007)">
 				</div>
 				<div>
@@ -882,9 +882,9 @@
 					<input name="visa" type="text"  placeholder="Visa details" />
 				</div>
 				<div>
-					<label >Valid through</label>
-					<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)">
-					to
+					<label >Valid till</label>
+					<!--<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)">
+					to-->
 					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="(2007)(Mar 2007)">
 				</div>
 			<? } ?>

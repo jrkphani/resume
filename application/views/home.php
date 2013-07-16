@@ -11,7 +11,7 @@
 							<h3>Choose your resume style</h3>
 						</div>
 						<div class="slide_top_2">
-							<a href="">Get Started Here</a>
+							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
 						</div>
 						<div class="slide_bottom_1">
 							<img class="slider_img" src="<?php echo base_url("assets/img/slider1.png"); ?>">
@@ -29,7 +29,7 @@
 							<h3> Discover Yourself</h3>
 						</div>
 						<div class="slide_top_2">
-							<a href="">Get Started Here</a>
+							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
 						</div>
 						<div class="slide_bottom_1">
 							<img class="slider_img" src="<?php echo base_url("assets/img/slider2.png"); ?>">
@@ -47,7 +47,7 @@
 							<h3> Build Your Image</h3>
 						</div>
 						<div class="slide_top_2 ">
-							<a href="">Get Started Here</a>
+							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
 						</div>
 					
 					
@@ -67,7 +67,7 @@
 							<h3>Register With EZCV</h3>
 						</div>
 						<div class="slide_top_2">
-							<a href="">Get Started Here</a>
+							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
 						</div>
 					
 					

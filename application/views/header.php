@@ -16,10 +16,10 @@
 <body>
 <header id="ezcv_header">
 
-		<h1><a class="ezcv_logo" href="#"><img src="<?php echo base_url("assets/img/ezcv-logo.png"); ?>"> </a></h1>
+		<h1><a class="ezcv_logo" href="<?php echo base_url(); ?>"><img src="<?php echo base_url("assets/img/ezcv-logo.png"); ?>"> </a></h1>
 		<nav>
-			<a href="#" class="ezcv_header_current">Home</a>
-			<a href="#">Why EZCV</a>
+			<a href="<?php echo base_url(); ?>" class="ezcv_header_current">Home</a>
+			<a href="<?php echo base_url(); ?>">Why EZCV</a>
 			<a href="<?=base_url('templates'); ?>">Resume Templates</a>
 			<!--<a href="<?=base_url('blog'); ?>">Blog</a>
 			<a href="<?=base_url('testimonials'); ?>">Testimonials</a>-->
@@ -27,8 +27,8 @@
 		<hr/>
 		<nav>
 			<?php if($session_data = $this->session->userdata('logged_in')) { ?>
-			<p><a href="<?php echo base_url('profile'); ?>"><?php echo $session_data['firstname']; ?></a></p>
-			<a href="#">My Resume Templates</a>
+			<a href="<?php echo base_url('profile'); ?>"><?php echo $session_data['firstname']; ?></a>
+			<a href="<?php echo base_url('resume'); ?>">My Resume</a>
 			<a href="#">My Recommendations</a>
 			<a href="#">Refer Friends</a>
 			<a href="#">My Page</a>

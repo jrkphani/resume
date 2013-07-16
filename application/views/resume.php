@@ -17,7 +17,7 @@
 	<span tab='#strength_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>My Strength </span>
 	<span tab='#tool_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>My Tool Box</span>
 	<span tab='#milestones_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>My Milestones</span>
-	<span tab='#edication_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>Edjucation & Awards</span>
+	<span tab='#edication_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>Education & Awards</span>
 	<span tab='#moreabout_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>More About Me</span>
 	<span class="rns"><span class="rnd">3</span>Build Your Image</span>
 	<span class="rns"><span class="rnd">4</span>Register with EZCV</span>
@@ -62,7 +62,7 @@
 				</div>
 			<!-- Address -->
 				<div >
-				    <label >Current Location</label>
+				    <label >Current Address</label>
 				    <textarea rows="3"  type="text"  name="address" placeholder="Address" maxlength="90"><? if(isset($user_detail[0]['address'])) echo $user_detail[0]['address']; ?></textarea>
 				</div>
 			<!-- Summary -->
@@ -272,7 +272,7 @@
 				}
 			    ?>
 			    <select name='expYr'>
-					<?for($i=0;$i<=20;$i++){?>
+					<?for($i=0;$i<=60;$i++){?>
 						<option value='<?=$i;?>' <?if($i==$expdate[0]) echo 'selected="selected"';?>><?=$i;?></option>
 					<? } ?>
 			    </select> Years
@@ -865,11 +865,6 @@
 					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="(2007)(Mar 2007)">
 				</div>
 			<? } ?>
-			<!-- final save buttons -->
-			<div>
-			    <span  id="resume_submit" class="clickr"> Save & Finish</span>
-			    <span  class="clickr next" >Reset</span>
-			</div>
 		</div>
 		</div>
 		<!-- ===================================================================== More About Me tab end ==================-->
@@ -881,7 +876,11 @@
 
 	</div>
 </div>
-
+<!-- final save buttons -->
+			<div>
+			    <span  id="resume_submit" class="clickr"> Save & Preview</span>
+			    <!--<span  class="clickr next" >Reset</span>-->
+			</div>
 
 		<!-- need make as popup -->
 		<br/><br/><br/><br/><br/><br/><br/><br/><br/>

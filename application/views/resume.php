@@ -58,7 +58,7 @@
 			<!-- DOB -->
 				<div>
 				    <label >Date of Birth</label>
-				    <input  type="text"  class="full_date_picker" name="dob" placeholder="dd-mm-yyyy" value="<? if(isset($user_detail[0]['dob'])) echo $user_detail[0]['dob']; ?>"  readonly="readonly" required/>
+				    <input  type="text"  class="full_date_picker" name="dob" placeholder="Feb-09-1989" value="<? if(isset($user_detail[0]['dob'])) echo $user_detail[0]['dob']; ?>"  readonly="readonly" required/>
 				</div>
 			<!-- Address -->
 				<div >
@@ -107,9 +107,7 @@
 				    	<span>Good understanding</span>
 				    	<span>Emphasis</span>
 				    </div>
-				   	<textarea rows="3" name="summary" type="text"  placeholder="Enter text here" maxlength="1000" class="h200">
-						<?if(isset($about[0]['summary']))echo $summary[1];?>
-					</textarea>
+				   	<textarea rows="3" name="summary" type="text"  placeholder="Enter text here" maxlength="1000" class="h200"><?if(isset($about[0]['summary']))echo $summary[1];?></textarea>
 				</div>
 				<span class="clickr next" href='#objective_tab'>Continue</span>
 			</div>
@@ -179,12 +177,7 @@
 				    	<span>Good understanding</span>
 				    	<span>Emphasis</span>
 			    </div>
-			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here" class="h200">
-				<?
-				if(isset($about[0]['objective']))
-				echo $objective[1];
-				?>
-				</textarea>
+			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here" class="h200"><?php if(isset($about[0]['objective'])) echo $objective[1]; ?></textarea>
 			</div>
 			<span class="clickr next" href='#contact_tab'>Continue</span>
 		</div>
@@ -342,9 +335,9 @@
 								<input  type="text" name="cmpnyName[]" placeholder="Company name" value="<?=$record;?>">
 								<input  name="cmpnyDesg[]" type="text"  placeholder="Designation" value="<?=$companyDesc[$i];?>">
 								<label >From</label>
-								<input  type="text"  name="cmpnyFrom[]" class="full_date_picker" placeholder="(2005)(Feb 2005)" value="<?=$fromtoDate[0];?>" />
+								<input  type="text"  name="cmpnyFrom[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" />
 								<label >To</label>
-								<input  type="text"  name="cmpnyTo[]" class="full_date_picker" placeholder="(2007)(Mar 2007)" value="<?=$fromtoDate[1];?>" />
+								<input  type="text"  name="cmpnyTo[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[1];?>" readonly="readonly" />
 							</div>
 						</div>
 						<?
@@ -359,9 +352,9 @@
 							<input  type="text" name="cmpnyName[]" placeholder="Company name">
 							<input  name="cmpnyDesg[]" type="text"  placeholder="Designation">
 							<label >From</label>
-							<input  type="text" class="full_date_picker" name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)" />
+							<input  type="text" class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" />
 							<label >To</label>
-							<input  type="text" class="full_date_picker" name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" />
+							<input  type="text" class="half_date_picker" name="cmpnyTo[]" placeholder="Feb-2012" readonly="readonly" />
 						</div>
 					</div >
 					<? } ?>
@@ -565,9 +558,7 @@
 								<input  name="projRole[]" type="text"  placeholder="My Position" value="<?=$projectRole[$i];?>">
 							</div>
 							<div>
-								<textarea rows="3"  name="projDesc[]" type="text"  placeholder="Enter project description and your role in it">
-								<?=$projectDesc[$i]?>
-								</textarea>
+								<textarea rows="3"  name="projDesc[]" type="text"  placeholder="Enter project description and your role in it"><?=$projectDesc[$i]?></textarea>
 							</div>
 							<div>
 								<input name="projUrl[]" type="text"  placeholder="Project web address" value="<?=$projectUrl[$i];?>"/>
@@ -642,9 +633,9 @@
 						</div>
 						<div>
 							<label >From</label>
-							<input type="text"  name="eduFrom[]" class="half_date_picker" placeholder="Feb 2005" value="<?=$fromtoDate[0];?>">
+							<input type="text"  name="eduFrom[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" />
 							<label >To</label>
-							<input  type="text"  name="eduTo[]" class="half_date_picker" placeholder="Mar 2007" value="<?=$fromtoDate[1];?>">
+							<input  type="text"  name="eduTo[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[1];?>" readonly="readonly" />
 						</div>
 					</div>
 				<?
@@ -665,9 +656,9 @@
 					</div>
 					<div>
 						<label >From</label>
-						<input type="text" class="half_date_picker" name="eduFrom[]" placeholder="(2005)(Feb 2005)">
+						<input type="text" class="half_date_picker" name="eduFrom[]" placeholder="Feb-2012" readonly="readonly" />
 						<label >To</label>
-						<input  type="text" class="half_date_picker" name="eduTo[]" placeholder="(2007)(Mar 2007)">
+						<input  type="text" class="half_date_picker" name="eduTo[]" placeholder="Feb-2012" readonly="readonly" />
 					</div>
 				</div>
 				<? } ?>
@@ -704,14 +695,12 @@
 						</div>
 						<div>
 							<label >For the period From</label>
-							<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="(2005)(Feb 2005)" value="<?=$fromtoDate[0];?>">
+							<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" />
 							<label >To</label>
-							<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="(2007)(Mar 2007)" value="<?=$fromtoDate[1];?>">
+							<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="Feb-2012" value="<?=$fromtoDate[1];?>" readonly="readonly" />
 						</div>
 						<div>
-							<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description">
-							<?=$awardDesc[$i];?>
-							</textarea>
+							<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description"><?=$awardDesc[$i];?></textarea>
 						</div>
 					</div>
 					<?
@@ -727,9 +716,9 @@
 						</div>
 						<div>
 							<label >For the period From</label>
-							<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="(2005)(Feb 2005)">
+							<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="Feb-2012" readonly="readonly" />
 							<label >To</label>
-							<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="(2007)(Mar 2007)">
+							<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="Feb-2012" readonly="readonly" />
 						</div>
 						<div>
 							<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description"></textarea>
@@ -778,9 +767,7 @@
 						</div>
 						<div>
 							<label >Description</label>
-							<textarea class="h200" rows="3"  name="intrestDesc[]" type="text"  placeholder="Enter short description on other interests you might have">
-							<?=$intrestDesc[$i];?>
-							</textarea>
+							<textarea class="h200" rows="3"  name="intrestDesc[]" type="text"  placeholder="Enter short description on other interests you might have"><?=$intrestDesc[$i];?></textarea>
 						</div>
 						<div>
 							<label >Site Url</label>
@@ -851,7 +838,7 @@
 					<label >Valid till</label>
 					<!--<input  type="text" class="half_date_picker" name="passportFrom" placeholder="(2005)(Feb 2005)" value="<?=$passportDate[0];?>">
 					to-->
-					<input  type="text" class="feature_date_picker" name="passportTo" placeholder="(2007)(Mar 2007)" value="<?=$passport_visa['passportTo'];?>">
+					<input  type="text" class="half_date_picker" name="passportTo" placeholder="Feb-2012" value="<?=$passport_visa['passportTo'];?>" readonly="readonly" />
 				</div>
 				<div>
 					<label >Visa details</label>
@@ -861,7 +848,7 @@
 					<label >Valid till</label>
 					<!--<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)" value="<?=$visaDate[0];?>">
 					to-->
-					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="(2007)(Mar 2007)" value="<?=$passport_visa['visaTo'];?>">
+					<input  type="text" class="half_date_picker" name="visaTo" placeholder="Feb-2012" value="<?=$passport_visa['visaTo'];?>" readonly="readonly" />
 				</div>
 			<?}
 			else
@@ -875,7 +862,7 @@
 					<label >Valid till</label>
 					<!--<input  type="text" class="half_date_picker" name="passportFrom" placeholder="(2005)(Feb 2005)">
 					to-->
-					<input  type="text" class="feature_date_picker" name="passportTo" placeholder="(2007)(Mar 2007)">
+					<input  type="text" class="half_date_picker" name="passportTo" placeholder="Feb-2012" readonly="readonly" />
 				</div>
 				<div>
 					<label >Visa details</label>
@@ -885,7 +872,7 @@
 					<label >Valid till</label>
 					<!--<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)">
 					to-->
-					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="(2007)(Mar 2007)">
+					<input  type="text" class="half_date_picker" name="visaTo" placeholder="Feb-2012" readonly="readonly" />
 				</div>
 			<? } ?>
 		</div>

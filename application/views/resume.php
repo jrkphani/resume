@@ -129,7 +129,7 @@
 		<div id="objective_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>OBJECTIVE, CURRENT POSITION</h3>
-				<span>Resume Templates</span>
+				<span class="showSelectTemplate">Resume Templates</span>
 				<div class="clearboth"></div>
 				<p>This section will cover your current designation in case you are already working. If you are a student, you can skip this section. Alternatively, as a student you can talk about the role you desire to play in the path you take towards building your career. </p>
 			</div>
@@ -197,7 +197,7 @@
 		<div id="contact_tab"  class="tabs">
 			<div class="left_form_title">
 				<h3>Contact Me</h3>
-				<span>Resume Templates</span>
+				<span class="showSelectTemplate">Resume Templates</span>
 				<div class="clearboth"></div>
 				<p> In this section you can reveal your contact details and decide exactly how you would like your employers to contact you. Our recommendation is that you definitley give them your phone number and Email Id. </p>
 			</div>
@@ -255,7 +255,7 @@
 		<div id="experience_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>EXPERIENCE SUMMARY</h3>
-				<span>Resume Templates</span>
+				<span  class="showSelectTemplate">Resume Templates</span>
 				<div class="clearboth"></div>
 				<p> In this section you can give information on your past experience of working with different companies. This section helps you list out all the companies you have worked with, the duration of time you spent with them as well as the position you held during that time.  </p>
 			</div>
@@ -383,7 +383,7 @@
 		<div id="strength_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>My Strengths</h3>
-				<span>Resume Templates</span>
+				<span class="showSelectTemplate">Resume Templates</span>
 				<div class="clearboth"></div>
 				<p> In this section you can elaborate on your strengths by first listing out the keywords and then by describing them briefly in a line if necessary. We recommend that you keep this section short and sweet.</p>
 			</div>
@@ -478,7 +478,7 @@
 		<div id="tool_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>My Tool Box</h3>
-				<span>Resume Templates</span>
+				<span class="showSelectTemplate">Resume Templates</span>
 				<div class="clearboth"></div>
 				<p>Here's the place to add your skill sets, with a score on a scale to 10, 10 being the highest to indicate your profiiency in the skill. You can enter your skills sets here and assign a score to each.</p>
 			</div>
@@ -542,7 +542,7 @@
 		<div id="milestones_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>My Milestones</h3>
-				<span>Resume Templates</span>
+				<span class="showSelectTemplate">Resume Templates</span>
 				<div class="clearboth"></div>
 				<p>In this section you can talk about those particular projects that made a difference to you, either in your learning curve, or that which earned you recognition or just a project you loved to work in.  </p>
 			</div>
@@ -613,7 +613,7 @@
 		<div id="edication_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>My Education</h3>
-				<span>Resume Templates</span>
+				<span class="showSelectTemplate">Resume Templates</span>
 				<div class="clearboth"></div>
 				<p>In this section you can give all the details of your education across school, university and any other courses that you might have attended. </p>
 			</div>
@@ -753,7 +753,7 @@
 		<div id="moreabout_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>More About Me</h3>
-				<span>Resume Templates</span>
+				<span class="showSelectTemplate">Resume Templates</span>
 				<div class="clearboth"></div>
 				<p>This the last section but it is as important. It describes your personality that is beyond work. This section gives you an avenue to talk about things you like to do and are interested to pursue </p>
 			</div>
@@ -774,7 +774,7 @@
 					<? } ?>
 						<div>
 							<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest" value="<?=$record;?>">
-							<br/>E.g, Blogging, Sports, Trekking, Photography.
+							<p class="examples">E.g, Blogging, Sports, Trekking, Photography.</p>
 						</div>
 						<div>
 							<label >Description</label>
@@ -795,7 +795,7 @@
 				<div id="ma0">
 					<div>
 						<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest"><br/>
-						E.g, Blogging, Sports, Trekking, Photography.
+						<p class="examples">E.g, Blogging, Sports, Trekking, Photography.</p>
 					</div>
 					<div>
 						<label >Description</label>
@@ -808,11 +808,12 @@
 				</div>
 				<? } ?>
 			</div>	
-			<div>
+			
 				<span class="clickr_add"  id="addintrest" value="<?=$i;?>">Add New</span><br/>
-			</div><br/>
+			<br/>
 			
 			<!-- other details -->
+			<div class="other_details">
 			<h3>Other details</h3>
 			<div>
 				<label >Marital Status</label>
@@ -879,13 +880,14 @@
 					<label >Visa details</label>
 					<input name="visa" type="text"  placeholder="Visa details" />
 				</div>
-				<div class="other_details">
+				<div>
 					<label >Valid till</label>
 					<!--<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)">
 					to-->
 					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="Feb-2012" readonly="readonly" />
 				</div>
 			<? } ?>
+		</div>
 		</div>
 		<!-- ===================================================================== More About Me tab end ==================-->
 	</form>
@@ -904,7 +906,8 @@
 
 		<!-- need make as popup -->
 		<div id="selectTemplate" style="display:none;"class="selectTemplate">
-			<span id="selectTemplateclose">close</span>
+			<span id="selectTemplateclose" class="close_btn">close</span>
+			<div class="clearboth"></div>
 			<h3>Choose Template</h3>
 			
 	 		<div class="t_list_bg" id="T1">
@@ -918,7 +921,7 @@
 			</div>
 			<div class="t_list_bg" id="T2">
 				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/t2_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img src="<?php echo base_url("assets/img/t4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Template 1</p>
 						<a class="t_select template" value="T2">Select</a>
@@ -936,7 +939,7 @@
 			</div>
 			<div class="t_list_bg" id="T4">
 				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/t4_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img src="<?php echo base_url("assets/img/t2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Template 1</p>
 						<a class="t_select template" value="T4">Select</a>
@@ -952,7 +955,7 @@
 
 
 				 
-				 <div id="preview" class="stop-theme" title="Resume" href=""></div>
+		<div id="preview" class="stop-theme" title="Resume" href=""></div>
 		<!--<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>-->
 		<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>
 		<script src="<?php echo base_url('assets/js/jquery-ui.min.js');?>"></script>

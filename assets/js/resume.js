@@ -135,6 +135,7 @@ $(document).ready(function()
 	{
 		//$('.templateCell').removeClass('templateCellSelected');
 		$('#template').val($(this).attr('value'));
+		$('#selectTemplate').hide();
 	//	$('#'+$(this).attr('value')).addClass('templateCellSelected');
 	});
 	$('#addEdudcation').click(function()
@@ -294,7 +295,7 @@ $('#addSkills').click(function()
 		html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';	
 		html+=			'<div>';
 		html+=				'<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest"><br/>';
-		html+=				'E.g, Blogging, Sports, Trekking, Photography.';
+		html+=				'<p>E.g, Blogging, Sports, Trekking, Photography.</p>';
 		html+=			'</div>';
 		html+=			'<div>';
 		html+=				'<label >Description</label>';

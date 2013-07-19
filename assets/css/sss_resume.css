@@ -153,7 +153,7 @@ input, select{
 
 .clickr_final{
 	position: absolute;	display: block;
-	bottom: 50px; left: 160px;
+	bottom: 50px; right: 160px;
 	background: #f07057 ;
 }
 
@@ -385,4 +385,33 @@ input [type="checkbox"]{
 
 .other_details{
 	margin-bottom: 100px;
+	border-top: solid 1px #828282;
+	padding-top: 20px; 
+	padding-left: 20px;
+}
+
+.other_details h3{
+	padding-bottom: 20px;
+}
+
+#selectTemplateclose{
+	background: url("../img/icon_close.png") no-repeat scroll center center #F07057;
+    border: 1px solid #C5533D;
+    cursor: pointer;
+    display: block;
+    height: 36px;
+    position: absolute;
+    right: 362px;
+    text-indent: -999em;
+    width: 36px;
+	
+}
+
+.examples{
+	margin-top: -20px;
+	margin-bottom: 20px;
+}
+
+#moreabout{
+	margin-bottom: 0px !important;
 }

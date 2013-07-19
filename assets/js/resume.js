@@ -536,7 +536,7 @@ function datepic()
 		changeMonth: true,
         changeYear: true,
         dateFormat: 'M-yy',
-        yearRange:'c-80:c+80',
+        yearRange:'c:c+80',
 		});
     
    /* $('.half_date_picker').click(function()

@@ -62,7 +62,7 @@ input{
 	width: 300px;
 	height: 30px;
 	padding-left: 10px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 }
 
 .w400{
@@ -131,8 +131,30 @@ input [type="checkbox"]{
     display:none;
 }
 
+
+.pr_right_edit{
+	padding-top: 10px;
+		margin-top: 10px;
+}
+.mail_toggle{
+	height:40px; display: block; 
+	margin-top: 20px;
+	background: #e1e1e1; 
+	border:solid 1px #c2c2c2;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.mail_toggle input{ width:20px !important; float: left;}
+
+.mail_toggle span{
+	display: block; height: 40px; line-height: 36px;
+	border-left: solid 1px #d2d2d2; padding-left: 10px; 
+	margin: 0 0 0 30px;}
 .pr-view{
-	font-size:1.2em;
+	width:300px;
+	
 	display: block;
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -142,7 +164,15 @@ input [type="checkbox"]{
 
 .pr_left{
 	font-family: segoeuib;
+	width: 200px;
+	font-size:1.2em;
 }
+
+.pr_right{
+	font-size: 1.4em;
+	line-height: 30px;
+}
+
 .tbl{
     font-size: 13px;
     line-height: 16px;
@@ -153,4 +183,24 @@ input [type="checkbox"]{
 	 background: #ffffff;
 	 border:solid 5px #e1e1e1;
 		text-align: center;
+}
+
+tr{
+	border-bottom: solid 1px #e1e1e1;
+}
+
+.form_controls{
+	margin: 40px 0 20px 0 ;
+}
+
+.pr_email{
+	height: 60px;	}
+
+.pr_email td{
+	padding: 20px 0 0 0 ;
+}
+
+.pr_btn{
+	width: 160px !important;
+	margin:20px 0 20px 0 !important;
 }

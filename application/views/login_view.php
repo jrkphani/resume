@@ -51,11 +51,11 @@
 			<h2>New to Resume Builder? Sign Up </h2>
 			<form id="registration_form">
 				<label for="firstname">First name</label>
-			    <input type="text" name="firstname" id="firstname" placeholder="First name">
+			    <input type="text" name="firstname" id="firstname" placeholder="First name" value="<?php echo $sess_user_detail['user_detail']['first_name']; ?>" />
 				<label  for="lastname">Last name</label>
-			    <input type="text" name="lastname" id="lastname" placeholder="Last name">
+			    <input type="text" name="lastname" id="lastname" placeholder="Last name" value="<?php echo $sess_user_detail['user_detail']['last_name']; ?>" />
 			 	<label  for="inputEmail">Email</label>
-			   	<input type="email" class="email_check" name="email_address" id="inputEmail" placeholder="Email">
+			   	<input type="email" class="email_check" name="email_address" id="inputEmail" placeholder="Email" value="<?php echo $sess_user_detail['user_detail']['secondary_email']; ?>" />
 			    <label  for="inputPassword">Password</label>
 			    <input type="password"  name="pass_word" id="inputPassword" placeholder="Password">
 			    

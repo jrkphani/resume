@@ -4,8 +4,7 @@ $(document).ready(function(){
 	//Check for profile complete, if not open edit option by default
 	if($('#profile_flag').val()=='1')
 	{
-		$('.pr-view').hide();
-		$('#pr-edit-link').hide();
+		$('.pr-view, #pr-edit-link').hide();
 		$('.pr-edit').show();
 		$('.img_update').attr('id','profile_pic');
 	}
@@ -16,9 +15,10 @@ $(document).ready(function(){
 
 	//open edit
 	$("#pr-edit-link").click(function(){
-		$('.pr-view').hide();
-		$('#pr-edit-link').hide();
+		$('.pr-view, #pr-edit-link, #show_change_password').hide();
+		//$('#pr-edit-link').hide();
 		$('.pr-edit').show();
+		//$('.pr-edit').css("display", "block");
 		$('.img_update').attr('id','profile_pic');
 
 		if($('#primary_email').val()==$('#secondary_email').val())
@@ -27,9 +27,9 @@ $(document).ready(function(){
 	
 	//Cancel edit
 	$("#pr-cancel-link").click(function(){
-		$('.pr-view').show();
+		$('.pr-view, #pr-edit-link, #show_change_password').show();
 		$('.pr-edit').hide();
-		$('#pr-edit-link').show();
+		//$('#pr-edit-link').show();
 		$('.img_update').attr('id','');
 	});
 	
@@ -102,7 +102,7 @@ $(document).ready(function(){
    // Show Change Password
    $('#show_change_password').click(function(){
    		$('#change_password_div').show();
-   		$('#profile_div').hide();
+   		$('#profile_div, #pr-edit-link, #profile_photo').hide();
    		$(this).hide();
    		$('#change_password_msg').html('');
    		$('.err-msg').html('');
@@ -114,7 +114,7 @@ $(document).ready(function(){
    // Hide Change Password
    $('#hide_change_password').click(function(){
    		$('#change_password_div').hide();
-   		$('#profile_div').show();
+   		$('#profile_div, #pr-edit-link, #profile_photo').show();
    		$('#show_change_password').show();
    });
 

@@ -71,9 +71,11 @@ class Preview extends CI_Controller {
 				$objectivesTitle =$this->input->post('objectivesTitle');
 			}
 			$passport_visa=array('passport'=>$this->input->post('passport'),
-							'passportdate'=>$this->input->post('passportFrom').'#'.$this->input->post('passportTo'),
+							//'passportdate'=>$this->input->post('passportFrom').'#'.$this->input->post('passportTo'),
+							'passportTo'=>$this->input->post('passportTo'),
 							'visa'=>$this->input->post('visa'),
-							'visadate'=>$this->input->post('visaFrom').'#'.$this->input->post('visaTo')
+							//'visadate'=>$this->input->post('visaFrom').'#'.$this->input->post('visaTo')
+							'visaTo'=>$this->input->post('visaTo')
 							);
 			$url_array=array('mylink','twitter','facebook','linkedin');
 			$url_array=array_combine($url_array,$this->input->post('url'));							

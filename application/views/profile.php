@@ -25,16 +25,10 @@
 
 <div class="profile-outer">
 
-    <!-- Control Links  start-->
-	<div >
-    	
-        <a href="javascript:void(0);" class="clickr" id="pr-edit-link">Edit profile</a>
-        <a href="javascript:void(0);" class="clickr" id="show_change_password">Change Password</a>
-    </div>
-    <!-- Control Links  end-->
+   
 
     <!--    Profile photo start  -->
-    <div class="profile_photo">
+    <div class="profile_photo" id="profile_photo">
         	<img src="<?php echo $img; ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;<?php echo $last_name; ?>" class="img_update" alt="Profile photo" />
         	<span id="uploadstate"></span>
     </div>
@@ -60,28 +54,28 @@
                     <span class="pr-edit"><label for="first_name">Name*</label></span>
                 </td>
                 <td>
-                	<span class="pr-view"><?php echo $first_name; ?>&nbsp;&nbsp;&nbsp;<?php echo $last_name; ?></span>
-                    <span class="pr-edit"><input type="text" name="first_name" id="first_name" value="<?php echo $first_name; ?>" />&nbsp;&nbsp;&nbsp;<input type="text" name="last_name" id="last_name" value="<?php echo $last_name; ?>" /></span>
+                	<span class="pr-view pr_right"><?php echo $first_name; ?>&nbsp;&nbsp;&nbsp;<?php echo $last_name; ?></span>
+                    <span class="pr-edit pr_right_edit"><input type="text" name="first_name" id="first_name" value="<?php echo $first_name; ?>" />&nbsp;&nbsp;&nbsp;<input type="text" name="last_name" id="last_name" value="<?php echo $last_name; ?>" /></span>
                 </td>
-                <td></td>
+                
             </tr>
-            <tr>
+            <tr class="pr_email">
                 <td class="pr_left">Email</td>
                 <td><?php echo $email; ?>
-                    <span class="pr-edit">
-                        <input type="checkbox" name="email_toggle" id="email_toggle" style="display:inherit;" value="1" <?php if($email==$secondary_email) echo 'checked=checked'; ?> />Use this as display email.
+                    <span class="pr-edit mail_toggle">
+                        <input type="checkbox" name="email_toggle" id="email_toggle" style="display:inherit;" value="1" <?php if($email==$secondary_email) echo 'checked=checked'; ?> /><span>Use this as display email.</span>
                     </span>
                 </td>
-                <td></td>
+                
             </tr>
             <tr id="display_email">
             	<td>
                     <span class="pr-view pr_left">Display Email</span>
-                    <span class="pr-edit"><label for="secondary_email">Display Email*</label></span>
+                    <span class="pr-edit pr_right"><label for="secondary_email">Display Email*</label></span>
                 </td>
                 <td>
                 	<span class="pr-view pr_left"><?php echo $secondary_email; ?></span>
-                    <span class="pr-edit"><input type="text" name="secondary_email" id="secondary_email" value="<?php echo $secondary_email; ?>"  /></span>
+                    <span class="pr-edit pr_right"><input type="text" name="secondary_email" id="secondary_email" value="<?php echo $secondary_email; ?>"  /></span>
                 </td>
             </tr>
             <tr>
@@ -90,10 +84,10 @@
                     <span class="pr-edit"><label for="mobile">Mobile*</label></span>
                 </td>
                 <td>
-                	<span class="pr-view "><?php echo $mobile; ?></span>
-                    <span class="pr-edit"><input type="text" name="mobile" id="mobile" value="<?php echo $mobile; ?>"  /></span>
+                	<span class="pr-view pr_right"><?php echo $mobile; ?></span>
+                    <span class="pr-edit pr_right_edit"><input type="text" name="mobile" id="mobile" value="<?php echo $mobile; ?>"  /></span>
                 </td>
-                <td></td>
+                
             </tr>
             <tr>
                 <td>
@@ -101,10 +95,10 @@
                     <span class="pr-edit"><label for="skype">Skype</label></span>
                 </td>
                 <td>
-                    <span class="pr-view "><?php echo $skype; ?></span>
-                    <span class="pr-edit"><input type="text" name="skype" id="skype" value="<?php echo $skype; ?>"  /></span>
+                    <span class="pr-view pr_right"><?php echo $skype; ?></span>
+                    <span class="pr-edit pr_right_edit"><input type="text" name="skype" id="skype" value="<?php echo $skype; ?>"  /></span>
                 </td>
-                <td></td>
+                
             </tr>
             <tr>
             	<td>
@@ -112,10 +106,9 @@
                     <span class="pr-edit"><label for="address">Address</label></span>
                 </td>
                 <td>
-                	<span class="pr-view "><?php echo $address; ?></span>
-                    <span class="pr-edit"><textarea name="address" id="address"><?php echo $address; ?></textarea></span>
+                	<div class="pr-view pr_right"><?php echo $address; ?></div>  
+                    <div class="pr-edit pr_right_edit"><textarea name="address" id="address"><?php echo $address; ?></textarea></div>
                 </td>
-                <td></td>
             </tr>
             <tr>
                 <td>
@@ -123,8 +116,8 @@
                     <span class="pr-edit"><label for="married">Marital Status</label></span>
                 </td>
                 <td>
-                    <span class="pr-view "><?php if($married==NULL) echo 'Not specified'; else if($married=='0') echo 'Not Married'; else if($married=='1') echo 'Married'; ?></span>
-                    <span class="pr-edit">
+                    <span class="pr-view pr_right"><?php if($married==NULL) echo 'Not specified'; else if($married=='0') echo 'Not Married'; else if($married=='1') echo 'Married'; ?></span>
+                    <span class="pr-edit pr_right_edit">
                         <select name="married" id="married">
                             <option value="NULL" <?php if($married==NULL) { ?> selected="selected" <?php } ?>>Not specified</option>
                             <option value="1" <?php if($married=='1') { ?> selected="selected" <?php } ?>>Married</option>
@@ -132,7 +125,7 @@
                         </select>
                     </span>
                 </td>
-                <td></td>
+                
             </tr>
             <tr>
                 <td>
@@ -140,18 +133,21 @@
                     <span class="pr-edit"><label for="designation">Designation</label></span>
                 </td>
                 <td>
-                    <span class="pr-view "><?php echo $designation; ?></span>
-                    <span class="pr-edit"><input type="text" name="designation" id="designation" value="<?php echo $designation; ?>"  /></span>
+                    <span class="pr-view pr_right"><?php echo $designation; ?></span>
+                    <span class="pr-edit pr_right_edit"><input type="text" name="designation" id="designation" value="<?php echo $designation; ?>"  /></span>
                 </td>
-                <td></td>
+                
             </tr>
-            <tr class="pr-edit">
-            	<td></td>
+            <tr >
+            	
                 <td>
-                    <input type="submit" name="submit" value="Update"/>&nbsp;&nbsp;
-                    <input type="button" value="Cancel" id="pr-cancel-link"  />
+                    <span class="pr-edit">
+                       <input type="submit" name="submit" value="Update" class="pr_btn"/>
+                        <input type="button" value="Cancel" id="pr-cancel-link" class="pr_btn"  /> 
+                    </span>
+                    
                 </td>
-                <td></td>
+                
             </tr>
         </table>
         <?php echo form_close(); ?>
@@ -165,22 +161,22 @@
             <table>
                 <tr>
                     <td><label for="current_password">Current Password*</label></td>
-                    <td><input type="password" name="current_password" id="current_password" /><td>
+                    <td><input type="password" name="current_password" id="current_password" /></td>
                 </tr>
                 <tr>
                     <td><label for="new_password">New Password*</label></td>
-                    <td><input type="password" name="new_password" id="new_password" /><td>
+                    <td><input type="password" name="new_password" id="new_password" /></td>
                 </tr>
                 <tr>
                     <td><label for="confirm_password">Confirm Password*</label></td>
-                    <td><input type="password" name="confirm_password" id="confirm_password" /><td>
+                    <td><input type="password" name="confirm_password" id="confirm_password" /></td>
                 </tr>
                 <tr>
-                    <td></td>
+                    
                     <td>
                         <input type="button" name="submit_form2" id="submit_form2" value="Update" />&nbsp;&nbsp;
                         <input type="button" value="Cancel" id="hide_change_password"  />
-                    <td>
+                    </td>
                 </tr>
             </table>
         </form>
@@ -189,6 +185,13 @@
 
 
     </div>
+     <!-- Control Links  start-->
+    <div class="form_controls">
+        
+        <a href="javascript:void(0);" class="clickr" id="pr-edit-link">Edit profile</a>
+        <a href="javascript:void(0);" class="clickr" id="show_change_password">Change Password</a>
+    </div>
+    <!-- Control Links  end-->
 </div>
 </div>
 <script type="text/javascript" src="<?php echo base_url('assets/js/validation.js'); ?>"></script>

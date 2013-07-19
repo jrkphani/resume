@@ -23,6 +23,7 @@ class Login extends CI_Controller {
 	{
 	$this->load->helper(array('form'));
 	$data['view_page'] = 'login_view';
+	$data['sess_user_detail']=($this->session->userdata('resume_data')) ? $this->session->userdata('resume_data') : NULL;
 	$this->load->view('template', $data);
 	}
  }

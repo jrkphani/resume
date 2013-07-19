@@ -399,17 +399,17 @@ $passport_visa = unserialize($about['passport_visa']);
       <?}?>
       <? if($passport_visa['passport'])
       {
-		  $passportDate=explode('#',$passport_visa['passportdate']);
+		  //$passportDate=explode('#',$passport_visa['passportdate']);
 		  ?>
         <p>Passport details : <?=$passport_visa['passport'];?></p>
-        <p>Validity : <?=$passportDate[0];?> to <?=$passportDate[1];?></p>
+        <p>Validity : <?php //$passportDate[0]; ?>till <?=$passport_visa['passportTo'];?></p>
       <?}?>
       <? if($passport_visa['visa'])
       {
-		  $visaDate= explode('#',$passport_visa['visadate']);
+		  //$visaDate= explode('#',$passport_visa['visadate']);
 		  ?>
         <p>Visa details : <?=$passport_visa['visa'];?></p>
-        <p>Validity : <?=$visaDate[0];?> to <?=$visaDate[1];?></p>
+        <p>Validity : <?php //$visaDate[0];?>till <?=$passport_visa['visaTo'];?></p>
       <?}?>
     </div>
    </div>    

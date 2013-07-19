@@ -143,9 +143,9 @@ $(document).ready(function()
 		html+=			'</div>';
 		html+=			'<div>';
 		html+=				'<label >From</label>';
-		html+=				'<input type="text" class="half_date_picker" name="eduFrom[]" placeholder="(2005)(Feb 2005)">';
+		html+=				'<input type="text" class="half_date_picker" name="eduFrom[]" placeholder="Feb-2012" readonly="readonly" />';
 		html+=				'<label >To</label>';
-		html+=				'<input  type="text" class="half_date_picker" name="eduTo[]" placeholder="(2007)(Mar 2007)">';
+		html+=				'<input  type="text" class="half_date_picker" name="eduTo[]" placeholder="Feb-2012" readonly="readonly" />';
 		html+=			'</div>';
 		html+=		'</div>';
 		$('#edudcation').append(html);
@@ -182,9 +182,9 @@ $('#addCompany').click(function()
 			html+=				'<input  type="text" name="cmpnyName[]" placeholder="Company name">';
 			html+=				'<input  name="cmpnyDesg[]" type="text"  placeholder="Designation">';
 			html+=				'<label >From</label>';
-			html+=				'<input  type="date"  class="full_date_picker" name="cmpnyFrom[]" placeholder="(2005)(Feb 2005)" />';
+			html+=				'<input  type="date"  class="full_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" />';
 			html+=				'<label >To</label>';
-			html+=				'<input  type="date"  class="full_date_picker" name="cmpnyTo[]" placeholder="(2007)(Mar 2007)" />';
+			html+=				'<input  type="date"  class="full_date_picker" name="cmpnyTo[]" placeholder="Feb-2012" readonly="readonly" />';
 			html+=			'</div>';
 			html+=		'</div >';
 		$('#company').append(html);
@@ -263,9 +263,9 @@ $('#addSkills').click(function()
 		html+=				'</div>';
 		html+=				'<div>';
 		html+=					'<label >For the period From</label>';
-		html+=					'<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="(2005)(Feb 2005)">';
+		html+=					'<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="Feb-2012" readonly="readonly" />';
 		html+=					'<label >To</label>';
-		html+=					'<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="(2007)(Mar 2007)">';
+		html+=					'<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="Feb-2012" readonly="readonly" />';
 		html+=				'</div>';
 		html+=				'<div>';
 		html+=					'<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description"></textarea>';
@@ -522,7 +522,7 @@ function datepic()
 	$('.half_date_picker').datepicker( {
         changeMonth: true,
         changeYear: true,
-        dateFormat: 'MM-yy',
+        dateFormat: 'M-yy',		// Ex: Feb-2012
         maxDate: new Date(),
         yearRange:'c-80:c',
         /*onClose: function(dateText, inst) { 

@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/responsiveslides.css"); ?>" />
 
 		<hr/>
-		
+		<div class="rslider_container">
 		<ul class="rslides">
 		  <li>
 			  <div class="zxcv">
@@ -81,7 +81,7 @@
 					</div>
 		  </li>
 		</ul>
-
+</div>
 		<!-- <hr/>
 		<section class="services">
 			<h2>EZCV Services</h2>

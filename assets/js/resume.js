@@ -81,14 +81,24 @@ $(document).ready(function()
 	});
 	//let tab menu and continue button function start
 	
-	
+	//close selectTemplate
+	$('#selectTemplateclose').click(function(){
+		$('#selectTemplate').hide();
+	});
+
+	//show selectTemplate
+	$('.showSelectTemplate').click(function(){
+		$('#selectTemplate').show();
+	});
+
 	$("#preview").colorbox({iframe:true, escKey:true, width:"860px", height:"100%"});
 	$("#resume_submit").click(function(e){
 		e.preventDefault();
 		if(!$('#template').val())
 		{
 			//return false;
-			alert('Please select a Template');
+			//alert('Please select a Template');
+			$('#selectTemplate').show();
 			return false;
 		}
 		else
@@ -123,9 +133,9 @@ $(document).ready(function()
 	});
 	$('.template').click(function()
 	{
-		$('.templateCell').removeClass('templateCellSelected');
+		//$('.templateCell').removeClass('templateCellSelected');
 		$('#template').val($(this).attr('value'));
-		$('#'+$(this).attr('value')).addClass('templateCellSelected');
+	//	$('#'+$(this).attr('value')).addClass('templateCellSelected');
 	});
 	$('#addEdudcation').click(function()
 	{
@@ -182,9 +192,9 @@ $('#addCompany').click(function()
 			html+=				'<input  type="text" name="cmpnyName[]" placeholder="Company name"><br/>';
 			html+=				'<input  name="cmpnyDesg[]" type="text"  placeholder="Designation" class="cmp_desgn"><br/>';
 			html+=				'<label >From</label>';
-			html+=				'<input  type="date"  class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" /><br/>';
+			html+=				'<input  type="text"  class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" /><br/>';
 			html+=				'<label >To</label>';
-			html+=				'<input  type="date"  class="half_date_picker" name="cmpnyTo[]" placeholder="Feb-2012" readonly="readonly" />';
+			html+=				'<input  type="text"  class="half_date_picker" name="cmpnyTo[]" placeholder="Feb-2012" readonly="readonly" />';
 			html+=			'</div>';
 			html+=		'</div >';
 		$('#company').append(html);

@@ -8,7 +8,7 @@
 </div>
 <div class="right_nav">
 	<h3> YOU ARE HERE </h3>
-	<span class="rns"><span class="rnd">1</span>Choose Resume Style</span>
+	<span class="rns showSelectTemplate"><span class="rnd">1</span>Choose Resume Style</span>
 	<span class="rns"><span class="rnd">2</span>Discover Yourself</span>
 	<span tab='#about_tab' class="tab rns rns_a rns_inner">About</span>
 	<span tab='#objective_tab' class="tab rns rns_inner">Designation,Objective</span>
@@ -45,7 +45,7 @@
 			<!-- First & Last name -->
 			<div class="left_form_title">
 				<h3>About Me</h3>
-				<span>Resume Templates</span>
+				<span class="showSelectTemplate">Resume Templates</span>
 				<div class="clearboth"></div>
 				<p> Tell us about yourself in this section. You can enter your name and current location as well as talk about yourself and what you have been doing till date.</p>
 			</div>
@@ -903,7 +903,8 @@
 
 
 		<!-- need make as popup -->
-		<div class="selectTemplate" style="display:none;">
+		<div id="selectTemplate" style="display:none;"class="selectTemplate">
+			<span id="selectTemplateclose">close</span>
 			<h3>Choose Template</h3>
 			
 	 		<div class="t_list_bg" id="T1">
@@ -911,7 +912,7 @@
 					<img src="<?php echo base_url("assets/img/t1_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Template 1</p>
-						<a class="t_select" tvalue="T1">Select</a>
+						<a class="t_select template" value="T1">Select</a>
 					</div>
 				</div>
 			</div>
@@ -920,7 +921,7 @@
 					<img src="<?php echo base_url("assets/img/t2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Template 1</p>
-						<a class="t_select" tvalue="T2">Select</a>
+						<a class="t_select template" value="T2">Select</a>
 					</div>
 				</div>
 			</div>
@@ -929,7 +930,7 @@
 					<img src="<?php echo base_url("assets/img/t3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Template 1</p>
-						<a class="t_select" tvalue="T3">Select</a>
+						<a class="t_select template" value="T3">Select</a>
 					</div>
 				</div>
 			</div>
@@ -938,7 +939,7 @@
 					<img src="<?php echo base_url("assets/img/t4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Template 1</p>
-						<a class="t_select" tvalue="T4">Select</a>
+						<a class="t_select template" value="T4">Select</a>
 					</div>
 				</div>
 			</div>
@@ -948,7 +949,6 @@
 
 </div>
 </div>
-
 
 
 				 

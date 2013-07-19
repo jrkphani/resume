@@ -123,10 +123,10 @@ $passport_visa = unserialize($about['passport_visa']);
     <? 
 		if(array_filter($cmpnyName))
 			{
-							$i=0;
-							foreach($cmpnyName as $cmpny) {
-								$cpmpanyData= explode('#',$cmpnyData[$i]);
-							?>
+				$i=0;
+				foreach($cmpnyName as $cmpny) {
+				$cpmpanyData= explode('#',$cmpnyData[$i]);
+		?>
     <div class="experience_content">
       <div class="experience_content_lft">
         <p class="year_from">
@@ -187,6 +187,7 @@ $passport_visa = unserialize($about['passport_visa']);
         </div>
       </div>
       <? } ?>
+      
       <? if(array_filter($otherSkills)) { ?>
       <div class="clearall"></div>
       <div class="other_skills">

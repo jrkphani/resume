@@ -118,6 +118,7 @@ class Preview extends CI_Controller {
 			foreach($cmpnyName as $single)
 			{
 				$cmpny_date[] = $cmpnyFrom[$count].'#'.$cmpnyTo[$count];
+				$count++;
 			}
 			$company=array(
 			'name' => serialize($cmpnyName),

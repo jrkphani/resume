@@ -50,8 +50,11 @@ $passport_visa = unserialize($about['passport_visa']);
     <p class="left styles italics">Mobile</p>
     <p class="right styles"><?=$user_detail['mobile'];?></p>
     <div class="clearall"></div>
+    <p class="left styles italics">Web</p>
+    <p class="right styles"><?=$website['mylink'];?></p>
+    <div class="clearall"></div>
     <p class="left styles italics">Address</p>
-    <p class="right styles"><?=nl2br($user_detail['address']);?></p>
+    <p class="right styles"  style="line-height:18px;"><?=nl2br($user_detail['address']);?></p>
     <div class="clearall"></div>
 
 <!----------------------------------------------------object---------------------------------------------------------------------------->    
@@ -81,7 +84,7 @@ $passport_visa = unserialize($about['passport_visa']);
   <?  if(array_filter($cmpnyName)){ ?>
   
     <div class="left1_center1">
-    	<div class="exp_yers">
+    	<div class="exp_yers center1">
         <h1 class="styles italics">Experience Summary</h1>        
         <h4><p>Total: <?=$user_detail['experience'];?></p></h4>
         <h2>Current CTC: <span><?=$compensation[0];?>/-</span></h2>
@@ -154,22 +157,21 @@ $passport_visa = unserialize($about['passport_visa']);
        <h1 class="styles italics"><?=$user_detail['contactTitle'];?></h1>
       	<div class="skill1_container">
 		
-    		 <p id="skill1" class="styles bullet"><?=$website['mylink'];?></p>
          <? if($user_detail['skype']) { ?><p id="skill1" class="styles bullet"><?=$user_detail['skype'];?></p><? } ?>
          <? if($website['linkedin']) { ?><p id="skill1" class="styles bullet"><?=$website['linkedin'];?></p><? } ?>
          <? if($website['twitter']) { ?><p id="skill1" class="styles bullet"><?=$website['twitter'];?></p><? } ?>
          <? if($website['facebook']) { ?><p id="skill1" class="styles bullet"><?=$website['facebook'];?></p><? } ?>
          <div class="clearall"></div>
        </div><div class="clearall"></div>
-     
+       <? } ?>
        
     </div> 
-      <? } ?>
+    
 <!-- --------------------------------------------------project-------------------------------------------------------------------------- --> 
   <? if(array_filter($projName)) { ?>
   
     <div class="left1_center1">
-    	<div class="exp_yers">
+    	<div class="exp_yers center1">
         <h1 class="styles italics">My Milestones</h1>        
       </div>  
       <div class="clearall"></div>
@@ -278,7 +280,7 @@ $passport_visa = unserialize($about['passport_visa']);
   <? if(array_filter($eduInst)) { ?>
   
     <div class="left1_center1">
-    	<div class="exp_yers">
+    	<div class="exp_yers center1">
         <h1 class="styles italics">Education</h1>        
       </div>  
       <div class="clearall"></div>
@@ -314,7 +316,7 @@ $passport_visa = unserialize($about['passport_visa']);
 <? if(array_filter($awdTitle)){ ?>
   
     <div class="left1_center1">
-    	<div class="exp_yers">
+    	<div class="exp_yers center1">
         <h1 class="styles italics">Awards</h1>        
       </div>  
       <div class="clearall"></div>
@@ -350,7 +352,7 @@ $passport_visa = unserialize($about['passport_visa']);
   <? if(array_filter($intresttitle)) { ?>
   
     <div class="left1_center1">
-    	<div class="exp_yers">
+    	<div class="exp_yers center1">
         <h1 class="styles italics">My Other Interest</h1>        
       </div>  
       <div class="clearall"></div>
@@ -385,7 +387,7 @@ $passport_visa = unserialize($about['passport_visa']);
     <? if(($user_detail['married']) || ($passport_visa['passport']) || ($passport_visa['visa']))
     {?>
     <div class="left1_center1">
-    	<div class="exp_yers">
+    	<div class="exp_yers center1">
         <h1 class="styles italics">Other Details</h1>        
       </div>  
       <div class="clearall"></div>

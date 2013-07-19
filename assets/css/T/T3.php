@@ -50,11 +50,12 @@ table {
 }
 
 /*******************************************************font************************************************************************/
-@font-face {
-    font-family: 'segoeui';
-    src: url(<? echo FCPATH.'assets/Fonts/segoeui.ttf'; ?>);
-}
 
+
+@font-face {
+    font-family: 'test1';
+    src: url(<? echo FCPATH.'assets/Fonts/ZegoeCaps.ttf'; ?>);*/
+}
 
 /*************************************************************  global  ************************************************************************/
 
@@ -68,8 +69,8 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 .wrapper .header_top{width:100%; height:5px; background:#24b8e9; display:block;}
 .wrapper .header_box1{width:100%; color:#fff; }
 
-.wrapper .header_box1 .name{width:56%; color:#24b8e9; font-family: segoeui, arial; font-size: 16px; line-height: 22px; padding: 15px 20px 15px 0px; margin:0 0px 0 30px; display:inline; float:left; clear:both;}
-.wrapper .header_box1 .desigi{width:32%; color:#ec9d21; font-family:segoeui, arial; font-size:15px; line-height:22px;  padding:15px 0px 15px 20px; float:left; display:inline;}
+.wrapper .header_box1 .name{width:56%; color:#24b8e9;  font-size: 17px; line-height: 22px; padding: 15px 20px 15px 0px; margin:0 0px 0 30px; display:inline; float:left; clear:both; font-weight:bold;}
+.wrapper .header_box1 .desigi{width:32%; color:#ec9d21; font-size:16px; line-height:22px;  padding:15px 0px 15px 20px; float:left; display:inline;  font-weight:bold;}
 
 
 /*************************************************************  objective  ************************************************************************/
@@ -109,9 +110,9 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 .wrapper .left .experience .exp .exp_yers{width:100%; padding:0px 0 0px 0; }
 .wrapper .left .experience .exp .exp_yers .exp_yers_btm{}
 .wrapper .left .experience .exp .exp_yers span{float:left; display:inline; font-size:13px; padding:0 0px 0 0;}
-.wrapper .left .experience .exp .ctc .cctc{width:50%; float:left; line-height: 28px; color:#303030; font-weight:bold; padding:15px 0 0px 0; font-size: 14px;}
+.wrapper .left .experience .exp .ctc .cctc{width:50%; float:left; line-height: 28px; color:#303030; font-weight:bold; padding:15px 0 0px 0; font-size: 13px;}
 .wrapper .left .experience .exp .ctc .cctc span{color:#ec9d21;}
-.wrapper .left .experience .exp .ctc .ectc{width:50%; color:#303030; float:right; text-align:right; font-weight:bold; line-height: 28px;display: block;clear: right;  padding:15px 0 0px 0; font-size: 14px;}
+.wrapper .left .experience .exp .ctc .ectc{width:50%; color:#303030; float:right; text-align:right; font-weight:bold; line-height: 28px;display: block;clear: right;  padding:15px 0 0px 0; font-size: 13px;}
 .wrapper .left .experience .exp .ctc .ectc span{color:#ec9d21;}
 .wrapper .left .experience .exp .ctc {width:100%; }
 
@@ -183,14 +184,14 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 .wrapper .right .contact h1{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:16px 0 16px 38px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_contact.png) no-repeat 0% 50%;}
 .wrapper .right .contact .phone{font-size: 14px; padding:22px 0 10px 38px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_mobile.jpg) no-repeat 0% 69%;}
 .wrapper .right .contact .mail{font-size: 14px; padding:10px 0 10px 38px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_mail.jpg) no-repeat 0% 64%;}
-.wrapper .right .contact .address{font-size: 14px; padding:10px 0 0px 38px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_address.jpg) no-repeat 0% 40%; line-height:18px;}
+.wrapper .right .contact .address{font-size: 14px; padding:10px 0 0px 38px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_address.jpg) no-repeat 0% 22%; line-height:18px;}
 
 
 /*************************************************************  other skills  ************************************************************************/
 
 .wrapper .right .other_skills{width:80%; margin:5px 0px 15px 30px; float:left;}
 .wrapper .right .other_skills h1{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:16px 0 16px 35px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_skill.jpg) no-repeat 0% 48%;}
-.wrapper .right .other_skills .otherskill_t3{font-size: 14px; font-family: segoeui; padding:24px 0 0px 26px; line-height:5px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_bul.jpg) no-repeat 0% 100%;}
+.wrapper .right .other_skills .otherskill_t3{font-size: 14px; color:#3f3f3f; padding:24px 0 0px 26px; line-height:5px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_bul.jpg) no-repeat 0% 100%;}
 
 
 /*************************************************************  education  ************************************************************************/

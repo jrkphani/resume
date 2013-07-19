@@ -8,7 +8,7 @@
 </div>
 <div class="right_nav">
 	<h3> YOU ARE HERE </h3>
-	<span class="rns"><span class="rnd">1</span>Choose Resume Style</span>
+	<span class="rns showSelectTemplate"><span class="rnd">1</span>Choose Resume Style</span>
 	<span class="rns"><span class="rnd">2</span>Discover Yourself</span>
 	<span tab='#about_tab' class="tab rns rns_a rns_inner">About</span>
 	<span tab='#objective_tab' class="tab rns rns_inner">Designation,Objective</span>
@@ -30,7 +30,7 @@
    </form>
 </div>-->
 <div class="left_form">
-	<div >
+	
 		<!-- ================================ form start ================================ -->
 	<form id="resume_form">
 		<input type="hidden" value="<?=$templateValue;?>" id="template" name="template" autocomplete="off" />
@@ -45,7 +45,7 @@
 			<!-- First & Last name -->
 			<div class="left_form_title">
 				<h3>About Me</h3>
-				<span>Resume Templates</span>
+				<span class="showSelectTemplate">Resume Templates</span>
 				<div class="clearboth"></div>
 				<p> Tell us about yourself in this section. You can enter your name and current location as well as talk about yourself and what you have been doing till date.</p>
 			</div>
@@ -271,16 +271,16 @@
 					$expdate = explode('.',$user_detail[0]['experience']);
 				}
 			    ?>
-			    <select name='expYr'>
+			    <select name='expYr' class="w100">
 					<?for($i=0;$i<=60;$i++){?>
 						<option value='<?=$i;?>' <?if($i==$expdate[0]) echo 'selected="selected"';?>><?=$i;?></option>
 					<? } ?>
-			    </select> Years
-			     <select name='expMon'>
+			    </select> &nbsp;Years
+			     <select name='expMon' class="w100">
 			    <?for($i=0;$i<=12;$i++){?>
 						<option value='<?=$i;?>' <?if($i==$expdate[1]) echo 'selected="selected"';?>><?=$i;?></option>
 					<? } ?>
-			    </select> Months
+			    </select> &nbsp;Months
 			 </div>
 			<!-- CTC -->
 			<div >
@@ -314,11 +314,11 @@
 						"UGX","USD","USN","USS","UYU","UZS","VEB","VND","VUV","WST",
 						"XAF","XAG","XAU","XBA","XBB","XBC","XBD","XCD","XDR","XFO",
 						"XFU","XOF","XPD","XPF","XPT","XTS","XXX","YER","ZAR","ZMK","ZWD");?>
-			    <select name="currency">
+			    <select name="currency" class="w100">
 					<?foreach($currency_list as $row){?>
 						<option value="<?=$row;?>" <?if($row==$compensation[2]) echo 'selected="selected"';?>><?=$row;?></option>
 					<? } ?>
-				</select>per annum
+				</select>&nbsp;per annum
 			</div>
 			<!-- Company start-->
 			<div id="company">
@@ -338,11 +338,11 @@
 						<? if($i) {?>
 						<span class="button remove formRemoveBtn" onclick=removeId("c<?=$i;?>");>Remove</span>
 						<? } ?>
-							<div >
-								<input  type="text" name="cmpnyName[]" placeholder="Company name" value="<?=$record;?>">
-								<input  name="cmpnyDesg[]" type="text"  placeholder="Designation" value="<?=$companyDesc[$i];?>">
+							<div class="cmp_repeater cmn_repeater">
+								<input  type="text" name="cmpnyName[]" placeholder="Company name" value="<?=$record;?>"><br/>
+								<input  name="cmpnyDesg[]" type="text"  placeholder="Designation" value="<?=$companyDesc[$i];?>"><br/>
 								<label >From</label>
-								<input  type="text"  name="cmpnyFrom[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" />
+								<input  type="text"  name="cmpnyFrom[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" /><br/>
 								<label >To</label>
 								<input  type="text"  name="cmpnyTo[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[1];?>" readonly="readonly" />
 							</div>
@@ -354,21 +354,24 @@
 					else
 					{
 				  	?>
-				  	<div id="c0">
+				  	<div id="c0" class="cmn_repeater repeater_default">
 						<div >
-							<input  type="text" name="cmpnyName[]" placeholder="Company name">
-							<input  name="cmpnyDesg[]" type="text"  placeholder="Designation">
+							<input  type="text" name="cmpnyName[]" placeholder="Company name" class="cmp_desgn"><br/>
+							<input  name="cmpnyDesg[]" type="text"  placeholder="Designation" class="cmp_desgn"><br/>
 							<label >From</label>
-							<input  type="text" class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" />
+							<input  type="text" class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" /><br/>
 							<label >To</label>
 							<input  type="text" class="half_date_picker" name="cmpnyTo[]" placeholder="Feb-2012" readonly="readonly" />
 						</div>
 					</div >
 					<? } ?>
 			</div>
+			<div class="clearboth"></div>
 		    <div>
-			    <span  class="clickr"  id="addCompany" value="<?=$i;?>">Add New</span>
+		    	<br/>
+			    <span  class="clickr_add"  id="addCompany" value="<?=$i;?>">Add New</span>
 			</div>
+			<br/>
 			<span  class="clickr next" href='#strength_tab'>Continue</span>
 		</div>
 		</div>
@@ -387,25 +390,8 @@
 			<div class="form_sections">
 			 <!-- Other skills -->
 			<div>
-		    	<label >My Strengths</label>
-
-		    	<div id="sugg_strnth_list" style="float:left;">
-		    		<div id="sugg_strnth_1">Creative<span class="sugg_strnth" value="Creative" data="1">+</span></div>
-		    		<div id="sugg_strnth_2">Proficient<span class="sugg_strnth" value="Proficient" data="2">+</span></div>
-		    		<div id="sugg_strnth_3">Problem Solving<span class="sugg_strnth" value="Problem Solving" data="3">+</span></div>
-		    		<div id="sugg_strnth_4">Focused<span class="sugg_strnth" value="Focused" data="4">+</span></div>
-		    		<div id="sugg_strnth_5">Energetic<span class="sugg_strnth" value="Energetic" data="5">+</span></div>
-		    		<div id="sugg_strnth_6">Client Management<span class="sugg_strnth" value="Client Management" data="6">+</span></div>
-		    		<div id="sugg_strnth_7">Process oriented<span class="sugg_strnth" value="Process oriented" data="7">+</span></div>
-		    		<div id="sugg_strnth_8">Excellent track record<span class="sugg_strnth" value="Excellent track record" data="8">+</span></div>
-		    		<div id="sugg_strnth_9">Versatile<span class="sugg_strnth" value="Versatile" data="9">+</span></div>
-		    		<div id="sugg_strnth_10">Emphasis<span class="sugg_strnth" value="Emphasis" data="10">+</span></div>
-		    		<div id="sugg_strnth_11">Collaborate with teams<span class="sugg_strnth" value="Collaborate with teams" data="11">+</span></div>
-		    		<div id="sugg_strnth_12">Resourceful<span class="sugg_strnth" value="Resourceful" data="12">+</span></div>
-		    		<div id="sugg_strnth_13">Budget Driven<span class="sugg_strnth" value="Budget Driven" data="13">+</span></div>
-		    	</div>
-
-		    	<div style="float:right">
+		    	<div class="mys_left">
+		    		<label >My Strengths</label>
 			    	<div  id="oskills">
 			    	<div id="os0">
 		      			<input  type="hidden"  name="otherSkills[]" placeholder="Skill name" >
@@ -419,7 +405,7 @@
 						{
 						?>
 							<? if($i) {?>
-							<div id="os<?=$i;?>">
+							<div id="os<?=$i;?>" class="mys_added">
 								<span class="button remove formRemoveBtn" onclick=removeId("os<?=$i;?>");>Remove</span>
 								<input  type="text"  name="otherSkills[]" placeholder="Skill name" value="<?=$record?>">
 							</div>
@@ -455,9 +441,25 @@
 			    	</div>
 			    	<div>
 			    		<input type="text" id="temp_skill" placeholder="Add another" />
-			    		<span class="clickr"  id="addOskills" value="<?=$i;?>">Add</span>
+			    		<span class="clickr_add"  id="addOskills" value="<?=$i;?>">Add</span>
 			    	</div>
 			    </div>
+				<div id="sugg_strnth_list" class="mys_right">
+		    		<div id="sugg_strnth_1">Creative<span class="sugg_strnth" value="Creative" data="1">+</span></div>
+		    		<div id="sugg_strnth_2">Proficient<span class="sugg_strnth" value="Proficient" data="2">+</span></div>
+		    		<div id="sugg_strnth_3">Problem Solving<span class="sugg_strnth" value="Problem Solving" data="3">+</span></div>
+		    		<div id="sugg_strnth_4">Focused<span class="sugg_strnth" value="Focused" data="4">+</span></div>
+		    		<div id="sugg_strnth_5">Energetic<span class="sugg_strnth" value="Energetic" data="5">+</span></div>
+		    		<div id="sugg_strnth_6">Client Management<span class="sugg_strnth" value="Client Management" data="6">+</span></div>
+		    		<div id="sugg_strnth_7">Process oriented<span class="sugg_strnth" value="Process oriented" data="7">+</span></div>
+		    		<div id="sugg_strnth_8">Excellent track record<span class="sugg_strnth" value="Excellent track record" data="8">+</span></div>
+		    		<div id="sugg_strnth_9">Versatile<span class="sugg_strnth" value="Versatile" data="9">+</span></div>
+		    		<div id="sugg_strnth_10">Emphasis<span class="sugg_strnth" value="Emphasis" data="10">+</span></div>
+		    		<div id="sugg_strnth_11">Collaborate with teams<span class="sugg_strnth" value="Collaborate with teams" data="11">+</span></div>
+		    		<div id="sugg_strnth_12">Resourceful<span class="sugg_strnth" value="Resourceful" data="12">+</span></div>
+		    		<div id="sugg_strnth_13">Budget Driven<span class="sugg_strnth" value="Budget Driven" data="13">+</span></div>
+		    	</div>
+
 			    <div style="clear:both"></div>
 			    <br />
 
@@ -498,7 +500,7 @@
 						<? } ?>
 							<div>
 								<input  type="text"  name="skillName[]" placeholder="Skill name" value="<?=$row;?>"/>
-								<select name="skillEff[]">
+								<select name="skillEff[]" class="w100">
 									<?for($j=0;$j<=10;$j++){?>
 									<option value='<?=$j;?>' <?if($j==$skillEff[$i]) echo 'selected="selected"';?>><?=$j;?></option>
 									<? } ?>
@@ -516,7 +518,7 @@
 					<div >
 						
 						<input  type="text"  name="skillName[]" placeholder="Skill name" />
-						<select name="skillEff[]">
+						<select name="skillEff[]" class="w100">
 							<?for($j=0;$j<=10;$j++){?>
 								<option value='<?=$j;?>'><?=$j;?></option>
 							<? } ?>
@@ -525,9 +527,11 @@
 				</div>
 				<? } ?>
 			</div>
+			<br/>
 			<div>
-			   <span class="clickr"  id="addSkills"  value="<?=$i;?>">Add New</span>
+			   <span class="clickr_add"  id="addSkills"  value="<?=$i;?>">Add New</span>
 			</div>
+			<br/>
 			<span class="clickr next" href='#milestones_tab'>Continue</span>
 		</div>
 		</div>
@@ -556,7 +560,7 @@
 					foreach($projectName as $record)
 					{
 				?>
-						<div id="p<?=$i;?>">
+						<div id="p<?=$i;?>" class="mypr_added">
 						<? if($i) {?>
 						<span class="button remove formRemoveBtn" onclick=removeId("p<?=$i;?>");>Remove</span>
 						<? } ?>
@@ -578,7 +582,7 @@
 				else
 				{
 				?>
-				<div id="p0">
+				<div id="p0" class="mypr_added">
 					<div >
 						<input  type="text" name="projName[]"  placeholder="Enter Project Name/Title">
 						<input  name="projRole[]" type="text"  placeholder="My Position">
@@ -596,8 +600,8 @@
 			</div>
 			<div >
 			<!--<label >Add Project</label>-->
-				<span class="clickr" id="addProject" value="<?=$i;?>">Add New</span>
-			</div>
+				<span class="clickr_add" id="addProject" value="<?=$i;?>">Add New</span>
+			</div><br/>
 			<span  class="clickr next" href='#edication_tab'>Continue</span>
 		</div>
 		</div>
@@ -627,7 +631,7 @@
 					{
 						$fromtoDate = explode('#',$educationDate[$i]);
 				?>
-					<div id="e<?=$i;?>">
+					<div id="e<?=$i;?>" class="myed_added">
 					<? if($i) {?>
 					<span class="button remove formRemoveBtn" onclick=removeId("e<?=$i;?>");>Remove</span>
 					<? } ?>
@@ -672,8 +676,8 @@
 			</div>	  
 			<div>
 			    <!--<label >Add Education</label>-->
-			    <span class="clickr"  id="addEdudcation" value="<?=$i;?>">Add New</span>
-			</div>
+			    <span class="clickr_add"  id="addEdudcation" value="<?=$i;?>">Add New</span><br/>
+			</div><br/>
 			<!-- Awards start-->
 			<div class="award">
 				<div class="left_form_title awards_or">
@@ -693,7 +697,7 @@
 						{
 							$fromtoDate = explode('#',$awardDate[$i]);
 					?>
-					<div id="aw<?=$i;?>">
+					<div id="aw<?=$i;?>" class="myaw_added">
 					<? if($i) {?>
 					<span class="button remove formRemoveBtn" onclick=removeId("aw<?=$i;?>");>Remove</span>
 					<? } ?>
@@ -734,8 +738,8 @@
 					<? } ?>
 				</div>
 				<div>
-					<span class="clickr"  id="addawd" value="<?=$i;?>">Add New</span>
-				</div>
+					<span class="clickr_add"  id="addawd" value="<?=$i;?>">Add New</span><br/>
+				</div><br/>
 			</div>
 			 <!-- Award end -->
 			<span class="clickr next" href='#moreabout_tab'>Continue</span>
@@ -764,13 +768,13 @@
 					foreach($intresttitle as $record)
 					{
 				?>
-					<div id="ma<?=$i;?>">
+					<div id="ma<?=$i;?>" class="more_Added">
 					<? if($i) {?>
 					<span class="button remove formRemoveBtn" onclick=removeId("ma<?=$i;?>");>Remove</span>
 					<? } ?>
 						<div>
 							<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest" value="<?=$record;?>">
-							E.g, Blogging, Sports, Trekking, Photography.
+							<br/>E.g, Blogging, Sports, Trekking, Photography.
 						</div>
 						<div>
 							<label >Description</label>
@@ -790,7 +794,7 @@
 				?>
 				<div id="ma0">
 					<div>
-						<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest">
+						<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest"><br/>
 						E.g, Blogging, Sports, Trekking, Photography.
 					</div>
 					<div>
@@ -805,8 +809,8 @@
 				<? } ?>
 			</div>	
 			<div>
-				<span class="clickr"  id="addintrest" value="<?=$i;?>">Add New</span>
-			</div>
+				<span class="clickr_add"  id="addintrest" value="<?=$i;?>">Add New</span><br/>
+			</div><br/>
 			
 			<!-- other details -->
 			<h3>Other details</h3>
@@ -875,7 +879,7 @@
 					<label >Visa details</label>
 					<input name="visa" type="text"  placeholder="Visa details" />
 				</div>
-				<div>
+				<div class="other_details">
 					<label >Valid till</label>
 					<!--<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)">
 					to-->
@@ -883,72 +887,70 @@
 				</div>
 			<? } ?>
 		</div>
-		</div>
 		<!-- ===================================================================== More About Me tab end ==================-->
 	</form>
-		
-		<!-- ======================================================================== form end ================================ -->
-		
 
-
+	<!-- ======================================================================== form end ================================ -->
+		<!-- final save buttons -->
+		
+		    <span  id="resume_submit" class="clickr_final"> Save & Preview</span>
+		    <!--<span  class="clickr next" >Reset</span>-->
+		
 	</div>
-</div>
-<!-- final save buttons -->
-			<div>
-			    <span  id="resume_submit" class="clickr"> Save & Preview</span>
-			    <!--<span  class="clickr next" >Reset</span>-->
-			</div>
+		
+		
+		
+
 
 		<!-- need make as popup -->
-		<br/><br/><br/><br/><br/><br/><br/><br/><br/>
-
-		 <div class="selectTemplate">
-	 				<div class="selectTemplateInner ">
-						<div class="templateCell" id="T1">
-				 				<div class="templateThumbnail">
-				 				</div>	
-				 				<div class="templateContent">
-				 					<h4>Corporate Template</h4>
-				 					<br/>
-				 					<br/>
-				 					<button class="btn-block" id="p_T1">Preview</button>
-				 					<button class="btn-block template" value="T1">Select</button>
-				 				</div>
-			 				</div>
-			 				<div class="templateCell" id="T2">
-				 				<div class="templateThumbnail">
-				 				</div>	
-				 				<div class="templateContent">
-				 					<h4>Corporate Template</h4>
-				 					<br/>
-				 					<br/>
-				 					<button class="btn-block" id="p_T2">Preview</button>
-				 					<button class="btn-block  template" value="T2">Select</button>
-				 				</div>
-			 				</div>
-              <div class="templateCell" id="T3">
-				 				<div class="templateThumbnail">
-				 				</div>	
-				 				<div class="templateContent">
-				 					<h4>Corporate Template</h4>
-				 					<br/>
-				 					<br/>
-				 					<button class="btn-block" id="p_T3">Preview</button>
-				 					<button class="btn-block  template" value="T3">Select</button>
-				 				</div>
-			 				</div><div class="templateCell" id="T4">
-				 				<div class="templateThumbnail">
-				 				</div>	
-				 				<div class="templateContent">
-				 					<h4>Corporate Template</h4>
-				 					<br/>
-				 					<br/>
-				 					<button class="btn-block" id="p_T4">Preview</button>
-				 					<button class="btn-block  template" value="T4">Select</button>
-				 				</div>
-			 				</div>
+		<div id="selectTemplate" style="display:none;"class="selectTemplate">
+			<span id="selectTemplateclose">close</span>
+			<h3>Choose Template</h3>
+			
+	 		<div class="t_list_bg" id="T1">
+				<div class="t_list_t">
+					<img src="<?php echo base_url("assets/img/t1_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<div class="t_list_s">
+						<p>Template 1</p>
+						<a class="t_select template" value="T1">Select</a>
 					</div>
-				 </div>
+				</div>
+			</div>
+			<div class="t_list_bg" id="T2">
+				<div class="t_list_t">
+					<img src="<?php echo base_url("assets/img/t2_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<div class="t_list_s">
+						<p>Template 1</p>
+						<a class="t_select template" value="T2">Select</a>
+					</div>
+				</div>
+			</div>
+			<div class="t_list_bg" id="T3">
+				<div class="t_list_t">
+					<img src="<?php echo base_url("assets/img/t3_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<div class="t_list_s">
+						<p>Template 1</p>
+						<a class="t_select template" value="T3">Select</a>
+					</div>
+				</div>
+			</div>
+			<div class="t_list_bg" id="T4">
+				<div class="t_list_t">
+					<img src="<?php echo base_url("assets/img/t4_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<div class="t_list_s">
+						<p>Template 1</p>
+						<a class="t_select template" value="T4">Select</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+</div>
+
+
 				 
 				 <div id="preview" class="stop-theme" title="Resume" href=""></div>
 		<!--<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>-->

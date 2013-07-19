@@ -81,14 +81,24 @@ $(document).ready(function()
 	});
 	//let tab menu and continue button function start
 	
-	
+	//close selectTemplate
+	$('#selectTemplateclose').click(function(){
+		$('#selectTemplate').hide();
+	});
+
+	//show selectTemplate
+	$('.showSelectTemplate').click(function(){
+		$('#selectTemplate').show();
+	});
+
 	$("#preview").colorbox({iframe:true, escKey:true, width:"860px", height:"100%"});
 	$("#resume_submit").click(function(e){
 		e.preventDefault();
 		if(!$('#template').val())
 		{
 			//return false;
-			alert('Please select a Template');
+			//alert('Please select a Template');
+			$('#selectTemplate').show();
 			return false;
 		}
 		else
@@ -123,16 +133,16 @@ $(document).ready(function()
 	});
 	$('.template').click(function()
 	{
-		$('.templateCell').removeClass('templateCellSelected');
+		//$('.templateCell').removeClass('templateCellSelected');
 		$('#template').val($(this).attr('value'));
-		$('#'+$(this).attr('value')).addClass('templateCellSelected');
+	//	$('#'+$(this).attr('value')).addClass('templateCellSelected');
 	});
 	$('#addEdudcation').click(function()
 	{
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="e"+id;
-		html=		'<div id="'+rid+'">';
+		html=		'<div id="'+rid+'" class="myed_added">';
 		html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
 		html+=			'<div> ';
 		html+=				'<input  name="eduCert[]" type="text"  placeholder="Name of Degree">';
@@ -156,7 +166,7 @@ $('#addProject').click(function()
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="p"+id;
-			html=	'<div id="'+rid+'">';
+			html=	'<div id="'+rid+'" class="mypr_added">';
 			html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
 			html+=		'<div >';
 			html+=			'<input  type="text" name="projName[]"  placeholder="Enter Project Name/Title">';
@@ -176,13 +186,13 @@ $('#addCompany').click(function()
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="c"+id;
-			html=	'<div id="'+rid+'">';
+			html=	'<div id="'+rid+'" class="cmp_repeater cmn_repeater">';
 			html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
-			html+=			'<div >';
-			html+=				'<input  type="text" name="cmpnyName[]" placeholder="Company name">';
-			html+=				'<input  name="cmpnyDesg[]" type="text"  placeholder="Designation">';
+			html+=			'<div>';
+			html+=				'<input  type="text" name="cmpnyName[]" placeholder="Company name"><br/>';
+			html+=				'<input  name="cmpnyDesg[]" type="text"  placeholder="Designation" class="cmp_desgn"><br/>';
 			html+=				'<label >From</label>';
-			html+=				'<input  type="text"  class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" />';
+			html+=				'<input  type="text"  class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" /><br/>';
 			html+=				'<label >To</label>';
 			html+=				'<input  type="text"  class="half_date_picker" name="cmpnyTo[]" placeholder="Feb-2012" readonly="readonly" />';
 			html+=			'</div>';
@@ -202,9 +212,9 @@ $('#addOskills').click(function()
 		$('#temp_skill').val('');
 		$(this).attr('value',id);
 		rid="os"+id;
-			html=	'<div id="'+rid+'">';
+			html=	'<div id="'+rid+'" class="mys_added">';
 			html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
-		    html+=  		'<input  type="text"  name="otherSkills[]" value="'+value+'" placeholder="Skill name">';
+		    html+=  		'<input  type="text"  name="otherSkills[]" value="'+value+'" placeholder="Skill name" >';
 		    html+=  	'</div>';
 		$('#oskills').append(html);
 	});
@@ -217,7 +227,7 @@ $('.sugg_strnth').live('click',function(){
 	id=parseInt($('#addOskills').attr('value'))+1;
 		$('#addOskills').attr('value',id);
 		rid="os"+id;
-			html=	'<div id="'+rid+'">';
+			html=	'<div id="'+rid+'" class="mys_added">';
 			html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'","'+encodeURIComponent(data)+'","'+div_id+'");>Remove</span>';
 		    html+=  		'<input  type="text"  name="otherSkills[]" placeholder="Skill name" value="'+data+'" />';
 		    html+=  	'</div>';
@@ -229,11 +239,11 @@ $('#addSkills').click(function()
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="s"+id;
-		html=	'<div id="'+rid+'">';
+		html=	'<div id="'+rid+'" class="mytb_added">';
 		html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
 		html+=			'<div >';
 		html+=				'<input  type="text"  name="skillName[]" placeholder="Skill name" />';
-		html+=				'<select name="skillEff[]">';
+		html+=				'<select name="skillEff[]" class="w100">';
 		html+=				'<option value="0">0</option>';
 		html+=				'<option value="1">1</option>';
 		html+=				'<option value="2">2</option>';
@@ -256,7 +266,7 @@ $('#addSkills').click(function()
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="aw"+id;
-		html=	'<div id="'+rid+'">';
+		html=	'<div id="'+rid+'" class="myaw_added">';
 		html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';	
 		html+=				'<div>';
 		html+=					'<input rows="3" name="awdtitle[]" type="text"  placeholder="Award Title">';
@@ -280,10 +290,10 @@ $('#addSkills').click(function()
 		id=parseInt($(this).attr('value'))+1;
 		$(this).attr('value',id);
 		rid="ma"+id;
-		html=	'<div id="'+rid+'">';
+		html=	'<div id="'+rid+'" class="more_Added">';
 		html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';	
 		html+=			'<div>';
-		html+=				'<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest">';
+		html+=				'<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest"><br/>';
 		html+=				'E.g, Blogging, Sports, Trekking, Photography.';
 		html+=			'</div>';
 		html+=			'<div>';

@@ -27,7 +27,38 @@
 .rslides img {
   display: block;
   height: auto;
-  float: left;
+  /*float: left;*/ /*commented to center slider img*/
   width: 100%;
   border: 0;
+  max-height: 274px;
+  max-width: 486px;
   }
+
+  /********************Custom css override**************************/
+
+  .rslides_tabs{
+    display: block;
+    z-index: 9999 !important;
+    position: absolute;
+    right: 30px;
+    bottom: -6px;
+  }
+
+  .rslides_tabs li{
+    float: left; 
+  }
+
+  .rslides_tabs li a, .rslides_here a {
+      width: 43px; height: 36px; display: block; 
+      color: #fff;  line-height: 36px;  text-align: center; text-decoration: none;
+      background: transparent url(../img/sprites.png) no-repeat left top; cursor: pointer;
+      background-position: -191px 0;
+  }
+
+  .rslides_here a {
+    background-position: -235px 0 !important;
+  }
+
+.rslider_container{
+  position: relative;
+}

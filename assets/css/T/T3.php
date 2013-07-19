@@ -55,10 +55,6 @@ table {
     src: url(<? echo FCPATH.'assets/Fonts/segoeui.ttf'; ?>);
 }
 
-/*@font-face {
-    font-family: 'test1';
-    src: url(<? echo FCPATH.'assets/Fonts/ZegoeCaps.ttf'; ?>);*/
-}
 
 /*************************************************************  global  ************************************************************************/
 

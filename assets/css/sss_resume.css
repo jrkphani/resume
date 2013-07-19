@@ -43,15 +43,31 @@
 	display: block; cursor:pointer; 
 	padding-left: 20px; height: 40px;	text-align: left; line-height: 40px;
 	font-size: .9em;	text-decoration: none; color: #232323;
+	
 }
-.rns_a{
+
+
+.rns_b{
 	font-family: segoeuib;
 	color: #f07057;
 	cursor:default !important;
 }
+
 .rns_inner{
-	padding-left: 60px;
+	margin-left: 40px;
+	padding-left: 30px !important;
+	background: url(../img/sprites.png) no-repeat left center;
+	background-position: 0 -809px;  
 }
+
+.rns_a{
+	font-family: segoeuib;
+	color: #f07057;
+	cursor:default !important;
+	background: url(../img/sprites.png) no-repeat left center !important;
+	background-position: 0 -850px !important; 
+}
+
 .rnd{
 	width: 26px; height: 26px; display: inline-block;
 	background: url(../img/sprites.png) no-repeat left top;

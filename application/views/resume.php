@@ -10,16 +10,16 @@
 	<h3> YOU ARE HERE </h3>
 	<span class="rns"><span class="rnd">1</span>Choose Resume Style</span>
 	<span class="rns"><span class="rnd">2</span>Discover Yourself</span>
-	<span tab='#about_tab' class="tab rns rns_a rns_inner"><span class="rnd_inner rnd_inner_a"></span>About</span>
-	<span tab='#objective_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>Designation,Objective</span>
-	<span tab='#contact_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>Contact Me</span>
-	<span tab='#experience_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>Experience Summary</span>
-	<span tab='#strength_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>My Strength </span>
-	<span tab='#tool_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>My Tool Box</span>
-	<span tab='#milestones_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>My Milestones</span>
-	<span tab='#edication_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>Education & Awards</span>
-	<span tab='#moreabout_tab' class="tab rns rns_inner"><span class="rnd_inner"></span>More About Me</span>
-	<span class="rns"><span class="rnd">3</span>Build Your Image</span>
+	<span tab='#about_tab' class="tab rns rns_a rns_inner">About</span>
+	<span tab='#objective_tab' class="tab rns rns_inner">Designation,Objective</span>
+	<span tab='#contact_tab' class="tab rns rns_inner">Contact Me</span>
+	<span tab='#experience_tab' class="tab rns rns_inner">Experience Summary</span>
+	<span tab='#strength_tab' class="tab rns rns_inner">My Strength </span>
+	<span tab='#tool_tab' class="tab rns rns_inner">My Tool Box</span>
+	<span tab='#milestones_tab' class="tab rns rns_inner">My Milestones</span>
+	<span tab='#edication_tab' class="tab rns rns_inner">Education & Awards</span>
+	<span tab='#moreabout_tab' class="tab rns rns_inner">More About Me</span>
+	<!-- <span class="rns"><span class="rnd">3</span>Build Your Image</span> -->
 	<span class="rns"><span class="rnd">4</span>Register with EZCV</span>
 </div>
 <!--<div id="file_upload" style="display:none;">

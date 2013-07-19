@@ -2,31 +2,62 @@
 $baseurl=base_url();
 ?>
 @charset "utf-8";
-/********************************************************** CSS reset  *******************************************************************/
+/* CSS Document */
 
 
-html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video 
-{	margin: 0;	padding: 0;	border: 0;	font-size: 100%;	font: inherit;	vertical-align: baseline;}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {	display: block;}
-body {	line-height: 1;}
-ol, ul {	list-style: none;}
-blockquote, q {	quotes: none;}
-blockquote:before, blockquote:after,q:before, q:after {	content: '';	content: none;}
-table {	border-collapse: collapse;	border-spacing: 0;}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
 /*******************************************************font************************************************************************/
 @font-face {
     font-family: 'segoeui';
-    src: url(<? echo FCPATH.'application/third_party/mpdf/ttfonts/segoeui.ttf'; ?>);
-    src:url('<?=$baseurl?>assets/Fonts/segoeui.ttf') format('truetype');   
+    src: url(<? echo FCPATH.'assets/Fonts/segoeui.ttf'; ?>);
 }
 
-@font-face {
+/*@font-face {
     font-family: 'test1';
-    src: url(<? echo FCPATH.'application/third_party/mpdf/ttfonts/ZegoeCaps.ttf'; ?>);
-    src:url('<?=$baseurl?>assets/Fonts/ZegoeCaps.ttf') format('truetype');   
+    src: url(<? echo FCPATH.'assets/Fonts/ZegoeCaps.ttf'; ?>);*/
 }
 
 /*************************************************************  global  ************************************************************************/
@@ -41,8 +72,8 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 .wrapper .header_top{width:100%; height:5px; background:#24b8e9; display:block;}
 .wrapper .header_box1{width:100%; color:#fff; }
 
-.wrapper .header_box1 .name{width:56%; color:#24b8e9; font-family: test1, arial; font-size: 16px; line-height: 22px; padding: 15px 20px 15px 0px; margin:0 0px 0 30px; display:inline; float:left; clear:both;}
-.wrapper .header_box1 .desigi{width:32%; color:#ec9d21; font-family:test1, arial; font-size:15px; line-height:22px;  padding:15px 0px 15px 20px; float:left; display:inline;}
+.wrapper .header_box1 .name{width:56%; color:#24b8e9; font-family: segoeui, arial; font-size: 16px; line-height: 22px; padding: 15px 20px 15px 0px; margin:0 0px 0 30px; display:inline; float:left; clear:both;}
+.wrapper .header_box1 .desigi{width:32%; color:#ec9d21; font-family:segoeui, arial; font-size:15px; line-height:22px;  padding:15px 0px 15px 20px; float:left; display:inline;}
 
 
 /*************************************************************  objective  ************************************************************************/

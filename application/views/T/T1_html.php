@@ -113,9 +113,11 @@ $passport_visa = unserialize($about['passport_visa']);
       <h4>
       	    <p>Total: <?=$user_detail['experience'];?> </p>
       </h4> <div class="clearall"></div>
+      <? if(array_filter($compensation)) { ?>
        <h2><i>Current CTC: &nbsp;<?=$compensation[2];?> <?=$compensation[0];?>/-</i></h2>
         <h3><i>Expected CTC: &nbsp;<?=$compensation[2];?> <?=$compensation[1];?>/-</i></h3><div class="clearall"></div>
         <div class="spr">&nbsp;</div>
+        <? } ?>
     </div>
     <div class="clearall"></div>
     <? 

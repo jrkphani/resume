@@ -70,6 +70,11 @@ h3{font-size: 1.4em;}
 }
 .ezcv_content_inner{
 	margin-left: 5px;
+
+}
+
+.bg_fill{
+	background-color: #f4f4f4;
 }
 
 /*-----------------------------topheader-------------------------------------*/

@@ -16,6 +16,7 @@
 .left_form{
 	width: 80%;	float: right;
 	background-color: #f4f4f4;
+	position: relative;
 }
 .left_form_title{
 	width: 100%; padding-bottom: 20px;
@@ -123,6 +124,11 @@ input, select{
 	width: 198px;
 }
 
+
+.w100{
+	width: 100px;
+}
+
 .w400{
 	width: 400px;
 }
@@ -133,16 +139,66 @@ input, select{
 
 .form_sections{ margin-left: 20px; padding-bottom: 50px;}
 
-.clickr{
+.clickr, .clickr_final{
 	padding: 8px 30px 10px 20px; display: inline-block;
 	cursor: pointer;
 	background: #f07057 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #c5533d;	color: #fff;	
 }
 
-.clickr:hover{
-	background: #da5e46 url(../img/arrow_btn.png) no-repeat right center;
+.clickr_add {
+	padding: 8px 20px 10px 30px; display: inline-block;
+	cursor: pointer;  
+	background: #f07057 url(../img/plus_btn.png) no-repeat left center;	border: solid 1px #c5533d;	color: #fff;	
+}
+
+.clickr_final{
+	position: absolute;	display: block;
+	bottom: 50px; left: 160px;
+	background: #f07057 ;
+}
+
+.clickr:hover, .clickr_add:hover, .formRemoveBtn:hover, .clickr_final:hover{
+	background-color: #da5e46;
 	border: solid 1px #d05840;
 }
+
+
+
+
+.formRemoveBtn{
+	width: 29px; height: 29px; display: block;
+	background:#f07057 url(../img/icon_delete.png) no-repeat center center;	border: solid 1px #c5533d;	
+	text-indent: -999em; cursor: pointer;
+	position: absolute; right: 10px; top: 10px;
+}
+
+.cmn_repeater{
+	background: #ffffff;
+	border: solid 1px #e1e1e1;
+	float: left;
+	padding: 10px;
+	margin: 5px;
+	position: relative;
+	-webkit-box-shadow: 0 3px 3px -3px #828282;
+	   -moz-box-shadow: 0 3px 3px -3px #828282;
+	        box-shadow: 0 3px 3px -3px #828282;
+}
+
+.cmn_repeater label{
+	display: inline-block;
+	width: 60px;
+}
+.cmp_desgn{
+	width: 262px !important; 
+}
+
+
+.repeater_default{
+	padding-bottom: 5px !important;
+}
+
+
+
 
 input[type="radio"]{
 	width:25px;
@@ -183,7 +239,7 @@ input [type="checkbox"]{
 .t_list_bg{
 	width: 220px; height: 297px; float: left;
 	margin: 20px 0 20px 20px;	
-	background:#f2f2f2 url(../img/shadow_strip_1.png) no-repeat center bottom;
+	background:transparent url(../img/shadow_strip_1.png) no-repeat center bottom;
 }
 
 .t_list_s{
@@ -231,8 +287,8 @@ input [type="checkbox"]{
 }
 
 /*************************************** Suggestion box *********************/
-.suggestion_box{
-	width:300px; height: 200px;  display: block;
+.suggestion_box, .mys_right{
+	width:300px; height: auto;  display: block;
 	float:left; 
 	padding-left: 10px;
 	margin-left: 10px;
@@ -240,7 +296,7 @@ input [type="checkbox"]{
 
 }
 
-.suggestion_box span{
+.suggestion_box span, .mys_right div{
 	width: auto; display: block;
 	padding: 8px; float: left;
 	margin: 4px; 
@@ -248,6 +304,20 @@ input [type="checkbox"]{
 	border: solid 1px #37b7d0;
 }
 
+.mys_right div{
+	position:relative;
+	padding-right: 40px;
+}
+
+.mys_right span{		
+	width: 34px; height:34px; display: block;
+	position: absolute;	cursor: pointer; 
+	right: -1px; top: -1px;
+	background-color: #f07057;
+	line-height: 30px; text-align: center;
+	font-size: 24px; 
+	
+}
 
 .suggestion_box h3{
 	margin-bottom: 10px;
@@ -256,4 +326,63 @@ input [type="checkbox"]{
 
 .textarea_big{
 	float: left;
+}
+
+
+
+.selectTemplate{
+	position: fixed;
+	top: 30%;
+	width: 100%; 	padding-top: 20px; padding-bottom: 20px;
+	background-color: #25b695;
+}
+
+.selectTemplate h3{
+	color: #fff;
+	margin-left: 20px;
+}
+
+.selectTemplate .t_list_t{border:none;}
+
+
+.mys_left{
+	min-height: 200px;
+	float: left;
+}
+
+.mys_left input, .mytb_added input, .mytb_added select{
+	margin-bottom: 15px !important;
+}
+
+.mys_left .formRemoveBtn{
+	top: 0;
+	right: 42px;
+}
+
+.mytb_added, .mypr_added, .myed_added, .myaw_added, .more_Added{
+	position: relative;
+}
+
+.mytb_added .formRemoveBtn{
+	top: 0px; 
+	left: 308px;
+}
+
+.mypr_added .formRemoveBtn, .myed_added .formRemoveBtn, .myaw_added .formRemoveBtn, .more_Added .formRemoveBtn{
+	top: 0px; 
+	left: 408px;
+}
+
+
+
+.mys_added{
+	position: relative;
+}
+.mys_right{
+	margin-left: 50px;
+	width: 350px;
+}
+
+.other_details{
+	margin-bottom: 100px;
 }

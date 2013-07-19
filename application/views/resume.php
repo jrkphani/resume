@@ -862,7 +862,7 @@
 					<label >Valid till</label>
 					<!--<input  type="text" class="half_date_picker" name="passportFrom" placeholder="(2005)(Feb 2005)">
 					to-->
-					<input  type="text" class="half_date_picker" name="passportTo" placeholder="Feb-2012" readonly="readonly" />
+					<input  type="text" class="feature_date_picker" name="passportTo" placeholder="Feb-2012" readonly="readonly" />
 				</div>
 				<div>
 					<label >Visa details</label>
@@ -872,7 +872,7 @@
 					<label >Valid till</label>
 					<!--<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)">
 					to-->
-					<input  type="text" class="half_date_picker" name="visaTo" placeholder="Feb-2012" readonly="readonly" />
+					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="Feb-2012" readonly="readonly" />
 				</div>
 			<? } ?>
 		</div>

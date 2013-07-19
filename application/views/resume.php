@@ -94,9 +94,13 @@
 					</select>
 					<input  id="summaryTitle" name='cusSummaryTitle' <?if(isset($about[0]['summary']) && (!$found)) {echo 'value="'.$summary[0].'"'; } else{ echo 'style="display:none;"'; }?> type="text"  placeholder="Enter Text"  maxlength="25"/>
 				</div>
-				<div>
-				    <!-- <label >Summary</label> -->
-				    <div>
+				<div class="textarea_big">
+					<!-- <label >Summary</label> -->
+				    <textarea rows="3" name="summary" type="text"  placeholder="Enter text here" maxlength="1000" class="h200"><?if(isset($about[0]['summary']))echo $summary[1];?></textarea>
+				    
+				</div>
+				<div class="suggestion_box">
+				    	<h3>Suggestions</h3>
 				    	<span>Versatile</span>
 				    	<span>Creative</span>
 				    	<span>Focussed</span>
@@ -107,8 +111,7 @@
 				    	<span>Good understanding</span>
 				    	<span>Emphasis</span>
 				    </div>
-				   	<textarea rows="3" name="summary" type="text"  placeholder="Enter text here" maxlength="1000" class="h200"><?if(isset($about[0]['summary']))echo $summary[1];?></textarea>
-				</div>
+				 <div class="clearboth"></div>
 				<span class="clickr next" href='#objective_tab'>Continue</span>
 			</div>
 		</div>
@@ -164,21 +167,25 @@
 				</select>
 				<input id="objectivesTitle" name="cusObjectivesTitle" type="text" <?if(isset($about[0]['objective']) && (!$found)) {echo 'value="'.$objective[0].'"'; } else{ echo 'style="display:none;"'; }?> placeholder="Enter text here" />
 			</div>
-			<div >
+			<div class="textarea_big">
 			    <!-- <label >Objective</label> -->
-			    <div>
-			    	<span>Versatile</span>
-				    	<span>Creative</span>
-				    	<span>Focussed</span>
-				    	<span>Process oriented</span>
-				    	<span>Energetic</span>
-				    	<span>Proficient</span>
-				    	<span>Excellent track record</span>
-				    	<span>Good understanding</span>
-				    	<span>Emphasis</span>
-			    </div>
+			    
 			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here" class="h200"><?php if(isset($about[0]['objective'])) echo $objective[1]; ?></textarea>
 			</div>
+			<div class="suggestion_box">
+				<h3>Suggestions</h3>
+		    	<span>Versatile</span>
+		    	<span>Creative</span>
+		    	<span>Focussed</span>
+		    	<span>Process oriented</span>
+		    	<span>Energetic</span>
+		    	<span>Proficient</span>
+		    	<span>Excellent track record</span>
+		    	<span>Good understanding</span>
+		    	<span>Emphasis</span>
+			</div>
+			 <div class="clearboth"></div>
+
 			<span class="clickr next" href='#contact_tab'>Continue</span>
 		</div>
 		</div>

@@ -182,9 +182,9 @@ $('#addCompany').click(function()
 			html+=				'<input  type="text" name="cmpnyName[]" placeholder="Company name">';
 			html+=				'<input  name="cmpnyDesg[]" type="text"  placeholder="Designation">';
 			html+=				'<label >From</label>';
-			html+=				'<input  type="date"  class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" />';
+			html+=				'<input  type="text"  class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" />';
 			html+=				'<label >To</label>';
-			html+=				'<input  type="date"  class="half_date_picker" name="cmpnyTo[]" placeholder="Feb-2012" readonly="readonly" />';
+			html+=				'<input  type="text"  class="half_date_picker" name="cmpnyTo[]" placeholder="Feb-2012" readonly="readonly" />';
 			html+=			'</div>';
 			html+=		'</div >';
 		$('#company').append(html);

@@ -1,11 +1,11 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_home.css"); ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/responsiveslides.css"); ?>" />
 
 		<hr/>
-		<div class="touchslider">
-			<div class="touchslider-viewport slider_view" >
-				<div style="width:100%;">
-				<section class="touchslider-item">
-					<div class="zxcv">
+		
+		<ul class="rslides">
+		  <li>
+			  <div class="zxcv">
 						<div class="slide_top_1">
 							<span>1</span>
 							<h3>Choose your resume style</h3>
@@ -20,10 +20,10 @@
 							<p>Penning down your resume is not easy to do and when its finally complete there is no energy left to make it look good. Its the same drab black and white Word document you end up with. <br/><br/>Here is where we want to make a difference. We believe your resume is the most important document you ever created and hence we have designed a whole range of templates for you to pick from. With a face lift there is a good chance your resume brightens up your prospects to get selected from the pile. </p>
 						</div>
 						<div class="clearboth"></div>	
-					</div>
-				</section>
-				<section class="touchslider-item">
-					<div class="zxcv">
+			</div>
+		  </li>
+		  <li>
+			  <div class="zxcv">
 						<div class="slide_top_1">
 							<span>2</span>
 							<h3> Discover Yourself</h3>
@@ -38,10 +38,10 @@
 							<p>These are the most crutial pieces of information. A recruiter can keep or reject your resume based on how you project yourself. We understand your need for a good resume with chatchy phrases that build your personality and make an impact.<br/><br/>We have made form filling much easier, you don't have to think up beautiful words any more. We serve them to you as you go along. All you need to do is pick the best matches that suit your personality. Now, that is a step forward to help right! </p>
 						</div>
 						<div class="clearboth"></div>	
-					</div>
-				</section>
-				<section class="touchslider-item">
-					<div class="zxcv">
+			</div>
+		  </li>
+		  <li>
+			  <div class="zxcv">
 						<div class="slide_top_1">
 							<span>3</span>
 							<h3> Build Your Image</h3>
@@ -58,10 +58,10 @@
 							<p>At the end of the exercise of building your image and putting in all the right words together you want a great looking resume. We give you the choice of changing the template any number of times till you feel comfortable. <br/><br/>At the end of it, we want you to have a great looking resume that best describes you.</p>
 						</div>
 						<div class="clearboth"></div>	
-					</div>
-				</section>
-				<section class="touchslider-item">
-					<div class="zxcv">
+			</div>
+		  </li>
+		  <li>
+			  <div class="zxcv">
 						<div class="slide_top_1">
 							<span>4</span>
 							<h3>Register With EZCV</h3>
@@ -79,17 +79,9 @@
 						</div>
 						<div class="clearboth"></div>	
 					</div>
-				</section>
-				</div>
-			</div>
-			<div class="slider_nav">
-        		 <span class="touchslider-nav-item touchslider-nav-item-current"><a class="step1">1</a></span>
-       			 <span class="touchslider-nav-item"><a class="step2">2</a></span>
-       			 <span class="touchslider-nav-item"><a class="step3">3</a></span>
-        		 <span class="touchslider-nav-item"><a class="step4">4</a></span>
-			</div>
-		</div>
-		
+		  </li>
+		</ul>
+
 		<!-- <hr/>
 		<section class="services">
 			<h2>EZCV Services</h2>
@@ -159,15 +151,24 @@
 	</div>
 	<!--<script src="http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript"></script>-->
 
-<script src="<?php echo base_url("assets/js/jquery.touchslider.min.js"); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url("assets/js/responsiveslides.min.js"); ?>" type="text/javascript"></script>
 <script type="text/javascript">
-$(".touchslider").touchSlider({
-	autoplay: true,
+$(".rslides").responsiveSlides({
+  auto: true,             // Boolean: Animate automatically, true or false
+  speed: 500,            // Integer: Speed of the transition, in milliseconds
+  timeout: 4000,          // Integer: Time between slide transitions, in milliseconds
+  pager: true,           // Boolean: Show pager, true or false
+  nav: false,             // Boolean: Show navigation, true or false
+  random: false,          // Boolean: Randomize the order of the slides, true or false
+  pause: true,           // Boolean: Pause on hover, true or false
+  pauseControls: true,    // Boolean: Pause when hovering controls, true or false
+  prevText: "Previous",   // String: Text for the "previous" button
+  nextText: "Next",       // String: Text for the "next" button
+  maxwidth: "",           // Integer: Max-width of the slideshow, in pixels
+  navContainer: "",       // Selector: Where controls should be appended to, default is after the 'ul'
+  manualControls: "",     // Selector: Declare custom pager navigation
+  namespace: "rslides",   // String: Change the default namespace used
+  before: function(){},   // Function: Before callback
+  after: function(){}     // Function: After callback
 });
-//$(document).ready(function(){
-
-//	alert("rg");
-//	$(".touchslider").touchSlider({/*options*/});
-	
-	//});
 	</script>

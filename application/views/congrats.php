@@ -11,10 +11,10 @@
 }
 
 	.clickr{
+
 	width: 200px; height: 40px; line-height: 40px;
 	 display: block; text-align: center;
-	 margin-top: 100px;
-	cursor: pointer; text-decoration: none;
+	 margin: 0 auto;	cursor: pointer; text-decoration: none;
 	background: #f07057 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #c5533d;	color: #fff;	
 }
 
@@ -28,7 +28,7 @@
 		<div class="s_heading">
 			Acount activated successfully
 		</div>
-		<div class="download-main-inner">
+		
 			<a class="dbutton clickr" href="<? echo base_url('login');?>/">Login</a>
-		</div> 
+		
 

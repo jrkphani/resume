@@ -8,6 +8,7 @@
 	color: #fff;
 	font-size: 1.6em;
 	padding-left: 50px;
+
 }
 
 	.clickr{
@@ -16,6 +17,7 @@
 	 display: block; text-align: center;
 	 margin: 0 auto;	cursor: pointer; text-decoration: none;
 	background: #f07057 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #c5533d;	color: #fff;	
+	margin-top:100px;
 }
 
 .clickr:hover{

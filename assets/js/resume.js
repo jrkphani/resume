@@ -22,7 +22,7 @@ $(document).ready(function()
        clearTimeout(websitetime); 
        websitetime = setTimeout(function()
        {
-		   $('#website_err').html('');
+		   //$('#website_err').html('');
 		   gettiny('#website');
 		}, 1000)
 	});
@@ -565,7 +565,7 @@ function gettiny(divID)
 			$(divID+'_err').html('<a href="'+str1+'" target="_blank">Check</a>');
 			return true;
 		}
-		else
+		/*else
 		{
 			$(divID+'_err').html('Converting to tiny url...');
 			$.getJSON("http://json-tinyurl.appspot.com/?&callback=?", {
@@ -574,7 +574,7 @@ function gettiny(divID)
 				$(divID).val(data.tinyurl);
 				$(divID+'_err').html('<a href="'+data.tinyurl+'" target="_blank">Check</a>');
 			});	
-		}
+		}*/
 	}
 	else
 	{

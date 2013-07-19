@@ -838,7 +838,7 @@
 					<label >Valid till</label>
 					<!--<input  type="text" class="half_date_picker" name="passportFrom" placeholder="(2005)(Feb 2005)" value="<?=$passportDate[0];?>">
 					to-->
-					<input  type="text" class="half_date_picker" name="passportTo" placeholder="Feb-2012" value="<?=$passport_visa['passportTo'];?>" readonly="readonly" />
+					<input  type="text" class="feature_date_picker" name="passportTo" placeholder="Feb-2012" value="<?=$passport_visa['passportTo'];?>" readonly="readonly" />
 				</div>
 				<div>
 					<label >Visa details</label>
@@ -848,7 +848,7 @@
 					<label >Valid till</label>
 					<!--<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)" value="<?=$visaDate[0];?>">
 					to-->
-					<input  type="text" class="half_date_picker" name="visaTo" placeholder="Feb-2012" value="<?=$passport_visa['visaTo'];?>" readonly="readonly" />
+					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="Feb-2012" value="<?=$passport_visa['visaTo'];?>" readonly="readonly" />
 				</div>
 			<?}
 			else

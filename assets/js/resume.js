@@ -535,7 +535,7 @@ function datepic()
     $('.feature_date_picker').datepicker({
 		changeMonth: true,
         changeYear: true,
-        dateFormat: 'MM-yy',
+        dateFormat: 'M-yy',
         yearRange:'c-80:c+80',
 		});
     

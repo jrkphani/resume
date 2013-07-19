@@ -102,7 +102,7 @@ $passport_visa = unserialize($about['passport_visa']);
   <div class="clearall"></div>
   <? } ?>
   <!---------------------------experience---------------------------->
-  
+    <?  if(array_filter($cmpnyName)){ ?>
   <div class="experience">
     <div class="left_content">
       <div class="left_icon"></div>
@@ -156,7 +156,7 @@ $passport_visa = unserialize($about['passport_visa']);
     </div>
   </div>
   <div class="clearall"></div>
-  
+  <? } ?>
   
   
   <!---------------------------skills---------------------------->
@@ -396,21 +396,21 @@ $passport_visa = unserialize($about['passport_visa']);
 		  $married = 'Unmarried';
 		  ?>
         <p>Marital status : <?=$married?></p>
-      <?}?>
+      <? }?>
       <? if($passport_visa['passport'])
       {
 		  //$passportDate=explode('#',$passport_visa['passportdate']);
 		  ?>
         <p>Passport details : <?=$passport_visa['passport'];?></p>
-        <p>Validity : <?php //$passportDate[0]; ?>till <?=$passport_visa['passportTo'];?></p>
-      <?}?>
+        <p>Valid : <?php //$passportDate[0]; ?>till <?=$passport_visa['passportTo'];?></p>
+      <? }?>
       <? if($passport_visa['visa'])
       {
 		  //$visaDate= explode('#',$passport_visa['visadate']);
 		  ?>
         <p>Visa details : <?=$passport_visa['visa'];?></p>
-        <p>Validity : <?php //$visaDate[0];?>till <?=$passport_visa['visaTo'];?></p>
-      <?}?>
+        <p>Valid : <?php //$visaDate[0];?>till <?=$passport_visa['visaTo'];?></p>
+      <? }?>
     </div>
    </div>    
     <div class="clearall"></div>
@@ -426,19 +426,19 @@ $passport_visa = unserialize($about['passport_visa']);
       
         <p><?=nl2br($user_detail['address']);?></p>
         
-        <?if($user_detail['skype']) { ?>
+        <? if($user_detail['skype']) { ?>
         <p><?=$user_detail['skype'];?></p>
         <? } ?>
         
-        <?if($website['linkedin']) { ?>
+        <? if($website['linkedin']) { ?>
         <p><?=$website['linkedin'];?></p>
         <? } ?>
         
-        <?if($website['twitter']) { ?>
+        <? if($website['twitter']) { ?>
         <p><?=$website['twitter'];?></p>
         <? } ?>
         
-        <?if($website['facebook']) { ?>
+        <? if($website['facebook']) { ?>
         <p><?=$website['facebook'];?></p>
         <? } ?>
     </div>

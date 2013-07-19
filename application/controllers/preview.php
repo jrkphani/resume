@@ -101,6 +101,7 @@ class Preview extends CI_Controller {
 			foreach($awdtitle as $single)
 			{
 				$award_date[] = $awdFrom[$count].'#'.$awdTo[$count];
+				$count++;
 			}
 			$awards = array(
 			'title'=>serialize($awdtitle),
@@ -137,6 +138,7 @@ class Preview extends CI_Controller {
 			foreach($eduInst as $single)
 			{
 				$edu_date[] = $eduFrom[$count].'#'.$eduTo[$count];
+				$count++;
 			}
 			$education = array(
 			'institution'=>serialize($eduInst),

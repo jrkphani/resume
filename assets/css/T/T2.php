@@ -26,7 +26,7 @@ body h1,h2,h3,h4,{font-weight:normal;}
 .clearall{clear:both;}
 .wrapper {width:100%;}
 
-.left{float:left; width:10%; display: block; margin: 0 15px 0 40px;  text-align:right;}
+.left{float:left; width:8%; display: block; margin: 0 15px 0 40px;  text-align:right;}
 .right{float:right; width:76%;display: block; margin: 0 40px 0 10px; }
 
 .left1_center1{float:left; width:66%;  margin: 0 0px 0px; padding:5px 0 0 0;}
@@ -68,7 +68,7 @@ body h1,h2,h3,h4,{font-weight:normal;}
 
 /*************************************************************  experience  ***********************************************************************************************/
 
-.wrapper .left1_center1 .exp_yers{padding:0 0 0 152px;}
+/* .wrapper .left1_center1 .exp_yers{} */
 .wrapper .center1{color:#3f3f3f;}
 .wrapper .right1{}
 

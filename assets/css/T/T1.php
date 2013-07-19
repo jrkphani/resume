@@ -58,7 +58,7 @@ a{text-decoration:none;}
 
 /************************************************header*********************************************************/
 
-.wrapper .header_top .header_box1{width:100%;  background-color:#069fcf; color:#fff; float:left;}
+.wrapper .header_top .header_box1{width:791px;  background-color:#069fcf; color:#fff; float:left;}
 
 .wrapper .header_top .header_box1 p.name{font-size:18px; padding:10px 0 4px 30px;}
 .wrapper .header_top .header_box1 p.desigi{font-size:15px; padding:4px 0 10px 30px;}
@@ -76,7 +76,7 @@ a{text-decoration:none;}
 .wrapper .header .header_box3 p{ font-size:13px; color:#ffffff; padding:21px 0 0 0;}
 .wrapper .header .header_box3 .header_box3_center_img{background:url(<?=$baseurl?>assets/img/Templates/mobile.gif) no-repeat scroll 50% 100%; height:53px;}
 
-.wrapper .header .header_box4{width:34%; height:103px; float:left; background-color:#61b100; text-align:center;}
+.wrapper .header .header_box4{width:269px; height:103px; float:left; background-color:#61b100; text-align:center;}
 /*.wrapper .header .header_box4 .header_box4_atag{ padding:21px 0 0 0;}*/
 .wrapper .header .header_box4 .header_box4_atag p{font-size:13px; color:#ffffff; padding:21px 0 0 0;}
 .wrapper .header .header_box4 .header_box4_center_img{background:url(<?=$baseurl?>assets/img/Templates/sms.gif) no-repeat scroll 50% 80%; height:53px;}

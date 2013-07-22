@@ -102,22 +102,34 @@ $passport_visa = unserialize($about['passport_visa']);
   <div class="clearall"></div>
   <? } ?>
   <!---------------------------experience---------------------------->
-    <?  if(array_filter($cmpnyName)){ ?>
+    <?  if(array_filter($cmpnyName) || ($compensation[0]) || ($user_detail['experience']!='0.0')){ ?>
   <div class="experience">
     <div class="left_content">
       <div class="left_icon"></div>
     </div>
     <div class="right_content">
       <h1>EXPERIENCE SUMMARY</h1>
-      
+      <?
+      if($user_detail['experience']){
+		  $experience = explode('.',$user_detail['experience']);
+		  ?>
       <h4>
-      	    <p>Total: <?=$user_detail['experience'];?> </p>
+		
+      	    <p>Total: <?=$experience[0];?> Years, <?=$experience[1];?> Months</p>
       </h4> <div class="clearall"></div>
-      <? if(array_filter($compensation)) { ?>
+      
+      <? }
+      
+       if($compensation[0])
+      {?>
        <h2><i>Current CTC: &nbsp;<?=$compensation[2];?> <?=$compensation[0];?>/-</i></h2>
+       <? }
+       
+        if($compensation[1])
+      {?>
         <h3><i>Expected CTC: &nbsp;<?=$compensation[2];?> <?=$compensation[1];?>/-</i></h3><div class="clearall"></div>
         <div class="spr">&nbsp;</div>
-        <? } ?>
+         <? } ?>
     </div>
     <div class="clearall"></div>
     <? 
@@ -244,7 +256,7 @@ $passport_visa = unserialize($about['passport_visa']);
           <?=$projUrl[$i];?>
         </p>
         <h4>Project Description</h4>
-        <p> <?=$projDesc[$i];?> </p>
+        <p> <?=nl2br($projDesc[$i]);?> </p>
       </div>
       <div class="clearall"></div>
       <? $i++; } ?>

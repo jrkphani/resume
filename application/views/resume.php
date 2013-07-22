@@ -494,7 +494,7 @@
 					 foreach($skillName as $row)
 					 {
 				?>
-						 <div id="s<?=$i;?>">
+						 <div id="s<?=$i;?>" class="mytb_added">
 						 <? if($i) {?>
 						<span class="button remove formRemoveBtn" onclick=removeId("s<?=$i;?>");>Remove</span>
 						<? } ?>

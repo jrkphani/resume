@@ -28,6 +28,7 @@ $intresttitle= unserialize($about['intresttitle']);
 $intrestDesc= unserialize($about['intrestDesc']);
 $intrestUrl= unserialize($about['intrestUrl']);
 $passport_visa = unserialize($about['passport_visa']);
+$skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","Very Good","Expert");
 ?>
 </style>
 
@@ -43,7 +44,7 @@ $passport_visa = unserialize($about['passport_visa']);
           <?=$user_detail['mobile'];?>
         </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span class="conatct_1">
-          <?=$user_detail['secondary_email'];?>
+         
         </span>
         <p class="conatct_3">
           <?=nl2br($user_detail['address']);?>
@@ -93,16 +94,29 @@ $passport_visa = unserialize($about['passport_visa']);
     <div class="left_exp">
       <p>Experience Summary</p>
     </div>
+      <?
+      if($user_detail['experience']!='0.0'){
+		  $experience = explode('.',$user_detail['experience']);
+		  ?>
     <div class="right_exp">
     	<div class="spr">
           <p>
-                <span>Total: <?=$user_detail['experience'];?></span>
-          </p>  <div class="clearall"></div>
+                <span>Total: <?=$experience[0];?> Years, <?=$experience[1];?> Months</span>
+          </p>  <div class="clearall"></div>     
+					<? }
+          
+           if($compensation[0])
+          {?>
           <h2 class="cctc"><span>Current CTC:</span> <?=$compensation[2];?> <?=$compensation[0];?>/-</h2>
-          <h3 class="ectc"><span>Expected CTC:</span> <?=$compensation[2];?> <?=$compensation[1];?>/-</h3><div class="clearall"></div>
-          <div class="spr1">&nbsp;</div>
+					 <? }
+           
+            if($compensation[1])
+          {?>
+          <h3 class="ectc"><span>Expected CTC:</span> <?=$compensation[2];?> <?=$compensation[1];?>/-</h3>
+         <div class="clearall"></div>
+          <div class="spr1">&nbsp;</div><? } ?>
       </div>
-      <div class="clearall"></div>
+      
 				 <? 
             $i=0;
             foreach($cmpnyName as $cmpny) {
@@ -140,33 +154,43 @@ $passport_visa = unserialize($about['passport_visa']);
       <p>Skills</p>
     </div>
     <div class="right_skill">
-    <? if(array_filter($skillName)) { ?>
+    	<? if(array_filter($skillName)) { ?>
       <div class="first_skill">
         <div>
           <p>My Tool Box</p>
         </div>
-
-        
         <div class="mskill">
-			<?
+          <?
 			$i=0; 
 			foreach($skillName as $name)
-			{?>
-          <p class="fskill"><?=$name;?></p><p class="level"><?=$skillEff[$i];?></p>
-			<?
+			{
+				$skillEffcount=$skillEff[$i];
+				?>
+          <div class="fskill">
+            <?=$name;?>
+          </div>
+          <div class="level pbar">
+            <div class="pbar_inner">
+              <div class="pbar_fill pbar<?=$skillEffcount;?>"> </div>
+            </div>
+            <span>
+              <?=$skillEffname[$skillEffcount-1];?>
+            </span>
+          </div>
+          <?
 			$i++;
 			}?>
-      
         </div>
-      </div>  <div class="clearall"></div>
+      </div>  
+      <div class="clearall"></div>
       <? } ?>
       
       
       <? if(array_filter($otherSkills)) { ?>
       <div class="other_skill">
-        <div>
-          <p>My Strengths</p>
-        </div>
+        
+          <p class="str">My Strengths</p>
+        
         <div class="mskill">
         <?
 			$i=0; 
@@ -179,13 +203,13 @@ $passport_visa = unserialize($about['passport_visa']);
        </div>
       </div>
       <div class="clearall"></div>      
-      <p><?=$about['mystrength'];?></p>
+      <p class="other_discrip"><?=$about['mystrength'];?></p>
     </div>
     <? } ?>
   </div>
   <div class="clearall"></div>
   <? } ?>
-  <!----------------------------------------------------project---------------------------------------------------------------------------->
+  <!-- project -->
   
   <? if(array_filter($projName)) { ?>
   <div class="project">
@@ -200,7 +224,7 @@ $passport_visa = unserialize($about['passport_visa']);
       <div class="desig"><p><?=$proj;?></p></div>
       <p class="from"><?=$projRole[$i];?></p>
       <p class="company_name"><?=$projUrl[$i];?></p>
-      <p class="pro_desc_tit">Project Description</p>
+<!--      <p class="pro_desc_tit">Project Description</p>-->
       <p class="descrip"><?=$projDesc[$i];?></p>
      <!-- <p class="pro_obj_tit">What I Like About It</p>
       <p class="descrip">a Primary role as a Business Analyst and secondary role as a System Analyst in Procurement Domain (Purchase – Pay). A complete process automation of procurement from Purchase Requests till Invoice Generation including Reports Generation (Management Information systems ).</p>
@@ -210,7 +234,7 @@ $passport_visa = unserialize($about['passport_visa']);
   </div>
   <div class="clearall"></div>
   <? } ?>
-  <!----------------------------------------------------recommandations---------------------------------------------------------------------------->
+  <!-- recommandations -->
   
 <!--  <div class="recommand">
     <div class="left_cmd">
@@ -225,7 +249,7 @@ $passport_visa = unserialize($about['passport_visa']);
   </div>
   <div class="clearall"></div>-->
   
-    <!----------------------------------------------------reference---------------------------------------------------------------------------->
+    <!-- ------------------------------------------------reference---------------------------------------------------------------------- -->
 <!--  
   <div class="reference">
     <div class="left_ref">
@@ -241,7 +265,7 @@ $passport_visa = unserialize($about['passport_visa']);
   </div>
   <div class="clearall"></div>-->
   
-  <!----------------------------------------------------education---------------------------------------------------------------------------->
+  <!-- ---------------------------------------------education-------------------------------------------------------------------- -->
    <? if(array_filter($eduInst)) { ?>
   <div class="education">
     <div class="left_edu">
@@ -270,7 +294,7 @@ $passport_visa = unserialize($about['passport_visa']);
   </div>
   <div class="clearall"></div>
   <? } ?>
-    <!----------------------------------------------------awards---------------------------------------------------------------------------->
+    <!-- --------------------------------------------------awards------------------------------------------------------------------------- -->
 <? if(array_filter($awdTitle)){ ?>
   <div class="awards">
     <div class="left_award">
@@ -298,7 +322,7 @@ $passport_visa = unserialize($about['passport_visa']);
   </div>
   <div class="clearall"></div>
   <? } ?>
-    <!----------------------------------------------------interest---------------------------------------------------------------------------->
+    <!-- --------------------------------------------------interest-------------------------------------------------------------------------- -->
   <? if(array_filter($intresttitle)) { ?>
   <div class="interest">
     <div class="left_int">
@@ -323,7 +347,7 @@ $passport_visa = unserialize($about['passport_visa']);
   </div>
   <div class="clearall"></div>
   <? } ?>
-    <!----------------------------------------------------other details---------------------------------------------------------------------------->
+    <!-- --------------------------------------------------other details-------------------------------------------------------------------------- -->
     <? if(($user_detail['married']) || ($passport_visa['passport']) || ($passport_visa['visa']))
     {?>
   <div class="other_dls">
@@ -333,6 +357,9 @@ $passport_visa = unserialize($about['passport_visa']);
 
     <div class="right_dls">
       <div class="address_name">
+      <? if($user_detail['dob']){?>
+      <p>DOB : <?=$user_detail['dob'];?></p>
+ 			 <? } ?>
       <? if($user_detail['married']!=NULL)
       {
 		  if($user_detail['married'] == 1)
@@ -360,30 +387,32 @@ $passport_visa = unserialize($about['passport_visa']);
   <? } ?>
   <div class="clearall"></div>
 
-  <!----------------------------------------------------contacts---------------------------------------------------------------------------->
+  <!-- --------------------------------------------------contacts-------------------------------------------------------------------------- -->
   <div class="contact_footer">
     <div class="left_contact">
       <p><?=$user_detail['contactTitle'];?></p>
     </div>
     <div class="right_contact">
     
-      <p>
-      <span id="contancs1"><?=$website['mylink'];?></span>&nbsp;&nbsp;&nbsp;&nbsp;
+     
+       <p id="">Mail id : <?=$user_detail['secondary_email'];?></p>
+       
+      <p id="">Url : <?=$website['mylink'];?></p>
       
       <? if($website['facebook']) { ?>
-      <span id="contancs2"><?=$website['facebook'];?></span>&nbsp;&nbsp;&nbsp;&nbsp;
+      <p id="">Facebook : <?=$website['facebook'];?></p>
       <? } ?>
       
       <? if($website['linkedin']) { ?>
-      <span id="contancs3"><?=$website['linkedin'];?></span>&nbsp;&nbsp;&nbsp;&nbsp;
+      <p id="">LinkedIn : <?=$website['linkedin'];?></p>
       <? } ?>
       
       <? if($website['twitter']) { ?>
-      <span id="contancs4"><?=$website['twitter'];?></span>&nbsp;&nbsp;&nbsp;&nbsp;
+      <p id="">Twitter : <?=$website['twitter'];?></p>
       <? } ?>
       
        <? if($user_detail['skype']) { ?>
-      <span id="contancs5"><?=$user_detail['skype'];?></span></p>
+      <p id="">Skype : <?=$user_detail['skype'];?></p>
       <? } ?>
       
     </div>

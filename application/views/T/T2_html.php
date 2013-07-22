@@ -28,6 +28,7 @@ $intresttitle= unserialize($about['intresttitle']);
 $intrestDesc= unserialize($about['intrestDesc']);
 $intrestUrl= unserialize($about['intrestUrl']);
 $passport_visa = unserialize($about['passport_visa']);
+$skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","Very Good","Expert");
 ?>
 </style>
 
@@ -85,10 +86,22 @@ $passport_visa = unserialize($about['passport_visa']);
   
     <div class="left1_center1">
     	<div class="exp_yers center1">
-        <h1 class="styles italics">Experience Summary</h1>        
-        <h4><p>Total: <?=$user_detail['experience'];?></p></h4>
-        <h2>Current CTC: <span><?=$compensation[0];?>/-</span></h2>
-        <h3>Expected CTC: <span><?=$compensation[1];?>/-</span></h3>
+        <h1 class="styles italics">Experience Summary</h1> 
+				<?
+        if($user_detail['experience']!='0.0'){
+        $experience = explode('.',$user_detail['experience']);
+        ?>       
+        <h4><p>Total: <?=$experience[0];?> Years, <?=$experience[1];?> Months</p></h4>
+       <? }      
+       if($compensation[0])
+     	 { ?>
+        <h2>Current CTC: <span><?=$compensation[2];?> <?=$compensation[0];?>/-</span></h2>
+       <? }
+       
+        if($compensation[1])
+   	   {?>
+        <h3>Expected CTC: <span><?=$compensation[2];?> <?=$compensation[1];?>/-</span></h3>
+        <? } ?>
       </div>  
       <div class="clearall"></div>
    		 <? 
@@ -127,14 +140,37 @@ $passport_visa = unserialize($about['passport_visa']);
     	<? if(array_filter($skillName)){ ?>
     	<h1 class="styles italics">My Tool Box</h1>
       	<div class="skill1_container">
-					<? 
-            $i=0;
-            foreach($skillName as $name) {
-          ?>
-         <p id="skill1" class="styles bullet"><?=$name;?></p><p id="skill_level" class="styles"><?=$skillEff[$i];?></p>
+			<?
+			$i=0; 
+			foreach($skillName as $name)
+			{
+				$skillEffcount=$skillEff[$i];
+				?>
+         <p id="skill1" class="styles bullet"><?=$name;?></p>
+         
+        
+         
+                <div id="skill_level" class="styles pbar">
+                <div class="pbar_inner">
+                  <div class="pbar_fill pbar<?=$skillEffcount;?>"> 
+                  </div>
+                </div>
+                
+                  <p><?=$skillEffname[$skillEffcount-1];?></p>
+                
+              </div>
+         
+         
          <? $i++; } ?><div class="clearall"></div>
         </div><div class="clearall"></div>
        <? } ?>
+       
+       
+       
+  <!-- other skills-->     
+       
+       
+       
        
        <? if(array_filter($otherSkills)) { ?>
        <h1 class="styles italics">My Strengths</h1>
@@ -190,7 +226,7 @@ $passport_visa = unserialize($about['passport_visa']);
           <p class="company_name"><?=$proj;?></p>   
           <p class="disig"><?=$projRole[$i];?></p>
           <p class="url styles"><?=$projUrl[$i];?></p>
-          <p class="pro_descrip styles">Project Description</p>
+<!--          <p class="pro_descrip styles">Project Description</p>-->
           <p class="decrip styles2"><?=$projDesc[$i];?></p>
           
     <!--          <p class="pro_descrip styles">What I Like About It</p>

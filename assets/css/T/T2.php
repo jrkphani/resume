@@ -91,13 +91,34 @@ body h1,h2,h3,h4,{font-weight:normal;}
 
 .skill1_container{padding:15px 0 0 0px;}
 .skill1_container #skill1{width:72%; float:left;}
-.skill1_container #skill_level{width:19%; float:right; text-align:right;} 
+.skill1_container #skill_level{width:95%;  text-align:right;} 
 .skill1_container .bullet{padding:0 0 0 20px; line-height:20px; background:url(<?=$baseurl?>assets/img/Templates/t10_bul.jpg) no-repeat 0% 45%;}
 .skill1_container .bullet {}
 .skill1_container .descp{padding:10 0 15px 0px;}
 
 
+.pbar{ height: 20px; }
 
+.pbar_inner{ 
+ width: 60%;  height: 6px;  margin-top: 6px; float: left; 
+ background-color: #dbdbdb; border:solid 1px #bebebe; }
+
+.pbar_fill{
+ width: 40%; height: 100%; margin-top: -1px;
+ background-color: #069fcf; border:solid 1px #089cca;}
+
+.pbar p{
+ width: 100px;  display: inline; 
+ margin-left: 10px; line-height: 20px; text-transform: capitalize;}
+
+.pbar1{ width: 12.5% !important;}
+.pbar2{ width: 25% !important;}
+.pbar3{ width: 37.5% !important;}
+.pbar4{ width: 50% !important;}
+.pbar5{ width: 62.5% !important;}
+.pbar6{ width: 75% !important;}
+.pbar7{ width: 87.5% !important;}
+.pbar8{ width: 100% !important;}
 
 /*************************************************************  project  ***********************************************************************************************/
 

@@ -88,7 +88,7 @@ a{text-decoration:none;}
 .summary .left_content .left_icon{ /*width:180px;*/ height:42px; border-radius:0 30px 30px 0; background:url(<?=$baseurl?>assets/img/Templates/summary.png) no-repeat scroll 83% 50%;}
 .summary .right_content{width:80%; float:right;}
 .summary .right_content h1{font-size:15px; font-weight:bold; padding:15px 0 8px 0; color:#7e7e7e; text-transform:uppercase;}
-.summary .right_content p{font-size:14px; line-height: 20px;text-align:justify; color:#7e7e7e; margin:0px 18px 0 44px; }
+.summary .right_content p{font-size:14px; line-height: 20px;text-align:left; color:#7e7e7e; margin:0px 18px 0 44px; }
 
 /*********************************************** objective ***********************************************************/
 
@@ -97,7 +97,7 @@ a{text-decoration:none;}
 .objective .left_content .left_icon{ /*width:180px;*/ height:42px; border-radius:0 30px 30px 0; background:url(<?=$baseurl?>assets/img/Templates/obj2.png) no-repeat scroll 83% 50%;}
 .objective .right_content{width:80%; float:right;}
 .objective .right_content h1{font-size:15px; font-weight:bold; padding:15px 0 8px 0; color:#7e7e7e; text-transform:uppercase;}
-.objective .right_content p{font-size:14px; line-height: 20px;text-align:justify; color:#7e7e7e; margin:0px 18px 0 44px; }
+.objective .right_content p{font-size:14px; line-height: 20px;text-align:left; color:#7e7e7e; margin:0px 18px 0 44px; }
 
 /*********************************************** experience ***********************************************************/
 
@@ -131,9 +131,9 @@ a{text-decoration:none;}
 .experience_content_lft .year_to{font-size:12px; color:#00c1ea; margin:0px 0 10px 40px;}
 
 .experience_content .experience_content_rit{width:80%; float:right; padding:0 0 5px 0;}
-.experience_content_rit h2{width: 45%; float: left; font-size: 12px; line-height: 28px; color: #5b5a5a; margin: 10px 0px 0 44px; font-weight: bold; text-transform: uppercase;}
-.experience_content_rit h3{width: 45%; float: left; font-size: 12px; line-height: 28px; color: #5b5a5a; margin: 10px 0px 0 0px;  font-weight: bold; text-transform: uppercase; padding:0 0 0 0; text-align: right;}
-.experience_content_rit p{font-size:14px; line-height: 20px;text-align:justify; color:#7e7e7e; margin:0px 18px 0 44px; clear: both; }
+.experience_content_rit h2{width: 45%; float: left; font-size: 12px; line-height: 16px; color: #5b5a5a; margin: 16px 0px 0 44px; font-weight: bold; text-transform: uppercase;}
+.experience_content_rit h3{width: 45%; float: left; font-size: 12px; line-height: 16px; color: #5b5a5a; margin: 16px 0px 0 0px;  font-weight: bold; text-transform: uppercase; padding:0 0 0 0; text-align: right;}
+.experience_content_rit p{font-size:14px; line-height: 20px;text-align:left; color:#7e7e7e; margin:0px 18px 0 44px; clear: both; }
 
 /*********************************************** projects ***********************************************************/
 
@@ -158,14 +158,14 @@ a{text-decoration:none;}
 .projects .comment_content_lft .year_to{font-size:14px; color:#00c1ea; margin:0px 0 10px 40px;}*/
 
 .projects .comment_content_rit{width:80%; float:right; padding:0 0 10px 0;}
-.projects .comment_content_rit h2{width: 45%; float: left; font-size: 12px; line-height: 28px; color: #5b5a5a; margin: 0px 0px 0 44px; font-weight: bold; text-transform: uppercase;}
-.projects .comment_content_rit h3{width: 45%; float: left; font-size: 12px; line-height: 28px; color: #5b5a5a; margin: 0px 0px 0 0px;  font-weight: bold; text-transform: uppercase; padding:0 0 0 0; text-align: right;}
+.projects .comment_content_rit h2{width: 45%; float: left; font-size: 12px; line-height: 16px; color: #5b5a5a; margin: 6px 0px 5px 44px; font-weight: bold; text-transform: uppercase;}
+.projects .comment_content_rit h3{width: 45%; float: left; font-size: 12px; line-height: 16px; color: #5b5a5a; margin: 6px 0px 5px 0px;  font-weight: bold; text-transform: uppercase; padding:0 0 0 0; text-align: right;}
 
 .projects .comment_content_rit h4{width: 45%; float: left; font-size: 12px; line-height: 28px; color: #5b5a5a; margin: 7px 0px 0 44px; font-weight: bold; text-transform: uppercase;}
 
 
 
-.projects .comment_content_rit p{font-size:14px; line-height: 20px;text-align:justify; color:#7e7e7e; margin:5px 10px 0 44px; clear: both; }
+.projects .comment_content_rit p{font-size:14px; line-height: 20px;text-align:left; color:#7e7e7e; margin:5px 10px 0 44px; clear: both; }
 
 
 /*********************************************** recommentation ***********************************************************/
@@ -192,7 +192,7 @@ a{text-decoration:none;}
 .recommendations .comment_content_rit{width:80%; float:right; padding:0 0 0px 0;}
 .recommendations .comment_content_rit h2{width: 45%; float: left; font-size: 12px; line-height: 28px; color: #5b5a5a; margin: 0px 0px 0 44px; font-weight: bold; text-transform: uppercase;}
 .recommendations .comment_content_rit h3{width: 45%; float: left; font-size: 12px; line-height: 28px; color: #5b5a5a; margin: 0px 0px 0 0px;  font-weight: bold; text-transform: uppercase; padding:0 0 0 0; text-align: right;}
-.recommendations .comment_content_rit p{font-size:14px; line-height: 20px;text-align:justify; color:#7e7e7e; margin:5px 10px 0 44px; clear: both; }
+.recommendations .comment_content_rit p{font-size:14px; line-height: 20px;text-align:left; color:#7e7e7e; margin:5px 10px 0 44px; clear: both; }
 
 
 /*********************************************** reference ***********************************************************/
@@ -237,7 +237,7 @@ a{text-decoration:none;}
 .awards .right_content h1{font-size:15px; font-weight:bold; padding:15px 0 8px 0; color:#7e7e7e; text-transform:uppercase;}
 .awards .right_content h2{font-size:18px; line-height:28px; color:#000; margin:20px 10px 0 44px;}
 .awards .right_content h2 span{margin:0 0 0 100px;}
-.awards .right_content p{font-size:14px; line-height: 20px;text-align:justify; color:#7e7e7e; margin:20px 10px 0 44px;}
+.awards .right_content p{font-size:14px; line-height: 20px;text-align:left; color:#7e7e7e; margin:20px 10px 0 44px;}
 
 
 
@@ -248,7 +248,7 @@ a{text-decoration:none;}
 .awards_content .awards_content_rit{width:80%; float:right; padding:0 0 5px 0;}
 .awards_content_rit h2{width: 45%; float: left; font-size: 12px; line-height: 28px; color: #5b5a5a; margin: 0px 0px 0 44px; font-weight: bold; text-transform: uppercase;}
 .awards_content_rit h3{float: left; font-size: 12px; line-height: 28px; color: #5b5a5a; margin: 0px 0px 0 44px;  font-weight: bold; text-transform: uppercase; padding:0 0 0 0; text-align: right;}
-.awards_content_rit p{font-size:14px; line-height: 20px;text-align:justify; color:#7e7e7e; margin:0px 18px 0 44px; clear: both; }
+.awards_content_rit p{font-size:14px; line-height: 20px;text-align:left; color:#7e7e7e; margin:0px 18px 0 44px; clear: both; }
 
 
 
@@ -270,12 +270,12 @@ a{text-decoration:none;}
 
 
 .edu_content .edu_content_lft{width:15%; float:left;}
-.edu_content .edu_content_lft .year_from{font-size:12px; color:#00c1ea; margin:8px 0 5px 40px;}
+.edu_content .edu_content_lft .year_from{font-size:12px; color:#00c1ea; margin:9px 0 5px 40px;}
 .edu_content .edu_content_lft .year_to{font-size:12px; color:#00c1ea; margin:0px 0 10px 40px;}
 
 .edu_content .edu_content_rit{width:80%; float:right; padding:0 0 0px 0;}
-.edu_content .edu_content_rit h2{width: 45%; float: left; font-size: 12px;  color: #5b5a5a; margin: 7px 0px 0 44px; font-weight: bold; text-transform: uppercase;}
-.edu_content .edu_content_rit h3{width: 45%; float: left; font-size: 12px;  color: #5b5a5a; margin: 0px 0px 0 0px;  font-weight: bold; text-transform: uppercase; padding:0 0 0 0; text-align: right;}
+.edu_content .edu_content_rit h2{width: 45%; float: left; font-size: 12px;  color: #5b5a5a; margin: 7px 0px 0 44px; line-height: 16px; font-weight: bold; text-transform: uppercase;}
+.edu_content .edu_content_rit h3{width: 45%; float: left; font-size: 12px;  color: #5b5a5a; margin: 7px 0px 0 0px;  line-height: 16px;  font-weight: bold; text-transform: uppercase; padding:0 0 0 0; text-align: right;}
 .edu_content .edu_content_rit p{font-size:13px;  color:#7e7e7e; margin:0px 10px 0 44px; clear: both; line-height: 26px;}
 
 
@@ -289,15 +289,15 @@ a{text-decoration:none;}
 .skills .right_content h1{font-size:15px; font-weight:bold; padding:15px 0 8px 0; color:#7e7e7e; text-transform:uppercase;}
 .skills .right_content p{font-size:12px; line-height: 20px;text-align:justify; color:#5b5a5a; font-weight:bold; margin:0px 10px 15px 0px;}
 
-.skills .right_content .main_skills{float:left; width:80%; margin:0px 0px 20px 44px; }
+.skills .right_content .main_skills{float:left; width:91%; margin:0px 0px 20px 44px; }
 
 .skills .right_content .main_skills  .mskill div{}
 
-.skills .right_content .main_skills  .mskill div .fskill{ width:65%;font-size:14px; font-weight:normal; float:left; display: inline; background:url(<?=$baseurl?>assets/img/Templates/bull1.gif) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;}
+.skills .right_content .main_skills  .mskill div .fskill{ width:270px;   font-size:14px; font-weight:normal; float:left; display: inline; background:url(<?=$baseurl?>assets/img/Templates/bull1.gif) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;  margin: 15px 0 0 0;}
 
-.skills .right_content .main_skills  .mskill div .level{width:15%; font-size:14px; display: inline; float:right; font-weight:normal; text-align:right; padding:0px 0 0px 20px;}
+.skills .right_content .main_skills  .mskill div .level{width:280px;  font-size:14px; display: inline; float:right; font-weight:normal; text-align:right; padding:0px 0 0px 0px; margin:15px 0 0 0;}
 
-
+.skills .right_content .main_skills .mskill div .level p{ display:inline;  width:100px; margin:0;}
 
 
 
@@ -308,14 +308,41 @@ a{text-decoration:none;}
 
 
 
-.skills .right_content .other_skills  .mskill div .sskill{ width:65%;font-size:14px; font-weight:normal; float:left; display: inline; background:url(<?=$baseurl?>assets/img/Templates/bull1.gif) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;}
+.skills .right_content .other_skills  .mskill div .sskill{ width:280px;font-size:14px; font-weight:normal; float:left; display: inline; background:url(<?=$baseurl?>assets/img/Templates/bull1.gif) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;}
 
-.skills .right_content .other_skills  .mskill div .slevel{width:15%; font-size:14px; display: inline; float:right; font-weight:normal; text-align:right; padding:0px 0 0px 20px;}
-
-
+.skills .right_content .other_skills  .mskill div .slevel{width:260px;  font-size:14px; display: inline; float:right; font-weight:normal; text-align:right; padding:0px 0 0px 20px;}
 
 
-.skills .right_content .skill_content{font-size:14px; line-height: 20px; text-align:justify; color:#7e7e7e; margin:0px 18px 0 44px; font-weight:normal; clear:both;}
+
+
+.skills .right_content .skill_content{font-size:14px; line-height: 20px; text-align:left; color:#7e7e7e; margin:0px 18px 0 44px; font-weight:normal; clear:both;}
+
+
+
+
+.pbar{ width: 260px; height: 20px; }
+
+.pbar_inner{ 
+ width: 60%;  height: 6px;  margin-top: 6px; float: left; 
+ background-color: #dbdbdb; border:solid 1px #bebebe; }
+
+.pbar_fill{
+ width: 40%; height: 100%; margin-top: -1px;
+ background-color: #069fcf; border:solid 1px #089cca;}
+
+.pbar p{
+ width: 100px;  display: inline; 
+ margin-left: 10px; line-height: 20px; text-transform: capitalize;}
+
+.pbar1{ width: 12.5% !important;}
+.pbar2{ width: 25% !important;}
+.pbar3{ width: 37.5% !important;}
+.pbar4{ width: 50% !important;}
+.pbar5{ width: 62.5% !important;}
+.pbar6{ width: 75% !important;}
+.pbar7{ width: 87.5% !important;}
+.pbar8{ width: 100% !important;}
+
 
 /*********************************************** interest ***********************************************************/
 .interest{padding:18px 0 0px 0;}
@@ -339,9 +366,9 @@ a{text-decoration:none;}
 .interest .interest_content_lft .year_to{font-size:14px; color:#00c1ea; margin:0px 0 10px 40px;}*/
 
 .interest .interest_content_rit{width:80%; float:right; padding:0 0 0px 0;}
-.interest .interest_content_rit h2{width: 45%; float: left; font-size: 12px; line-height: 28px; color: #5b5a5a; margin: 0px 0px 5px 44px; font-weight: bold; text-transform: uppercase;}
-.interest .interest_content_rit h3{width: 45%; float: left; font-size: 12px; line-height: 28px; color: #5b5a5a; margin: 0px 0px 5px 0px;  font-weight: bold; text-transform: uppercase; padding:0 0 0 0; text-align: right;}
-.interest .interest_content_rit p{font-size:14px; line-height: 20px;text-align:justify; color:#7e7e7e; margin:5px 10px 7px 44px; clear: both; }
+.interest .interest_content_rit h2{width: 45%; float: left; font-size: 12px; line-height: 16px; color: #5b5a5a; margin: 6px 0px 5px 44px; font-weight: bold; text-transform: uppercase;}
+.interest .interest_content_rit h3{width: 45%; float: left; font-size: 12px; line-height: 16px; color: #5b5a5a; margin: 6px 0px 5px 0px;  font-weight: bold; text-transform: uppercase; padding:0 0 0 0; text-align: right;}
+.interest .interest_content_rit p{font-size:14px; line-height: 20px;text-align:left; color:#7e7e7e; margin:5px 10px 7px 44px; clear: both; }
 
 
 /*********************************************** other_details **********************************************************/

@@ -90,9 +90,36 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 .wrapper .left .skills{margin:0px 0px 0px 30px;}
 .wrapper .left .skills h1{ border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:0px 0 16px 35px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_skill.png) no-repeat 0% -51%;}
 .wrapper .left .skills .left_skill{width:100%; padding:15px 0;}
-.wrapper .left .skills .left_skill .desigination{width:65%; float:left; line-height: 28px; color:#303030;  font-size: 16px;}
-.wrapper .left .skills .left_skill .level{width:35%; color:#ec9d21; float:right; text-align:right; line-height: 28px;}
+.wrapper .left .skills .left_skill .desigination{width:53%; float:left; line-height: 28px; color:#303030;  font-size: 16px;}
+.wrapper .left .skills .left_skill .level{width:43%; color:#ec9d21; float:right; text-align:right; line-height: 28px;}
 .wrapper .left .skills .left_skill .desc{font-size:14px; line-height:20px; display:block; padding: 10px 0 5px 0; clear: right; }
+
+
+
+
+
+.pbar{ width: 260px; height: 20px; }
+
+.pbar_inner{ 
+ width: 50%;  height: 6px;  margin-top: 6px; float: left; 
+ background-color: #dbdbdb; border:solid 1px #bebebe; }
+
+.pbar_fill{
+ width: 50%; height: 100%; margin-top: -1px;
+ background-color: #ec9d21; border:solid 1px #D88C14;}
+
+.pbar p{
+ width: 100px;  display: inline;  color:#ec9d21; font-size:16px;
+ margin-left: 10px; line-height: 20px; text-transform: capitalize;}
+
+.pbar1{ width: 12.5% !important;}
+.pbar2{ width: 25% !important;}
+.pbar3{ width: 37.5% !important;}
+.pbar4{ width: 50% !important;}
+.pbar5{ width: 62.5% !important;}
+.pbar6{ width: 75% !important;}
+.pbar7{ width: 87.5% !important;}
+.pbar8{ width: 100% !important;}
 
 
 /*************************************************************  experience  ************************************************************************/

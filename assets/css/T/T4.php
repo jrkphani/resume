@@ -183,20 +183,41 @@ body p,b,h1,h2,h3,h4,span,div{font-family:Calibri, arial; color:#3f3f3f;}
 .skill .right_skill .first_skill p{ color:#1c1c1c; font-size:14px; line-height:14px; background:url(<?=$baseurl?>assets/img/Templates/t8_6.jpg) no-repeat 0% 50%; padding:0 0 0 20px;}
 .skill .right_skill .first_skill div p {font-weight:normal; font-size: 18px; color:#4aa1d9; margin:0 0 15px 0; background:none; padding:0;}
 .skill .right_skill .other_skill{width:100%;}
-.skill .right_skill .other_skill .mskill .sskill{font-weight:normal; font-size: 14px; color:#1c1c1c; margin:0 0 15px 0; background:url(<?=$baseurl?>assets/img/Templates/t8_6.jpg) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;}
+.skill .right_skill .other_skill .sskill{font-weight:normal; font-size: 14px; color:#1c1c1c; margin:0 0 0px 0; line-height:20px; background:url(<?=$baseurl?>assets/img/Templates/t8_6.jpg) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;}
 .skill .right_skill .other_skill p{ color:#1c1c1c; font-size:14px; line-height:14px; background:url(<?=$baseurl?>assets/img/Templates/t8_6.jpg) no-repeat 0% 50%; padding:0 0 0 20px;}
-.skill .right_skill .other_skill div p {font-weight:normal; font-size: 18px; color:#4aa1d9; margin:10px 0 15px 0; background:none; padding:0;}
+.skill .right_skill .other_skill .str {font-weight:normal; font-size: 18px; color:#4aa1d9; margin:10px 0 15px 0; background:none; padding:0;}
 
-.skill .right_skill p{color:#1c1c1c; line-height:20px; font-size:14px; text-align:justify; margin: 10px 0 18px 0;}
+.skill .right_skill .other_discrip{color:#1c1c1c; line-height:20px; font-size:14px; text-align:justify; margin: 10px 0 18px 0;}
 
 
-.skill .right_skill .first_skill div .fskill{ width:65%;font-size:14px; color:#1c1c1c; font-weight:normal; float:left; display: inline; background:url(<?=$baseurl?>assets/img/Templates/t8_6.jpg) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;}
-.skill .right_skill .first_skill div .level{width:15%; font-size:14px; color:#1c1c1c; display: inline; float:right; font-weight:normal; text-align:right; padding:0px 0 0px 20px;}
-
+.skill .right_skill .first_skill div .fskill{ width:45%; background:red; line-height: 20px; font-size:14px; color:#1c1c1c; font-weight:normal; float:left; display: inline; background:url(<?=$baseurl?>assets/img/Templates/t8_6.jpg) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;}
+.skill .right_skill .first_skill div .level{width:47%; background:;  font-size:14px; color:#1c1c1c; display: inline; float:right; font-weight:normal; text-align:right; padding:0px 0 0px 20px;}
+.skill .right_skill .first_skill div .level p{ display:inline;  width:100px; margin:0; font: inherit;}
 
 .skill .right_skill .other_skill .first_skill div .mskill .sskill{ width:65%;font-size:14px; font-weight:normal; float:left; display: inline; background:url(<?=$baseurl?>assets/img/Templates/t8_6.jpg) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;}
 
+.pbar{ width: 260px; height: 20px; }
 
+.pbar_inner{ 
+ width: 60%;  height: 6px;  margin-top: 6px; float: left; 
+ background-color: #dbdbdb; border:solid 1px #bebebe; }
+
+.pbar_fill{
+ width: 40%; height: 100%; margin-top: -1px;
+ background-color: #4a79d9; border:solid 1px #089cca;}
+
+.pbar p{
+ width: 100px;  display: inline; 
+ margin-left: 10px; line-height: 20px; text-transform: capitalize;}
+
+.pbar1{ width: 12.5% !important;}
+.pbar2{ width: 25% !important;}
+.pbar3{ width: 37.5% !important;}
+.pbar4{ width: 50% !important;}
+.pbar5{ width: 62.5% !important;}
+.pbar6{ width: 75% !important;}
+.pbar7{ width: 87.5% !important;}
+.pbar8{ width: 100% !important;}
 /*************************************************************awards******************************************************************/
 
 
@@ -227,23 +248,29 @@ body p,b,h1,h2,h3,h4,span,div{font-family:Calibri, arial; color:#3f3f3f;}
 .other_dls .left_dls{width:27%; float:left;  background:url(<?=$baseurl?>assets/img/Templates/t8_4.jpg) no-repeat 0% 50%;}
 .other_dls .left_dls p{padding:0 0 0 20px; color:#3590ca; font-size: 17px;  line-height:28px;}
 .other_dls .right_dls{ float:left; padding:0px 20px 0 0;}
-.other_dls .right_dls .address_name{font-size: 14px; line-height:24px; color:#1c1c1c; margin: 0px 0 20px 0;clear: both; padding:5px 0 0 0;}
+.other_dls .right_dls .address_name{font-size: 14px; line-height:24px; color:#1c1c1c; margin: 0px 0 0px 0;clear: both; padding:5px 0 0 0;}
 
 /*************************************************************contacts******************************************************************/
 
 
-.contact_footer {margin: 20px 0 20px 0; background-color:#4a79d9; width:100%; height:70px;}
-.contact_footer .left_contact{width:27%; float:left;  background:url(<?=$baseurl?>assets/img/Templates/t8_7.jpg) no-repeat 0% 90%;}
-.contact_footer .left_contact p{padding:20px 0 0 20px; color:#ffffff; font-size: 17px;  line-height:28px;}
+.contact_footer {margin: 0px 0 20px 0;  width:100%; height:100px;}
+.contact_footer .left_contact{width:26%; float:left;  background:url(<?=$baseurl?>assets/img/Templates/t8_4.jpg) no-repeat 0% 90%;}
+.contact_footer .left_contact p{padding:20px 0 0 20px; color:#3590ca; font-size: 17px;  line-height:28px;}
 
-.contact_footer .right_contact{width:70%; float:right; padding:25px 20px 0 0px;}
+.contact_footer .right_contact{width:71%; float:right; padding:25px 20px 0 0px;}
 .contact_footer .right_contact #contancs1 {font-size: 11px; color:#fff;   float: left; background:url(<?=$baseurl?>assets/img/Templates/t8_8.jpg) no-repeat 0% 82%; padding:2px 20px 0 20px;}
 .contact_footer .right_contact #contancs2 {font-size: 11px; color:#fff;    float: left; background:url(<?=$baseurl?>assets/img/Templates/t8_8.jpg) no-repeat 0% 82%; padding:2px 20px 0 20px;}
 .contact_footer .right_contact #contancs3 {font-size: 11px; color:#fff;   float: left; background:url(<?=$baseurl?>assets/img/Templates/t8_8.jpg) no-repeat 0% 82%; padding:2px 20px 0 20px;}
 .contact_footer .right_contact #contancs4 {font-size: 11px; color:#fff;    float: left; background:url(<?=$baseurl?>assets/img/Templates/t8_8.jpg) no-repeat 0% 82%; padding:2px 20px 0 20px;}
 .contact_footer .right_contact #contancs5 {font-size: 11px; color:#fff;   float: left; background:url(<?=$baseurl?>assets/img/Templates/t8_8.jpg) no-repeat 0% 82%; padding:2px 20px 0 20px;}
 
+.contact_footer .right_contact p
+{font-size: 14px;
+line-height: 24px;
+color: #1c1c1c;
 
+clear: both;
+}
 
 
 

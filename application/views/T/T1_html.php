@@ -28,6 +28,7 @@ $intresttitle= unserialize($about['intresttitle']);
 $intrestDesc= unserialize($about['intrestDesc']);
 $intrestUrl= unserialize($about['intrestUrl']);
 $passport_visa = unserialize($about['passport_visa']);
+$skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","Very Good","Expert");
 ?>
 </style>
 
@@ -116,8 +117,7 @@ $passport_visa = unserialize($about['passport_visa']);
       <h4>
 		
       	    <p>Total: <?=$experience[0];?> Years, <?=$experience[1];?> Months</p>
-      </h4> <div class="clearall"></div>
-      
+      </h4> <div class="clearall"></div>      
       <? }
       
        if($compensation[0])
@@ -182,17 +182,36 @@ $passport_visa = unserialize($about['passport_visa']);
     <div class="left_content">
       <div class="left_icon"></div>
     </div>
+    
     <div class="right_content">
-      <h1>Skill</h1>
-			<? if(array_filter($skillName)) { ?>
+    	<? if(array_filter($skillName)) { ?>
+      <h1>MY TOOL BOX</h1>
+		
       <div class="main_skills">
-        <p>MY TOOL BOX</p>
+        
         <div class="mskill">
 			<?
 			$i=0; 
 			foreach($skillName as $name)
-			{?>
-          <div><p class="fskill"><?=$name;?></p><p class="level"><?=$skillEff[$i];?></p></div>
+			{
+				$skillEffcount=$skillEff[$i];
+				?>
+      <div>
+            <p class="fskill">
+              <?=$name;?>
+            </p>
+           
+              <div class="level pbar">
+                <div class="pbar_inner">
+                  <div class="pbar_fill pbar<?=$skillEffcount;?>"> 
+                  </div>
+                </div>
+                
+                  <p><?=$skillEffname[$skillEffcount-1];?></p>
+                
+              </div>
+           
+          </div>
 			<?
 			$i++;
 			}?>
@@ -202,8 +221,9 @@ $passport_visa = unserialize($about['passport_visa']);
       
       <? if(array_filter($otherSkills)) { ?>
       <div class="clearall"></div>
+      <h1>MY STRENGTHS</h1>
       <div class="other_skills">
-        <p>MY STRENGTHS</p>
+        
         <div class="mskill">
 			<?
 			$i=0; 
@@ -255,7 +275,7 @@ $passport_visa = unserialize($about['passport_visa']);
         <p>
           <?=$projUrl[$i];?>
         </p>
-        <h4>Project Description</h4>
+    <!--    <h4>Project Description</h4> -->
         <p> <?=nl2br($projDesc[$i]);?> </p>
       </div>
       <div class="clearall"></div>
@@ -401,6 +421,11 @@ $passport_visa = unserialize($about['passport_visa']);
   
     <div class="right_content">
       <h1>Other Details</h1>
+      
+      <? if($user_detail['dob']){?>
+      <p>DOB : <?=$user_detail['dob'];?></p>
+ 			 <? } ?>
+      
       <? if($user_detail['married']!=NULL)
       {
 		  if($user_detail['married'] == 1)
@@ -414,15 +439,13 @@ $passport_visa = unserialize($about['passport_visa']);
       {
 		  //$passportDate=explode('#',$passport_visa['passportdate']);
 		  ?>
-        <p>Passport details : <?=$passport_visa['passport'];?></p>
-        <p>Valid : <?php //$passportDate[0]; ?>till <?=$passport_visa['passportTo'];?></p>
+        <p>Passport details : <?=$passport_visa['passport'];?>, <?php //$passportDate[0]; ?>till <?=$passport_visa['passportTo'];?></p>
       <? }?>
       <? if($passport_visa['visa'])
       {
 		  //$visaDate= explode('#',$passport_visa['visadate']);
 		  ?>
-        <p>Visa details : <?=$passport_visa['visa'];?></p>
-        <p>Valid : <?php //$visaDate[0];?>till <?=$passport_visa['visaTo'];?></p>
+        <p>Visa details : <?=$passport_visa['visa'];?>, <?php //$visaDate[0];?>till <?=$passport_visa['visaTo'];?></p>
       <? }?>
     </div>
    </div>    

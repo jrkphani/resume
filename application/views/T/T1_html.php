@@ -110,7 +110,7 @@ $passport_visa = unserialize($about['passport_visa']);
     <div class="right_content">
       <h1>EXPERIENCE SUMMARY</h1>
       <?
-      if($user_detail['experience']){
+      if($user_detail['experience']!='0.0'){
 		  $experience = explode('.',$user_detail['experience']);
 		  ?>
       <h4>

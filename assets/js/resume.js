@@ -1,5 +1,9 @@
 $(document).ready(function()
-{   
+{
+	//Avoid form data lose, by ask confirmation when click any links other than download.
+	downloadClicked = false;
+    window.onbeforeunload = confirmExit;
+
 	datepic(); 
 	//custum title text enabling
 	$('.custTitle').change(function()
@@ -74,6 +78,13 @@ $(document).ready(function()
 
 	$('.next').click(function()
 	{
+		//Resume form validation
+		var pattern=/^[^f,d][a-z ]{3,10}$/;
+		var name=$('#fname').val();
+		if(!pattern.test(name))
+			alert("Enter valid name.");
+		return false;
+
 		$('.tab').removeClass('rns_a');
 		$('.tabs').hide();
 		$(".tab[tab='" + $(this).attr('href') + "']").addClass('rns_a');
@@ -580,4 +591,28 @@ function gettiny(divID)
 	{
 		$(divID+'_err').html('<a href="'+str1+'" target="_blank">Check</a>');
 	}
+}
+
+// Ask for register before download for guest user.
+function reg_download()
+{
+	downloadClicked = true;
+	window.location=baseurl+'login';
+}
+
+// Redirect to download page for loggedin user.
+function download(link)
+{
+	downloadClicked = true;
+	window.location=baseurl+'download/index/'+link;
+}
+
+// Make sure for exit, if user clicked other than the download link.
+function confirmExit()
+{
+	if (!downloadClicked) {
+        return "You may lose your data if you are leave or reload this page without saving.";
+    } else {
+        downloadClicked = false;
+    }
 }

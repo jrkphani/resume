@@ -527,7 +527,7 @@
 							<? } ?>
 						</select>-->
 						<input type="hidden" name="skillEff[]" id="skillEff0" />
-						<span class="sliding" data="0"></span>
+						<span class="sliding" data="1"></span>
 						<span class="slidingText" id="slid_msg0"></span>
 					</div>
 				</div>

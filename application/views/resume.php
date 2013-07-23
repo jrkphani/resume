@@ -517,7 +517,7 @@
 				 else
 				 {
 				 ?>
-			 	<div id="s0">
+			 	<div id="s0" class="mytb_added">
 					<div >
 						
 						<input  type="text"  name="skillName[]" placeholder="Skill name" />
@@ -526,8 +526,8 @@
 								<option value='<?=$j;?>'><?=$j;?></option>
 							<? } ?>
 						</select>-->
-						<input type="hidden" name="skillEff[]" id="skillEff0" value="1" />
-						<span class="sliding" data="1"></span>
+						<input type="hidden" name="skillEff[]" id="skillEff0" value="1"/>
+						<span class="sliding" data="0"></span>
 						<span class="slidingText" id="slid_msg0"></span>
 					</div>
 				</div>

@@ -120,6 +120,41 @@ $(document).ready(function()
 				{
 					if(result.resultset.success=='yes')
 					{
+						downloadClicked = true;
+						window.location=baseurl+'login';
+					}
+					else
+					{
+						alert('Internal error, Please try agian!');
+					}
+				},
+				error:function()
+				{
+					alert('Internal error, Please try agian!');
+				}
+			});
+		}
+	});
+	$("#preview_submit").click(function(e){
+		e.preventDefault();
+		if(!$('#template').val())
+		{
+			//return false;
+			//alert('Please select a Template');
+			$('#selectTemplate').show();
+			return false;
+		}
+		else
+		{
+			//update();
+			$.ajax({
+				url: baseurl+'preview', 
+				type: 'post',
+				data: $('#resume_form').serialize(),
+				success:function(result)
+				{
+					if(result.resultset.success=='yes')
+					{
 						$("#preview").attr('href',baseurl+'preview/page/'+result.resultset.html)
 						$("#preview").click();
 						$("#download").click(function(){
@@ -139,6 +174,7 @@ $(document).ready(function()
 			});
 		}
 	});
+	
 	$('.template').click(function()
 	{
 		//$('.templateCell').removeClass('templateCellSelected');

@@ -156,7 +156,21 @@ input, select{
 	bottom: 50px; right: 160px;
 	background: #f07057 ;
 }
-
+.clickr_preview {
+display: block;
+position: relative;
+float: right;
+margin: -86px 58px 0 0;
+padding: 10px 20px;
+background-color: #f07057;
+color: #fff;
+cursor: pointer;
+border: solid 1px #c5533d;
+}
+.clickr_preview:hover{
+	background-color: #da5e46;
+	border: solid 1px #d05840;
+}
 .clickr:hover, .clickr_add:hover, .formRemoveBtn:hover, .clickr_final:hover{
 	background-color: #da5e46;
 	border: solid 1px #d05840;

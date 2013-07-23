@@ -900,8 +900,14 @@
 
 	<!-- ======================================================================== form end ================================ -->
 		<!-- final save buttons -->
-		
-		    <span  id="resume_submit" class="clickr_final"> Save & Preview</span>
+			
+			<? if(isset($user_detail))
+			{?>
+			<span  id="preview_submit" class="clickr_preview"> Save & Preview</span>
+			<?} else {?>
+			<span  id="resume_submit" class="clickr_final"> Save & Register</span>
+			<span  id="preview_submit" class="clickr_preview"> Preview</span>
+			<? } ?>
 		    <!--<span  class="clickr next" >Reset</span>-->
 		
 	</div>

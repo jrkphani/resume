@@ -526,7 +526,7 @@
 								<option value='<?=$j;?>'><?=$j;?></option>
 							<? } ?>
 						</select>-->
-						<input type="hidden" name="skillEff[]" id="skillEff0" value="0" />
+						<input type="hidden" name="skillEff[]" id="skillEff0" value="1" />
 						<span class="sliding" data="1"></span>
 						<span class="slidingText" id="slid_msg0"></span>
 					</div>

@@ -375,7 +375,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
           <p class="company_name"><?=$awd;?></p>   
        <!--   <p class="disig">Sathyabama University</p>
          <p class="url styles">100%</p>   --->
-           <p class="awd_desc styles2"><?=$awdDesc[$i];?></p>
+           <p class="awd_desc styles2"><?=nl2br($awdDesc[$i]);?></p>
      <!--     <p class="rnumber styles2">9944432999</p>
          <p class="pro_descrip styles">What I Like About It</p>  
           <p class="rid styles2">mymailid@gmail.com</p>           --->
@@ -410,7 +410,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
           <p class="company_name"><?=$title;?></p>   
         <p class="disig"><?=$intrestUrl[$i];?></p>
        <!--    <p class="url styles">http:google.com/</p>   --->
-           <p class="awd_desc styles2"><?=$intrestDesc[$i];?></p>
+           <p class="awd_desc styles2"><?=nl2br($intrestDesc[$i]);?></p>
      <!--     <p class="rnumber styles2">9944432999</p>
          <p class="pro_descrip styles">What I Like About It</p>  
           <p class="rid styles2">mymailid@gmail.com</p>           --->

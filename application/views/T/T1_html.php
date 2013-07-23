@@ -363,7 +363,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
        <?=$awd;?>
         </h3>
         <p>
-          <?=$awdDesc[$i];?>
+          <?=nl2br($awdDesc[$i]);?>
         </p>
       </div>
       <div class="clearall"></div>
@@ -405,7 +405,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
         <?=$intrestUrl[$i];?>
         </h3>
        
-        <p><?=$intrestDesc[$i];?></p>
+        <p><?=nl2br($intrestDesc[$i]);?></p>
       </div>
       <div class="clearall"></div>
       <? $i++; } ?>

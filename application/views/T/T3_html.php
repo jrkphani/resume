@@ -194,7 +194,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
         <div class="clearall"></div>
 <!--        <p class="descp_tit">Project Description</p>-->
         <p class="descp">
-          <?=$projDesc[$i];?>
+          <?=nl2br($projDesc[$i]);?>
         </p>
         <!--          <p class="obj_tit">What I Like About It</p>
           <p class="obj"><?=$projDesc[$i];?></p>-->
@@ -325,7 +325,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
 				} ?>
       <div>
         <p  style="line-height:20px; margin:20px 0 0 0; font-size:14px; color: #3f3f3f;">
-          <?=$about['mystrength'];?>
+          <?=nl2br($about['mystrength']);?>
         </p>
       </div>
     </div>
@@ -410,12 +410,12 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
         <? }?>
         
         
-        <p class="url"></b>
+        <p class="url">
          <?=$website['mylink'];?>
         </p>
         
         <? if($user_detail['skype']) { ?>
-        <p class="skype"></b>
+        <p class="skype">
          <?=$user_detail['skype'];?>
         </p>
        	<? } ?>

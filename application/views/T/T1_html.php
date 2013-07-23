@@ -239,7 +239,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
         </div>
       </div>
       <? } ?><div class="clearall"></div>
-      <p class="skill_content"><?=$about['mystrength'];?></p>
+      <p class="skill_content"><?=nl2br($about['mystrength']);?></p>
     </div>
   </div> <div class="clearall"></div>
   <? } ?>

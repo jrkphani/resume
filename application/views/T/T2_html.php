@@ -184,7 +184,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
         ?>
          <p id="skill1" class="styles bullet"><?=$name;?></p>
          <? } $i++; } ?><div class="clearall"></div>
-         <p class="styles2 descp"><?=$about['mystrength'];?></p>
+         <p class="styles2 descp"><?=nl2br($about['mystrength']);?></p>
        </div><? } ?>
        <div class="clearall"></div>
 
@@ -230,7 +230,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
           <p class="disig"><?=$projRole[$i];?></p>
           <p class="url styles"><?=$projUrl[$i];?></p>
 <!--          <p class="pro_descrip styles">Project Description</p>-->
-          <p class="decrip styles2"><?=$projDesc[$i];?></p>
+          <p class="decrip styles2"><?=nl2br($projDesc[$i]);?></p>
           
     <!--          <p class="pro_descrip styles">What I Like About It</p>
           <p class="decrip styles2"><?=$cmpnyDesc[$i];?></p>      --> 

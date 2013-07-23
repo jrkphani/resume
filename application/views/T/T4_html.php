@@ -206,7 +206,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
        </div>
       </div>
       <div class="clearall"></div>      
-      <p class="other_discrip"><?=$about['mystrength'];?></p>
+      <p class="other_discrip"><?=nl2br($about['mystrength']);?></p>
     </div>
     <? } ?>
   </div>
@@ -228,7 +228,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
       <p class="from"><?=$projRole[$i];?></p>
       <p class="company_name"><?=$projUrl[$i];?></p>
 <!--      <p class="pro_desc_tit">Project Description</p>-->
-      <p class="descrip"><?=$projDesc[$i];?></p>
+      <p class="descrip"><?=nl2br($projDesc[$i]);?></p>
      <!-- <p class="pro_obj_tit">What I Like About It</p>
       <p class="descrip">a Primary role as a Business Analyst and secondary role as a System Analyst in Procurement Domain (Purchase – Pay). A complete process automation of procurement from Purchase Requests till Invoice Generation including Reports Generation (Management Information systems ).</p>
 -->      

@@ -499,12 +499,15 @@
 						<span class="button remove formRemoveBtn" onclick=removeId("s<?=$i;?>");>Remove</span>
 						<? } ?>
 							<div>
-								<input  type="text"  name="skillName[]" placeholder="Skill name" value="<?=$row;?>"/>
-								<select name="skillEff[]" class="w100">
+								<input  type="text"  name="skillName[]" placeholder="Skill name" value="<?=$row;?>"/>								
+								<!--<select name="skillEff[]" class="w100">
 									<?for($j=0;$j<=10;$j++){?>
 									<option value='<?=$j;?>' <?if($j==$skillEff[$i]) echo 'selected="selected"';?>><?=$j;?></option>
 									<? } ?>
-								</select>
+								</select>-->
+								<input type="hidden" name="skillEff[]" id="skillEff<?=$i;?>" value="<?=$skillEff[$i];?>" />
+								<div style="width:400px; float:right;" class="sliding" data="<?=$i;?>"></div>
+								<span id="slid_msg<?=$i;?>"></span>
 							</div>
 						</div>
 				<?
@@ -518,11 +521,14 @@
 					<div >
 						
 						<input  type="text"  name="skillName[]" placeholder="Skill name" />
-						<select name="skillEff[]" class="w100">
+						<!--<select name="skillEff[]" class="w100">
 							<?for($j=0;$j<=10;$j++){?>
 								<option value='<?=$j;?>'><?=$j;?></option>
 							<? } ?>
-						</select>
+						</select>-->
+						<input type="hidden" name="skillEff[]" id="skillEff0" />
+						<div style="width:400px; float:right;" class="sliding" data="0"></div>
+						<span id="slid_msg0"></span>
 					</div>
 				</div>
 				<? } ?>

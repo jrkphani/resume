@@ -4,7 +4,11 @@ $(document).ready(function()
 	downloadClicked = false;
     window.onbeforeunload = confirmExit;
 
+    // Define slider properties
+	define_slider();
+
 	datepic(); 
+
 	//custum title text enabling
 	$('.custTitle').change(function()
 	{
@@ -78,13 +82,6 @@ $(document).ready(function()
 
 	$('.next').click(function()
 	{
-		//Resume form validation
-		var pattern=/^[^f,d][a-z ]{3,10}$/;
-		var name=$('#fname').val();
-		if(!pattern.test(name))
-			alert("Enter valid name.");
-		return false;
-
 		$('.tab').removeClass('rns_a');
 		$('.tabs').hide();
 		$(".tab[tab='" + $(this).attr('href') + "']").addClass('rns_a');
@@ -253,9 +250,9 @@ $('#addSkills').click(function()
 		rid="s"+id;
 		html=	'<div id="'+rid+'" class="mytb_added">';
 		html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';
-		html+=			'<div >';
-		html+=				'<input  type="text"  name="skillName[]" placeholder="Skill name" />';
-		html+=				'<select name="skillEff[]" class="w100">';
+		html+=		'<div>';
+		html+=			'<input  type="text"  name="skillName[]" placeholder="Skill name" />';
+		/*html+=		'<select name="skillEff[]" class="w100">';
 		html+=				'<option value="0">0</option>';
 		html+=				'<option value="1">1</option>';
 		html+=				'<option value="2">2</option>';
@@ -267,10 +264,16 @@ $('#addSkills').click(function()
 		html+=				'<option value="8">8</option>';
 		html+=				'<option value="9">9</option>';
 		html+=				'<option value="10">10</option>';
-		html+=				'</select>';
-		html+=			'</div>';
-		html+=		'</div>';
+		html+=			'</select>';*/
+		html+=			'<input type="hidden" name=skillEff[] id="skillEff'+id+'" />';
+		html+=			'<div style="width:400px; float:right;" id="sliding'+id+'" data="'+id+'"></div>';
+		html+=			'<span id="slid_msg'+id+'"></div>';
+		html+=		'</div>';		
+		html+=	'</div>';
 		$('#skills').append(html);
+
+		//Define slider properties
+		define_slider("sliding"+id);
 	});
 	
 	$('#addawd').click(function()
@@ -615,4 +618,48 @@ function confirmExit()
     } else {
         downloadClicked = false;
     }
+}
+
+//Define slider properties
+function define_slider(sliding_id)
+{
+	var sliding_id = (sliding_id === undefined) ? false : sliding_id;
+	if(sliding_id)
+		var selector='#'+sliding_id;
+	else
+		var selector='.sliding';
+	$(selector).slider({
+		min: 1,
+		max: 8,
+		create: function( event, ui ) {
+		 	var data=$(this).attr('data');
+		 	var value=$('#skillEff'+data).val();
+		 	$(this).slider( "value", value );
+		 	
+		},
+		change: function( event, ui ) {
+			var data=$(this).attr('data');
+			$('#skillEff'+data).val(ui.value);			
+			switch(ui.value)
+			{
+				case 1:
+					msg='Don\'t Know';break;
+				case 2:
+					msg='Training';break;
+				case 3:
+					msg='Poor';break;
+				case 4:
+					msg='Satisfactory';break;
+				case 5:
+					msg='OK';break;
+				case 6:
+					msg='Good';break;
+				case 7:
+					msg='Very Good';break;
+				case 8:
+					msg='Expert';break;
+			}
+			$('#slid_msg'+data).html(msg);
+		}
+	});
 }

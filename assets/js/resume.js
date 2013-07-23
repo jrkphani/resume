@@ -2,7 +2,7 @@ $(document).ready(function()
 {
 	//Avoid form data lose, by ask confirmation when click any links other than download.
 	downloadClicked = false;
-    window.onbeforeunload = confirmExit;
+   // window.onbeforeunload = confirmExit;
 
     // Define slider properties
 	define_slider();
@@ -629,17 +629,38 @@ function define_slider(sliding_id)
 	else
 		var selector='.sliding';
 	$(selector).slider({
+		range: "max",
 		min: 1,
 		max: 8,
 		create: function( event, ui ) {
 		 	var data=$(this).attr('data');
 		 	var value=$('#skillEff'+data).val();
 		 	$(this).slider( "value", value );
+			switch(value)
+			{
+				case '1':
+					msg='Don\'t Know';break;
+				case '2':
+					msg='Training';break;
+				case '3':
+					msg='Poor';break;
+				case '4':
+					msg='Satisfactory';break;
+				case '5':
+					msg='OK';break;
+				case '6':
+					msg='Good';break;
+				case '7':
+					msg='Very Good';break;
+				case '8':
+					msg='Expert';break;
+			}
+			$('#slid_msg'+data).html(value+" "+msg);
 		 	
 		},
-		change: function( event, ui ) {
+		slide: function( event, ui ) {
 			var data=$(this).attr('data');
-			$('#skillEff'+data).val(ui.value);			
+			$('#skillEff'+data).val(ui.value);		
 			switch(ui.value)
 			{
 				case 1:
@@ -659,7 +680,7 @@ function define_slider(sliding_id)
 				case 8:
 					msg='Expert';break;
 			}
-			$('#slid_msg'+data).html(msg);
+			$('#slid_msg'+data).html(ui.value+" "+msg);
 		}
 	});
 }

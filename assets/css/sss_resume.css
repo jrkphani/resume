@@ -229,6 +229,8 @@ margin: -1px 0 0 -10px!important;}
 .ui-slider-horizontal {
 height: 2px!important;
 }
+.ui-slider-horizontal { background: #da5e46 !important;}
+.ui-slider-handle { border-color: #da5e46 !important; }
 
 /********************************Form overrides***********************************/
 

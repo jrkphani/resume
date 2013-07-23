@@ -636,6 +636,7 @@ function define_slider(sliding_id)
 		 	var data=$(this).attr('data');
 		 	var value=$('#skillEff'+data).val();
 		 	$(this).slider( "value", value );
+		 	msg='Don\'t Know';
 			switch(value)
 			{
 				case '1':
@@ -660,6 +661,7 @@ function define_slider(sliding_id)
 		},
 		slide: function( event, ui ) {
 			var data=$(this).attr('data');
+			msg='Don\'t Know';
 			$('#skillEff'+data).val(ui.value);		
 			switch(ui.value)
 			{

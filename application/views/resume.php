@@ -506,8 +506,8 @@
 									<? } ?>
 								</select>-->
 								<input type="hidden" name="skillEff[]" id="skillEff<?=$i;?>" value="<?=$skillEff[$i];?>" />
-								<div style="width:400px; float:right;" class="sliding" data="<?=$i;?>"></div>
-								<span id="slid_msg<?=$i;?>"></span>
+								<span  class="sliding" data="<?=$i;?>"></span>
+								<span class="slidingText" id="slid_msg<?=$i;?>"></span>
 							</div>
 						</div>
 				<?
@@ -527,8 +527,8 @@
 							<? } ?>
 						</select>-->
 						<input type="hidden" name="skillEff[]" id="skillEff0" />
-						<div style="width:400px; float:right;" class="sliding" data="0"></div>
-						<span id="slid_msg0"></span>
+						<span class="sliding" data="0"></span>
+						<span class="slidingText" id="slid_msg0"></span>
 					</div>
 				</div>
 				<? } ?>

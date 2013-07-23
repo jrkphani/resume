@@ -208,6 +208,28 @@ input [type="checkbox"]{
 	width:30px;
 	height:30px;
 }
+
+
+/*********************************** tool box slider *******************************************/
+
+.mytb_added div .sliding{width: 300px;
+position: absolute;
+margin: 19px 0 0 40px;}
+
+.mytb_added div .slidingText{position:absolute; font-size:13px; margin:0 0 0 40px;} 
+
+
+.ui-slider .ui-slider-handle{
+
+width: 12px!important;
+height: 12px!important;
+
+margin: -1px 0 0 -10px!important;}
+
+.ui-slider-horizontal {
+height: 2px!important;
+}
+
 /********************************Form overrides***********************************/
 
 .awards_or{
@@ -244,8 +266,8 @@ input [type="checkbox"]{
 
 .t_list_s{
 	width: 100%;	min-height: 40px;	position: absolute;
-	bottom: 9px; left: 0px;  background-color: #323232;
-	color: #fff; border-top: solid 1px  #121212;
+	bottom: 9px; left: 0px;  background-color: #266a86;
+	color: #fff; border-top: solid 1px  #1c5870;
 	margin-bottom: -52px;	display: block;
 	 -webkit-transition:margin-bottom .2s ease-in-out;
 }
@@ -264,7 +286,7 @@ input [type="checkbox"]{
 }
 
 .t_select{
-	width:140px;	height:30px;  margin:0 0 10px 10px; 
+	width:140px;	height:30px;  margin:0 0 10px 40px; 
 	line-height:30px;
 }
 
@@ -365,7 +387,7 @@ input [type="checkbox"]{
 
 .mytb_added .formRemoveBtn{
 	top: 0px; 
-	left: 308px;
+	left: 580px;
 }
 
 .mypr_added .formRemoveBtn, .myed_added .formRemoveBtn, .myaw_added .formRemoveBtn, .more_Added .formRemoveBtn{

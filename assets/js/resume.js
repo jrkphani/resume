@@ -266,8 +266,8 @@ $('#addSkills').click(function()
 		html+=				'<option value="10">10</option>';
 		html+=			'</select>';*/
 		html+=			'<input type="hidden" name=skillEff[] id="skillEff'+id+'" />';
-		html+=			'<div style="width:400px; float:right;" id="sliding'+id+'" data="'+id+'"></div>';
-		html+=			'<span id="slid_msg'+id+'"></div>';
+		html+=			'<span class="sliding" id="sliding'+id+'" data="'+id+'"></span>';
+		html+=			'<span class="slidingText" id="slid_msg'+id+'"></div>';
 		html+=		'</div>';		
 		html+=	'</div>';
 		$('#skills').append(html);

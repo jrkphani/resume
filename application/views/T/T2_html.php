@@ -45,8 +45,8 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
       </div>
     </div>
     <div class="clearall"></div>
-    <p class="left styles italics">Email</p>
-    <p class="right styles"><?=$user_detail['secondary_email'];?></p>
+<!--    <p class="left styles italics">Email</p>
+    <p class="right styles"><?=$user_detail['secondary_email'];?></p>-->
     <div class="clearall"></div>
     <p class="left styles italics">Mobile</p>
     <p class="right styles"><?=$user_detail['mobile'];?></p>
@@ -139,7 +139,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
     <div class="right1">
     	<? if(array_filter($skillName)){ ?>
     	<h1 class="styles italics">My Tool Box</h1>
-      	<div class="skill1_container">
+      	<div class="skill1_container margin_align">
 			<?
 			$i=0; 
 			foreach($skillName as $name)
@@ -175,12 +175,15 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
        <? if(array_filter($otherSkills)) { ?>
        <h1 class="styles italics">My Strengths</h1>
       	<div class="skill1_container">
-					<? 
-            $i=0;
-            foreach($otherSkills as $name) {
-          ?>
+				<? 
+        //skiping first record, becasue the first value will be always null
+          $i=0;
+          foreach($otherSkills as $name) {
+            if($i)
+           {
+        ?>
          <p id="skill1" class="styles bullet"><?=$name;?></p>
-         <? $i++; } ?><div class="clearall"></div>
+         <? } $i++; } ?><div class="clearall"></div>
          <p class="styles2 descp"><?=$about['mystrength'];?></p>
        </div><? } ?>
        <div class="clearall"></div>
@@ -192,11 +195,11 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
        ?>
        <h1 class="styles italics"><?=$user_detail['contactTitle'];?></h1>
       	<div class="skill1_container">
-		
-         <? if($user_detail['skype']) { ?><p id="skill1" class="styles bullet"><?=$user_detail['skype'];?></p><? } ?>
-         <? if($website['linkedin']) { ?><p id="skill1" class="styles bullet"><?=$website['linkedin'];?></p><? } ?>
-         <? if($website['twitter']) { ?><p id="skill1" class="styles bullet"><?=$website['twitter'];?></p><? } ?>
-         <? if($website['facebook']) { ?><p id="skill1" class="styles bullet"><?=$website['facebook'];?></p><? } ?>
+		    <p id="skill1" class="styles bullet1"><b>E-Mail : </b><?=$user_detail['secondary_email'];?></p>
+         <? if($user_detail['skype']) { ?><p id="skill1" class="styles bullet1"><b>Skype : </b><?=$user_detail['skype'];?></p><? } ?>
+         <? if($website['linkedin']) { ?><p id="skill1" class="styles bullet1"><b>LinkedIn : </b><?=$website['linkedin'];?></p><? } ?>
+         <? if($website['twitter']) { ?><p id="skill1" class="styles bullet1"><b>Twitter : </b><?=$website['twitter'];?></p><? } ?>
+         <? if($website['facebook']) { ?><p id="skill1" class="styles bullet1"><b>Facebook : </b><?=$website['facebook'];?></p><? } ?>
          <div class="clearall"></div>
        </div><div class="clearall"></div>
        <? } ?>
@@ -438,6 +441,10 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
           </div><div class="clearall"></div>
         </div>
         <div class="center1">
+        
+              <? if($user_detail['dob']){?>
+              <p class="other_dets"><strong>DOB : </strong><?=$user_detail['dob'];?></p>
+               <? } ?>
 						<? if($user_detail['married']!=NULL)
             {
             if($user_detail['married'] == 1)

@@ -293,22 +293,22 @@ a{text-decoration:none;}
 
 .skills .right_content .main_skills  .mskill div{}
 
-.skills .right_content .main_skills  .mskill div .fskill{ width:270px;   font-size:14px; font-weight:normal; float:left; display: inline; background:url(<?=$baseurl?>assets/img/Templates/bull1.gif) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;  margin: 15px 0 0 0;}
+.skills .right_content .main_skills  .mskill div .fskill{ width:240px;   font-size:14px; font-weight:normal; float:left; display: inline; background:url(<?=$baseurl?>assets/img/Templates/bull1.gif) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;  margin: 15px 0 0 0;}
 
-.skills .right_content .main_skills  .mskill div .level{width:280px;  font-size:14px; display: inline; float:right; font-weight:normal; text-align:right; padding:0px 0 0px 0px; margin:15px 0 0 0;}
+.skills .right_content .main_skills  .mskill div .level{width:295px;  font-size:14px; display: inline; float:right; font-weight:normal; text-align:right; padding:0px 0 0px 0px; margin:15px 0 0 0;}
 
 .skills .right_content .main_skills .mskill div .level p{ display:inline;  width:100px; margin:0;}
 
 
 
 
-.skills .right_content .other_skills {float:left; width:80%; margin:0px 0px 20px 44px;}
+.skills .right_content .other_skills {float:left; width:80%; margin:15px 0px 20px 44px;}
 
 
 
 
 
-.skills .right_content .other_skills  .mskill div .sskill{ width:280px;font-size:14px; font-weight:normal; float:left; display: inline; background:url(<?=$baseurl?>assets/img/Templates/bull1.gif) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;}
+.skills .right_content .other_skills  .mskill div .sskill{ width:223px;font-size:14px; font-weight:normal; float:left; display: inline; background:url(<?=$baseurl?>assets/img/Templates/bull1.gif) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;}
 
 .skills .right_content .other_skills  .mskill div .slevel{width:260px;  font-size:14px; display: inline; float:right; font-weight:normal; text-align:right; padding:0px 0 0px 20px;}
 
@@ -321,6 +321,8 @@ a{text-decoration:none;}
 
 
 .pbar{ width: 260px; height: 20px; }
+
+
 
 .pbar_inner{ 
  width: 60%;  height: 6px;  margin-top: 6px; float: left; 
@@ -373,7 +375,7 @@ a{text-decoration:none;}
 
 /*********************************************** other_details **********************************************************/
 
-.other_details{padding:23px 0 0px 0;}
+.other_details{padding:23px 0 20px 0;}
 .other_details .left_content{width:15%; float:left; height:42px; border-radius:0 30px 30px 0; background-color:#fa5e5b; display:block;}
 .other_details .left_content .left_icon{ /*width:180px;*/ height:42px; border-radius:0 30px 30px 0; background:url(<?=$baseurl?>assets/img/Templates/other_details.png) no-repeat scroll 83% 60%;}
 .other_details .right_content{width:80%; float:right;}
@@ -391,5 +393,14 @@ a{text-decoration:none;}
 .address .right_content{width:80%; float:right;}
 .address .right_content h1{font-size:15px; font-weight:bold; padding:15px 0 8px 0; color:#7e7e7e; text-transform:uppercase;}
 .address .right_content p{font-size:14px; line-height: 20px;text-align:justify; color:#7e7e7e; margin:0px 20px 0 44px;}
+
+
+
+.address .right_content .addr{ background:url(<?=$baseurl?>assets/img/Templates/home.png) no-repeat scroll 0% 0%; padding:0 0 5px 30px;}
+.address .right_content .skypee{ background:url(<?=$baseurl?>assets/img/Templates/skype.png) no-repeat scroll 0% 0%; padding:0 0 5px 30px;}
+.address .right_content .linkedin{ background:url(<?=$baseurl?>assets/img/Templates/linkedin.png) no-repeat scroll 0% 0%; padding:0 0 5px 30px;}
+.address .right_content .twitter{ background:url(<?=$baseurl?>assets/img/Templates/twitter.png) no-repeat scroll 0% 0%; padding:0 0 5px 30px;}
+.address .right_content .faceebook{ background:url(<?=$baseurl?>assets/img/Templates/facebook.png) no-repeat scroll 0% 0%; padding:0 0 5px 30px;}
+
 
 

@@ -191,13 +191,16 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
         
           <p class="str">My Strengths</p>
         
-        <div class="mskill">
-        <?
-			$i=0; 
-			foreach($otherSkills as $name)
-			{?>
+        <div class="mskill">      
+				<? 
+			//skiping first record, becasue the first value will be always null
+        $i=0;
+        foreach($otherSkills as $name) {
+        	if($i)
+							{
+							?>
           <p class="sskill"><?=$name;?></p>
-      <?
+      <? }
 			$i++;
 			}?>
        </div>
@@ -395,24 +398,24 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
     <div class="right_contact">
     
      
-       <p id="">Mail id : <?=$user_detail['secondary_email'];?></p>
+       <p id=""><span>Mail id : </span><?=$user_detail['secondary_email'];?></p>
        
-      <p id="">Url : <?=$website['mylink'];?></p>
+      <p id=""><span>Url : </span><?=$website['mylink'];?></p>
       
       <? if($website['facebook']) { ?>
-      <p id="">Facebook : <?=$website['facebook'];?></p>
+      <p id=""><span>Facebook : </span><?=$website['facebook'];?></p>
       <? } ?>
       
       <? if($website['linkedin']) { ?>
-      <p id="">LinkedIn : <?=$website['linkedin'];?></p>
+      <p id=""><span>LinkedIn : </span><?=$website['linkedin'];?></p>
       <? } ?>
       
       <? if($website['twitter']) { ?>
-      <p id="">Twitter : <?=$website['twitter'];?></p>
+      <p id=""><span>Twitter : </span><?=$website['twitter'];?></p>
       <? } ?>
       
        <? if($user_detail['skype']) { ?>
-      <p id="">Skype : <?=$user_detail['skype'];?></p>
+      <p id=""><span>Skype : </span><?=$user_detail['skype'];?></p>
       <? } ?>
       
     </div>

@@ -311,13 +311,18 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
     <div class="other_skills">
       <h1>My Strengths</h1>
       <? 
-                $i=0;
-                foreach($otherSkills as $name) {
-              ?>
-      <p class="otherskill_t3">
-        <?=$name;?>
-      </p>
-      <? $i++; } ?>
+			//skiping first record, becasue the first value will be always null
+        $i=0;
+        foreach($otherSkills as $name) {
+        	if($i)
+							{
+							?>
+        		  <p class="otherskill_t3">
+           	 <?=$name;?>
+         			 </p>
+      				<? }
+				$i++; 
+				} ?>
       <div>
         <p  style="line-height:20px; margin:20px 0 0 0; font-size:14px; color: #3f3f3f;">
           <?=$about['mystrength'];?>
@@ -405,12 +410,12 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
         <? }?>
         
         
-        <p class="lin">
+        <p class="url"></b>
          <?=$website['mylink'];?>
         </p>
         
         <? if($user_detail['skype']) { ?>
-        <p class="skype">
+        <p class="skype"></b>
          <?=$user_detail['skype'];?>
         </p>
        	<? } ?>

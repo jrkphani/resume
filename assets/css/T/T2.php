@@ -88,19 +88,21 @@ body h1,h2,h3,h4,{font-weight:normal;}
 
 
 /*************************************************************  skills  ***********************************************************************************************/
-
+.margin_align{margin:0 0 20px 0;}
 .skill1_container{padding:15px 0 0 0px;}
-.skill1_container #skill1{width:72%; float:left;}
-.skill1_container #skill_level{width:95%;  text-align:right;} 
+.skill1_container #skill1{/*width:72%;*/ }
+.skill1_container #skill_level{width:95%;  text-align:right; padding:0px; margin:0 0 5px 0;} 
 .skill1_container .bullet{padding:0 0 0 20px; line-height:20px; background:url(<?=$baseurl?>assets/img/Templates/t10_bul.jpg) no-repeat 0% 45%;}
-.skill1_container .bullet {}
 .skill1_container .descp{padding:10 0 15px 0px;}
 
+.skill1_container .bullet1{padding-left: 20px; line-height:15px; background:url(<?=$baseurl?>assets/img/Templates/t10_bul.jpg) no-repeat 0% 19%;}
+.skill1_container .bullet1 b{font-weight:bold;}
 
-.pbar{ height: 20px; }
+
+.pbar{ }
 
 .pbar_inner{ 
- width: 60%;  height: 6px;  margin-top: 6px; float: left; 
+ width: 60%;  height: 6px;  margin-top: 2px; float: left; 
  background-color: #dbdbdb; border:solid 1px #bebebe; }
 
 .pbar_fill{
@@ -109,7 +111,7 @@ body h1,h2,h3,h4,{font-weight:normal;}
 
 .pbar p{
  width: 100px;  display: inline; 
- margin-left: 10px; line-height: 20px; text-transform: capitalize;}
+ margin-left: 10px;  text-transform: capitalize;}
 
 .pbar1{ width: 12.5% !important;}
 .pbar2{ width: 25% !important;}

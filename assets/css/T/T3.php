@@ -52,14 +52,11 @@ table {
 /*******************************************************font************************************************************************/
 
 
-@font-face {
-    font-family: 'test1';
-    src: url(<? echo FCPATH.'assets/Fonts/ZegoeCaps.ttf'; ?>);*/
-}
+
 
 /*************************************************************  global  ************************************************************************/
 
-body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
+body p,b,h1,h2,h3,span{font-family:Arial, Helvetica, sans-serif; color:#3f3f3f;}
 .clearall{clear:both;}
 .left{float:left; width:60%;display: inline; padding: 0 30px 0 0;}
 .right{float:left; width:35%;display: inline;}
@@ -76,7 +73,7 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 /*************************************************************  objective  ************************************************************************/
 
 .wrapper .left .objective{ margin:10px 0px 0px 30px; float:left;}
-.wrapper .left .objective h1{ border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:16px 0 16px 35px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_obj.png) no-repeat 0% 50%;}
+.wrapper .left .objective h1{ border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:16px 0 16px 40px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_obj.png) no-repeat 0% 50%;}
 .wrapper .left .objective p{font-size: 14px; line-height: 20px; padding:15px 0 5px 0;}
 
 /*************************************************************  summary  ************************************************************************/
@@ -88,9 +85,9 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 /*************************************************************  skills  ************************************************************************/
 
 .wrapper .left .skills{margin:0px 0px 0px 30px;}
-.wrapper .left .skills h1{ border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:0px 0 16px 35px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_skill.png) no-repeat 0% -51%;}
+.wrapper .left .skills h1{ border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:0px 0 18px 41px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_skill.png) no-repeat 0% 0%;}
 .wrapper .left .skills .left_skill{width:100%; padding:15px 0;}
-.wrapper .left .skills .left_skill .desigination{width:53%; float:left; line-height: 28px; color:#303030;  font-size: 16px;}
+.wrapper .left .skills .left_skill .desigination{width:53%; float:left; line-height: 28px; color:#303030;  font-size: 15px;}
 .wrapper .left .skills .left_skill .level{width:43%; color:#ec9d21; float:right; text-align:right; line-height: 28px;}
 .wrapper .left .skills .left_skill .desc{font-size:14px; line-height:20px; display:block; padding: 10px 0 5px 0; clear: right; }
 
@@ -101,7 +98,7 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 .pbar{ width: 260px; height: 20px; }
 
 .pbar_inner{ 
- width: 50%;  height: 6px;  margin-top: 6px; float: left; 
+ width: 40%;  height: 6px;  margin-top: 6px; float: left;  display: inline-block;
  background-color: #dbdbdb; border:solid 1px #bebebe; }
 
 .pbar_fill{
@@ -109,7 +106,7 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
  background-color: #ec9d21; border:solid 1px #D88C14;}
 
 .pbar p{
- width: 100px;  display: inline;  color:#ec9d21; font-size:16px;
+ width: 100px;  display: inline;  color:#ec9d21; font-size:12px;
  margin-left: 10px; line-height: 20px; text-transform: capitalize;}
 
 .pbar1{ width: 12.5% !important;}
@@ -128,7 +125,7 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 .wrapper .left .experience h1{ border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:16px 0 16px 35px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_exp.jpg) no-repeat 1% 48%;}
 .wrapper .left .experience .exp{width:100%; padding:10px 0 15px 0;}
 .wrapper .left .experience .exp .desigination{width:100%; line-height:11px; color:#303030; font-weight:bold; padding:15px 0 0px 0; font-size: 15px;}
-.wrapper .left .experience .exp .company{width:100%; color:#ec9d21;  line-height: 28px;display: block;clear: right;  padding:1px 0 0px 0; font-size: 15px;}
+.wrapper .left .experience .exp .company{width:100%; color:#ec9d21;  line-height: 28px;display: block;clear: right;  padding:1px 0 0px 0; font-size: 13px;}
 .wrapper .left .experience .exp .from{display:block; color:#717171; padding:0 0 0px 0; text-align:left; font-size: 12px; line-height: 22px;}
 .wrapper .left .experience .exp .descp{display:block; padding: 10px 0 5px 0; clear: right; font-size: 14px; line-height: 20px;}
 
@@ -137,22 +134,22 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 .wrapper .left .experience .exp .exp_yers{width:100%; padding:0px 0 0px 0; }
 .wrapper .left .experience .exp .exp_yers .exp_yers_btm{}
 .wrapper .left .experience .exp .exp_yers span{float:left; display:inline; font-size:13px; padding:0 0px 0 0;}
-.wrapper .left .experience .exp .ctc .cctc{width:50%; float:left; line-height: 28px; color:#303030; font-weight:bold; padding:15px 0 0px 0; font-size: 13px;}
+.wrapper .left .experience .exp .ctc .cctc{width:50%; float:left; line-height: 28px; color:#303030; font-weight:bold; padding:15px 0 0px 0; font-size: 12px;}
 .wrapper .left .experience .exp .ctc .cctc span{color:#ec9d21;}
-.wrapper .left .experience .exp .ctc .ectc{width:50%; color:#303030; float:right; text-align:right; font-weight:bold; line-height: 28px;display: block;clear: right;  padding:15px 0 0px 0; font-size: 13px;}
+.wrapper .left .experience .exp .ctc .ectc{width:50%; color:#303030; float:right; text-align:right; font-weight:bold; line-height: 28px;display: block;clear: right;  padding:15px 0 0px 0; font-size: 12px;}
 .wrapper .left .experience .exp .ctc .ectc span{color:#ec9d21;}
 .wrapper .left .experience .exp .ctc {width:100%; }
 
 /*************************************************************  project  ************************************************************************/
 
 .wrapper .left .project{ margin:0px 0px 0px 30px;}
-.wrapper .left .project h1{ border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:0px 0 16px 35px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_project.png) no-repeat 0% 2%;}
-.wrapper .left .project .proj{width:100%; padding:10px 0 15px 0;}
-.wrapper .left .project .proj .project_name{width:100%; line-height: 28px; color:#303030; font-weight:bold; padding:1px 0 0px 0; font-size: 15px;}
-.wrapper .left .project .proj .role{width:100%; color:#ec9d21; line-height:12px; display: block;clear: right;  padding:1px 0 0px 0; font-size: 15px;}
-.wrapper .left .project .proj .url{display:block; color:#717171; padding:4px 0 10px 0; font-size: 12px; line-height: 22px;}
+.wrapper .left .project h1{ border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:0px 0 16px 41px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_project.png) no-repeat 0% 2%;}
+.wrapper .left .project .proj{width:100%; padding:18px 0 15px 0;}
+.wrapper .left .project .proj .project_name{width:100%; line-height: 18px; color:#303030; font-weight:bold; padding:1px 0 0px 0; font-size: 15px;}
+.wrapper .left .project .proj .role{width:100%; color:#ec9d21; line-height:12px; display: block;clear: right;  padding:5px 0 0px 0; font-size: 13px;}
+.wrapper .left .project .proj .url{display:block; color:#717171; padding:4px 0 0px 0; font-size: 12px; line-height: 22px;}
 .wrapper .left .project .proj .descp_tit{color:#ec9d21;}
-.wrapper .left .project .proj .descp{display:block; padding: 10px 0 20px 0; clear: right; font-size: 14px; line-height: 20px; }
+.wrapper .left .project .proj .descp{display:block; padding: 10px 0 15px 0; clear: right; font-size: 14px; line-height: 20px; }
 .wrapper .left .project .proj .obj_tit{color:#ec9d21;}
 .wrapper .left .project .proj .obj{display:block; padding: 10px 0 5px 0; clear: right; font-size: 14px; line-height: 20px; /*border-bottom:1px solid #b5b5b5;*/}
 .wrapper .left .project .proj .descp:last-child{border:none;}
@@ -187,10 +184,10 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 
 .wrapper .left .awards{ margin:0px 0px 0px 30px;}
 .wrapper .left .awards h1{ border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:0px 0 16px 35px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_award.png) no-repeat -1% 1%;}
-.wrapper .left .awards .awar{width:100%; padding:10px 0 15px 0;}
+.wrapper .left .awards .awar{width:100%; padding:20px 0 0px 0;}
 .wrapper .left .awards .awar .award_name{width:100%; line-height:15px; color:#303030; font-weight:bold; padding:1px 0 0px 0; font-size: 15px;}
-.wrapper .left .awards .awar .yers{width:100%; color:#ec9d21; line-height: 28px;display: block;clear: right;  padding:1px 0 0px 0; font-size: 15px;}
-.wrapper .left .awards .awar .descp{display:block; padding: 10px 0 5px 0; clear: right; font-size: 14px; line-height: 20px; /*border-bottom:1px solid #b5b5b5;*/}
+.wrapper .left .awards .awar .yers{width:100%; color:#ec9d21; line-height: 28px;display: block;clear: right;  padding:1px 0 0px 0; font-size: 13px;}
+.wrapper .left .awards .awar .descp{display:block; padding: 0 0px 20px 0; clear: right; font-size: 14px; line-height: 20px; /*border-bottom:1px solid #b5b5b5;*/}
 .wrapper .left .awards .awar .descp:last-child{border:none;}
 
 
@@ -198,10 +195,10 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 
 .wrapper .left .interest{ margin:0px 0px 0px 30px;}
 .wrapper .left .interest h1{ border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:0px 0 16px 35px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_interest.png) no-repeat 0% 4%;}
-.wrapper .left .interest .inte{width:100%; padding:10px 0 15px 0;}
+.wrapper .left .interest .inte{width:100%; padding:10px 0 0px 0;}
 .wrapper .left .interest .inte .inte_name{width:100%; float:left; line-height: 28px; color:#303030; font-weight:bold; padding:1px 0 0px 0; font-size: 15px;}
 .wrapper .left .interest .inte .url{display:block; color:#ec9d21; padding:0 0 0px 0; font-size: 12px; line-height: 22px;}
-.wrapper .left .interest .inte .descp{display:block; padding: 10px 0 5px 0; clear: right; font-size: 14px; line-height: 20px; /*border-bottom:1px solid #b5b5b5;*/}
+.wrapper .left .interest .inte .descp{display:block; padding: 0px 0 5px 0; clear: right; font-size: 14px; line-height: 20px; /*border-bottom:1px solid #b5b5b5;*/}
 .wrapper .left .interest .inte .descp:last-child{border:none;}
 
 
@@ -227,7 +224,7 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 .wrapper .right .education h1{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:6px 0 16px 38px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_edu.png) no-repeat 0% 27%;}
 .wrapper .right .education .edu{width:100%; padding:0px 0;}
 .wrapper .right .education .edu .certification_name{width: 100%;float: left;line-height:18px; color: #303030; font-weight: bold; padding: 15px 0 0px 0; font-size: 15px;}
-.wrapper .right .education .edu .institution{color: #ec9d21;float: left;line-height: 20px;display: block;clear: right;padding: 5px 0 5px 0;}
+.wrapper .right .education .edu .institution{color: #ec9d21;float: left;line-height: 20px;display: block;clear: right;padding: 5px 0 5px 0; font-size: 13px;}
 .wrapper .right .education .edu .from{display: block;color: #717171;padding: 0 0 0px 0;font-size: 12px;line-height: 22px;}
 .wrapper .right .education .edu .percentage{display: block;padding: 0px 0 1px 0;clear: right;font-size: 14px;line-height: 28px; /*border-bottom:1px solid #b5b5b5;*/}
 .wrapper .right .education .edu .percentage:last-child{border:none;}
@@ -242,10 +239,11 @@ body p,b,h1,h2,h3,span{font-family:segoeui; color:#3f3f3f;}
 .wrapper .right .other_details .sub .passport{display: block;color: #717171;padding: 0 0 0px 0;font-size: 12px;line-height: 22px;}
 .wrapper .right .other_details .sub .visa{display: block;color: #717171;padding: 0 0 15px 0;font-size: 12px;line-height: 22px;}
 
-.wrapper .right .other_details .sub .skype{display: block;color: #717171;padding: 0 0 0px 0;font-size: 12px;line-height: 22px;}
-.wrapper .right .other_details .sub .fb{display: block;color: #717171;padding: 0 0 0px 0;font-size: 12px;line-height: 22px;}
-.wrapper .right .other_details .sub .lin{display: block;color: #717171;padding: 0 0 0px 0;font-size: 12px;line-height: 22px;}
-.wrapper .right .other_details .sub .twit{display: block;color: #717171;padding: 0 0 15px 0;font-size: 12px;line-height: 22px;}
+.wrapper .right .other_details .sub .url{display: block;color: #717171;padding: 0 0 5px 25px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/url1.png) no-repeat 0% 0%;}
+.wrapper .right .other_details .sub .skype{display: block;color: #717171;padding: 0 0 5px 25px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/skype1.png) no-repeat 0% 0%;}
+.wrapper .right .other_details .sub .fb{display: block;color: #717171;padding: 0 0 5px 25px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/facebook1.png) no-repeat 0% 0%;}
+.wrapper .right .other_details .sub .lin{display: block;color: #717171;padding: 0 0 5px 25px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/linkedin1.png) no-repeat 0% 0%;}
+.wrapper .right .other_details .sub .twit{display: block;color: #717171;padding: 0 0 15px 25px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/twitter1.png) no-repeat 0% 0%;}
 
 
 .wrapper .right .other_details .sub p b{font-weight:bold;}

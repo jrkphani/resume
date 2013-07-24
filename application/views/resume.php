@@ -45,6 +45,14 @@
 			<!-- First & Last name -->
 			<div class="left_form_title">
 				<h3>About Me</h3>
+				<? if($templateValue)
+				{?>
+				<!--<img id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">-->
+				<?}
+				else
+				{?>
+				<!--<img id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_thumb.jpg';?>"> -->
+				<?}?>
 				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p> Tell us about yourself in this section. You can enter your name and current location as well as talk about yourself and what you have been doing till date.</p>
@@ -929,7 +937,7 @@
 			<div class="change_arrow_lft"></div>
 	 		<div class="t_list_bg" id="T1">
 				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/t1_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Template 1</p>
 						<a class="t_select template" value="T1">Select</a>
@@ -938,7 +946,7 @@
 			</div>
 			<div class="t_list_bg" id="T2">
 				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/t4_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Template 2</p>
 						<a class="t_select template" value="T2">Select</a>
@@ -947,7 +955,7 @@
 			</div>
 			<div class="t_list_bg" id="T3">
 				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/t3_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Template 3</p>
 						<a class="t_select template" value="T3">Select</a>
@@ -956,7 +964,7 @@
 			</div>
 			<div class="t_list_bg" id="T4">
 				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/t2_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Template 4</p>
 						<a class="t_select template" value="T4">Select</a>

@@ -301,7 +301,7 @@ $('#addSkills').click(function()
 		html+=				'<option value="9">9</option>';
 		html+=				'<option value="10">10</option>';
 		html+=			'</select>';*/
-		html+=			'<input type="hidden" name=skillEff[] id="skillEff'+id+'" />';
+		html+=			'<input type="hidden" name=skillEff[] id="skillEff'+id+'" value="1"/>';
 		html+=			'<span class="sliding" id="sliding'+id+'" data="'+id+'"></span>';
 		html+=			'<span class="slidingText" id="slid_msg'+id+'"></div>';
 		html+=		'</div>';		
@@ -671,6 +671,7 @@ function define_slider(sliding_id)
 		create: function( event, ui ) {
 		 	var data=$(this).attr('data');
 		 	var value=$('#skillEff'+data).val();
+		 	 if(!value) value='1';
 		 	$(this).slider( "value", value );
 			switch(value)
 			{

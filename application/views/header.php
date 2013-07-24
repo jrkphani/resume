@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="icon" type="image/png" href="<?php echo base_url("assets/img/favicon.png"); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="keywords" content="Create cv online, create resume online,  Resume builder, EZCV">
 <meta name="description" content="Get noticed in a see of Resume">
@@ -37,7 +37,7 @@
 			<a href="#">Resume On Mobile</a>
 			<a href="<?php echo base_url('login/logout'); ?>">Logout</a>
 			<?php } else { ?>
-			<a href="<?php echo base_url('login'); ?>">Register / Signin</a>
+			<a href="<?php echo base_url('login'); ?>">Register | Sign in</a>
 			<?php } ?>
 		</nav>
 		

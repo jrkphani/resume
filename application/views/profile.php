@@ -143,10 +143,14 @@
                 <td>
                     <span class="pr-edit">
                        <input type="submit" name="submit" value="Update" class="pr_btn"/>
+                    </span>
+                </td>
+                <td>
+                		<span class="pr-edit">
                         <input type="button" value="Cancel" id="pr-cancel-link" class="pr_btn"  /> 
                     </span>
-                    
                 </td>
+                
                 
             </tr>
         </table>
@@ -160,25 +164,26 @@
         <form name="form2" id="form2" method="post">
             <table>
                 <tr>
-                    <td><label for="current_password">Current Password*</label></td>
+                    <td><label class="pr_left1" for="current_password">Current Password*</label></td>
                     <td><input type="password" name="current_password" id="current_password" /></td>
                 </tr>
                 <tr>
-                    <td><label for="new_password">New Password*</label></td>
+                    <td><label class="pr_left1" for="new_password">New Password*</label></td>
                     <td><input type="password" name="new_password" id="new_password" /></td>
                 </tr>
                 <tr>
-                    <td><label for="confirm_password">Confirm Password*</label></td>
+                    <td><label class="pr_left1"  for="confirm_password">Confirm Password*</label></td>
                     <td><input type="password" name="confirm_password" id="confirm_password" /></td>
                 </tr>
                 <tr>
                     
                     <td>
-                        <input type="button" name="submit_form2" id="submit_form2" value="Update" />&nbsp;&nbsp;
-                        <input type="button" value="Cancel" id="hide_change_password"  />
+                        <input type="button" class="pr_btn" name="submit_form2" id="submit_form2" value="Update" />&nbsp;&nbsp;
+                        <input type="button" class="pr_btn" value="Cancel" id="hide_change_password"  />
                     </td>
                 </tr>
             </table>
+            
         </form>
         </div>
         <!-- Forgot Password end-->

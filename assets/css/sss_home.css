@@ -4,7 +4,7 @@
 
 .slide_top_1, .slide_top_2{	
 	width:50%; height:100px; float: left;
-	background: #525252; color: #fff;	text-align: center;
+	background:#f2b852; color: #fff;	text-align: center;
 }
 .slide_top_1 {	 
 	background: #f07057;
@@ -20,7 +20,7 @@
 .slide_top_2 a{
 	width: 80%; height: 50%; display: block; 
 	margin: 0 auto; margin-top: 17px;	padding-top: 16px;	
-	border: solid 1px #44494a; -webkit-border-radius: 4px; 	-moz-border-radius: 4px;	border-radius: 4px;
+	border: solid 1px #D59C38; -webkit-border-radius: 4px; 	-moz-border-radius: 4px;	border-radius: 4px;
   	background-color: #f07057;	color: #ffffff; text-decoration: none; font-size: 1.6em;}
 
 .slide_bottom_1, .slide_bottom_2{

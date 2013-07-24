@@ -95,8 +95,8 @@ input [type="checkbox"]{
 }
 
 .form_checkbox{
-	width: 20px !important; 
-	margin-top: 10px;
+width: 20px !important;
+position: absolute; float: left!important;
 }
 
 #forget{
@@ -108,7 +108,7 @@ input [type="checkbox"]{
 	border: solid 1px #ce4b31;*/
 	margin-bottom: 20px;
 	display: block;
-	color: #ff0000;
+	 color:#f07057; font-size:15px; padding:0 10px 0 0; font-style:italic; margin-top: 8px;
 }
 
 .left_form_inner{
@@ -122,6 +122,8 @@ input [type="checkbox"]{
 	border-bottom: solid 5px #232323;
 
 }
+
+.rem_pad{padding:0 0 0 30px;}
 
 /********************************Edit profile overriedes and extras***********************************/
 
@@ -167,12 +169,18 @@ input [type="checkbox"]{
 	width: 200px;
 	font-size:1.2em;
 }
+.pr_left1{
+	font-family: segoeuib;
+	font-size:1.2em;
+	text-transform:capitalize;
+}
 
 .pr_right{
 	font-size: 1.4em;
 	line-height: 30px;
 }
 
+#form2 table tr{border:none!important;}
 .tbl{
     font-size: 13px;
     line-height: 16px;
@@ -182,13 +190,13 @@ input [type="checkbox"]{
 	 width:80px;	 height:80px;	 display:block;
 	 background: #ffffff;
 	 border:solid 5px #e1e1e1;
-		text-align: center;
+		text-align: center; padding:5px 0 0 0;
 }
 
 tr{
 	border-bottom: solid 1px #e1e1e1;
 }
-
+.reg_tr_remove tr{border:none!important;}
 .form_controls{
 	margin: 40px 0 20px 0 ;
 }
@@ -201,6 +209,10 @@ tr{
 }
 
 .pr_btn{
-	width: 160px !important;
-	margin:20px 0 20px 0 !important;
+width: 160px !important;
+margin: 20px 0 20px 0 !important;
+background: #f07057;
+border: solid 1px #c5533d;
+color: #fff;
+cursor: pointer; font-size:16px; padding:12px 30px 25px 30px;
 }

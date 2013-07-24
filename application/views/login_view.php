@@ -30,7 +30,9 @@
 				<form>
 					<div>
 						<input type="text"  class="login" placeholder="Email" id="username" name="username">
-						<input type="checkbox" id="c1" class="form_checkbox login" /><label for="c1"><span class="login">Remember me</span></lable>
+						<input type="checkbox" id="c1" class="form_checkbox login" /><span class="login rem_pad">Remember me</span> 
+            <label for="c1">
+            </label>
 					</div>
 					<div>
 						<input type="password" class="login" placeholder="Password" id="passowrd" name="password">
@@ -65,7 +67,7 @@
 					<input type="radio" name="role" id="role" value="member">Member
 			    </div>
 			    <label>Refer friends</label>
-			 	<table>
+			 	<table class="reg_tr_remove">
 				  	<!-- <th>
 				  		<td colspan='2'>Reffer Friends</td>
 				  	</th> -->

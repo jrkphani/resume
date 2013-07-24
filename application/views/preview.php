@@ -4,7 +4,7 @@
 	 display: block; text-align: center;
 	 margin-top: 100px;
 	cursor: pointer; text-decoration: none;
-	background: #f07057 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #c5533d;	color: #fff;	
+	background: #f07057 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #c5533d;	color: #fff; font-family: Myriad Pro;
 }
 
 .clickr:hover{

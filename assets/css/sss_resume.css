@@ -18,6 +18,19 @@
 	background-color: #f4f4f4;
 	position: relative;
 }
+
+.left_form_feedback{
+	padding:40px; min-height:670px;;
+	background-color: #f4f4f4;
+	position: relative;
+}
+.left_form_feedback .container #err_msg{margin:0 0 10px 0; color:#f07057;}
+.fb_cnt{margin:0 0 10px 0;padding:0 20px 0 0;}
+.fb_txt{margin:0 0 10px 0; }
+.fb_txtara{margin:0 0 10px 0; height: 122px;width: 403px;}
+.fb_btn{padding:10px 30px 25px 30px!important;display: inline-block;background: #f07057;border: solid 1px #c5533d;color: #fff;}
+.fb_btn:hover{background-color: #da5e46;border: solid 1px #d05840;}
+
 .left_form_title{
 	width: 100%; padding-bottom: 20px;
 	color: #323232; 
@@ -27,7 +40,7 @@
 	text-transform: uppercase;}
 .left_form_title span{
 	display: inline-block;	float: right;
-	margin-right:40px; line-height: 40px;	cursor: pointer;	text-transform: uppercase;
+	margin-right:40px; line-height: 40px;	cursor: pointer;	text-transform: uppercase; background: url(../img/change_temp.png) 3px 6px no-repeat; padding: 0 0 0 32px;
 	
 }
 .left_form_title p{ margin: 20px 20px 0 20px; line-height: 25px;}
@@ -60,6 +73,10 @@
 	background: url(../img/sprites.png) no-repeat left center;
 	background-position: 0 -809px;  
 }
+.right_nav .rns_err{background: url(../img/sprites.png) 0px -895px no-repeat!important;}
+
+
+
 
 .rns_a{
 	font-family: segoeuib;
@@ -94,13 +111,17 @@
 }
 .right_nav h3{ 
 	display:blocl; margin: 20px 0 20px 0;}
+	
+#fname_err, #lname_err, #phone_err, #email_err{color:#f07057; font-size:15px; padding:0 10px 0 0; font-style:italic;}
 
+.clickr{font-family: Myriad Pro;}
 
 /********************************Form Common***********************************/
 
 input{
-	margin-bottom: 30px;
+	margin-bottom: 30px; margin-right: 10px;
 	height: 25px;
+	padding:0 5px; 
 }
 
 select{
@@ -109,9 +130,9 @@ select{
 }
 
 textarea{
-	width: 400px;
+	width: 400px; font-family:Arial, Helvetica, sans-serif; font-size: 14px; padding:5px;
 	margin-bottom: 30px; 
-	
+	 
 }
 
 label{
@@ -191,13 +212,13 @@ border: solid 1px #c5533d;
 	border: solid 1px #e1e1e1;
 	float: left;
 	padding: 10px;
-	margin: 5px;
+	margin:5px 5px 5px 0;
 	position: relative;
 	-webkit-box-shadow: 0 3px 3px -3px #828282;
 	   -moz-box-shadow: 0 3px 3px -3px #828282;
 	        box-shadow: 0 3px 3px -3px #828282;
 }
-
+.cmn_repeater .cmpny_txt{width: 263px;}
 .cmn_repeater label{
 	display: inline-block;
 	width: 60px;
@@ -273,6 +294,9 @@ height: 2px!important;
 
 }
 
+.change_arrow_lft{background:transparent url(../img/sprites.png) -298px -648px no-repeat; display:block; padding:59px 15px 22px 37px; width:13px;  float:left; margin: 120px 0px 0 29px;}
+
+.change_arrow_rit{background:transparent url(../img/sprites.png) -360px -648px no-repeat; display:block; padding:59px 15px 22px 37px; width:13px;  float:left; margin: 120px 0px 0 29px;}
 
 .t_list_bg{
 	width: 220px; height: 297px; float: left;

@@ -20,7 +20,7 @@
 	<span tab='#edication_tab' class="tab rns rns_inner">Education & Awards</span>
 	<span tab='#moreabout_tab' class="tab rns rns_inner">More About Me</span>
 	<!-- <span class="rns"><span class="rnd">3</span>Build Your Image</span> -->
-	<span class="rns"><span class="rnd">4</span>Register with EZCV</span>
+	<span class="rns"><span class="rnd">3</span>Register with EZCV</span>
 </div>
 <!--<div id="file_upload" style="display:none;">
    <form method="post" action="" id="upload_file">
@@ -45,7 +45,7 @@
 			<!-- First & Last name -->
 			<div class="left_form_title">
 				<h3>About Me</h3>
-				<span class="showSelectTemplate">Resume Templates</span>
+				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p> Tell us about yourself in this section. You can enter your name and current location as well as talk about yourself and what you have been doing till date.</p>
 			</div>
@@ -53,9 +53,11 @@
 			<div class="form_sections">
 				<div>
 					<input type="text" name="fname"  id="first_name" placeholder="First name"  value="<? if(isset($user_detail[0]['first_name'])) echo $user_detail[0]['first_name']; ?>" maxlength="30" required/>
+          <span id="fname_err"></span>
 					<input name="lname" type="text"  id="last_name" placeholder="Last name" value="<? if(isset($user_detail[0]['last_name'])) echo $user_detail[0]['last_name']; ?>" maxlength="30" required/>
+          <span id="lname_err"></span>
 				</div>
-				<span id="name_err"></span>
+				
 			<!-- DOB -->
 				<div>
 				    <label >Date of Birth</label>
@@ -77,7 +79,7 @@
 						{
 						$summary=unserialize($about[0]['summary']);
 						?>
-						<option value="Who i am" <? if($summary[0] == 'Who i am') {echo 'selected="selected"'; $found=1; } ?>>Who i am</option>
+						<option value="Who I am" <? if($summary[0] == 'Who i am') {echo 'selected="selected"'; $found=1; } ?>>Who i am</option>
 						<option value="About me" <? if($summary[0] == 'About me') {echo 'selected="selected"'; $found=1; } ?>>About me</option>
 						<option value="Summary" <? if($summary[0] == 'Summary') {echo 'selected="selected"'; $found=1; } ?>>Summary</option>
 						<option value="Custom heading" <?if(!$found)echo 'selected="selected"';?> >Custom heading</option>					
@@ -129,7 +131,7 @@
 		<!-- =========================================================== Designation,Objective tab start ==================-->
 		<div id="objective_tab" class="tabs">
 			<div class="left_form_title">
-				<h3>OBJECTIVE, CURRENT POSITION</h3>
+				<h3>DESIGNATION, OBJECTIVE</h3>
 				<span class="showSelectTemplate">Resume Templates</span>
 				<div class="clearboth"></div>
 				<p>This section will cover your current designation in case you are already working. If you are a student, you can skip this section. Alternatively, as a student you can talk about the role you desire to play in the path you take towards building your career. </p>
@@ -220,9 +222,10 @@
 			</div>
 			<div >
 			    <input  type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
+          <span id="phone_err"></span>
 				<input   name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
+        <span id="email_err"></span>
 			</div>
-			<span id="phone_email_err"></span>
 			<div>
 			    <label>Website</label>
 			    <? 
@@ -341,8 +344,8 @@
 						<span class="button remove formRemoveBtn" onclick=removeId("c<?=$i;?>");>Remove</span>
 						<? } ?>
 							<div class="cmp_repeater cmn_repeater">
-								<input  type="text" name="cmpnyName[]" placeholder="Company name" value="<?=$record;?>"><br/>
-								<input  name="cmpnyDesg[]" type="text"  placeholder="Designation" value="<?=$companyDesc[$i];?>"><br/>
+								<input class="cmpny_txt"  type="text" name="cmpnyName[]" placeholder="Company name" value="<?=$record;?>"><br/>
+								<input class="cmpny_txt" name="cmpnyDesg[]" type="text"  placeholder="Designation" value="<?=$companyDesc[$i];?>"><br/>
 								<label >From</label>
 								<input  type="text"  name="cmpnyFrom[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" /><br/>
 								<label >To</label>
@@ -923,7 +926,7 @@
 			<span id="selectTemplateclose" class="close_btn">close</span>
 			<div class="clearboth"></div>
 			<h3>Choose Template</h3>
-			
+			<div class="change_arrow_lft"></div>
 	 		<div class="t_list_bg" id="T1">
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/t1_thumb.jpg"); ?>" alt="Template thumbnail"/>
@@ -960,6 +963,7 @@
 					</div>
 				</div>
 			</div>
+      <div class="change_arrow_rit"></div>      
 		</div>
 	</div>
 

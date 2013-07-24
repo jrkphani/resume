@@ -47,11 +47,11 @@
 				<h3>About Me</h3>
 				<? if($templateValue)
 				{?>
-				<!--<img id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">-->
+				<img style="width:75px; height:100px" id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">
 				<?}
 				else
 				{?>
-				<!--<img id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_thumb.jpg';?>"> -->
+				<img style="width:75px; height:100px" id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_thumb.jpg';?>">
 				<?}?>
 				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>

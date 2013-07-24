@@ -82,10 +82,18 @@ $(document).ready(function()
 
 	$('.next').click(function()
 	{
-		$('.tab').removeClass('rns_a');
-		$('.tabs').hide();
-		$(".tab[tab='" + $(this).attr('href') + "']").addClass('rns_a');
-		$($(this).attr('href')).show();
+		//if(!validate_resume())
+		if(0)
+		{
+			return false;
+		}
+		else
+		{
+			$('.tab').removeClass('rns_a');
+			$('.tabs').hide();
+			$(".tab[tab='" + $(this).attr('href') + "']").addClass('rns_a');
+			$($(this).attr('href')).show();
+		}
 	});
 	//let tab menu and continue button function start
 	
@@ -102,6 +110,12 @@ $(document).ready(function()
 	$("#preview").colorbox({iframe:true, escKey:true, width:"860px", height:"100%"});
 	$("#resume_submit").click(function(e){
 		e.preventDefault();
+		if(!validate_resume())
+		{
+		return false;
+		}
+		else
+		{
 		if(!$('#template').val())
 		{
 			//return false;
@@ -134,9 +148,17 @@ $(document).ready(function()
 				}
 			});
 		}
+		}
 	});
 	$("#preview_submit").click(function(e){
 		e.preventDefault();
+		if(!validate_resume())
+		{
+		return false;
+		}
+		else
+		{
+			
 		if(!$('#template').val())
 		{
 			//return false;
@@ -172,6 +194,7 @@ $(document).ready(function()
 					alert('Internal error, Please try agian!');
 				}
 			});
+		}
 		}
 	});
 	
@@ -720,4 +743,47 @@ function define_slider(sliding_id)
 			$('#slid_msg'+data).html(ui.value+" "+msg);
 		}
 	});
+}
+function validate_resume()
+{
+		if(!validate('First Name','first_name',man=true,max=100,min=3,type='string',disp='name_err'))
+		{
+			$('.tab').removeClass('rns_a');
+			$('.tabs').hide();
+			$('.tab[tab="#about_tab"]').addClass('rns_a');
+			$('#about_tab').show();
+			$('#first_name').focus();
+			return false;
+		}
+		else if(!validate('Last Name','last_name',man=true,max=100,min=false,type='string',disp='name_err'))
+		{
+			$('.tab').removeClass('rns_a');
+			$('.tabs').hide();
+			$('.tab[tab="#about_tab"]').addClass('rns_a');
+			$('#about_tab').show();
+			$('#last_name').focus();
+			return false;
+		}
+		else if(!validate('Mobile Number','phone',man=true,max=17,min=10,type='mobile',disp='phone_email_err'))
+		{
+			$('.tab').removeClass('rns_a');
+			$('.tabs').hide();
+			$('.tab[tab="#contact_tab"]').addClass('rns_a');
+			$('#contact_tab').show();
+			$('#phone').focus();
+			return false;
+		}
+		else if(!validate('Email','email',man=true,max=254,min=false,type='email',disp='phone_email_err'))
+		{
+			$('.tab').removeClass('rns_a');
+			$('.tabs').hide();
+			$('.tab[tab="#contact_tab"]').addClass('rns_a');
+			$('#contact_tab').show();
+			$('#email').focus();
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 }

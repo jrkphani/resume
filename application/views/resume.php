@@ -52,9 +52,10 @@
 			
 			<div class="form_sections">
 				<div>
-					<input type="text" name="fname"  placeholder="First name"  value="<? if(isset($user_detail[0]['first_name'])) echo $user_detail[0]['first_name']; ?>" maxlength="30" required/>
-					<input name="lname" type="text"  placeholder="Last name" value="<? if(isset($user_detail[0]['last_name'])) echo $user_detail[0]['last_name']; ?>" maxlength="30" required/>
+					<input type="text" name="fname"  id="first_name" placeholder="First name"  value="<? if(isset($user_detail[0]['first_name'])) echo $user_detail[0]['first_name']; ?>" maxlength="30" required/>
+					<input name="lname" type="text"  id="last_name" placeholder="Last name" value="<? if(isset($user_detail[0]['last_name'])) echo $user_detail[0]['last_name']; ?>" maxlength="30" required/>
 				</div>
+				<span id="name_err"></span>
 			<!-- DOB -->
 				<div>
 				    <label >Date of Birth</label>
@@ -218,9 +219,10 @@
 				<input id="contactTitle" name="cusContactTitle" <?if(isset($user_detail[0]['contactTitle']) && (!$found)) {echo 'value="'.$user_detail[0]['contactTitle'].'"'; } else{ echo 'style="display:none;"'; }?> type="text"  placeholder="Custom title" />
 			</div>
 			<div >
-			    <input  type="text"  name="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
-				<input   name="email" type="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
+			    <input  type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
+				<input   name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
 			</div>
+			<span id="phone_email_err"></span>
 			<div>
 			    <label>Website</label>
 			    <? 
@@ -971,6 +973,7 @@
 		<!--<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>-->
 		<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>
 		<script src="<?php echo base_url('assets/js/jquery-ui.min.js');?>"></script>
+		<script src="<?php echo base_url('assets/js/validation.js');?>"></script>
 		<script src="<?php echo base_url('assets/js/resume.js');?>"></script>
 		<?php /* <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.toastmessage.js'); ?>" ></script>
 		<script type="text/javascript" src="<?php echo base_url('assets/js/sisyphus.js'); ?>" ></script> */ ?>

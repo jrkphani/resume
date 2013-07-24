@@ -39,6 +39,7 @@
 			<?php } else { ?>
 			<a href="<?php echo base_url('login'); ?>">Register | Sign in</a>
 			<?php } ?>
+			<a href="<?php echo base_url('feedback'); ?>">Feedback</a>
 		</nav>
 		
 	</header>

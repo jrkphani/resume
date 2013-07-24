@@ -371,7 +371,7 @@ $('#addSkills').click(function()
 		html+=		'<span class="button remove formRemoveBtn" onclick=removeId("'+rid+'");>Remove</span>';	
 		html+=			'<div>';
 		html+=				'<input rows="3"  name="intresttitle[]" type="text"  placeholder="Title of Interest"><br/>';
-		html+=				'<p>E.g, Blogging, Sports, Trekking, Photography.</p>';
+		html+=				'<p class="examples">E.g, Blogging, Sports, Trekking, Photography.</p>';
 		html+=			'</div>';
 		html+=			'<div>';
 		html+=				'<label >Description</label>';

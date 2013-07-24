@@ -158,7 +158,6 @@ $(document).ready(function()
 		}
 		else
 		{
-			
 		if(!$('#template').val())
 		{
 			//return false;
@@ -746,44 +745,59 @@ function define_slider(sliding_id)
 }
 function validate_resume()
 {
-		if(!validate('First Name','first_name',man=true,max=100,min=3,type='string',disp='name_err'))
+		flag = true;
+		focus_slected=0;
+		tab_show=0;
+		$('.tab').removeClass('rns_err');
+		$('#email_err , #phone_err, #fname_err, #lname_err').html("");
+		if(!validate('First Name','first_name',man=true,max=100,min=3,type='string',disp='fname_err'))
 		{
-			$('.tab').removeClass('rns_a');
+			if(focus_slected==0)
+			{
+			$('.tab[tab="#about_tab"]').addClass('rns_err');
+			tab_show ='#about_tab';
+			focus_slected='#first_name';
+			}
+			flag = false;
+		}
+		if(!validate('Last Name','last_name',man=true,max=100,min=false,type='string',disp='lname_err'))
+		{
+			if(focus_slected==0)
+			{
+			$('.tab[tab="#about_tab"]').addClass('rns_err');
+			tab_show ='#about_tab';
+			focus_slected='#last_name';
+			}
+			flag = false;
+		}
+		if(!validate('Mobile Number','phone',man=true,max=17,min=10,type='mobile',disp='phone_err'))
+		{
+			if(focus_slected==0)
+			{
+			$('.tab[tab="#contact_tab"]').addClass('rns_err');
+			tab_show ='#contact_tab';
+			focus_slected='#phone';
+			}
+			flag = false;
+		}
+		if(!validate('Email','email',man=true,max=254,min=false,type='email',disp='email_err'))
+		{
+			if(focus_slected==0)
+			{
+			$('.tab[tab="#contact_tab"]').addClass('rns_err');
+			tab_show ='#contact_tab';
+			focus_slected='#email';
+			}
+			flag = false;
+		}
+		if(tab_show!=0)
+		{
 			$('.tabs').hide();
-			$('.tab[tab="#about_tab"]').addClass('rns_a');
-			$('#about_tab').show();
-			$('#first_name').focus();
-			return false;
+			$(tab_show).show();
 		}
-		else if(!validate('Last Name','last_name',man=true,max=100,min=false,type='string',disp='name_err'))
+		if(focus_slected!=0)
 		{
-			$('.tab').removeClass('rns_a');
-			$('.tabs').hide();
-			$('.tab[tab="#about_tab"]').addClass('rns_a');
-			$('#about_tab').show();
-			$('#last_name').focus();
-			return false;
+			$(focus_slected).focus();
 		}
-		else if(!validate('Mobile Number','phone',man=true,max=17,min=10,type='mobile',disp='phone_email_err'))
-		{
-			$('.tab').removeClass('rns_a');
-			$('.tabs').hide();
-			$('.tab[tab="#contact_tab"]').addClass('rns_a');
-			$('#contact_tab').show();
-			$('#phone').focus();
-			return false;
-		}
-		else if(!validate('Email','email',man=true,max=254,min=false,type='email',disp='phone_email_err'))
-		{
-			$('.tab').removeClass('rns_a');
-			$('.tabs').hide();
-			$('.tab[tab="#contact_tab"]').addClass('rns_a');
-			$('#contact_tab').show();
-			$('#email').focus();
-			return false;
-		}
-		else
-		{
-			return true;
-		}
+		return flag;
 }

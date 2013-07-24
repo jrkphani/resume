@@ -22,7 +22,8 @@ $(document).ready(function()
 			$('#'+$(this).attr('name')).hide();
 		}
 	});
-	
+	/* tiny url commented bcz limitte number of queries per day
+	 * 
 	var websitetime, linkedintime, twittertime, facebooktime= null;
 	//get web tiny url
 	$('#website').keydown(function()
@@ -67,6 +68,7 @@ $(document).ready(function()
 		   gettiny('#facebook');
 		}, 1000)
 	});
+	*/
 	//let tab menu and continue button function start
 	$('.tabs').hide();
 	$('#about_tab').show();
@@ -78,6 +80,7 @@ $(document).ready(function()
 		$('.tabs').hide();
 		$(this).addClass('rns_a');
 		$($(this).attr('tab')).show();
+		$('html, body').animate({ scrollTop: 0 }, 0);
 	});
 
 	$('.next').click(function()
@@ -94,6 +97,7 @@ $(document).ready(function()
 			$(".tab[tab='" + $(this).attr('href') + "']").addClass('rns_a');
 			$($(this).attr('href')).show();
 		}
+		$('html, body').animate({ scrollTop: 0 }, 0);
 	});
 	//let tab menu and continue button function start
 	

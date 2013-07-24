@@ -752,9 +752,9 @@ function validate_resume()
 		$('#email_err , #phone_err, #fname_err, #lname_err').html("");
 		if(!validate('First Name','first_name',man=true,max=100,min=3,type='string',disp='fname_err'))
 		{
+			$('.tab[tab="#about_tab"]').addClass('rns_err');
 			if(focus_slected==0)
 			{
-			$('.tab[tab="#about_tab"]').addClass('rns_err');
 			tab_show ='#about_tab';
 			focus_slected='#first_name';
 			}
@@ -762,9 +762,9 @@ function validate_resume()
 		}
 		if(!validate('Last Name','last_name',man=true,max=100,min=false,type='string',disp='lname_err'))
 		{
+			$('.tab[tab="#about_tab"]').addClass('rns_err');
 			if(focus_slected==0)
 			{
-			$('.tab[tab="#about_tab"]').addClass('rns_err');
 			tab_show ='#about_tab';
 			focus_slected='#last_name';
 			}
@@ -772,9 +772,9 @@ function validate_resume()
 		}
 		if(!validate('Mobile Number','phone',man=true,max=17,min=10,type='mobile',disp='phone_err'))
 		{
+			$('.tab[tab="#contact_tab"]').addClass('rns_err');
 			if(focus_slected==0)
 			{
-			$('.tab[tab="#contact_tab"]').addClass('rns_err');
 			tab_show ='#contact_tab';
 			focus_slected='#phone';
 			}
@@ -782,9 +782,9 @@ function validate_resume()
 		}
 		if(!validate('Email','email',man=true,max=254,min=false,type='email',disp='email_err'))
 		{
+			$('.tab[tab="#contact_tab"]').addClass('rns_err');
 			if(focus_slected==0)
 			{
-			$('.tab[tab="#contact_tab"]').addClass('rns_err');
 			tab_show ='#contact_tab';
 			focus_slected='#email';
 			}

@@ -103,6 +103,9 @@ class Registration extends CI_Controller {
 					{
 						if($user_id=$this->user->add_user($post_data))
 						{
+							//modify the seesion data based in register data
+							$session_data['user_detail']['first_name']=$post_data['firstname'];
+							$session_data['user_detail']['last_name']=$post_data['lastname'];
 							$this->load->library('email');
 							#$config['protocol'] = 'sendmail';
 							#$config['mailpath'] = '/usr/sbin/sendmail';
@@ -124,7 +127,14 @@ class Registration extends CI_Controller {
 								}
 								else
 								{
-									$data['html']='no';
+									if($session_data['template'])
+									{
+										$data['html']='no';
+									}
+									else
+									{
+										$data['html']='nodownload';
+									}
 								}
 								}
 								else
@@ -310,9 +320,16 @@ function updateUser($user_id)
 	   }
 	   else
 	   {
-		   $preview_data = $this->load->view('T/'.$session_data['template'].'_html',$session_data,true);
-		   $temp_path_html=FCPATH.$this->config->item('path_temp_file').$user_id.'.html';
-		   if(!write_file($temp_path_html, $preview_data))
+		   if($session_data['template'])
+		   {
+			   $preview_data = $this->load->view('T/'.$session_data['template'].'_html',$session_data,true);
+			   $temp_path_html=FCPATH.$this->config->item('path_temp_file').$user_id.'.html';
+			   if(!write_file($temp_path_html, $preview_data))
+				{
+					return false;
+				}
+			}
+			else
 			{
 				return false;
 			}

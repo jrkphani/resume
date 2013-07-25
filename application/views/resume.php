@@ -3,6 +3,9 @@
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/pepper-grinder/jquery-ui.css" />
 <!--<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/jquery.toastmessage.css"); ?>"/>
 <div id="toast"></div>-->
+<?php
+	$keywords = array("Ability to Delegate", "Analytical Ability", "Can Handle to Work Overlay", "Competitive", "Competencies", "Collaborative", "Enthusiastic", "Flexible", "Follow Through Leadership", "High Energy", "Mutli-task oriented", "Organizational skills", "Presentation Skills", "Rigorous", "Self-driven", "Team building", "Setting priorities", "Self Managing", "Achievement oriented", "Adaptable", "Ability to Implement", "Ability to Plan", "Ability to Train", "Accurate", "Assertive", "Budget-driven", "Creative", "Communication Skills", "Conceptual Ability", "Dependable", "Deadline driven", "Detail-oriented", "Emphasis", "Energetic", "Ethical", "Excellent Track Record", "Extensive Experience", "Focused", "Good Understanding", "Independent", "Innovative", "Industrious", "Leadership", "Motivated", "Open Communication", "Open Minded", "Organized", "Problem Solving", "Process Oriented", "Proficient", "Persuasive", "Results Focused", "Results Oriented", "Resourcefulness", "Self Accountable", "Supportive", "Takes Initiative", "Versatile", "Reliable", "Articulate", "Customer Focused ", "Client Focused");
+?>
 <div class="form_title">
 	<h3>Discover Yourself</h3>
 </div>
@@ -112,15 +115,7 @@
 				</div>
 				<div class="suggestion_box">
 				    	<h3>Suggestions</h3>
-				    	<span>Versatile</span>
-				    	<span>Creative</span>
-				    	<span>Focussed</span>
-				    	<span>Process oriented</span>
-				    	<span>Energetic</span>
-				    	<span>Proficient</span>
-				    	<span>Excellent track record</span>
-				    	<span>Good understanding</span>
-				    	<span>Emphasis</span>
+				    	<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
 				    </div>
 				 <div class="clearboth"></div>
 				<span class="clickr next" href='#objective_tab'>Continue</span>
@@ -185,15 +180,7 @@
 			</div>
 			<div class="suggestion_box">
 				<h3>Suggestions</h3>
-		    	<span>Versatile</span>
-		    	<span>Creative</span>
-		    	<span>Focussed</span>
-		    	<span>Process oriented</span>
-		    	<span>Energetic</span>
-		    	<span>Proficient</span>
-		    	<span>Excellent track record</span>
-		    	<span>Good understanding</span>
-		    	<span>Emphasis</span>
+		    	<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
 			</div>
 			 <div class="clearboth"></div>
 
@@ -458,7 +445,8 @@
 			    	</div>
 			    </div>
 				<div id="sugg_strnth_list" class="mys_right">
-		    		<div id="sugg_strnth_1">Creative<span class="sugg_strnth" value="Creative" data="1">+</span></div>
+					<?php foreach ($keywords as $i => $key) { echo '<div id="sugg_strnth_'.($i+1).'">'.$key.'<span class="sugg_strnth" value="'.$key.'" data="'.($i+1).'">+</span></div>'; } ?>
+		    		<!-- <div id="sugg_strnth_1">Creative<span class="sugg_strnth" value="Creative" data="1">+</span></div>
 		    		<div id="sugg_strnth_2">Proficient<span class="sugg_strnth" value="Proficient" data="2">+</span></div>
 		    		<div id="sugg_strnth_3">Problem Solving<span class="sugg_strnth" value="Problem Solving" data="3">+</span></div>
 		    		<div id="sugg_strnth_4">Focused<span class="sugg_strnth" value="Focused" data="4">+</span></div>
@@ -470,7 +458,7 @@
 		    		<div id="sugg_strnth_10">Emphasis<span class="sugg_strnth" value="Emphasis" data="10">+</span></div>
 		    		<div id="sugg_strnth_11">Collaborate with teams<span class="sugg_strnth" value="Collaborate with teams" data="11">+</span></div>
 		    		<div id="sugg_strnth_12">Resourceful<span class="sugg_strnth" value="Resourceful" data="12">+</span></div>
-		    		<div id="sugg_strnth_13">Budget Driven<span class="sugg_strnth" value="Budget Driven" data="13">+</span></div>
+		    		<div id="sugg_strnth_13">Budget Driven<span class="sugg_strnth" value="Budget Driven" data="13">+</span></div> -->
 		    	</div>
 
 			    <div style="clear:both"></div>
@@ -939,7 +927,7 @@
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
-						<p>Template 1</p>
+						<p>Spring Bloom</p>
 						<a class="t_select template" value="T1">Select</a>
 					</div>
 				</div>
@@ -948,7 +936,7 @@
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
-						<p>Template 2</p>
+						<p>White Citadel</p>
 						<a class="t_select template" value="T2">Select</a>
 					</div>
 				</div>
@@ -957,7 +945,7 @@
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
-						<p>Template 3</p>
+						<p>Window View</p>
 						<a class="t_select template" value="T3">Select</a>
 					</div>
 				</div>
@@ -966,7 +954,7 @@
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
-						<p>Template 4</p>
+						<p>Pyramid Point</p>
 						<a class="t_select template" value="T4">Select</a>
 					</div>
 				</div>

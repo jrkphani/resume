@@ -15,7 +15,7 @@
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
-						<p>Template 1</p>
+						<p>Spring Bloom</p>
 						<a class="t_select" tvalue="T1">Select</a>
 					</div>
 				</div>
@@ -25,7 +25,7 @@
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
-						<p>Template 2</p>
+						<p>White Citadel</p>
 						<a class="t_select" tvalue="T2">Select</a>
 					</div>
 				</div>
@@ -34,7 +34,7 @@
 			<div class="t_list_t">
 				<img src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 				<div class="t_list_s">
-					<p>Template 3</p>
+					<p>Window View</p>
 					<a class="t_select" tvalue="T3">Select</a>
 				</div>
 			</div>
@@ -43,7 +43,7 @@
 			<div class="t_list_t">
 				<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 				<div class="t_list_s">
-					<p>Template 4</p>
+					<p>Pyramid Point</p>
 					<a class="t_select" tvalue="T4">Select</a>
 				</div>
 			</div>

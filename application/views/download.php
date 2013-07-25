@@ -5,10 +5,11 @@
 		
 	<div class="span6">
 		<div id="countLayout" class="download-main">
-			Download will start in
+			Your resume will be ready for download in,
 			<div class="download-main-inner">
 				<span id="glowingLayout"></span> Seconds	
 			</div> 
+			Please wait while your resume is being prepared.
 			
 		</div>
 		

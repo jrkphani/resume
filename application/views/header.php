@@ -19,7 +19,7 @@
 		<h1><a class="ezcv_logo" href="<?php echo base_url(); ?>"><img src="<?php echo base_url("assets/img/ezcv-logo.png"); ?>"> </a></h1>
 		<nav>
 			<a href="<?php echo base_url(); ?>" class="ezcv_header_current">Home</a>
-			<a href="<?php echo base_url(); ?>">Why EZCV</a>
+			<a href="<?php echo base_url('why'); ?>">Why EZCV</a>
 			<a href="<?=base_url('templates'); ?>">Resume Templates</a>
 			<!--<a href="<?=base_url('blog'); ?>">Blog</a>
 			<a href="<?=base_url('testimonials'); ?>">Testimonials</a>-->

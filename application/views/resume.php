@@ -999,7 +999,7 @@
 					<img src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Spring Bloom</p>
-						<a class="t_select template" value="T1">Select</a>
+						<a title="Spring Bloom" class="t_select template" value="T1">Select</a>
 					</div>
 				</div>
 			</div>
@@ -1008,7 +1008,7 @@
 					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>White Citadel</p>
-						<a class="t_select template" value="T2">Select</a>
+						<a title="White Citadel" class="t_select template" value="T2">Select</a>
 					</div>
 				</div>
 			</div>
@@ -1017,7 +1017,7 @@
 					<img src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Window View</p>
-						<a class="t_select template" value="T3">Select</a>
+						<a title="Window View" class="t_select template" value="T3">Select</a>
 					</div>
 				</div>
 			</div>
@@ -1026,7 +1026,7 @@
 					<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Pyramid Point</p>
-						<a class="t_select template" value="T4">Select</a>
+						<a title="Pyramid Point" class="t_select template" value="T4">Select</a>
 					</div>
 				</div>
 			</div>
@@ -1040,7 +1040,7 @@
 
 
 				 
-		<div id="preview" class="stop-theme" title="Resume" href=""></div>
+		<div id="preview" class="stop-theme" title="<?=$templateName;?>" href=""></div>
 		<!--<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>-->
 		<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>
 		<script src="<?php echo base_url('assets/js/jquery-ui.min.js');?>"></script>

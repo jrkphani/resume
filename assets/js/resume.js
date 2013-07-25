@@ -205,6 +205,7 @@ $(document).ready(function()
 	{
 		//$('.templateCell').removeClass('templateCellSelected');
 		$('#template').val($(this).attr('value'));
+		$('#preview').attr('title',$(this).attr('title'));
 		$('.thumb_sdw_tmp').attr('src',baseurl+'assets/img/'+$(this).attr('value')+'_thumb.jpg');
 		$('#selectTemplate').hide();
 	//	$('#'+$(this).attr('value')).addClass('templateCellSelected');

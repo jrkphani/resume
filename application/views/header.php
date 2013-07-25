@@ -29,12 +29,12 @@
 			<?php if($session_data = $this->session->userdata('logged_in')) { ?>
 			<a href="<?php echo base_url('profile'); ?>"><?php echo $session_data['firstname']; ?></a>
 			<a href="<?php echo base_url('resume'); ?>">My Resume</a>
-			<a href="#">My Recommendations</a>
+			<!--<a href="#">My Recommendations</a>
 			<a href="#">Refer Friends</a>
 			<a href="#">My Page</a>
 			<a href="#">My Portfolio Space</a>
 			<a href="#">My Contact List</a>
-			<a href="#">Resume On Mobile</a>
+			<a href="#">Resume On Mobile</a>-->
 			<a href="<?php echo base_url('login/logout'); ?>">Logout</a>
 			<?php } else { ?>
 			<a href="<?php echo base_url('login'); ?>">Register | Sign in</a>

@@ -45,6 +45,98 @@
 }
 .left_form_title p{ margin: 20px 20px 0 20px; line-height: 25px;}
 
+.thumb_sdw_tmp{width: 85px;
+height: 100px;
+margin: 10px;
+box-shadow: 4px 8px 12px -6px #626262;
+border: 1px solid #E7E3E3;
+float: right;}
+
+/********************************about me Suggestions ***************************/
+.scroll_top{background: transparent url(../img/sprites.png) -300px -750px no-repeat; padding: 10px 0px 10px 0px; margin: 13px 0px 0 110px;}
+
+.scroll_btm{background: transparent url(../img/sprites.png) -300px -765px no-repeat; padding: 10px 0px 10px 0px; margin: 0px 0px 0px 110px; clear: both;}
+.scroll_top_strn{background: transparent url(../img/sprites.png) -300px -750px no-repeat; padding: 10px 0px 10px 0px; margin: 0px 0px 0 155px; width:195px;}
+
+.scroll_btm_strn{background: transparent url(../img/sprites.png) -300px -765px no-repeat; padding: 10px 0px 10px 0px; margin: 13px 0px 0 155px; width:195px; clear: both;}
+
+
+/******************************** Profile Tooltip ***************************/
+
+.tolltip{
+	padding: 0;
+	width: 435px;
+	height: 70px;
+	margin: 80px auto 30px auto;
+}
+.tolltip span{
+	float: left;
+}
+.tolltip span{
+	display: block;
+	width: 68px;
+	height: 70px;
+	margin: 40px;
+	position: relative;
+}
+
+.tolltip span span{
+width: 100px;
+height: auto;
+spanne-height: 20px;
+padding: 18px;
+margin-top: 36px;
+top: -75px;
+background: red!important;
+left: 50%;
+margin-left: -64px;
+font-family: 'Alegreya SC', Georgia, serif;
+font-weight: 400;
+font-style: itaspanc;
+font-size: 14px;
+color: #719DAB;
+text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+text-aspangn: center;
+border: 4px sospand #fff;
+background: rgba(255,255,255,0.3);
+text-indent: 0px;
+border-radius: 5px;
+position: absolute;
+pointer-events: none;
+bottom: 100px;
+opacity: 0;
+box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+-webkit-transition: all 0.3s ease-in-out;
+-moz-transition: all 0.3s ease-in-out;
+-o-transition: all 0.3s ease-in-out;
+-ms-transition: all 0.3s ease-in-out;
+transition: all 0.3s ease-in-out;
+}
+.tolltip span span:before,
+.tolltip span span:after{
+	content: '';
+	position: absolute;
+	bottom: -15px;
+	left: 50%;
+	margin-left: -9px;
+	width: 0;
+	height: 0;
+	border-left: 10px sospand transparent;
+	border-right: 10px sospand transparent;
+	border-top: 10px sospand rgba(0,0,0,0.1);
+}
+.tolltip span span:after{
+	bottom: -14px;
+	margin-left: -10px;
+	border-top: 10px sospand #fff;
+}
+.tolltip span:hover span{
+	opacity: 0.9;
+	bottom: 70px;
+}
+
+
+
 /******************************** Right nav***********************************/
 
 .right_nav{ 

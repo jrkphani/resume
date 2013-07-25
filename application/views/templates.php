@@ -15,7 +15,7 @@
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
-						<p>Spring Bloom</p>
+						<p>Template 1</p>
 						<a class="t_select" tvalue="T1">Select</a>
 					</div>
 				</div>
@@ -23,9 +23,9 @@
 		
 			<div class="t_list_bg">
 				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
-						<p>White Citadel</p>
+						<p>Template 2</p>
 						<a class="t_select" tvalue="T2">Select</a>
 					</div>
 				</div>
@@ -34,16 +34,16 @@
 			<div class="t_list_t">
 				<img src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 				<div class="t_list_s">
-					<p>Window View</p>
+					<p>Template 3</p>
 					<a class="t_select" tvalue="T3">Select</a>
 				</div>
 			</div>
 		</div>
 			<div class="t_list_bg">
 			<div class="t_list_t">
-				<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
+				<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 				<div class="t_list_s">
-					<p>Pyramid Point</p>
+					<p>Template 4</p>
 					<a class="t_select" tvalue="T4">Select</a>
 				</div>
 			</div>

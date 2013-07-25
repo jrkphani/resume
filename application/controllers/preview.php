@@ -77,7 +77,7 @@ class Preview extends CI_Controller {
 							//'visadate'=>$this->input->post('visaFrom').'#'.$this->input->post('visaTo')
 							'visaTo'=>$this->input->post('visaTo')
 							);
-			$url_array=array('mylink','twitter','facebook','linkedin');
+			$url_array=array('mylink','linkedin','twitter','facebook');
 			$url_array=array_combine($url_array,$this->input->post('url'));							
 			$about=array(
 			'objective' => serialize(array($objectivesTitle,$this->input->post('objective'))),

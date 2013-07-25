@@ -315,6 +315,7 @@ function updateUser($user_id,$session_data=NULL)
 	{
 		return false;
 	}
+	if($session_data['user_detail']['first_name'] && $session_data['user_detail']['last_name'] && $session_data['user_detail']['mobile']) $session_data['user_detail']['flag']='0';
 		$this->resume_model->update($user_id,$session_data['user_detail'],$session_data['about'],$session_data['awards'],$session_data['skill'],$session_data['otherSkills'],$session_data['company'],$session_data['project'],$session_data['education']);
 		if($this->current_user)
 	   {

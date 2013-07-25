@@ -54,7 +54,7 @@
 				<? }
 				else
 				{ ?>
-				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_thumb.jpg';?>">
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_default_thumb.jpg';?>">
 				<? } ?>
 				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
@@ -113,16 +113,19 @@
 				    <textarea rows="3" name="summary" type="text"  placeholder="Enter text here" maxlength="1000" class="h200"><?if(isset($about[0]['summary']))echo $summary[1];?></textarea>
 				    
 				</div>
+        <div style="float:left;" class="content233">
+        <h3>Suggestions</h3>
 				<div class="suggestion_box">
-				    	<h3>Suggestions</h3>
-        			<div class="scroll_top">
-              
+        
+				    	
+        			<div class="scroll_top">             
               </div>
 				    		<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
         			<div class="scroll_btm">
               </div>
-				    	<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
+				    
 				    </div>
+            </div>
 				 <div class="clearboth"></div>
 				<span class="clickr next" href='#objective_tab'>Continue</span>
 			</div>
@@ -147,7 +150,7 @@
 				<? }
 				else
 				{ ?>
-				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_thumb.jpg';?>">
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_default_thumb.jpg';?>">
 				<? } ?>
 				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
@@ -215,6 +218,14 @@
 		<div id="contact_tab"  class="tabs">
 			<div class="left_form_title">
 				<h3>Contact Me</h3>
+				<? if($templateValue)
+				{?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">
+				<? }
+				else
+				{ ?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_default_thumb.jpg';?>">
+				<? } ?>
 				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p> In this section you can reveal your contact details and decide exactly how you would like your employers to contact you. Our recommendation is that you definitley give them your phone number and Email Id. </p>
@@ -275,6 +286,14 @@
 		<div id="experience_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>EXPERIENCE SUMMARY</h3>
+				<? if($templateValue)
+				{?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">
+				<? }
+				else
+				{ ?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_default_thumb.jpg';?>">
+				<? } ?>
 				<span  class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p> In this section you can give information on your past experience of working with different companies. This section helps you list out all the companies you have worked with, the duration of time you spent with them as well as the position you held during that time.  </p>
@@ -403,6 +422,14 @@
 		<div id="strength_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>My Strengths</h3>
+				<? if($templateValue)
+				{?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">
+				<? }
+				else
+				{ ?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_default_thumb.jpg';?>">
+				<? } ?>
 				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p> In this section you can elaborate on your strengths by first listing out the keywords and then by describing them briefly in a line if necessary. We recommend that you keep this section short and sweet.</p>
@@ -491,6 +518,14 @@
 		<div id="tool_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>My Tool Box</h3>
+				<? if($templateValue)
+				{?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">
+				<? }
+				else
+				{ ?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_default_thumb.jpg';?>">
+				<? } ?>
 				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p>Here's the place to add your skill sets, with a score on a scale to 10, 10 being the highest to indicate your profiiency in the skill. You can enter your skills sets here and assign a score to each.</p>
@@ -561,6 +596,14 @@
 		<div id="milestones_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>My Milestones</h3>
+				<? if($templateValue)
+				{?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">
+				<? }
+				else
+				{ ?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_default_thumb.jpg';?>">
+				<? } ?>
 				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p>In this section you can talk about those particular projects that made a difference to you, either in your learning curve, or that which earned you recognition or just a project you loved to work in.  </p>
@@ -632,6 +675,14 @@
 		<div id="edication_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>My Education</h3>
+				<? if($templateValue)
+				{?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">
+				<? }
+				else
+				{ ?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_default_thumb.jpg';?>">
+				<? } ?>
 				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p>In this section you can give all the details of your education across school, university and any other courses that you might have attended. </p>
@@ -772,6 +823,14 @@
 		<div id="moreabout_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>More About Me</h3>
+				<? if($templateValue)
+				{?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">
+				<? }
+				else
+				{ ?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_default_thumb.jpg';?>">
+				<? } ?>
 				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p>This the last section but it is as important. It describes your personality that is beyond work. This section gives you an avenue to talk about things you like to do and are interested to pursue </p>

@@ -143,7 +143,7 @@
 			<div class="clearboth"></div>
 		</div> -->
 		<footer>
-			© copyright 2013 | www.ezcv.com | All Rights Reserved
+			&copy; copyright <?=date('Y');?> | www.ezcv.in | All Rights Reserved
 			<a class="dc_logo" href="http://www.digitalchakra.in" target="_blank"></a>
 			<p>Powered by</p>
 		</footer>

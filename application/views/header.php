@@ -53,8 +53,9 @@
 					<li><a class="c1" href="">Mail EZCV</a></li>
 					<li><a class="c2" href="">Twitter EZCV</a></li>
 					<li><a class="c3" href="">Facebook EZCV</a></li>
-					<li><a class="c4" href="">Dribble EZCV</a></li>
-					<li><a class="c5" href="">Phone EZCV</a></li>
+					<li><a class="c4 emailtooltip"  title="Address: Shree Park 3rd Floor West Wing
+# 578 Anna Salai Chennai-600 018" href="">Dribble EZCV</a></li>
+					<li><a class="c5 emailtooltip" title="+9144 2433-0401,  +9144 2433-0402" href="">Phone EZCV</a></li>
 				</ul>
 			</div>
 			

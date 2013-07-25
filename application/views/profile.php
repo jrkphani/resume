@@ -64,7 +64,7 @@
                 <td><?php echo $email; ?>
                     <span class="pr-edit mail_toggle">
                         <input type="checkbox" name="email_toggle" id="email_toggle" style="display:inherit;" value="1" <?php if($email==$secondary_email) echo 'checked=checked'; ?> />
-                        <span>Use this as display email.</span>
+                        <span class="emailtooltip" title="More information on the W3C&#8217;s Generated Content Module&#8230;">Use this as display email.</span>
                     </span>
                 </td>
                 
@@ -203,3 +203,4 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/validation.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/profile.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>

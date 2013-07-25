@@ -111,7 +111,7 @@ $(document).ready(function()
 		$('#selectTemplate').show();
 	});
 
-	$("#preview").colorbox({iframe:true, escKey:true, width:"860px", height:"100%"});
+	$("#preview").colorbox({iframe:true, escKey:true, width:"860px", height:"95%"});
 	$("#resume_submit").click(function(e){
 		e.preventDefault();
 		if(!validate_resume())

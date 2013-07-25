@@ -13,7 +13,7 @@
 	<h3> YOU ARE HERE </h3>
 	<span class="rns showSelectTemplate"><span class="rnd">1</span>Choose Resume Style</span>
 	<span class="rns"><span class="rnd">2</span>Discover Yourself</span>
-	<span tab='#about_tab' class="tab rns rns_a rns_inner">About</span>
+	<span tab='#about_tab' class="tab rns rns_a rns_inner">About Me</span>
 	<span tab='#objective_tab' class="tab rns rns_inner">Designation,Objective</span>
 	<span tab='#contact_tab' class="tab rns rns_inner">Contact Me</span>
 	<span tab='#experience_tab' class="tab rns rns_inner">Experience Summary</span>
@@ -50,12 +50,12 @@
 				<h3>About Me</h3>
 				<? if($templateValue)
 				{?>
-				<img style="width:75px; height:100px" id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">
-				<?}
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">
+				<? }
 				else
-				{?>
-				<img style="width:75px; height:100px" id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_thumb.jpg';?>">
-				<?}?>
+				{ ?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_thumb.jpg';?>">
+				<? } ?>
 				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p> Tell us about yourself in this section. You can enter your name and current location as well as talk about yourself and what you have been doing till date.</p>
@@ -115,6 +115,12 @@
 				</div>
 				<div class="suggestion_box">
 				    	<h3>Suggestions</h3>
+        			<div class="scroll_top">
+              
+              </div>
+				    		<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
+        			<div class="scroll_btm">
+              </div>
 				    	<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
 				    </div>
 				 <div class="clearboth"></div>
@@ -134,8 +140,16 @@
 		<!-- =========================================================== Designation,Objective tab start ==================-->
 		<div id="objective_tab" class="tabs">
 			<div class="left_form_title">
-				<h3>DESIGNATION, OBJECTIVE</h3>
-				<span class="showSelectTemplate">Resume Templates</span>
+				<h3>DESIGNATION, OBJECTIVE</h3>				
+				<? if($templateValue)
+				{?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/'.$templateValue.'_thumb.jpg';?>">
+				<? }
+				else
+				{ ?>
+				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_thumb.jpg';?>">
+				<? } ?>
+				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p>This section will cover your current designation in case you are already working. If you are a student, you can skip this section. Alternatively, as a student you can talk about the role you desire to play in the path you take towards building your career. </p>
 			</div>
@@ -180,7 +194,13 @@
 			</div>
 			<div class="suggestion_box">
 				<h3>Suggestions</h3>
-		    	<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
+          <div class="scroll_top">
+          
+          </div>
+		    	<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>         
+          <div class="scroll_btm">
+          
+          </div>
 			</div>
 			 <div class="clearboth"></div>
 
@@ -195,7 +215,7 @@
 		<div id="contact_tab"  class="tabs">
 			<div class="left_form_title">
 				<h3>Contact Me</h3>
-				<span class="showSelectTemplate">Resume Templates</span>
+				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p> In this section you can reveal your contact details and decide exactly how you would like your employers to contact you. Our recommendation is that you definitley give them your phone number and Email Id. </p>
 			</div>
@@ -255,7 +275,7 @@
 		<div id="experience_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>EXPERIENCE SUMMARY</h3>
-				<span  class="showSelectTemplate">Resume Templates</span>
+				<span  class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p> In this section you can give information on your past experience of working with different companies. This section helps you list out all the companies you have worked with, the duration of time you spent with them as well as the position you held during that time.  </p>
 			</div>
@@ -383,7 +403,7 @@
 		<div id="strength_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>My Strengths</h3>
-				<span class="showSelectTemplate">Resume Templates</span>
+				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p> In this section you can elaborate on your strengths by first listing out the keywords and then by describing them briefly in a line if necessary. We recommend that you keep this section short and sweet.</p>
 			</div>
@@ -445,20 +465,12 @@
 			    	</div>
 			    </div>
 				<div id="sugg_strnth_list" class="mys_right">
+
+        		<p class="scroll_top_strn"></p>
+
 					<?php foreach ($keywords as $i => $key) { echo '<div id="sugg_strnth_'.($i+1).'">'.$key.'<span class="sugg_strnth" value="'.$key.'" data="'.($i+1).'">+</span></div>'; } ?>
-		    		<!-- <div id="sugg_strnth_1">Creative<span class="sugg_strnth" value="Creative" data="1">+</span></div>
-		    		<div id="sugg_strnth_2">Proficient<span class="sugg_strnth" value="Proficient" data="2">+</span></div>
-		    		<div id="sugg_strnth_3">Problem Solving<span class="sugg_strnth" value="Problem Solving" data="3">+</span></div>
-		    		<div id="sugg_strnth_4">Focused<span class="sugg_strnth" value="Focused" data="4">+</span></div>
-		    		<div id="sugg_strnth_5">Energetic<span class="sugg_strnth" value="Energetic" data="5">+</span></div>
-		    		<div id="sugg_strnth_6">Client Management<span class="sugg_strnth" value="Client Management" data="6">+</span></div>
-		    		<div id="sugg_strnth_7">Process oriented<span class="sugg_strnth" value="Process oriented" data="7">+</span></div>
-		    		<div id="sugg_strnth_8">Excellent track record<span class="sugg_strnth" value="Excellent track record" data="8">+</span></div>
-		    		<div id="sugg_strnth_9">Versatile<span class="sugg_strnth" value="Versatile" data="9">+</span></div>
-		    		<div id="sugg_strnth_10">Emphasis<span class="sugg_strnth" value="Emphasis" data="10">+</span></div>
-		    		<div id="sugg_strnth_11">Collaborate with teams<span class="sugg_strnth" value="Collaborate with teams" data="11">+</span></div>
-		    		<div id="sugg_strnth_12">Resourceful<span class="sugg_strnth" value="Resourceful" data="12">+</span></div>
-		    		<div id="sugg_strnth_13">Budget Driven<span class="sugg_strnth" value="Budget Driven" data="13">+</span></div> -->
+          
+           <p class="scroll_btm_strn"></p>
 		    	</div>
 
 			    <div style="clear:both"></div>
@@ -479,7 +491,7 @@
 		<div id="tool_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>My Tool Box</h3>
-				<span class="showSelectTemplate">Resume Templates</span>
+				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p>Here's the place to add your skill sets, with a score on a scale to 10, 10 being the highest to indicate your profiiency in the skill. You can enter your skills sets here and assign a score to each.</p>
 			</div>
@@ -549,7 +561,7 @@
 		<div id="milestones_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>My Milestones</h3>
-				<span class="showSelectTemplate">Resume Templates</span>
+				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p>In this section you can talk about those particular projects that made a difference to you, either in your learning curve, or that which earned you recognition or just a project you loved to work in.  </p>
 			</div>
@@ -620,7 +632,7 @@
 		<div id="edication_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>My Education</h3>
-				<span class="showSelectTemplate">Resume Templates</span>
+				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p>In this section you can give all the details of your education across school, university and any other courses that you might have attended. </p>
 			</div>
@@ -760,7 +772,7 @@
 		<div id="moreabout_tab" class="tabs">
 			<div class="left_form_title">
 				<h3>More About Me</h3>
-				<span class="showSelectTemplate">Resume Templates</span>
+				<span class="showSelectTemplate">Change Template</span>
 				<div class="clearboth"></div>
 				<p>This the last section but it is as important. It describes your personality that is beyond work. This section gives you an avenue to talk about things you like to do and are interested to pursue </p>
 			</div>
@@ -934,7 +946,7 @@
 			</div>
 			<div class="t_list_bg" id="T2">
 				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>White Citadel</p>
 						<a class="t_select template" value="T2">Select</a>
@@ -952,7 +964,7 @@
 			</div>
 			<div class="t_list_bg" id="T4">
 				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Pyramid Point</p>
 						<a class="t_select template" value="T4">Select</a>

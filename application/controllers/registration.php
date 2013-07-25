@@ -105,8 +105,6 @@ class Registration extends CI_Controller {
 						{
 							//modify the seesion data based in register data
 							$session_data = $this->session->userdata('resume_data');
-							$first_name=$post_data['firstname'];
-							$last_name=$post_data['lastname'];
 							$session_data['user_detail']['first_name']=$post_data['firstname'];
 							$session_data['user_detail']['last_name']=$post_data['lastname'];
 							
@@ -145,9 +143,9 @@ class Registration extends CI_Controller {
 								{
 									$data['html']='nosession';
 								}
-								$this->invite_friend($user_id,$friend_emails,$first_name.' '.$last_name);								
-								$this->email->subject('Activate your EZCV Account');
-								$message= 'Dear '.$first_name.' '.$last_name.'<br /><br />Thank you for registering with EZCV. Please click on the link below to activate your account and get access to your resume.<br /><a href="'.base_url('registration/activation/'.$user_id.'/'.$post_data['active']).'"> Activate my EZCV Account </a><br />Once you have activated your account, you can view your current resume and  edit it any time, change templates and update your details. You can also download the resume when ever you wish.<br /><br />Get Noticed in a Sea of Resumes!<br /><br />Regards<br />EZCV Team';							
+								$this->invite_friend($user_id,$friend_emails,$post_data['firstname'].' '.$post_data['lastname']);								
+								$this->email->subject('Verify your account on EZCV');
+								$message= 'Dear User<br /><br />Thank you for your register on EZCV. Your account has been created successfully. Please click on below link to verify your account<br /><a href="'.base_url('registration/activation/'.$user_id.'/'.$post_data['active']).'"> Activate my EZCV account </a><br /><br />Regards<br />EZCV';							
 							}
 							else if($post_data['role']=='member')
 							{
@@ -263,9 +261,11 @@ class Registration extends CI_Controller {
  		else
  			$this->user->add_friend($email,$insert_id);
  		$this->email->to($email);
- 		$this->email->subject('Your frined, '.$name.' has referred you to EZCV - Make a Better Resume Now');
-		$message= 'Your friend '.$name.', has referred your name to us and recommends EZCV to you. We would like to introduce EZCV, a simple solution to all your resume building needs. We help you build not just your resume but also your personality and give you a beautiful resume template to go with it.<br /><br />
-You get just one chance with job opportunities, and we help you make that impact. Join us and we can help you build your personality.<br /><a href="'.base_url('login/').'"> REGISTER WITH EZCV </a><br /><br />Get Noticed in a Sea of Resumes!<br /><br />Regards<br />EZCV Team';
+ 		$this->email->subject($name.' invited you to join EZCV');
+		$message= 'Hello<br /><br />Your friend, '.$name.' has invited you to join EZCV, the best resume building service known to man.
+We helped them create a better resume - for free! Stand out in a overcrowded job market and get noticed by employers.
+Improve your chances of finding your dream job - jump start your career with EZCV.<br /><br />
+Visit http://ezcv.in to start building a better resume now!<br /><br />Thanks!<br />The EZCV Team';
 		$this->email->message($message);
 		if(!$this->email->send())
 			$data['mail']='no';

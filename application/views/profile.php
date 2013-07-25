@@ -63,7 +63,8 @@
                 <td class="pr_left">Email</td>
                 <td><?php echo $email; ?>
                     <span class="pr-edit mail_toggle">
-                        <input type="checkbox" name="email_toggle" id="email_toggle" style="display:inherit;" value="1" <?php if($email==$secondary_email) echo 'checked=checked'; ?> /><span>Use this as display email.</span>
+                        <input type="checkbox" name="email_toggle" id="email_toggle" style="display:inherit;" value="1" <?php if($email==$secondary_email) echo 'checked=checked'; ?> />
+                        <span>Use this as display email.</span>
                     </span>
                 </td>
                 

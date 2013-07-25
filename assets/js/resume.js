@@ -133,7 +133,7 @@ $(document).ready(function()
 			$.ajax({
 				url: baseurl+'preview', 
 				type: 'post',
-				data: $('#resume_form').serialize(),
+				data: $('#resume_form').serialize()+ "&registeronly=yes",
 				success:function(result)
 				{
 					if(result.resultset.success=='yes')
@@ -175,7 +175,7 @@ $(document).ready(function()
 			$.ajax({
 				url: baseurl+'preview', 
 				type: 'post',
-				data: $('#resume_form').serialize(),
+				data: $('#resume_form').serialize()+"&registeronly=",
 				success:function(result)
 				{
 					if(result.resultset.success=='yes')

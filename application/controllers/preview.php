@@ -168,7 +168,7 @@ class Preview extends CI_Controller {
 	$otherSkills['name']=serialize($this->input->post('otherSkills'));
 	
 	$template= $this->input->post('template');
-		
+
 		$post_array['user_detail']=$user_detail;
 		$post_array['about']=$about;
 		$post_array['awards']=$awards;
@@ -178,6 +178,7 @@ class Preview extends CI_Controller {
 		$post_array['education']=$education;
 		$post_array['template']=$template;
 		$post_array['otherSkills']=$otherSkills;
+		$post_array['registeronly']=$this->input->post('registeronly');
 		//$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
 		
 			if($this->current_user)
@@ -194,7 +195,7 @@ class Preview extends CI_Controller {
 			{
 				//user not logged in
 				$this->session->set_userdata('resume_data',$post_array);
-				if($postdata['template'])
+				if(!$post_array['registeronly'])
 				{
 					$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
 					$file_name=mt_rand().time();
@@ -206,7 +207,7 @@ class Preview extends CI_Controller {
 					$preview_data = $style.$preview_data;
 				}				
 			}
-			if($postdata['template'])
+			if(!$post_array['registeronly'])
 			{
 			if(!write_file($temp_path_html, $preview_data))
 			{

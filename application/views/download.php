@@ -1,4 +1,9 @@
-<div class="row-fluid">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_resume.css"); ?>" />
+<div class="form_title">
+	<h3>Download</h3>
+</div>
+
+<div class="row-fluid left_form_feedback">
 	<div class="offset1 span2 ads final-ads">
 
 	</div>

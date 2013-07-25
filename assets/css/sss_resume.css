@@ -45,6 +45,15 @@
 }
 .left_form_title p{ margin: 20px 20px 0 20px; line-height: 25px;}
 
+.thumb_sdw_tmp{width: 85px;
+height: 100px;
+margin: 10px;
+box-shadow: 4px 8px 12px -6px #626262;
+border: 1px solid #E7E3E3;
+float: right;}
+
+
+
 /******************************** Right nav***********************************/
 
 .right_nav{ 

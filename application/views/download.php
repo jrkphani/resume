@@ -2,7 +2,6 @@
 <div class="form_title">
 	<h3>Download</h3>
 </div>
-
 <div class="row-fluid left_form_feedback">
 	<div class="offset1 span2 ads final-ads">
 
@@ -10,10 +9,11 @@
 		
 	<div class="span6">
 		<div id="countLayout" class="download-main">
-			Download will start in
+			Your resume will be ready for download in,
 			<div class="download-main-inner">
 				<span id="glowingLayout"></span> Seconds	
 			</div> 
+			Please wait while your resume is being prepared.
 			
 		</div>
 		
@@ -36,4 +36,3 @@ function download()
 	window.location="<?=$html?>";
 }
 </script>
-

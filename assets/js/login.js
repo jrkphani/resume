@@ -168,6 +168,8 @@ $(document).ready(function()
 						$('#error_msg1').append(' Cannot generate download file. Try again later. <br />');
 					else if(data.resultset.html=='nosession')
 						$('#error_msg1').append('Registration success, plaese check your email. <br />');
+					else if(data.resultset.html=='nodownload')
+						$('#error_msg1').append('Registration success, plaese check your email. <br />');
 					else
 
 						window.location.replace(baseurl+'download/index/'+data.resultset.html);

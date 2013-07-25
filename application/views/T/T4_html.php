@@ -89,7 +89,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
   <div class="clearall"></div>
   <? } ?>
   <!----------------------------------------------------experience---------------------------------------------------------------------------->
- <?  if(array_filter($cmpnyName)){ ?>
+ <?  if(array_filter($cmpnyName) || ($compensation[0]) || ($compensation[1]) || ($user_detail['experience']!='0.0')){ ?>
   <div class="experience">
     <div class="left_exp">
       <p>Experience Summary</p>
@@ -120,6 +120,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
 				 <? 
             $i=0;
             foreach($cmpnyName as $cmpny) {
+              if($cmpny) {
               $cpmpanyData= explode('#',$cmpnyData[$i]);
           ?>
       <div class="desig">
@@ -136,7 +137,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
 <?php /*?>      <p class="descrip">
         <?=$cmpnyDesc[$i];?>
       </p><?php */?>
-      <? $i++; } ?>
+      <? } $i++; } ?>
     </div>
   </div>
   <div class="clearall"></div>
@@ -146,7 +147,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
 	/*if(array_filter($skillName)) 
 	customized for this template 
 	*/
-	if(array_filter($skillName) || array_filter($otherSkills))
+	if(array_filter($skillName) || array_filter($otherSkills) || $about['mystrength'])
 { ?>
   <div class="skill">
     
@@ -186,7 +187,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
       <? } ?>
       
       
-      <? if(array_filter($otherSkills)) { ?>
+      <?php if(array_filter($otherSkills) || $about['mystrength']) { ?>
       <div class="other_skill">
         
           <p class="str">My Strengths</p>
@@ -223,7 +224,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
 			<? 
       $i=0;
       foreach($projName as $proj) {
-      ?>
+        if($proj) { ?>
       <div class="desig"><p><?=$proj;?></p></div>
       <p class="from"><?=$projRole[$i];?></p>
       <p class="company_name"><?=$projUrl[$i];?></p>
@@ -232,7 +233,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
      <!-- <p class="pro_obj_tit">What I Like About It</p>
       <p class="descrip">a Primary role as a Business Analyst and secondary role as a System Analyst in Procurement Domain (Purchase – Pay). A complete process automation of procurement from Purchase Requests till Invoice Generation including Reports Generation (Management Information systems ).</p>
 -->      
-			<? $i++; } ?>
+			<? } $i++; } ?>
     </div>
   </div>
   <div class="clearall"></div>
@@ -278,6 +279,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
 		$i=0;
 		foreach($eduInst as $edu) {
 			$educationDate = explode('#',$eduDate[$i]);
+      if($edu) {
 		?>
     <div class="right_edu">
       <div class="desig">
@@ -293,7 +295,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
       </p>
       <p class="score"><?=$eduScore[$i];?></p>
     </div>
-    <? $i++; } ?>
+    <? } $i++; } ?>
   </div>
   <div class="clearall"></div>
   <? } ?>
@@ -307,6 +309,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
     <? 
 							$i=0;
 							foreach($awdTitle as $awd) {
+                if($awd) {
 								$awardDate = explode('#',$awdDate[$i]);
 							?>
       <div class="name">
@@ -320,7 +323,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
       <p class="descrip">
         <?=nl2br($awdDesc[$i]);?>
       </p>
-      <? $i++; } ?>
+      <? } $i++; } ?>
     </div>
   </div>
   <div class="clearall"></div>
@@ -335,7 +338,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
     <? 
 							$i=0;
 							foreach($intresttitle as $title) {
-							?>
+							if($title) {?>
       <div class="desig">
         <p><?=$title;?></p>
       </div>
@@ -345,13 +348,13 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
       <p class="descrip">
         <?=nl2br($intrestDesc[$i]);?>
       </p>
-      <? $i++; } ?>
+      <? } $i++; } ?>
     </div>
   </div>
   <div class="clearall"></div>
   <? } ?>
     <!-- --------------------------------------------------other details-------------------------------------------------------------------------- -->
-    <? if(($user_detail['married']) || ($passport_visa['passport']) || ($passport_visa['visa']))
+    <? if(($user_detail['dob']) || ($user_detail['married']!='NULL') || ($passport_visa['passport']) || ($passport_visa['visa']))
     {?>
   <div class="other_dls">
     <div class="left_dls">
@@ -363,7 +366,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
       <? if($user_detail['dob']){?>
       <p>DOB : <?=$user_detail['dob'];?></p>
  			 <? } ?>
-      <? if($user_detail['married']!=NULL)
+      <? if($user_detail['married']!='NULL')
       {
 		  if($user_detail['married'] == 1)
 		  $married = 'Married';
@@ -376,13 +379,13 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
       {
 		  //$passportDate=explode('#',$passport_visa['passportdate']);
 		  ?>
-        <p>Passport details : <?=$passport_visa['passport'];?>, Valid : <?php //$passportDate[0]; ?>till <?=$passport_visa['passportTo'];?></p>
+        <p>Passport details : <?php echo $passport_visa['passport']; if($passport_visa['passportTo']) echo ', Valid: tile '.$passport_visa['passportTo']; ?></p>
       <? }?>
       <? if($passport_visa['visa'])
       {
 		  //$visaDate= explode('#',$passport_visa['visadate']);
 		  ?>
-        <p>Visa details : <?=$passport_visa['visa'];?>, Valid : <?php //$visaDate[0];?>till <?=$passport_visa['visaTo'];?></p>
+        <p>Visa details : <?php echo $passport_visa['visa']; if($passport_visa['visaTo']) echo ', Valid: tile '.$passport_visa['visaTo']; ?></p>
       <? }?>
       </div>
     </div>
@@ -390,7 +393,9 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
   <? } ?>
   <div class="clearall"></div>
 
+  
   <!-- --------------------------------------------------contacts-------------------------------------------------------------------------- -->
+  <?php if($user_detail['secondary_email'] || $user_detail['skype'] || $website['linkedin'] || $website['twitter'] || $website['facebook'] || $website['mylink']) { ?>
   <div class="contact_footer">
     <div class="left_contact">
       <p><?=$user_detail['contactTitle'];?></p>
@@ -398,28 +403,24 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
     <div class="right_contact">
     
      
-       <p id=""><span>Mail id : </span><?=$user_detail['secondary_email'];?></p>
-       
+      <?php if($user_detail['secondary_email']) { ?>
+      <p id=""><span>Mail id : </span><?=$user_detail['secondary_email'];?></p>
+      <?php } if($website['mylink']) { ?>
       <p id=""><span>Url : </span><?=$website['mylink'];?></p>
-      
-      <? if($website['facebook']) { ?>
+      <?php } if($website['facebook']) { ?>
       <p id=""><span>Facebook : </span><?=$website['facebook'];?></p>
-      <? } ?>
-      
-      <? if($website['linkedin']) { ?>
+      <? } if($website['linkedin']) { ?>
       <p id=""><span>LinkedIn : </span><?=$website['linkedin'];?></p>
-      <? } ?>
-      
-      <? if($website['twitter']) { ?>
+      <? } if($website['twitter']) { ?>
       <p id=""><span>Twitter : </span><?=$website['twitter'];?></p>
-      <? } ?>
-      
-       <? if($user_detail['skype']) { ?>
+      <? } if($user_detail['skype']) { ?>
       <p id=""><span>Skype : </span><?=$user_detail['skype'];?></p>
       <? } ?>
       
     </div>
   </div>
+  <?php } ?>
+
 </div>
 </body>
 </html>

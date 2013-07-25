@@ -203,7 +203,11 @@ class Preview extends CI_Controller {
 					$temp_path_img=FCPATH.$this->config->item('path_temp_img').$file_name.'.jpg';
 					
 					//$style="<style>body { background-image:url('".FCPATH."assets/img/digitalchakra_logo.jpg'); } </style>";
-					$style="";
+					$style='<span style="position: absolute; margin: 0 auto;
+ width: 100%; height: 100%; display: block;
+ background: transparent url('.base_url("assets/img/ezcv.png").') center top repeat-Y;
+"></span>';
+					//$style="";
 					$preview_data = $style.$preview_data;
 				}				
 			}
@@ -266,7 +270,7 @@ class Preview extends CI_Controller {
 		}
 		else
 		{
-			$content = '<img src="'.base_url($this->config->item('path_temp_img').$html.'.jpg').'" >';
+			$content = '<img style="width: 790px;" src="'.base_url($this->config->item('path_temp_img').$html.'.jpg').'" >';
 		}
 		$data['html']=$content;
 		$data['link']=$html;

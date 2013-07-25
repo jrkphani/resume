@@ -112,6 +112,9 @@
 				</div>
 				<div class="suggestion_box">
 				    	<h3>Suggestions</h3>
+        			<div class="scroll_top">
+              
+              </div>
 				    	<span>Versatile</span>
 				    	<span>Creative</span>
 				    	<span>Focussed</span>
@@ -121,6 +124,9 @@
 				    	<span>Excellent track record</span>
 				    	<span>Good understanding</span>
 				    	<span>Emphasis</span>
+        			<div class="scroll_btm">
+              </div>
+              
 				    </div>
 				 <div class="clearboth"></div>
 				<span class="clickr next" href='#objective_tab'>Continue</span>
@@ -193,6 +199,9 @@
 			</div>
 			<div class="suggestion_box">
 				<h3>Suggestions</h3>
+          <div class="scroll_top">
+          
+          </div>
 		    	<span>Versatile</span>
 		    	<span>Creative</span>
 		    	<span>Focussed</span>
@@ -201,7 +210,10 @@
 		    	<span>Proficient</span>
 		    	<span>Excellent track record</span>
 		    	<span>Good understanding</span>
-		    	<span>Emphasis</span>
+		    	<span>Emphasis</span>          
+          <div class="scroll_btm">
+          
+          </div>
 			</div>
 			 <div class="clearboth"></div>
 
@@ -466,6 +478,7 @@
 			    	</div>
 			    </div>
 				<div id="sugg_strnth_list" class="mys_right">
+        		<p class="scroll_top_strn"></p>
 		    		<div id="sugg_strnth_1">Creative<span class="sugg_strnth" value="Creative" data="1">+</span></div>
 		    		<div id="sugg_strnth_2">Proficient<span class="sugg_strnth" value="Proficient" data="2">+</span></div>
 		    		<div id="sugg_strnth_3">Problem Solving<span class="sugg_strnth" value="Problem Solving" data="3">+</span></div>
@@ -479,6 +492,7 @@
 		    		<div id="sugg_strnth_11">Collaborate with teams<span class="sugg_strnth" value="Collaborate with teams" data="11">+</span></div>
 		    		<div id="sugg_strnth_12">Resourceful<span class="sugg_strnth" value="Resourceful" data="12">+</span></div>
 		    		<div id="sugg_strnth_13">Budget Driven<span class="sugg_strnth" value="Budget Driven" data="13">+</span></div>
+            <p class="scroll_btm_strn"></p>
 		    	</div>
 
 			    <div style="clear:both"></div>

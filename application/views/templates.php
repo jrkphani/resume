@@ -17,8 +17,8 @@
 					<img src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Spring Bloom</p>
-						<div class="previewTemp" title="Spring Bloom" href="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>">zoom</div>
 						<a title="Spring Bloom" class="t_select" tvalue="T1">Select</a>
+						<span class="previewTemp" title="Spring Bloom" href="<?php echo base_url("assets/img/T1_full.png"); ?>">zoom</span>
 					</div>
 				</div>
 			</div>
@@ -28,8 +28,8 @@
 					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>White Citadel</p>
-						<div class="previewTemp" title="White Citadel" href="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>">zoom</div>
 						<a title="White Citadel" class="t_select" tvalue="T2">Select</a>
+						<span class="previewTemp" title="White Citadel" href="<?php echo base_url("assets/img/T2_full.png"); ?>">zoom</span>
 					</div>
 				</div>
 			</div>
@@ -38,8 +38,8 @@
 				<img src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 				<div class="t_list_s">
 					<p>Window View</p>
-					<div class="previewTemp" title="Window View" href="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>">zoom</div>
 					<a title="Window View" class="t_select" tvalue="T3">Select</a>
+					<span class="previewTemp" title="Window View" href="<?php echo base_url("assets/img/T3_full.png"); ?>">zoom</span>
 				</div>
 			</div>
 		</div>
@@ -48,8 +48,8 @@
 				<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 				<div class="t_list_s">
 					<p>Pyramid Point</p>
-					<div class="previewTemp" title="Pyramid Point" href="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>">zoom</div>
 					<a title="Pyramid Point" class="t_select" tvalue="T4">Select</a>
+					<span class="previewTemp" title="Pyramid Point" href="<?php echo base_url("assets/img/T4_full.png"); ?>">zoom</span>
 				</div>
 			</div>
 		</div>

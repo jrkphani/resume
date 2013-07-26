@@ -227,7 +227,7 @@ border: solid 1px #c5533d;
 	background-color: #da5e46;
 	border: solid 1px #d05840;
 }
-.clickr:hover, .clickr_add:hover, .formRemoveBtn:hover, .clickr_final:hover{
+.clickr:hover, .clickr_add:hover, .formRemoveBtn:hover, .clickr_final:hover, .previewTemp:hover{
 	background-color: #da5e46;
 	border: solid 1px #d05840;
 }
@@ -361,8 +361,8 @@ height: 2px!important;
 }
 
 .t_select{
-	width:140px;	height:30px;  margin:0 0 10px 40px; 
-	line-height:30px;
+	width:140px;	height:30px;  margin:0 0 10px 10px; 
+	line-height:30px; float: left;
 }
 
 .load_more{
@@ -513,3 +513,12 @@ height: 2px!important;
 #moreabout{
 	margin-bottom: 0px !important;
 }
+
+
+.previewTemp{
+	width: 30px; height: 30px; display: block; float: left;
+	background:#f07057 url(../img/icon_zoom.png) no-repeat center center;	border: solid 1px #c5533d;	
+	text-indent: -999em; cursor: pointer; margin: 0 0 0 24px;
+}
+
+

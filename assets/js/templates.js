@@ -1,5 +1,7 @@
 $(document).ready(function()
 {
+$(".previewTemp").colorbox({rel:'previewTemp', transition:"fade"});
+//$(".preview").colorbox({ inline:true, escKey:true, width:"700px", height:"90%"});
 	$('.t_select').click(function()
 	{
 		//$(this).attr('tvalue');

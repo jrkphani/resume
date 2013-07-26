@@ -140,6 +140,19 @@ body p,b,h1,h2,h3,span{font-family:Arial, Helvetica, sans-serif; color:#3f3f3f;}
 .wrapper .left .experience .exp .ctc .ectc span{color:#ec9d21;}
 .wrapper .left .experience .exp .ctc {width:100%; }
 
+
+.exp_container{ margin:0px 0px 0px 30px;}
+.exp_container h1{ border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:16px 0 16px 35px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_exp.jpg) no-repeat 1% 48%;}
+.exp_container h2{font-size: 14px;padding:15px 0 0px 0}
+
+
+
+.exp_container .exp_h3_comp{font-weight:bold; color: #303030; font-size: 13px; margin: 10px 0 0 0;}
+.exp_container .exp_h3_ectec{font-weight:bold; border-bottom:1px solid #e1e0e0; margin: 3px 0 10px 0; color: #303030; line-height: 29px; font-size: 13px; }
+.exp_container .exp_h3_desig{line-height: 18px;color: #303030;font-weight: bold;padding: 1px 0 0px 0;font-size: 15px; margin: 12px 0 0 0;}
+.exp_container .exp_h3_cname{color: #ec9d21; line-height: 12px; padding: 5px 0 0px 0; font-size: 13px;}
+.exp_container .exp_h3_frmto{color: #717171; padding: 0 0 0px 0; font-size: 12px; line-height: 32px; margin: 0 0 12px 0;}
+
 /*************************************************************  project  ************************************************************************/
 
 .wrapper .left .project{ margin:0px 0px 0px 30px;}

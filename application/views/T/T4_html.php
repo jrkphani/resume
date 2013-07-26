@@ -90,55 +90,68 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
   <? } ?>
   <!----------------------------------------------------experience---------------------------------------------------------------------------->
  <?  if(array_filter($cmpnyName) || ($compensation[0]) || ($compensation[1]) || ($user_detail['experience']!='0.0')){ ?>
-  <div class="experience">
+  <div class="experience">    
     <div class="left_exp">
-      <p>Experience Summary</p>
+        <p>Experience Summary</p>
     </div>
       <?
       if($user_detail['experience']!='0.0'){
 		  $experience = explode('.',$user_detail['experience']);
 		  ?>
     <div class="right_exp">
-    	<div class="spr">
-          <p>
-                <span>Total: <?=$experience[0];?> Years, <?=$experience[1];?> Months</span>
-          </p>  <div class="clearall"></div>     
-					<? }
-          
+    
+     <!-- tot exp yr st-->
+				<div class="totyer">
+        		<p style="color: #4aa1d9;font-size: 14px;margin: 4px 0 8 0;">Total: <?=$experience[0];?> Years, <?=$experience[1];?> Months</p>
+        </div>
+      </div>  
+      <!-- tot exp yr st-->
+        
+        <!-- ctc st-->
+         <div class="right_exp">
+        	<? }          
            if($compensation[0])
           {?>
-          <h2 class="cctc"><span>Current CTC:</span> <?=$compensation[2];?> <?=$compensation[0];?>/-</h2>
-					 <? }
-           
+        
+        <div class="curency" style="">
+        	<p style="float:left; margin:0 0 5px 0;"><b style="font-weight:bold;"><span style="color:#4aa1d9;">Current CTC : </span><?=$compensation[2];?> <?=$compensation[0];?>/-</b></p>
+           <? }           
             if($compensation[1])
           {?>
-          <h3 class="ectc"><span>Expected CTC:</span> <?=$compensation[2];?> <?=$compensation[1];?>/-</h3>
-         <div class="clearall"></div>
-          <div class="spr1">&nbsp;</div><? } ?>
-      </div>
-      
-				 <? 
+          <p style="float:right; margin:0 0 5px 0;"><b style="font-weight:bold;"><span style="color:#4aa1d9;">Current CTC : </span><?=$compensation[2];?> <?=$compensation[1];?></b></p>
+
+                 
+        </div>
+         <div style="border-bottom:1px solid #4aa1d9; line-height: 23px;margin: 0 0 5px 0;"><p>&nbsp;</p></div>
+        <? } ?>
+        </div>
+      <!-- ctc end-->
+       <div class="right_exp">
+      				 <? 
             $i=0;
             foreach($cmpnyName as $cmpny) {
               if($cmpny) {
               $cpmpanyData= explode('#',$cmpnyData[$i]);
           ?>
-      <div class="desig">
-        <p><span><?=$cmpnyDesg[$i];?></span></p>
-      </div>
-      <p class="from">
-        <?=$cpmpanyData[0];?>
-        &nbsp;&nbsp;&nbsp;
-        <?=$cpmpanyData[1];?>
-      </p>
-      <p class="company_name">
-        <?=$cmpny;?>
-      </p>
-<?php /*?>      <p class="descrip">
-        <?=$cmpnyDesc[$i];?>
-      </p><?php */?>
-      <? } $i++; } ?>
-    </div>
+        	<div class="desigination_cnt" style="float:left; width:45%;">
+          		<p  style="color:#4aa1d9;font-size: 18px; margin:-5px 0 5px 0; font-weight:normal!important;"><?=$cmpnyDesg[$i];?></p>
+          </div>
+          
+        	<div class="desigination_years" style="float:right; width:28%; text-align:right;">
+          		<p style="color:#4aa1d9;font-size: 13px; margin:0px 0 5px 0 font-weight:normal!important;";><?=$cpmpanyData[0];?>&nbsp;&nbsp;&nbsp;<?=$cpmpanyData[1];?></p>
+          </div>
+          <div class="clearall"></div>
+          
+          <div class="desigination_company" style="clear:right;">
+          		<p style="margin:0 0 15px 0; font-size: 14px; color: #3f3f3f; font-weight:normal!important;"><?=$cmpny;?></p>
+          </div>
+        
+        <? } $i++; } ?>
+        
+        
+        
+        
+  	</div>    
   </div>
   <div class="clearall"></div>
   <? } ?>

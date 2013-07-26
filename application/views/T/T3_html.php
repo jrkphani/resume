@@ -73,59 +73,38 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
     <div class="clearall"></div>
     <? } ?>
     <!----------------------------------------------------experience---------------------------------------------------------------------------->
-    
-    <?  if(array_filter($cmpnyName) || ($compensation[0]) || ($compensation[1]) || ($user_detail['experience']!='0.0')){ ?>
-    <div class="experience">
-      <h1>Experience Summary</h1>
-      <?
+      <?  if(array_filter($cmpnyName) || ($compensation[0]) || ($compensation[1]) || ($user_detail['experience']!='0.0')){ ?>
+    <div class="exp_container">
+    <h1>EXPERIENCE SUMMARY</h1>
+          <?
       if($user_detail['experience']!='0.0'){
 		  $experience = explode('.',$user_detail['experience']);
 		  ?>
-      <div class="exp">
-        <div class="exp_yers">
-          <p class="exp_yers_btm"> <span>Total:
-            <?=$experience[0];?> Years, <?=$experience[1];?> Months</span> </p>
-          <div class="clearall"></div>
-        </div>
-        <div class="ctc">      
-      <? }
-      
+    <h2>Total:<?=$experience[0];?> Years, <?=$experience[1];?> Months</h2>
+          
+      <? }      
        if($compensation[0])
       {?>
-          <h2 class="cctc">Current CTC: <span><?=$compensation[2];?> <?=$compensation[0];?>/-</span></h2>
-       <? }
-       
+    <h3 class="exp_h3_comp" style="">Current CTC : <span style="color:#ec9d21;"><?=$compensation[2];?> <?=$compensation[0];?>/-</span></h3>
+       <? }       
         if($compensation[1])
       {?>
-          <h3 class="ectc">Expected CTC: <span><?=$compensation[2];?> <?=$compensation[1];?>/-</span></h3>
-        </div>
-        <? } ?>
-        <div class="spr">&nbsp;</div>
-        <div class="clearall"></div>
-        <? 
-            $i=0;
-            foreach($cmpnyName as $cmpny) {
-            if($cmpny) {
-              $cpmpanyData= explode('#',$cmpnyData[$i]);
-          ?>
-        <p class="desigination">
-          <?=$cmpnyDesg[$i];?>
-        </p>
-        <p class="company">
-          <?=$cmpny;?>
-        </p>
-        <div class="clearall"></div>
-        <p class="from">
-          <?=$cpmpanyData[0];?>
-          &nbsp;&nbsp;&nbsp;
-          <?=$cpmpanyData[1];?>
-        </p>
-        <div class="clearall"></div>
-        <? } $i++; } ?>
-      </div>
-    </div>
-    <div class="clearall"></div>
-    <? } ?>
+    <h3 class="exp_h3_ectec" style="">Expected CTC : <span style="color:#ec9d21;"><?=$compensation[2];?> <?=$compensation[1];?>/-</span></h3>
+      <? } ?>
+      
+      
+      <? 
+				$i=0;
+				foreach($cmpnyName as $cmpny) {
+				if($cmpny) {
+					$cpmpanyData= explode('#',$cmpnyData[$i]);
+			?>
+    <h3 class="exp_h3_desig" style=""><?=$cmpnyDesg[$i];?></h3>
+    <h3 class="exp_h3_cname" style=""><?=$cmpny;?></h3>
+    <h3 class="exp_h3_frmto" style=""> <?=$cpmpanyData[0];?> <?=$cpmpanyData[1];?></h3>
+    <? } $i++; } ?>
+		</div>
+      <? } ?>
     <!----------------------------------------------------skills---------------------------------------------------------------------------->
     <? if(array_filter($skillName)){ ?>
     <div class="skills">

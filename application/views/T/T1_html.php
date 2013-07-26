@@ -35,7 +35,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
 <body>
 <div class="wrapper"> 
   <!---------------------------header---------------------------->
-  <div class="header_top">
+<!--  <div class="header_top">
   	<div class="header_box1">
       <p class="name">
         <?=$user_detail['first_name'];?> 
@@ -45,14 +45,20 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
         <?=$user_detail['designation'];?>
       </p>
     </div>
-  </div>
+  </div> -->
   <div class="clearall"></div>
   <div class="header">
 
     <div class="header_box2">
-      <div class="header_box2_center"> <p>
-        <?=$website['mylink'];?>
-        </p>
+      <div class="header_box2_center"> 
+            <p class="name">
+        <?=$user_detail['first_name'];?> 
+        <?=$user_detail['last_name'];?>
+      </p>
+      <p class="desigi">
+        <?=$user_detail['designation'];?>
+      </p>
+      
         <div class="header_box2_center_img"> </div>
       </div>
     </div>
@@ -472,6 +478,10 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
         
         <? if($user_detail['skype']) { ?>
         <p class="skypee"><?=$user_detail['skype'];?></p>
+        <? } ?>
+        
+        <? if($website['linkedin']) { ?>
+        <p class="myurl"><?=$website['mylink'];?></p>
         <? } ?>
         
         <? if($website['linkedin']) { ?>

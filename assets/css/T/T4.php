@@ -96,22 +96,25 @@ body p,b,h1,h2,h3,h4,span,div{font-family:Calibri, arial; color:#3f3f3f;}
 .experience {margin: 15px 0 20px 0;}
 .experience .left_exp{width:27%; float:left;  background:url(<?=$baseurl?>assets/img/Templates/t8_3.jpg) no-repeat 0% 50%;}
 .experience .left_exp p{padding:0 0 0 20px; color:#5a87e2; font-size: 17px;  line-height:28px;}
-.experience .right_exp{width:70%; float:right; padding:5px 20px 0 0;}
-.experience .right_exp .desig {font-size: 18px; color:#5a87e2!important;  width: 70%; float: left; font-size:normal; clear:both;}
-.experience .right_exp .desig span{color:#5a87e2!important; }
-.experience .right_exp .from {font-size: 13px; color:#5a87e2; padding: 0 0 0 0px; text-align:right; width:26%; float: right; clear:right;}
-.experience .right_exp .company_name{font-size: 13px; color:#3f3f3f; margin:0px 0 10px 0;clear: both; padding:10px 0 0 0;}
-.experience .right_exp .descrip{color:#3f3f3f; line-height:20px; font-size:14px; text-align:justify; margin: 0 0 18px 0;}
+ .right_exp{width:70%; float:right; padding:5px 20px 0 0;}
+ .right_exp .desig {font-size: 18px; color:#5a87e2!important;  width: 60%; float: left; font-size:normal; clear:both;}
+ .right_exp .desig span{color:#5a87e2!important; }
+.right_exp .from {font-size: 13px; color:#5a87e2; padding: 0 0 0 0px; text-align:right; width:26%; float: right; clear:right;}
+.right_exp .company_name{font-size: 13px; color:#3f3f3f; margin:0px 0 10px 0;clear: both; padding:10px 0 0 0;}
+ .right_exp .descrip{color:#3f3f3f; line-height:20px; font-size:14px; text-align:justify; margin: 0 0 18px 0;}
 
 
-.experience .right_exp .spr p span{font-size:14px; float:left; color:#5a87e2; font-weight:normal; line-height:20px; padding:0 0px 0 0px; display:inline;}
-.experience .right_exp .spr .cctc{font-size: 14px; color:#3f3f3f;  padding: 10px 0 12px 0px; width: 50%; float: left; font-weight:bold; }
-.experience .right_exp .spr .ectc {font-size: 14px; color:#3f3f3f; padding: 10px 0 12px 0; text-align:right; width: 50%; float: left; font-weight:bold; }
+ .right_exp .spr p span{font-size:14px; float:left; color:#5a87e2; font-weight:normal; line-height:20px; padding:0 0px 0 0px; display:inline;}
+ .right_exp .spr .cctc{font-size: 14px; color:#3f3f3f;  padding: 10px 0 12px 0px; width: 50%; float: left; font-weight:bold; }
+.right_exp .spr .ectc {font-size: 14px; color:#3f3f3f; padding: 10px 0 12px 0; text-align:right; width: 50%; float: left; font-weight:bold; }
 
-.experience .right_exp .spr .cctc span{color:#5a87e2;}
-.experience .right_exp .spr .ectc span{color:#5a87e2;}
-.experience .right_exp .spr .spr1{border-top: 1px solid #5a87e2;}
+ .right_exp .spr .cctc span{color:#5a87e2;}
+.right_exp .spr .ectc span{color:#5a87e2;}
+.right_exp .spr .spr1{border-top: 1px solid #5a87e2;}
 
+.experience .right_exp1{width:70%; float:right; padding:5px 20px 0 0;}
+ 
+ 
 /*************************************************************project******************************************************************/
 
 
@@ -119,8 +122,8 @@ body p,b,h1,h2,h3,h4,span,div{font-family:Calibri, arial; color:#3f3f3f;}
 .project .left_exp{width:27%; float:left;  background:url(<?=$baseurl?>assets/img/Templates/t8_3.jpg) no-repeat 0% 50%;}
 .project .left_exp p{padding:0 0 0 20px; color:#4aa1d9; font-size: 17px;  line-height:28px;}
 .project .right_exp{width:70%; float:right; padding:5px 20px 0 0;}
-.project .right_exp .desig p{font-size: 18px; color:#4aa1d9;  width: 50%; float: left; }
-.project .right_exp .from {font-size: 13px; color:#4aa1d9; padding: 0 0 0 0px; text-align:right; width: 50%; float: left;}
+.project .right_exp .desig p{font-size: 18px; color:#4aa1d9;  width: 60%; float: left; }
+.project .right_exp .from {font-size: 13px; color:#4aa1d9; padding: 0 0 0 0px; text-align:right; width: 40%; float: left;}
 .project .right_exp .company_name{font-size: 14px; color:#3f3f3f; margin:0px 0 10px 0;clear: both; padding:5px 0 0 0;}
 .project .right_exp .descrip{color:#3f3f3f; line-height:20px; font-size:14px; text-align:justify; margin: 0 0 18px 0;}
 

@@ -115,16 +115,13 @@
 				</div>
         <div style="float:left;" class="content233">
         <h3>Suggestions</h3>
-				<div class="suggestion_box">
-        
-				    	
-        			<div class="scroll_top">             
-              </div>
-				    		<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
-        			<div class="scroll_btm">
-              </div>
-				    
-				    </div>
+        		<div divId="sug1" class="scroll_top scroll_top_inact sug_top1"></div>
+        		<div style="overflow:hidden; width:300px; height:173px;">
+					<div class="suggestion_box" id="sug1">
+					    		<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
+					</div>
+				</div>
+				<div class="scroll_btm sug_bot1" divId="sug1"></div>
             </div>
 				 <div class="clearboth"></div>
 				<span class="clickr next" href='#objective_tab'>Continue</span>
@@ -195,15 +192,15 @@
 			    
 			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here" class="h200"><?php if(isset($about[0]['objective'])) echo $objective[1]; ?></textarea>
 			</div>
-			<div class="suggestion_box">
-				<h3>Suggestions</h3>
-          <div class="scroll_top">
-          
-          </div>
-		    	<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>         
-          <div class="scroll_btm">
-          
-          </div>
+			<div style="float:left;" class="content233">
+			<h3>Suggestions</h3>
+			<div divId="sug2" class="scroll_top scroll_top_inact sug_top1"></div>
+			<div style="overflow:hidden; width:300px; height:173px;">
+				<div class="suggestion_box" id="sug2">
+					<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
+				</div>
+			</div>
+				<div class="scroll_btm sug_bot1" divId="sug2"></div>
 			</div>
 			 <div class="clearboth"></div>
 
@@ -491,14 +488,17 @@
 			    		<span class="clickr_add"  id="addOskills" value="<?=$i;?>">Add</span>
 			    	</div>
 			    </div>
-				<div id="sugg_strnth_list" class="mys_right">
 
-        		<p class="scroll_top_strn"></p>
-
-					<?php foreach ($keywords as $i => $key) { echo '<div id="sugg_strnth_'.($i+1).'">'.$key.'<span class="sugg_strnth" value="'.$key.'" data="'.($i+1).'">+</span></div>'; } ?>
-          
-           <p class="scroll_btm_strn"></p>
-		    	</div>
+			    <div  style="float:left;">
+			    <div divId="sugg_strnth_list" class="scroll_top_strn scroll_top_inact sug_top1"></div>
+			    	<div style="overflow:hidden; width:350px; height:173px;">
+						<div id="sugg_strnth_list" class="mys_right">
+							<?php foreach ($keywords as $i => $key) { echo '<div id="sugg_strnth_'.($i+1).'">'.$key.'<span class="sugg_strnth" value="'.$key.'" data="'.($i+1).'">+</span></div>'; } ?>
+		    			</div>
+		    		</div>
+		    	<div class="scroll_btm_strn sug_bot1" divId="sugg_strnth_list"></div>
+			    </div>
+			    
 
 			    <div style="clear:both"></div>
 			    <br />

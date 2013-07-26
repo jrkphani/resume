@@ -2,7 +2,7 @@ $(document).ready(function()
 {
 	//Avoid form data lose, by ask confirmation when click any links other than download.
 	downloadClicked = false;
-    window.onbeforeunload = confirmExit;
+    //window.onbeforeunload = confirmExit;
 
     // Define slider properties
 	define_slider();
@@ -505,6 +505,53 @@ $('#addSkills').click(function()
 			$('#addEdudcation').click();
 		}
 	});
+
+	// Suggestion Box Scrolling Start
+	var ele   = $('.sug1');
+    var speed = 25, scroll = 5, scrolling;
+    
+    $('.sug_top1').mousedown(function() {
+    	ele   = $('#'+$(this).attr('divId'));
+        // Scroll the element up
+        scrolling = window.setInterval(function() {
+            ele.scrollTop( ele.scrollTop() - scroll );
+        }, speed);
+    });
+    
+    $('.sug_bot1').mousedown(function() {
+    	ele   = $('#'+$(this).attr('divId'));
+        // Scroll the element down
+        scrolling = window.setInterval(function() {
+            ele.scrollTop( ele.scrollTop() + scroll );
+        }, speed);
+    });
+    
+    $('.sug_top1, .sug_bot1').bind({
+        click: function(e) {
+            // Prevent the default click action
+            e.preventDefault();
+        },
+        mouseup: function() {
+            if (scrolling) {
+                window.clearInterval(scrolling);
+                scrolling = false;
+            }
+        }
+    });
+
+    /*$('.sug1').scroll(function(){
+    	if($('.sug1').scrollTop()==0)
+    		$('.sug_top1').addClass('scroll_top_inact'); // Inactivate top link
+    	else if($('.sug_top1').hasClass('scroll_top_inact'))
+    		$('.sug_top1').removeClass('scroll_top_inact'); // Activate top link
+    		
+		if($('.sug1').scrollTop() + $('.sug1').height() == $('.sug1').prop('scrollHeight'))
+			$('.sug_bot1').addClass('scroll_bot_inact'); // Inactivate bottom link
+		else if($('.sug_bot1').hasClass('scroll_bot_inact'))
+			$('.sug_bot1').removeClass('scroll_bot_inact'); // Activate bottom link
+	});
+	// Suggestion Box Scrolling End
+	*/
 
 	function update()
 	{

@@ -202,6 +202,12 @@ input, select{
 	background: #f07057 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #c5533d;	color: #fff;	
 	font-family:inherit;
 }
+.clickb{
+	padding: 8px 20px 10px 28px; display: inline-block;
+	cursor: pointer;
+	background: url("../img/arrow_btn1.png") no-repeat scroll 8px 10px #f07057;	border: solid 1px #c5533d;	color: #fff;	
+	font-family:inherit;
+}
 
 .clickr_add {
 	padding: 8px 20px 10px 30px; display: inline-block;
@@ -229,7 +235,7 @@ border: solid 1px #c5533d;
 	background-color: #da5e46;
 	border: solid 1px #d05840;
 }
-.clickr:hover, .clickr_add:hover, .formRemoveBtn:hover, .clickr_final:hover, .previewTemp:hover{
+.clickr:hover,.clickb:hover, .clickr_add:hover, .formRemoveBtn:hover, .clickr_final:hover, .previewTemp:hover{
 	background-color: #da5e46;
 	border: solid 1px #d05840;
 }

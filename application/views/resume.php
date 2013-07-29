@@ -245,6 +245,8 @@
 			</div>
 			 <div class="clearboth"></div>
 
+			
+			<span class="clickb next" href='#about_tab'>Back</span>
 			<span class="clickr next" href='#contact_tab'>Continue</span>
 		</div>
 		</div>
@@ -314,7 +316,9 @@
 				<label >facebook</label>
 				<input class="w400" type="url" id="facebook" name="url[]" placeholder="http://www.facebook.com/digitalchakra" value="<? if(isset($about[0]['website'])) echo $website['facebook']; ?>" /><span id="facebook_err"></span>
 			</div>
+			<span class="clickb next" href='#objective_tab'>Back</span>
 			<span class="clickr next" href='#experience_tab'>Continue</span>
+			
 		</div>
 		</div>
 		<!-- ===================================================================== Contact Me tab end ==================-->
@@ -449,7 +453,9 @@
 			    <span  class="clickr_add"  id="addCompany" value="<?=$i;?>">Add New</span>
 			</div>
 			<br/>
+			<span  class="clickb next" href='#contact_tab'>Back</span>
 			<span  class="clickr next" href='#strength_tab'>Continue</span>
+			
 		</div>
 		</div>
 		
@@ -550,7 +556,9 @@
 				<label >You can write about your strengths briefly here	</label>
 			    <textarea rows="3"  type="text"  name="otherSkillsBrief" placeholder="Brief about strength"><?if(isset($about[0]['mystrength'])) echo $about[0]['mystrength'];?></textarea>
 			</div>
+			<span class="clickb next" href='#experience_tab'>Back</span>
 			<span class="clickr next" href='#tool_tab'>Continue</span>
+			
 		</div>
 		</div>
 		<!-- ===================================================================== My Strength tab end ==================-->
@@ -627,7 +635,9 @@
 			   <span class="clickr_add"  id="addSkills"  value="<?=$i;?>">Add New</span>
 			</div>
 			<br/>
+			<span class="clickb next" href='#strength_tab'>Back</span>
 			<span class="clickr next" href='#milestones_tab'>Continue</span>
+			
 		</div>
 		</div>
 		
@@ -705,7 +715,9 @@
 			<!--<label >Add Project</label>-->
 				<span class="clickr_add" id="addProject" value="<?=$i;?>">Add New</span>
 			</div><br/>
+			<span  class="clickb next" href='#tool_tab'>Back</span>
 			<span  class="clickr next" href='#edication_tab'>Continue</span>
+			
 		</div>
 		</div>
 		
@@ -859,7 +871,9 @@
 				</div><br/>
 			</div>
 			 <!-- Award end -->
+			 <span class="clickb next" href='#milestones_tab'>Back</span>
 			<span class="clickr next" href='#moreabout_tab'>Continue</span>
+			
 		</div>
 		</div>
 		
@@ -1089,6 +1103,7 @@
 				</div>
 			<? } ?>
 		</div>
+		<span class="clickb next" href='#edication_tab'>Back</span>
 		</div>
 		<!-- ===================================================================== More About Me tab end ==================-->
 	</form>

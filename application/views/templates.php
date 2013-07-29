@@ -22,6 +22,16 @@
 					</div>
 				</div>
 			</div>
+			<div class="t_list_bg">
+			<div class="t_list_t">
+				<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
+				<div class="t_list_s">
+					<p>Pyramid Point</p>
+					<a title="Pyramid Point" class="t_select" tvalue="T4">Select</a>
+					<span class="previewTemp" title="Pyramid Point" href="<?php echo base_url("assets/img/T4_full.png"); ?>">zoom</span>
+				</div>
+			</div>
+		</div>
 		
 			<div class="t_list_bg">
 				<div class="t_list_t">
@@ -43,21 +53,11 @@
 				</div>
 			</div>
 		</div>
-			<div class="t_list_bg">
-			<div class="t_list_t">
-				<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
-				<div class="t_list_s">
-					<p>Pyramid Point</p>
-					<a title="Pyramid Point" class="t_select" tvalue="T4">Select</a>
-					<span class="previewTemp" title="Pyramid Point" href="<?php echo base_url("assets/img/T4_full.png"); ?>">zoom</span>
-				</div>
-			</div>
-		</div>
-			<div class="t_list_bg">
+			<!--<div class="t_list_bg">
 			<div class="t_list_t">
 				<img src="<?php echo base_url("assets/img/T_thumb.jpg"); ?>" alt="Template thumbnail"/>
 			</div>
-		</div>
+		</div>-->
 		<div class="clearboth"></div>
 		<!-- <a href="#" class="load_more">LOAD MORE</a> -->
 	</div>

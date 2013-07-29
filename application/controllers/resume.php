@@ -14,6 +14,7 @@ class Resume extends CI_Controller
 		 $data['view_page'] = 'resume';
 		 $data['templateValue'] = ($this->input->post('templateValue'))?$this->input->post('templateValue'):NULL;
 		 $data['templateName'] = ($this->input->post('templateName'))?$this->input->post('templateName'):'Resume';
+		 $data['dateMonth']= array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
 		 if($this->current_user)
 		 {
 			 $this->load->model('resume_model');

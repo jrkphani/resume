@@ -3,6 +3,10 @@
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/pepper-grinder/jquery-ui.css" />
 <!--<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/jquery.toastmessage.css"); ?>"/>
 <div id="toast"></div>-->
+<style>
+	/* to hide days in calender */
+.ui-datepicker-calendar {     display: none; }​
+</style>
 <?php
 	$keywords = array("Ability to Delegate", "Analytical Ability", "Can Handle to Work Overlay", "Competitive", "Competencies", "Collaborative", "Enthusiastic", "Flexible", "Follow Through Leadership", "High Energy", "Mutli-task oriented", "Organizational skills", "Presentation Skills", "Rigorous", "Self-driven", "Team building", "Setting priorities", "Self Managing", "Achievement oriented", "Adaptable", "Ability to Implement", "Ability to Plan", "Ability to Train", "Accurate", "Assertive", "Budget-driven", "Creative", "Communication Skills", "Conceptual Ability", "Dependable", "Deadline driven", "Detail-oriented", "Emphasis", "Energetic", "Ethical", "Excellent Track Record", "Extensive Experience", "Focused", "Good Understanding", "Independent", "Innovative", "Industrious", "Leadership", "Motivated", "Open Communication", "Open Minded", "Organized", "Problem Solving", "Process Oriented", "Proficient", "Persuasive", "Results Focused", "Results Oriented", "Resourcefulness", "Self Accountable", "Supportive", "Takes Initiative", "Versatile", "Reliable", "Articulate", "Customer Focused ", "Client Focused");
 ?>
@@ -23,7 +27,7 @@
 	<span tab='#edication_tab' class="tab rns rns_inner">Education & Awards</span>
 	<span tab='#moreabout_tab' class="tab rns rns_inner">More About Me</span>
 	<!-- <span class="rns"><span class="rnd">3</span>Build Your Image</span> -->
-	<span class="rns"><span class="rnd">3</span>Register with EZCV</span>
+	<a href="<?=base_url('login'); ?>"class="rns"><span class="rns"><span class="rnd">3</span>Register with EZCV</span></a>
 </div>
 <!--<div id="file_upload" style="display:none;">
    <form method="post" action="" id="upload_file">
@@ -64,15 +68,52 @@
 			<div class="form_sections">
 				<div>
 					<input type="text" name="fname"  id="first_name" placeholder="First name"  value="<? if(isset($user_detail[0]['first_name'])) echo $user_detail[0]['first_name']; ?>" maxlength="30" required/>
-          <span id="fname_err"></span>
+          
 					<input name="lname" type="text"  id="last_name" placeholder="Last name" value="<? if(isset($user_detail[0]['last_name'])) echo $user_detail[0]['last_name']; ?>" maxlength="30" required/>
-          <span id="lname_err"></span>
+          <span class="fnme" id="fname_err"></span>
+          <span class="lnme" id="lname_err"></span>
 				</div>
 				
 			<!-- DOB -->
 				<div>
 				    <label >Date of Birth</label>
-				    <input  type="text"  class="full_date_picker" name="dob" placeholder="Feb-09-1989" value="<? if(isset($user_detail[0]['dob'])) echo $user_detail[0]['dob']; ?>"  readonly="readonly" required/>
+				    <?
+				    if(isset($user_detail[0]['dob'])) 
+				    $dob = explode('-',$user_detail[0]['dob']);
+				    ?>
+				    <select class="w100" name="dobMonth">
+						<?
+						if(!isset($dob))
+						echo '<option value="0" selected="selected">Month</option>';
+						for($i=0; $i<=11; $i++)
+						{
+						?>
+						<option value="<?=$dateMonth[$i];?>" <? if(isset($dob) && $dob[0]==$dateMonth[$i]){ echo 'selected="selected"';} ?> > <?=$dateMonth[$i];?> </option>
+						<? } ?>
+				    </select>
+				    <select class="w100" name="dobDay">
+						<?
+						if(!isset($dob))
+						echo '<option value="0" selected="selected">Day</option>';
+						for($i=1; $i<=31; $i++)
+						{
+						?>
+						<option value="<?=$i;?>" <? if(isset($dob) && $dob[1]==$i){ echo 'selected="selected"';} ?> > <?=$i;?> </option>
+						<? } ?>
+				    </select>
+				    <select class="w100" name="dobYear">
+						<?
+						if(!isset($dob))
+						echo '<option value="0" selected="selected">Year</option>';
+						
+						$current_Year=date('Y');
+						for($i=1; $i<=99; $i++)
+						{
+						?>
+						<option value="<?=$current_Year;?>" <? if(isset($dob) && $dob[2]==$current_Year){ echo 'selected="selected"';} ?> > <?=$current_Year--;?> </option>
+						<? } ?>
+				    </select>
+				    <!--<input  type="text"  class="full_date_picker" name="dob" placeholder="Feb-09-1989" value="<? if(isset($user_detail[0]['dob'])) echo $user_detail[0]['dob']; ?>"  readonly="readonly" required/>-->
 				</div>
 			<!-- Address -->
 				<div >
@@ -124,7 +165,7 @@
 				<div class="scroll_btm sug_bot1" divId="sug1"></div>
             </div>
 				 <div class="clearboth"></div>
-				<span class="clickr next" href='#objective_tab'>Continue</span>
+				<span style="margin-top:10px;" class="clickr next" href='#objective_tab'>Continue</span>
 			</div>
 		</div>
 		<!-- ===================================================================== About tab end ==================-->
@@ -245,7 +286,7 @@
 			</div>
 			<div >
 			    <input  type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
-          <span id="phone_err"></span>
+          <span id="phone_err"></span><br />
 				<input   name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
         <span id="email_err"></span>
 			</div>
@@ -712,12 +753,16 @@
 						<div>
 							<input rows="3"  name="eduScore[]" type="text"  placeholder="Score: % or GPA" value="<?=$educationScore[$i];?>">
 						</div>
-						<div>
-							<label >From</label>
+						<div style="float:left;">
+							<label style="display:block;">From</label>
 							<input type="text"  name="eduFrom[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" />
-							<label >To</label>
-							<input  type="text"  name="eduTo[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[1];?>" readonly="readonly" />
+
 						</div>
+            <div>							
+            	<label style="display:block;">To</label>
+							<input  type="text"  name="eduTo[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[1];?>" readonly="readonly" />
+            
+            </div>
 					</div>
 				<?
 				$i++;
@@ -774,9 +819,11 @@
 						<div>
 						<input rows="3" name="awdtitle[]" type="text"  placeholder="Award Title" value="<?=$record;?>">
 						</div>
-						<div>
+						<div style="float:left;">
 							<label >For the period From</label>
 							<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" />
+            </div>
+            <div>
 							<label >To</label>
 							<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="Feb-2012" value="<?=$fromtoDate[1];?>" readonly="readonly" />
 						</div>
@@ -884,15 +931,19 @@
 						<input name="intrestUrl[]" type="text"  placeholder="Web address of interest (blog, photo, gallery)" />
 					</div>
 				</div>
-				<? } ?>
+				
+        
+        <? } ?>
+        
 			</div>	
+      <span style="margin:0px 0 10px 20px!important;" class="clickr_add"  id="addintrest" value="<?=$i;?>">Add New</span><br/>
 			
-				<span class="clickr_add"  id="addintrest" value="<?=$i;?>">Add New</span><br/>
+				
 			<br/>
 			
 			<!-- other details -->
 			<div class="other_details">
-			<h3>Other details</h3>
+			<h3>OTHER DETAILS</h3>
 			<div>
 				<label >Marital Status</label>
 				<select name="marital">
@@ -917,8 +968,8 @@
 			if(isset($about[0]['passport_visa']))
 			{
 				$passport_visa = unserialize($about[0]['passport_visa']);
-				//$passportDate = explode('#',$passport_visa['passportdate']); 
-				//$visaDate = explode('#',$passport_visa['visadate']);
+				$passportDate = explode('-',$passport_visa['passportTo']);
+				$visaDate = explode('-',$passport_visa['visaTo']);
 			?>
 				<div>
 					<label >Passport details</label>
@@ -926,9 +977,28 @@
 				</div>
 				<div>
 					<label >Valid till</label>
-					<!--<input  type="text" class="half_date_picker" name="passportFrom" placeholder="(2005)(Feb 2005)" value="<?=$passportDate[0];?>">
-					to-->
-					<input  type="text" class="feature_date_picker" name="passportTo" placeholder="Feb-2012" value="<?=$passport_visa['passportTo'];?>" readonly="readonly" />
+					<select name="passportMonth">
+						<?
+						if(!isset($passportDate))
+						echo '<option value="0" selected="selected">Month</option>';
+						for($i=0; $i<=11; $i++)
+						{
+						?>
+						<option value="<?=$dateMonth[$i];?>" <? if(isset($passportDate) && $passportDate[0]==$dateMonth[$i]){ echo 'selected="selected"';} ?> > <?=$dateMonth[$i];?> </option>
+						<? } ?>
+				    </select>
+				    <select name="passportYear">
+						<?
+						if(!isset($passportDate))
+						echo '<option value="0" selected="selected">Year</option>';
+						$current_Year=date('Y');
+						for($i=1; $i<=80; $i++)
+						{
+						?>
+						<option value="<?=$current_Year;?>" <? if(isset($passportDate) && $passportDate[1]==$current_Year){ echo 'selected="selected"';} ?> > <?=$current_Year++;?> </option>
+						<? } ?>
+				    </select>
+					<!--<input  type="text" class="feature_date_picker" name="passportTo" placeholder="Feb-2012" value="<?=$passport_visa['passportTo'];?>" readonly="readonly" />-->
 				</div>
 				<div>
 					<label >Visa details</label>
@@ -936,9 +1006,28 @@
 				</div>
 				<div>
 					<label >Valid till</label>
-					<!--<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)" value="<?=$visaDate[0];?>">
-					to-->
-					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="Feb-2012" value="<?=$passport_visa['visaTo'];?>" readonly="readonly" />
+					<select class="w100" name="visaMonth">
+						<?
+						if(!isset($visaDate))
+						echo '<option value="0" selected="selected">Month</option>';
+						for($i=0; $i<=11; $i++)
+						{
+						?>
+						<option value="<?=$dateMonth[$i];?>" <? if(isset($visaDate) && $visaDate[0]==$dateMonth[$i]){ echo 'selected="selected"';} ?> > <?=$dateMonth[$i];?> </option>
+						<? } ?>
+				    </select>
+				    <select class="w100" name="visaYear">
+						<?
+						if(!isset($visaDate))
+						echo '<option value="0" selected="selected">Year</option>';
+						$current_Year=date('Y');
+						for($i=1; $i<=80; $i++)
+						{
+						?>
+						<option value="<?=$current_Year;?>" <? if(isset($visaDate) && $visaDate[1]==$current_Year){ echo 'selected="selected"';} ?> > <?=$current_Year++;?> </option>
+						<? } ?>
+				    </select>
+					<!--<input  type="text" class="feature_date_picker" name="visaTo" placeholder="Feb-2012" value="<?=$passport_visa['visaTo'];?>" readonly="readonly" />-->
 				</div>
 			<?}
 			else
@@ -950,9 +1039,26 @@
 				</div>
 				<div>
 					<label >Valid till</label>
-					<!--<input  type="text" class="half_date_picker" name="passportFrom" placeholder="(2005)(Feb 2005)">
-					to-->
-					<input  type="text" class="feature_date_picker" name="passportTo" placeholder="Feb-2012" readonly="readonly" />
+					<select class="w100" name="passportMonth">
+						<option value="0" selected="selected">Month</option>
+						<?
+						for($i=0; $i<=11; $i++)
+						{
+						?>
+						<option value="<?=$dateMonth[$i];?>" > <?=$dateMonth[$i];?> </option>
+						<? } ?>
+				    </select>
+				    <select class="w100" name="passportYear">
+						<option value="0" selected="selected">Year</option>
+						<?
+						$current_Year=date('Y');
+						for($i=1; $i<=80; $i++)
+						{
+						?>
+						<option value="<?=$current_Year;?>" > <?=$current_Year++;?> </option>
+						<? } ?>
+				    </select>
+					<!--<input  type="text" class="feature_date_picker" name="passportTo" placeholder="Feb-2012" readonly="readonly" />-->
 				</div>
 				<div>
 					<label >Visa details</label>
@@ -960,9 +1066,26 @@
 				</div>
 				<div>
 					<label >Valid till</label>
-					<!--<input  type="text" class="half_date_picker" name="visaFrom" placeholder="(2005)(Feb 2005)">
-					to-->
-					<input  type="text" class="feature_date_picker" name="visaTo" placeholder="Feb-2012" readonly="readonly" />
+					<select class="w100" name="visaMonth">
+						<option value="0" selected="selected">Month</option>
+						<?
+						for($i=0; $i<=11; $i++)
+						{
+						?>
+						<option value="<?=$dateMonth[$i];?>" > <?=$dateMonth[$i];?> </option>
+						<? } ?>
+				    </select>
+				    <select class="w100" name="visaYear">
+						<option value="0" selected="selected">Year</option>
+						<?
+						$current_Year=date('Y');
+						for($i=1; $i<=80; $i++)
+						{
+						?>
+						<option value="<?=$current_Year;?>" > <?=$current_Year++;?> </option>
+						<? } ?>
+				    </select>
+					<!--<input  type="text" class="feature_date_picker" name="visaTo" placeholder="Feb-2012" readonly="readonly" />-->
 				</div>
 			<? } ?>
 		</div>
@@ -1003,6 +1126,15 @@
 					</div>
 				</div>
 			</div>
+			<div class="t_list_bg" id="T4">
+				<div class="t_list_t">
+					<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<div class="t_list_s">
+						<p>Pyramid Point</p>
+						<a title="Pyramid Point" class="t_select template" value="T4">Select</a>
+					</div>
+				</div>
+			</div>
 			<div class="t_list_bg" id="T2">
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
@@ -1018,15 +1150,6 @@
 					<div class="t_list_s">
 						<p>Window View</p>
 						<a title="Window View" class="t_select template" value="T3">Select</a>
-					</div>
-				</div>
-			</div>
-			<div class="t_list_bg" id="T4">
-				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
-					<div class="t_list_s">
-						<p>Pyramid Point</p>
-						<a title="Pyramid Point" class="t_select template" value="T4">Select</a>
 					</div>
 				</div>
 			</div>

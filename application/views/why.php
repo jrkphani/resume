@@ -7,7 +7,7 @@
 
 
 
-<div class="why_cnt" style="line-height: 25px; margin:0 0 0 -15px; color: #323232;">
+<div class="why_cnt" style="line-height: 25px;color: #323232;">
 <p>
 There are plenty of websites who help get you jobs once you have posted your resume to them, they have been around for a while and they are there to stay. So what does EZCV do that they don't?</p>
 <p>

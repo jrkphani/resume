@@ -653,6 +653,12 @@ function datepic()
         dateFormat: 'M-dd-yy',
         maxDate: new Date(),
         yearRange:'c-80:c',
+        showButtonPanel: true,
+        onClose: function() {
+			var iMonth = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+			var iYear = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+			$(this).datepicker('setDate', new Date(iYear, iMonth, 1));
+			}
 		});
 	
 	$('.half_date_picker').datepicker( {
@@ -661,6 +667,12 @@ function datepic()
         dateFormat: 'M-yy',		// Ex: Feb-2012
         maxDate: new Date(),
         yearRange:'c-80:c',
+        showButtonPanel: true,
+        onClose: function() {
+			var iMonth = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+			var iYear = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+			$(this).datepicker('setDate', new Date(iYear, iMonth, 1));
+			}
         /*onClose: function(dateText, inst) { 
             var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
             var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
@@ -767,7 +779,7 @@ function define_slider(sliding_id)
 				case '8':
 					msg='Expert';break;
 			}
-			$('#slid_msg'+data).html(value+" "+msg);
+			$('#slid_msg'+data).html(msg);
 		 	
 		},
 		slide: function( event, ui ) {
@@ -792,7 +804,7 @@ function define_slider(sliding_id)
 				case 8:
 					msg='Expert';break;
 			}
-			$('#slid_msg'+data).html(ui.value+" "+msg);
+			$('#slid_msg'+data).html(msg);
 		}
 	});
 }

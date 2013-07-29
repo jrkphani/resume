@@ -43,7 +43,7 @@ class Preview extends CI_Controller {
 			'last_name' => $this->input->post('lname'),
 			'designation' => $this->input->post('designation'),
 			'mobile' => $this->input->post('phone'),
-			'dob' => $this->input->post('dob'),
+			'dob' => $this->input->post('dobMonth').'-'.$this->input->post('dobDay').'-'.$this->input->post('dobYear'),
 			'skype' => $this->input->post('skype'),
 			'secondary_email' => $this->input->post('email'),
 			'address' => $this->input->post('address'),
@@ -71,11 +71,9 @@ class Preview extends CI_Controller {
 				$objectivesTitle =$this->input->post('objectivesTitle');
 			}
 			$passport_visa=array('passport'=>$this->input->post('passport'),
-							//'passportdate'=>$this->input->post('passportFrom').'#'.$this->input->post('passportTo'),
-							'passportTo'=>$this->input->post('passportTo'),
+							'passportTo'=>$this->input->post('passportMonth').'-'.$this->input->post('passportYear'),
 							'visa'=>$this->input->post('visa'),
-							//'visadate'=>$this->input->post('visaFrom').'#'.$this->input->post('visaTo')
-							'visaTo'=>$this->input->post('visaTo')
+							'visaTo'=>$this->input->post('visaMonth').'-'.$this->input->post('visaYear')
 							);
 			$url_array=array('mylink','linkedin','twitter','facebook');
 			$url_array=array_combine($url_array,$this->input->post('url'));							

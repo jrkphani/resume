@@ -147,7 +147,7 @@ class Registration extends CI_Controller {
 								}
 								$this->invite_friend($user_id,$friend_emails,$first_name.' '.$last_name);								
 								$this->email->subject('Activate your EZCV Account');
-								$message= 'Dear '.$first_name.' '.$last_name.'<br /><br />Thank you for registering with EZCV. Please click on the link below to activate your account and get access to your resume.<br /><a href="'.base_url('registration/activation/'.$user_id.'/'.$post_data['active']).'"> Activate my EZCV Account </a><br />Once you have activated your account, you can view your current resume and  edit it any time, change templates and update your details. You can also download the resume when ever you wish.<br /><br />Get Noticed in a Sea of Resumes!<br /><br />Regards<br />EZCV Team';							
+								$message= 'Dear '.$first_name.' '.$last_name.'<br /><br />Thank you for registering with EZCV. Please click on the link below to activate your account and get access to your resume.<br /><a href="'.base_url('registration/activation/'.$user_id.'/'.$post_data['active']).'"> Activate my EZCV Account </a><br />Once you have activated your account, you can view your current resume and  edit it any time, change templates and update your details. You can also download the resume whenever you wish.<br /><br />Get Noticed in a Sea of Resumes!<br /><br />Regards<br />EZCV Team';							
 							}
 							else if($post_data['role']=='member')
 							{

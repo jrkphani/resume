@@ -83,34 +83,34 @@
 				    ?>
 				    <select class="w100" name="dobMonth">
 						<?
-						if(!isset($dob))
+						if((!isset($dob[0])) || (!$dob[0]))
 						echo '<option value="0" selected="selected">Month</option>';
 						for($i=0; $i<=11; $i++)
 						{
 						?>
-						<option value="<?=$dateMonth[$i];?>" <? if(isset($dob) && $dob[0]==$dateMonth[$i]){ echo 'selected="selected"';} ?> > <?=$dateMonth[$i];?> </option>
+						<option value="<?=$dateMonth[$i];?>" <? if(isset($dob[0]) && $dob[0]==$dateMonth[$i]){ echo 'selected="selected"';} ?> > <?=$dateMonth[$i];?> </option>
 						<? } ?>
 				    </select>
 				    <select class="w100" name="dobDay">
 						<?
-						if(!isset($dob))
+						if((!isset($dob[0])) || (!$dob[0]))
 						echo '<option value="0" selected="selected">Day</option>';
 						for($i=1; $i<=31; $i++)
 						{
 						?>
-						<option value="<?=$i;?>" <? if(isset($dob) && $dob[1]==$i){ echo 'selected="selected"';} ?> > <?=$i;?> </option>
+						<option value="<?=$i;?>" <? if(isset($dob[1]) && $dob[1]==$i){ echo 'selected="selected"';} ?> > <?=$i;?> </option>
 						<? } ?>
 				    </select>
 				    <select class="w100" name="dobYear">
 						<?
-						if(!isset($dob))
+						if((!isset($dob[0])) || (!$dob[0]))
 						echo '<option value="0" selected="selected">Year</option>';
 						
 						$current_Year=date('Y');
 						for($i=1; $i<=99; $i++)
 						{
 						?>
-						<option value="<?=$current_Year;?>" <? if(isset($dob) && $dob[2]==$current_Year){ echo 'selected="selected"';} ?> > <?=$current_Year--;?> </option>
+						<option value="<?=$current_Year;?>" <? if(isset($dob[2]) && $dob[2]==$current_Year){ echo 'selected="selected"';} ?> > <?=$current_Year--;?> </option>
 						<? } ?>
 				    </select>
 				    <!--<input  type="text"  class="full_date_picker" name="dob" placeholder="Feb-09-1989" value="<? if(isset($user_detail[0]['dob'])) echo $user_detail[0]['dob']; ?>"  readonly="readonly" required/>-->
@@ -979,7 +979,7 @@
 					<label >Valid till</label>
 					<select class="w100" name="passportMonth">
 						<?
-						if(!isset($passportDate))
+						if(!$passportDate[0])
 						echo '<option value="0" selected="selected">Month</option>';
 						for($i=0; $i<=11; $i++)
 						{
@@ -989,7 +989,7 @@
 				    </select>
 				    <select class="w100" name="passportYear">
 						<?
-						if(!isset($passportDate))
+						if(!$passportDate[0])
 						echo '<option value="0" selected="selected">Year</option>';
 						$current_Year=date('Y');
 						for($i=1; $i<=80; $i++)
@@ -1008,7 +1008,7 @@
 					<label >Valid till</label>
 					<select class="w100" name="visaMonth">
 						<?
-						if(!isset($visaDate))
+						if(!$visaDate[0])
 						echo '<option value="0" selected="selected">Month</option>';
 						for($i=0; $i<=11; $i++)
 						{
@@ -1018,7 +1018,7 @@
 				    </select>
 				    <select class="w100" name="visaYear">
 						<?
-						if(!isset($visaDate))
+						if(!$visaDate[0])
 						echo '<option value="0" selected="selected">Year</option>';
 						$current_Year=date('Y');
 						for($i=1; $i<=80; $i++)

@@ -977,7 +977,7 @@
 				</div>
 				<div>
 					<label >Valid till</label>
-					<select name="passportMonth">
+					<select class="w100" name="passportMonth">
 						<?
 						if(!isset($passportDate))
 						echo '<option value="0" selected="selected">Month</option>';
@@ -987,7 +987,7 @@
 						<option value="<?=$dateMonth[$i];?>" <? if(isset($passportDate) && $passportDate[0]==$dateMonth[$i]){ echo 'selected="selected"';} ?> > <?=$dateMonth[$i];?> </option>
 						<? } ?>
 				    </select>
-				    <select name="passportYear">
+				    <select class="w100" name="passportYear">
 						<?
 						if(!isset($passportDate))
 						echo '<option value="0" selected="selected">Year</option>';

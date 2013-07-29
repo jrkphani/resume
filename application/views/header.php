@@ -15,12 +15,12 @@
 </head>
 <body>
 <header id="ezcv_header">
-
+	<? $page = $this->uri->segment(1); ?>
 		<h1><a class="ezcv_logo" href="<?php echo base_url(); ?>"><img src="<?php echo base_url("assets/img/ezcv-logo.png"); ?>"> </a></h1>
 		<nav>
-			<a href="<?php echo base_url(); ?>" class="ezcv_header_current">Home</a>
-			<a href="<?php echo base_url('why'); ?>">Why EZCV</a>
-			<a href="<?=base_url('templates'); ?>">Resume Templates</a>
+			<a href="<?php echo base_url(); ?>" <? if($page =="") echo 'class="ezcv_header_current"'; ?> >Home</a>
+			<a href="<?php echo base_url('why'); ?>" <? if($page =="why") echo 'class="ezcv_header_current"'; ?> >Why EZCV</a>
+			<a href="<?=base_url('templates'); ?>" <? if($page =="templates") echo 'class="ezcv_header_current"'; ?>>Resume Templates</a>
 			<!--<a href="<?=base_url('blog'); ?>">Blog</a>
 			<a href="<?=base_url('testimonials'); ?>">Testimonials</a>-->
 		</nav>
@@ -28,7 +28,7 @@
 		<nav>
 			<?php if($session_data = $this->session->userdata('logged_in')) { ?>
 			<a href="<?php echo base_url('profile'); ?>"><?php echo $session_data['firstname']; ?></a>
-			<a href="<?php echo base_url('resume'); ?>">My Resume</a>
+			<a href="<?php echo base_url('resume'); ?>" <? if($page =="resume") echo 'class="ezcv_header_current"'; ?> >My Resume</a>
 			<!--<a href="#">My Recommendations</a>
 			<a href="#">Refer Friends</a>
 			<a href="#">My Page</a>
@@ -37,9 +37,9 @@
 			<a href="#">Resume On Mobile</a>-->
 			<a href="<?php echo base_url('login/logout'); ?>">Logout</a>
 			<?php } else { ?>
-			<a href="<?php echo base_url('login'); ?>">Register | Sign in</a>
+			<a href="<?php echo base_url('login'); ?>" <? if($page =="login") echo 'class="ezcv_header_current"'; ?> >Register | Sign in</a>
 			<?php } ?>
-			<a href="<?php echo base_url('feedback'); ?>">Feedback</a>
+			<a href="<?php echo base_url('feedback'); ?>" <? if($page =="feedback") echo 'class="ezcv_header_current"'; ?> >Feedback</a>
 		</nav>
 		
 	</header>

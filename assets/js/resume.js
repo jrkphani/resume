@@ -2,7 +2,7 @@ $(document).ready(function()
 {
 	//Avoid form data lose, by ask confirmation when click any links other than download.
 	downloadClicked = false;
-    //window.onbeforeunload = confirmExit;
+    window.onbeforeunload = confirmExit;
 
     // Define slider properties
 	define_slider();

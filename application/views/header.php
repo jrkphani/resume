@@ -18,7 +18,7 @@
 	<? $page = $this->uri->segment(1); ?>
 		<h1><a class="ezcv_logo" href="<?php echo base_url(); ?>"><img src="<?php echo base_url("assets/img/ezcv-logo.png"); ?>"> </a></h1>
 		<nav>
-			<a href="<?php echo base_url(); ?>" <? if($page =="") echo 'class="ezcv_header_current"'; ?> >Home</a>
+			<a href="<?php echo base_url(); ?>" <? if($page =="" || $page =="home") echo 'class="ezcv_header_current"'; ?> >Home</a>
 			<a href="<?php echo base_url('why'); ?>" <? if($page =="why") echo 'class="ezcv_header_current"'; ?> >Why EZCV</a>
 			<a href="<?=base_url('templates'); ?>" <? if($page =="templates") echo 'class="ezcv_header_current"'; ?>>Resume Templates</a>
 			<!--<a href="<?=base_url('blog'); ?>">Blog</a>

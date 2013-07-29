@@ -90,7 +90,7 @@ float: right;}
 
 .rns{ 
 	display: block; cursor:pointer; 
-	padding-left: 20px; height: 40px;	text-align: left; line-height: 40px;
+	text-align: left; padding: 13px 0 13px 20px;
 	font-size: .9em;	text-decoration: none; color: #232323;
 	
 }
@@ -108,7 +108,7 @@ float: right;}
 	background: url(../img/sprites.png) no-repeat left center;
 	background-position: 0 -809px;  
 }
-.right_nav .rns_err{background: url(../img/sprites.png) 0px -895px no-repeat!important;}
+.right_nav .rns_err{background: url(../img/sprites.png) 0px -809px no-repeat!important;}
 
 
 
@@ -382,7 +382,7 @@ height: 2px!important;
 .t_list_t:hover .t_Select{
 	visibility: visible;
 }
-.why_cnt p{padding:0 0 10px 0;}
+.why_cnt p{padding:0 0 15px 0; line-height: 25px;}
 
 /*************************************** Suggestion box *********************/
 .suggestion_box, .mys_right{

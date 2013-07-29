@@ -14,7 +14,7 @@
 	<span class="rns showSelectTemplate"><span class="rnd">1</span>Choose Resume Style</span>
 	<span class="rns"><span class="rnd">2</span>Discover Yourself</span>
 	<span tab='#about_tab' class="tab rns rns_a rns_inner">About Me</span>
-	<span tab='#objective_tab' class="tab rns rns_inner">Designation,Objective</span>
+	<span tab='#objective_tab' class="tab rns rns_inner">Designation, Objective</span>
 	<span tab='#contact_tab' class="tab rns rns_inner">Contact Me</span>
 	<span tab='#experience_tab' class="tab rns rns_inner">Experience Summary</span>
 	<span tab='#strength_tab' class="tab rns rns_inner">My Strength </span>

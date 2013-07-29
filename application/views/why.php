@@ -5,7 +5,7 @@
 <div class="left_form_feedback">
 <div class="container">
 
-<h3 style="margin:-21px 0 20px -15px; color: #323232;">WHY EZCV</h3>
+
 
 <div class="why_cnt" style="line-height: 25px; margin:0 0 0 -15px; color: #323232;">
 <p>

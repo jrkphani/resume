@@ -64,7 +64,7 @@
                 <td><?php echo $email; ?>
                     <span class="pr-edit mail_toggle">
                         <input type="checkbox" name="email_toggle" id="email_toggle" style="display:inherit;" value="1" <?php if($email==$secondary_email) echo 'checked=checked'; ?> />
-                        <span class="emailtooltip" title="More information on the W3C&#8217;s Generated Content Module&#8230;">Use this as display email.</span>
+                        <span>Use this as display email.</span><span class="emailtooltip" style="display:inherit;" title="You can choose to display the email address you registered with on EZCV or you can provide an alternate email address here.">?</span>
                     </span>
                 </td>
                 

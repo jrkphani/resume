@@ -8,4 +8,15 @@ $(document).ready(function(){
 		else if(!validate('Subject','subject',man=true,max=100,min=false,type=false,disp='err_msg')) return false;
 		else if(!validate('Message','message',man=true,max=500,min=false,type=false,disp='err_msg')) return false;
 	});
+	
+	$("textarea[data-limit-input]").keyup(function () {
+			var charLength = $(this).val().length;
+			var charLimit = $(this).attr("data-limit-input");
+		// Displays count
+			$(this).next("span").html(charLength + " of " + charLimit + " characters used");
+		// Alert when max is reached
+			if ($(this).val().length > charLimit) {
+				$(this).next("span").html("<strong>You may only have up to " + charLimit + " characters.</strong>");
+			}
+		});
 });

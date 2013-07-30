@@ -22,7 +22,9 @@
 		</tr>
 		<tr>
 			<td ><p class="fb_cnt">Message</p></td>
-			<td><textarea class="fb_txtara" name="message" id="message"></textarea></td>
+			<td><textarea class="fb_txtara" name="message" id="message" data-limit-input="1000"	></textarea>
+			<span>0 of 1000 characters used</span>
+			</td>
 		</tr>
 		<tr>
 			<td></td>

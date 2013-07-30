@@ -39,8 +39,12 @@
 </div>-->
 <div class="left_form">
 	<?
-	if(!$templateValue) 
+	if(!$templateValue)
+	{
+		if(isset($user_detail[0]['Template']))
 		$templateValue = $user_detail[0]['Template'];
+	}
+		
 	?>
 	
 		<!-- ================================ form start ================================ -->

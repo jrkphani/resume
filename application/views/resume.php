@@ -137,7 +137,7 @@
 						{
 						$summary=unserialize($about[0]['summary']);
 						?>
-						<option value="Who I am" <? if($summary[0] == 'Who i am') {echo 'selected="selected"'; $found=1; } ?>>Who i am</option>
+						<option value="Who I am" <? if($summary[0] == 'Who I am') {echo 'selected="selected"'; $found=1; } ?>>Who I am</option>
 						<option value="About me" <? if($summary[0] == 'About me') {echo 'selected="selected"'; $found=1; } ?>>About me</option>
 						<option value="Summary" <? if($summary[0] == 'Summary') {echo 'selected="selected"'; $found=1; } ?>>Summary</option>
 						<option value="Custom heading" <?if(!$found)echo 'selected="selected"';?> >Custom heading</option>					
@@ -145,7 +145,7 @@
 						}
 						else
 						{?>
-						<option value="Who i am" >Who i am</option>
+						<option value="Who I am" >Who I	 am</option>
 						<option value="About me" >About me</option>
 						<option value="Summary" >Summary</option>
 						<option value="Custom heading" >Custom heading</option>

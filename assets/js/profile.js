@@ -140,6 +140,10 @@ $( ".emailtooltip" ).tooltip({ tooltipClass: "custom-tooltip-styling" });
 			   		$('#profile_div').show();
 			   		$('#show_change_password').show();
 			   		$('.err-msg').html('Password updated successfully.');
+			   		$('.pr-view, #pr-edit-link, #show_change_password, #profile_photo').show();
+					$('.pr-edit').hide();
+					//$('#pr-edit-link').show();
+					$('.img_update').attr('id','');
 				}
 				else if(data.resultset.success=='missmatch')
 				{

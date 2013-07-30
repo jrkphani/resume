@@ -15,9 +15,10 @@
 </div>
 <div class="right_nav">
 	<h3> YOU ARE HERE </h3>
-	<span class="rns showSelectTemplate"><span class="rnd">1</span>Choose Resume Style</span>
-	<span class="rns"><span class="rnd">2</span>Discover Yourself</span>
-	<span tab='#about_tab' class="tab rns rns_a rns_inner">About Me</span>
+  <span class="rsum_tp_rs showSelectTemplate">Choose Resume Style</span>
+	<a href="<?=base_url('resume'); ?>"class="rsum_tp">Discover Yourself</a>
+  
+	<span tab='#about_tab' class="tab rns rns_a rns_inner abt_tab">About Me</span>
 	<span tab='#objective_tab' class="tab rns rns_inner">Designation, Objective</span>
 	<span tab='#contact_tab' class="tab rns rns_inner">Contact Me</span>
 	<span tab='#experience_tab' class="tab rns rns_inner">Experience Summary</span>
@@ -27,7 +28,7 @@
 	<span tab='#edication_tab' class="tab rns rns_inner">Education & Awards</span>
 	<span tab='#moreabout_tab' class="tab rns rns_inner">More About Me</span>
 	<!-- <span class="rns"><span class="rnd">3</span>Build Your Image</span> -->
-	<a href="<?=base_url('login'); ?>"class="rns"><span class="rns"><span class="rnd">3</span>Register with EZCV</span></a>
+	<a href="<?=base_url('login'); ?>"class="rsum_tp1">Register with EZCV</a>
 </div>
 <!--<div id="file_upload" style="display:none;">
    <form method="post" action="" id="upload_file">
@@ -37,6 +38,10 @@
    </form>
 </div>-->
 <div class="left_form">
+	<?
+	if(!$templateValue) 
+		$templateValue = $user_detail[0]['Template'];
+	?>
 	
 		<!-- ================================ form start ================================ -->
 	<form id="resume_form">
@@ -60,7 +65,8 @@
 				{ ?>
 				<img class="thumb_sdw_tmp"  id="t_thumb" alt="Template thumbnail" src="<?=base_url('assets/img').'/T_default_thumb.jpg';?>">
 				<? } ?>
-				<span class="showSelectTemplate">Change Template</span>
+				<p class="showSelectTemplate">&nbsp;</p><br />
+        <a href="#" class="cht showSelectTemplate" style="background:none!important;">Change Template</a>
 				<div class="clearboth"></div>
 				<p> Tell us about yourself in this section. You can enter your name and current location as well as talk about yourself and what you have been doing till date.</p>
 			</div>
@@ -160,10 +166,10 @@
 				    <textarea rows="3" name="summary" type="text"  placeholder="Enter text here" maxlength="1000" class="h200"><?if(isset($about[0]['summary']))echo $summary[1];?></textarea>
 				    
 				</div>
-        <div style="float:left;" class="content233">
+        <div style="float:left; margin: -53px 0 0 0;" class="content233">
         <h3>Suggestions</h3>
         		<div divId="sug1" class="scroll_top scroll_top_inact sug_top1"></div>
-        		<div style="overflow:hidden; width:300px; height:173px;">
+        		<div style="overflow:hidden; width:300px; height:188px;">
 					<div class="suggestion_box" id="sug1">
 					    		<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
 					</div>
@@ -239,10 +245,10 @@
 			    
 			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here" class="h200"><?php if(isset($about[0]['objective'])) echo $objective[1]; ?></textarea>
 			</div>
-			<div style="float:left;" class="content233">
+			<div style="float:left;  margin: -53px 0 0 0;" class="content233">
 			<h3>Suggestions</h3>
 			<div divId="sug2" class="scroll_top scroll_top_inact sug_top1"></div>
-			<div style="overflow:hidden; width:300px; height:173px;">
+			<div style="overflow:hidden; width:300px; height:188px;">
 				<div class="suggestion_box" id="sug2">
 					<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
 				</div>
@@ -253,7 +259,7 @@
 
 			
 			<span class="clickb next" href='#about_tab'>Back</span>
-			<span class="clickr next" href='#contact_tab'>Continue</span>
+			<span class="clickr next" style="margin-top:10px;" href='#contact_tab'>Continue</span>
 		</div>
 		</div>
 		
@@ -559,8 +565,8 @@
 		  	</div>
 		  	<!-- strength briefly -->
 			<div>
-				<label >You can write about your strengths briefly here	</label>
-			    <textarea rows="3"  type="text"  name="otherSkillsBrief" placeholder="Brief about strength"><?if(isset($about[0]['mystrength'])) echo $about[0]['mystrength'];?></textarea>
+				<p style="margin:0 0 10px 0;">You can write about your strengths briefly here.	</p>
+			    <textarea rows="3"  type="text"  name="otherSkillsBrief" placeholder="A brief on your strengths"><?if(isset($about[0]['mystrength'])) echo $about[0]['mystrength'];?></textarea>
 			</div>
 			<span class="clickb next" href='#experience_tab'>Back</span>
 			<span class="clickr next" href='#tool_tab'>Continue</span>
@@ -1192,7 +1198,7 @@
 
 
 				 
-		<div id="preview" class="stop-theme" title="<?=$templateName;?>" href=""></div>
+		<div id="preview" class="stop-theme" title="<?=$templateName[$templateValue];?>" href=""></div>
 		<!--<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>-->
 		<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>
 		<script src="<?php echo base_url('assets/js/jquery-ui.min.js');?>"></script>

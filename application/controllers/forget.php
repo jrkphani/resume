@@ -79,8 +79,8 @@ class Forget extends CI_Controller {
 	 {
 	 if($password == $cpassword && strlen($password)>4)
 	 {
-		 $update_data=array('password'=>md5($password),'active'=>1);
-		 $where=array('id'=>$id,'active'=>$active);
+		 $update_data=array('password'=>md5($password),'active'=>1,'forget'=>"");
+		 $where=array('id'=>$id,'forget'=>$active);
 		 $this->load->model('user');
 		 if($this->user->update_user($where,$update_data))
 		 {

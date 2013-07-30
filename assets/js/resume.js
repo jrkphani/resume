@@ -855,6 +855,32 @@ function validate_resume()
 			}
 			flag = false;
 		}
+		if($('#currentctc').val().length !=0)
+		{
+			if(!validate('Compensation','currentctc',man=true,max=254,min=false,type='number',disp='compensation_err'))
+			{
+				$('.tab[tab="#experience_tab"]').addClass('rns_err');
+				if(focus_slected==0)
+				{
+				tab_show ='#experience_tab';
+				focus_slected='#currentctc';
+				}
+				flag = false;
+			}
+		}
+		if($('#expectedctc').val().length !=0)
+		{
+			if(!validate('Compensation','expectedctc',man=true,max=254,min=false,type='number',disp='compensation_err'))
+			{
+				$('.tab[tab="#experience_tab"]').addClass('rns_err');
+				if(focus_slected==0)
+				{
+				tab_show ='#experience_tab';
+				focus_slected='#expectedctc';
+				}
+				flag = false;
+			}
+		}
 		if(tab_show!=0)
 		{
 			$('.tabs').hide();

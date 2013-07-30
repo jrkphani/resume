@@ -389,8 +389,8 @@
 			    $compensation = unserialize($about[0]['compensation']);
 				}
 			    ?>
-			    <input  type="text" name="current" placeholder="Current" value="<?  if(isset($about[0]['compensation'])) echo $compensation[0];?>" />
-			    <input  type="text" name="expected" placeholder="Expected" value="<?  if(isset($about[0]['compensation'])) echo $compensation[1];?>" /> 
+			    <input  type="text" id="currentctc" name="current" placeholder="Current" value="<?  if(isset($about[0]['compensation'])) echo $compensation[0];?>" />
+			    <input  type="text" id="expectedctc" name="expected" placeholder="Expected" value="<?  if(isset($about[0]['compensation'])) echo $compensation[1];?>" /> 
 			    <?
 			    //ref: http://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CCsQFjAA&url=http%3A%2F%2Fwww.gbta.org%2FLists%2FResource%2520Library%2FISOCurrencyCodes081507.xls&ei=0TblUfnPC8jlrAfLh4CwDw&usg=AFQjCNEeKOFmJeEYDLF9aSu3_6Fbrh3XZw&sig2=A9oxM1mM8osy9oozCmC3qg&bvm=bv.48705608,d.bmk 
 			    $currency_list = array("AED","AFN","ALL","AMD","ANG","AOA","ARS","AUD","AWG","AZN",
@@ -417,6 +417,7 @@
 					<? } ?>
 				</select>&nbsp;per annum
 			</div>
+			<span style="color: #F07057;font-size: 15px; font-style: italic; margin: -25px 0 0 !important; position: absolute;" id="compensation_err"></span>
 			<!-- Company start-->
 			<div id="company">
 			<label >Company</label>

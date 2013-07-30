@@ -3,7 +3,7 @@ class Resume_model extends CI_model{
 	
 	function user_detail($id)
 	{
-		$this -> db -> select('first_name,last_name,designation,dob,secondary_email,mobile,skype,address,married,photo,experience,contactTitle');
+		$this -> db -> select('first_name,last_name,designation,dob,secondary_email,mobile,skype,address,married,photo,experience,contactTitle,Template');
 		$this-> db -> from ('user_detail');
 		$this->db->where('user_id',$id);
 		$query=$this->db->get();

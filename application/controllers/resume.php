@@ -12,8 +12,10 @@ class Resume extends CI_Controller
 	public  function index()
 	 {
 		 $data['view_page'] = 'resume';
-		 $data['templateValue'] = ($this->input->post('templateValue'))?$this->input->post('templateValue'):NULL;
-		 $data['templateName'] = ($this->input->post('templateName'))?$this->input->post('templateName'):'Resume';
+		 $data['templateValue'] = ($this->input->post('templateValue'))?$this->input->post('templateValue'):0;
+		 $data['templateName'] = array(0=>'Resume',
+							'T1'=>'Spring Bloom','T2'=>'White Citadel',
+							'T3'=>'Window View','T4'=>'Pyramid Point');
 		 $data['dateMonth']= array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
 		 if($this->current_user)
 		 {

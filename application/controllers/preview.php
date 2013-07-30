@@ -54,7 +54,8 @@ class Preview extends CI_Controller {
 			'married' => $this->input->post('marital'),
 			'photo' => $this->input->post('photo'),
 			'experience' => $this->input->post('expYr').'.'.$this->input->post('expMon'),
-			'contactTitle' => $contactTitle
+			'contactTitle' => $contactTitle,
+			'Template' => $this->input->post('template')
 			);
 			
 			//about table data

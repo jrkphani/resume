@@ -38,7 +38,8 @@
 			<a href="#">Resume On Mobile</a>-->
 			<a href="<?php echo base_url('login/logout'); ?>">Logout</a>
 			<?php } else { ?>
-			<a href="<?php echo base_url('login'); ?>" <? if($page =="login") echo 'class="ezcv_header_current"'; ?> >Register | Sign in</a>
+			<a href="<?php echo base_url('login/index/register'); ?>" <? if($page =="login") echo 'class="ezcv_header_current"'; ?> >Register |</a>
+			<a href="<?php echo base_url('login'); ?>" <? if($page =="login") echo 'class="ezcv_header_current"'; ?> >Sign in</a>
 			<?php } ?>
 			<a href="<?php echo base_url('feedback'); ?>" <? if($page =="feedback") echo 'class="ezcv_header_current"'; ?> >Feedback</a>
 		</nav>

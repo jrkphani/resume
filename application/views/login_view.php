@@ -1,14 +1,25 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_login.css"); ?>" />
 
 <div class="form_title">
+	<? if($register=='register')
+	{
+	?>
 	<a href="javascript:void(0);" class="btn_reg tab_hightlight" id="register_link"  >Register</a>
 	<a href="javascript:void(0);" class="btn_sig" id="signin_link" >Sign In</a>
+	<?
+	}
+	else
+	{
+	?>
+	<a href="javascript:void(0);" class="btn_reg" id="register_link"  >Register</a>
+	<a href="javascript:void(0);" class="btn_sig tab_hightlight" id="signin_link" >Sign In</a>
+	<? } ?>
 </div>
 <div class="left_form">
 	<div class="left_form_inner">
 		<div class="clearboth"></div>
 		<!-- login functionality -->
-		<div id="form_sig" style="display:none;">
+		<div id="form_sig" <? if($register=='register')	{ echo 'style="display:none;"'; } ?>>
 			<?php /* if($session_data = $this->session->userdata('logged_in')) { ?>
 				<div>
 					<p>Howdy! <?php echo $session_data['firstname']; ?>&nbsp|&nbsp
@@ -49,7 +60,7 @@
 			</div>		
 			<?php /* } */ ?>
 		</div>
-		<div id="form_reg">
+		<div id="form_reg" <? if($register!='register')	{ echo 'style="display:none;"'; } ?>>
 			<h2>New to Resume Builder? Sign Up </h2>
 			<form id="registration_form">
 				<label for="firstname">First name *</label>

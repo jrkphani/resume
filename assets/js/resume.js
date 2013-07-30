@@ -139,7 +139,7 @@ $(document).ready(function()
 					if(result.resultset.success=='yes')
 					{
 						downloadClicked = true;
-						window.location=baseurl+'login';
+						window.location=baseurl+'login/index/register';
 					}
 					else
 					{
@@ -723,7 +723,7 @@ function gettiny(divID)
 function reg_download()
 {
 	downloadClicked = true;
-	window.location=baseurl+'login';
+	window.location=baseurl+'login/index/register';
 }
 
 // Redirect to download page for loggedin user.

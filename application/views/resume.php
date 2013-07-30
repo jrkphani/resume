@@ -85,6 +85,8 @@
 						<?
 						if((!isset($dob[0])) || (!$dob[0]))
 						echo '<option value="0" selected="selected">Month</option>';
+						else
+						echo '<option value="0">Month</option>';
 						for($i=0; $i<=11; $i++)
 						{
 						?>
@@ -95,6 +97,8 @@
 						<?
 						if((!isset($dob[0])) || (!$dob[0]))
 						echo '<option value="0" selected="selected">Day</option>';
+						else
+						echo '<option value="0" >Day</option>';
 						for($i=1; $i<=31; $i++)
 						{
 						?>
@@ -105,6 +109,8 @@
 						<?
 						if((!isset($dob[0])) || (!$dob[0]))
 						echo '<option value="0" selected="selected">Year</option>';
+						else
+						echo '<option value="0">Year</option>';
 						
 						$current_Year=date('Y');
 						for($i=1; $i<=99; $i++)
@@ -995,6 +1001,8 @@
 						<?
 						if(!$passportDate[0])
 						echo '<option value="0" selected="selected">Month</option>';
+						else
+						echo '<option value="0">Month</option>';
 						for($i=0; $i<=11; $i++)
 						{
 						?>
@@ -1005,6 +1013,8 @@
 						<?
 						if(!$passportDate[0])
 						echo '<option value="0" selected="selected">Year</option>';
+						else
+						echo '<option value="0">Year</option>';
 						$current_Year=date('Y');
 						for($i=1; $i<=80; $i++)
 						{
@@ -1024,6 +1034,8 @@
 						<?
 						if(!$visaDate[0])
 						echo '<option value="0" selected="selected">Month</option>';
+						else
+						echo '<option value="0">Month</option>';
 						for($i=0; $i<=11; $i++)
 						{
 						?>
@@ -1034,6 +1046,8 @@
 						<?
 						if(!$visaDate[0])
 						echo '<option value="0" selected="selected">Year</option>';
+						else
+						echo '<option value="0">Year</option>';
 						$current_Year=date('Y');
 						for($i=1; $i<=80; $i++)
 						{

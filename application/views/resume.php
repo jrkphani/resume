@@ -1201,7 +1201,7 @@
 		<div id="preview" class="stop-theme" title="<?=$templateName[$templateValue];?>" href=""></div>
 		<!--<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>-->
 		<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>
-		<script src="<?php echo base_url('assets/js/jquery-ui.min.js');?>"></script>
+		
 		<script src="<?php echo base_url('assets/js/validation.js');?>"></script>
 		<script src="<?php echo base_url('assets/js/resume.js');?>"></script>
 		<?php /* <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.toastmessage.js'); ?>" ></script>

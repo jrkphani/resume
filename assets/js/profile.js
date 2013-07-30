@@ -1,7 +1,6 @@
 // JavaScript Document
 $(document).ready(function(){
-	//tooltip
-$( ".emailtooltip" ).tooltip({ tooltipClass: "custom-tooltip-styling" });
+
 	//Check for profile complete, if not open edit option by default
 	if($('#profile_flag').val()=='1')
 	{

@@ -203,4 +203,3 @@
 <script type="text/javascript" src="<?php echo base_url('assets/js/validation.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/profile.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>

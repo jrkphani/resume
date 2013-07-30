@@ -5,5 +5,12 @@
 			</div>
 		</div>
 	 </footer> -->
+	 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+	 <script>
+	 $(document).ready(function(){
+	//tooltip
+$( ".emailtooltip" ).tooltip({ tooltipClass: "custom-tooltip-styling" });
+});
+	 </script>
 </body>
 </html>

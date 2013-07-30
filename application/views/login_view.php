@@ -52,21 +52,24 @@
 		<div id="form_reg">
 			<h2>New to Resume Builder? Sign Up </h2>
 			<form id="registration_form">
-				<label for="firstname">First name</label>
+				<label for="firstname">First name *</label>
 			    <input type="text" name="firstname" id="firstname" placeholder="First name" value="<?php echo $sess_user_detail['user_detail']['first_name']; ?>" />
-				<label  for="lastname">Last name</label>
+				<span class="error_msg" id="firstname_err1"></span>
+				<label  for="lastname">Last name *</label>
 			    <input type="text" name="lastname" id="lastname" placeholder="Last name" value="<?php echo $sess_user_detail['user_detail']['last_name']; ?>" />
-			 	<label  for="inputEmail">Email</label>
+			 	<span class="error_msg" id="lastname_err1"></span>
+			 	<label  for="inputEmail">Email *</label>
 			   	<input type="email" class="email_check" name="email_address" id="inputEmail" placeholder="Email" value="<?php echo $sess_user_detail['user_detail']['secondary_email']; ?>" />
-			    <label  for="inputPassword">Password</label>
+			    <span class="error_msg" id="email_err1"></span>
+			    <label  for="inputPassword">Password *</label>
 			    <input type="password"  name="pass_word" id="inputPassword" placeholder="Password">
-			    
+			    <span class="error_msg" id="password_err1"></span>
 			    <div style="display:none;">
 					<label for="role">Account Type</label>
 					<input type="radio" name="role" id="role" value="user" checked="checked" >User
 					<input type="radio" name="role" id="role" value="member">Member
 			    </div>
-			    <label>Refer friends</label>
+			    <label>Refer friends *</label>
 			 	<table class="reg_tr_remove">
 				  	<!-- <th>
 				  		<td colspan='2'>Reffer Friends</td>
@@ -74,13 +77,15 @@
 				  	<tr>
 				  		<td>Friend 1:</td>
 				  		<td>&nbsp<input type="email" name="friend_email[]" class="email_check friend_emails" /></td>
+				  		<td></td>
 				  	</tr>
 				  	<tr>
 				  		<td>Friend 2:</td>
 				  		<td>&nbsp<input type="email" name="friend_email[]" class="email_check friend_emails" /></td>
+				  		<td><span class="error_msg" id="error_msg1"></span></td>
 				  	</tr>
 				</table>
-				<span id="error_msg1"></span>
+				 <span class="error_msg" id="error_msg1"></span>
 				<span class="clickr" id="signupsubmit">Sign Up</span>
 			</form>
 		</div>

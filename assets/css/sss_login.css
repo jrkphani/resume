@@ -103,11 +103,11 @@ position: absolute; float: left!important;
 	cursor: pointer;
 }
 
-#error_msg, #error_msg1{
+#error_msg, #error_msg1, .error_msg{
 	/*background: #de5439;
 	border: solid 1px #ce4b31;*/
 	margin-bottom: 20px;
-	display: block;
+	/*display: block;*/
 	 color:#f07057; font-size:15px; padding:0 10px 0 0; font-style:italic; margin-top: 8px;
 }
 

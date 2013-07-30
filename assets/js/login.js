@@ -106,11 +106,24 @@ $(document).ready(function()
 	{
 		$('#error_msg1').html("");
 		var email = $.trim($('#inputEmail').val());
-
-		if(!validate('First Name','firstname',man=true,max=100,min=3,type='string',disp='error_msg1')) return false;
-		else if(!validate('Last Name','lastname',man=true,max=100,min=false,type='string',disp='error_msg1')) return false;
-		else if(!validate('Email','inputEmail',man=true,max=254,min=false,type='email',disp='error_msg1')) return false;
-		else if(!validate('Password','inputPassword',man=true,max=30,min=6,type=false,disp='error_msg1')) return false;
+		valid = 1;
+		if(!validate('First Name','firstname',man=true,max=100,min=3,type='string',disp='firstname_err1'))
+		{ 
+			valid = 0;
+		}
+		if(!validate('Last Name','lastname',man=true,max=100,min=false,type='string',disp='lastname_err1'))
+		{ 
+			valid = 0;
+		}
+		if(!validate('Email','inputEmail',man=true,max=254,min=false,type='email',disp='email_err1'))
+		{ 
+			valid = 0;
+		}
+		if(!validate('Password','inputPassword',man=true,max=30,min=6,type=false,disp='password_err1'))
+		{ 
+			valid = 0;
+		}
+		
 
 		/* Validate referred friends email addresses
 				1. Check emapty and valid email format
@@ -124,32 +137,36 @@ $(document).ready(function()
 			var temp_email=$.trim($(this).val());
 			if(!temp_email)
 			{
-				$('#error_msg1').html('The Referred Email field is required.');
+				$('#error_msg1').html('The Referred Email fields are required.');
 				friends_result=false;
-				return false;
+				valid = 0;
 			}
 			else if(!temp_email.match(format))
 			{
 				$('#error_msg1').html('Referred Email is invalid.');
 				friends_result=false;
-				return false;
+				valid = 0;
 			}
 			else if(temp_email==email)
 			{
 				$('#error_msg1').html('You cannot refer your self.');
 				friends_result=false;
-				return false;
+				valid = 0;
 			}
 			friends_array.push(temp_email);
 		});
 		if(!friends_result)
-			return false;
+			valid = 0;
 		else if($(friends_array).size() != $($.unique(friends_array)).size())
 		{
 			$('#error_msg1').html('You cannot refer the same person twice.');
+			valid = 0;
+		}
+		
+		if(!valid)
+		{
 			return false;
 		}
-
 		$.ajax(
 		{
 			url:baseurl+'registration',

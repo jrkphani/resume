@@ -100,7 +100,7 @@ class Profile extends CI_Controller{
 			}
 
 			$this->profile_model->update_profile($this->current_user['id'],$data);
-			$msg=array('error'=>'Profile updated successfully.');
+			$msg=array('error'=>'Your profile has been successfully updated.');
 			$this->index($msg);
 		}
 	}

@@ -38,12 +38,16 @@ class Preview extends CI_Controller {
 			{
 				$contactTitle = $this->input->post('contactTitle');
 			}
+			if(($this->input->post('dobMonth')) && ($this->input->post('dobMonth')) && ($this->input->post('dobMonth')))
+			$dob = $this->input->post('dobMonth').'-'.$this->input->post('dobDay').'-'.$this->input->post('dobYear');
+			else
+			$dob=NULL;
 			$user_detail=array(
 			'first_name' => $this->input->post('fname'),
 			'last_name' => $this->input->post('lname'),
 			'designation' => $this->input->post('designation'),
 			'mobile' => $this->input->post('phone'),
-			'dob' => $this->input->post('dobMonth').'-'.$this->input->post('dobDay').'-'.$this->input->post('dobYear'),
+			'dob' => $dob,
 			'skype' => $this->input->post('skype'),
 			'secondary_email' => $this->input->post('email'),
 			'address' => $this->input->post('address'),
@@ -70,10 +74,21 @@ class Preview extends CI_Controller {
 			{
 				$objectivesTitle =$this->input->post('objectivesTitle');
 			}
+			
+			if(($this->input->post('passportMonth')) && ($this->input->post('passportYear')))
+			$passportdate=$this->input->post('passportMonth').'-'.$this->input->post('passportYear');
+			else
+			$passportdate=NULL;
+			
+			if(($this->input->post('visaMonth')) && ($this->input->post('visaYear')))
+			$visadate=$this->input->post('visaMonth').'-'.$this->input->post('visaYear');
+			else
+			$visadate=NULL;
+			
 			$passport_visa=array('passport'=>$this->input->post('passport'),
-							'passportTo'=>$this->input->post('passportMonth').'-'.$this->input->post('passportYear'),
+							'passportTo'=>$passportdate,
 							'visa'=>$this->input->post('visa'),
-							'visaTo'=>$this->input->post('visaMonth').'-'.$this->input->post('visaYear')
+							'visaTo'=>$visadate
 							);
 			$url_array=array('mylink','linkedin','twitter','facebook');
 			$url_array=array_combine($url_array,$this->input->post('url'));							

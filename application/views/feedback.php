@@ -9,19 +9,19 @@
 	<form name="feedback_form" id="feedback_form" method="post" action="">
 	<table>
 		<tr>
-			<td ><p class="fb_cnt">Name</p></td>
+			<td ><p class="fb_cnt">Name *</p></td>
 			<td><input class="fb_txt" type="text" name="name" id="name" /></td>
 		</tr>
 		<tr>
-			<td ><p class="fb_cnt">Email</p></td>
+			<td ><p class="fb_cnt">Email *</p></td>
 			<td><input class="fb_txt" type="text" name="email" id="email" /></td>
 		</tr>
 		<tr>
-			<td ><p class="fb_cnt">Subject</p></td>
+			<td ><p class="fb_cnt">Subject *</p></td>
 			<td><input class="fb_txt" type="text" name="subject" id="subject" /></td>
 		</tr>
 		<tr>
-			<td ><p class="fb_cnt">Message</p></td>
+			<td ><p class="fb_cnt">Message *</p></td>
 			<td><textarea class="fb_txtara" name="message" id="message" data-limit-input="1000"	></textarea>
 			<span>0 of 1000 characters used</span>
 			</td>

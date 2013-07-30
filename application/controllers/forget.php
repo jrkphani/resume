@@ -19,7 +19,7 @@ class Forget extends CI_Controller {
 			if($result = $this->user->check_user($check_data))
 			{
 				$update_data= array(
-							'active'=>sha1(mt_rand(10000,99999).time().$email)
+							'forget'=>sha1(mt_rand(10000,99999).time().$email)
 						  );
 				$where=array('email'=>$email);
 				if($this->user->update_user($where,$update_data))
@@ -36,7 +36,7 @@ class Forget extends CI_Controller {
 					#$this->email->cc('another@another-example.com');
 					#$this->email->bcc('them@their-example.com');
 					$this->email->subject('Verify your account @ Digitalchakra');
-					$message= 'Verify your the registered account in <a href="'.base_url('forget/reset/'.$result[0]['id'].'/'.$update_data['active']).'"> Digitalchakra Resume App </a>'; 
+					$message= 'Verify your the registered account in <a href="'.base_url('forget/reset/'.$result[0]['id'].'/'.$update_data['forget']).'"> Digitalchakra Resume App </a>'; 
 					$this->email->message($message);
 					$this->email->send();
 					$data['success']='yes';
@@ -89,14 +89,14 @@ class Forget extends CI_Controller {
 		 }
 		 else
 		 {
-			$check_data=array('active'=>$active,'id'=>$id, 'error'=>'internal error');
+			$check_data=array('forget'=>$active,'id'=>$id, 'error'=>'internal error');
 			$check_data['view_page'] = 'reset';
 			$this->load->view('template', $check_data);
 		 }
 	 }
 	 else
 	 {
-		$check_data=array('active'=>$active,'id'=>$id, 'error'=>'invalid password');
+		$check_data=array('forget'=>$active,'id'=>$id, 'error'=>'invalid password');
 		$check_data['view_page'] = 'reset';
 		$this->load->view('template', $check_data);
 	 }
@@ -113,7 +113,7 @@ class Forget extends CI_Controller {
 	 if(($code) &&  strlen($code)>2)
 	 {
 		 $this->load->model('user');
-		 $check_data=array('id'=>$id,'active'=>$code);
+		 $check_data=array('id'=>$id,'forget'=>$code);
 		 if($result = $this->user->check_user($check_data))
 		 {
 			$check_data['error']=NULL;

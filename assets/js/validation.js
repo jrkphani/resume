@@ -14,7 +14,7 @@ function validate(title,id,mandatory,max_length,min_length,type,display)
 	
 	if(!data && mandatory==true)
 	{
-		var msg=title+' can not be empty.';
+		var msg=title+" cannot be empty.";
 		if(!display)
 			alert(msg);
 		else
@@ -95,7 +95,7 @@ function validate(title,id,mandatory,max_length,min_length,type,display)
 		var format = /^[0-9 \-\+]+$/;
 		if(!data.match(format))
 		{
-			var msg=title+' can not contain alphabets or special characters.';
+			var msg=title+' cannot contain alphabets or special characters.';
 			if(!display)
 				alert(msg);
 			else

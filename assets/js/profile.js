@@ -138,7 +138,7 @@ $(document).ready(function(){
 					$('#change_password_div').hide();
 			   		$('#profile_div').show();
 			   		$('#show_change_password').show();
-			   		$('.err-msg').html('Password updated successfully.');
+			   		$('.err-msg').html('Your Password has been successfully updated.');
 			   		$('.pr-view, #pr-edit-link, #show_change_password, #profile_photo').show();
 					$('.pr-edit').hide();
 					//$('#pr-edit-link').show();

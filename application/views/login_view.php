@@ -30,7 +30,7 @@
 				<form>
 					<div>
 						<input type="text"  class="login" placeholder="Email" id="username" name="username">
-						<input type="checkbox" id="c1" class="form_checkbox login" /><span class="login rem_pad">Remember me</span> 
+						<span class="login"><input type="checkbox" id="c1" class="form_checkbox" /><span class="rem_pad">Remember me</span></span>
             <label for="c1">
             </label>
 					</div>

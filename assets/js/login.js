@@ -29,8 +29,8 @@ $(document).ready(function()
 
 	// Show login option and hide forgotpassword option
 	$('#back_to_login').click(function(){
-		$('.forget').hide();
 		$('.login').show();
+		$('.forget').hide();
 	});
 
 	// Submit signup when press enter on input fields

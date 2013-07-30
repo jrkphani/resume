@@ -1,11 +1,11 @@
 <style type="text/css">
 	.clickr{
-	width: 200px; height: 40px; line-height: 40px;
+	width: 109px; height: 34px; line-height:33px;
 	 display: block; text-align: center;
 	 margin-top: 100px;
 	cursor: pointer; text-decoration: none;
 	clear:both;
-	background: #f07057 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #c5533d;	color: #fff; font-family: Myriad Pro;
+	background: #f07057 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #c5533d;	color: #fff; font-family:segoeui;
 }
 
 .clickr:hover{

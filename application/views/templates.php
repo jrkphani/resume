@@ -5,9 +5,9 @@
 </div>
 <div class="right_nav">
 	<h3> YOU ARE HERE </h3>
-	<span class="rns rns_b"><span class="rnd_a">1</span>Choose Resume Style</span>
-	<a href="<?=base_url('resume'); ?>"class="rns"><span class="rnd">2</span>Discover Yourself</a>
-	<a href="<?=base_url('login'); ?>"class="rns"><span class="rnd">3</span>Register with EZCV</a>
+	<span class="rsum_tp_active">Choose Resume Style</span>
+	<a href="<?=base_url('resume'); ?>"class="rsum_tp">Discover Yourself</a>
+	<a href="<?=base_url('login'); ?>"class="rsum_tp1">Register with EZCV</a>
 </div>
 
 <div class="left_form">

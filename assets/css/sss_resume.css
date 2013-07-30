@@ -38,11 +38,35 @@
 .left_form_title h3{ 
 	line-height: 40px; margin:10px 0 0 20px; 	float: left;
 	text-transform: uppercase;}
-.left_form_title span{
-	display: inline-block;	float: right;
-	margin-right:40px; line-height:53px;	cursor: pointer;	text-transform: uppercase; background: url(../img/sprites.png) 0px -928px no-repeat; padding:4px 0 5px 46px;
-	
+.left_form_title .showSelectTemplate{
+line-height: 53px;
+cursor: pointer;
+text-transform: uppercase;
+background: url(../img/sprites.png) 0px -928px no-repeat;
+padding: 4px 0 5px 46px;
+position: absolute;
+right:-100px;
+margin-top: 30px
 }
+.left_form_title .showSelectTemplate1{
+line-height: 53px;
+cursor: pointer;
+text-transform: uppercase;
+
+padding: 4px 0 5px 46px;
+position: absolute;
+right:-100px;
+margin-top: 30px
+}
+.left_form_title .cht{position: absolute;
+right: 0px;
+width: 87px;
+top: 120px;
+margin: 0 9px 0 0;
+text-align: center;
+font-size: 13px;
+line-height: 14px; color: #323232;text-decoration: none;}
+
 .left_form_title p{ margin:-50px 125px 0 20px; line-height: 25px;}
 
 .thumb_sdw_tmp{width: 85px;
@@ -83,6 +107,7 @@ float: right;}
 
 /******************************** Right nav***********************************/
 
+.abt_tab{margin:21px 0 0 0;}
 .right_nav{ 
 	width: 19.8%;	height: 100%;	float: right;
 	text-align: center;	
@@ -95,7 +120,11 @@ float: right;}
 	font-size: .9em;	text-decoration: none; color: #232323;
 	
 }
+.rsum_tp_active{padding:11px 0 0px 57px; height: 19px; display:block; background: url(../img/sprites.png) -404px -909px no-repeat; margin: 30px 0 0 0; text-align: left;font-family: segoeuib;color: #f07057; font-size: .9em;}
+.rsum_tp{padding:8px 0 0px 57px; height: 19px; display:block; background: url(../img/sprites.png) -403px -849px no-repeat; margin: 25px 0 0 0; text-align: left;color: #232323; font-size: .9em; text-decoration:none;}
+.rsum_tp1{padding:8px 0 2px 57px; height: 19px; display:block; background: url(../img/sprites.png) -403px -881px no-repeat; margin: 25px 0 0 0; text-align: left;color: #232323; font-size: .9em; text-decoration:none;}
 
+.rsum_tp_rs{padding:8px 0 0px 57px; height: 19px; display:block; background: url(../img/sprites.png) -403px -818px no-repeat; margin: 25px 0 0 0; text-align: left;color: #232323; font-size: .9em; text-decoration:none; cursor:pointer;}
 
 .rns_b{
 	font-family: segoeuib;
@@ -104,8 +133,8 @@ float: right;}
 }
 
 .rns_inner{
-	margin-left: 40px;
-	padding-left: 30px !important;
+	margin-left:21px;
+	padding-left: 37px !important;
 	background: url(../img/sprites.png) no-repeat left center;
 	background-position: 0 -809px;  
 }
@@ -339,7 +368,7 @@ height: 2px!important;
 
 .change_arrow_lft{background:transparent url(../img/sprites.png) -298px -648px no-repeat; display:block; padding:59px 15px 22px 37px; width:13px;  float:left; margin: 120px 0px 0 29px;}
 
-.change_arrow_rit{background:transparent url(../img/sprites.png) -360px -648px no-repeat; display:block; padding:59px 15px 22px 37px; width:13px;  float:left; margin: 120px 0px 0 29px;}
+.change_arrow_rit{background:transparent url(../img/sprites.png) -360px -648px no-repeat; display:block; padding:59px 15px 22px 37px; width:13px;  float:right; margin: 120px 8px 0 29px;}
 
 .t_list_bg{
 	width: 220px; height: 297px; float: left;
@@ -361,7 +390,7 @@ height: 2px!important;
 
 .t_list_s p{
 	margin:10px;
-	height: 35px;
+	height:17px;
 }
 .t_select, .load_more{
 	display:block; color: #fff; text-decoration:none;	text-align: center;
@@ -369,8 +398,11 @@ height: 2px!important;
 }
 
 .t_select{
-	width:140px;	height:30px;  margin:0 0 10px 10px; 
-	line-height:30px; float: left;
+width: 140px;
+height: 26px;
+margin: 0 0 15px 10px;
+line-height: 25px;
+float: left;
 }
 
 .load_more{
@@ -394,7 +426,7 @@ height: 2px!important;
 
 /*************************************** Suggestion box *********************/
 .suggestion_box, .mys_right{
-	width:300px; height:173px;  display: block; overflow-y: scroll;
+	width:300px; height:188px;  display: block; overflow-y: scroll;
 	float:left; 
 	padding-left: 10px;
 	margin-left: 10px;
@@ -432,16 +464,19 @@ height: 2px!important;
 
 
 .textarea_big{
-	float: left;
+	float: left;margin-bottom: 34px;
 }
 
 
 
 .selectTemplate{
-	position: fixed;
-	top: 30%;
-	width: 100%; 	padding-top: 20px; padding-bottom: 20px;
-	background-color: #25b695;
+position: fixed;
+top: 30%;
+width: 83%;
+padding-top: 20px;
+padding-bottom: 20px;
+background-color: #25b695;
+overflow: scroll;
 }
 
 .selectTemplate h3{
@@ -502,15 +537,17 @@ height: 2px!important;
 }
 
 #selectTemplateclose{
-	background: url("../img/icon_close.png") no-repeat scroll center center #F07057;
-    border: 1px solid #C5533D;
-    cursor: pointer;
-    display: block;
-    height: 36px;
-    position: absolute;
-    right: 362px;
-    text-indent: -999em;
-    width: 36px;
+background: url("../img/icon_close.png") no-repeat scroll center center #F07057;
+border: 1px solid #C5533D;
+cursor: pointer;
+display: block;
+height: 36px;
+margin: -29px 23px 0 0;
+text-indent: -999em;
+width: 36px;
+position: absolute;
+right: 0;
+top: 53px;
 	
 }
 
@@ -525,7 +562,7 @@ height: 2px!important;
 
 
 .previewTemp{
-	width: 30px; height: 30px; display: block; float: left;
+	width: 30px; height:26px; display: block; float: left;
 	background:#f07057 url(../img/icon_zoom.png) no-repeat center center;	border: solid 1px #c5533d;	
 	text-indent: -999em; cursor: pointer; margin: 0 0 0 28px;
 }

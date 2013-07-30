@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_resume.css"); ?>" />
 <div class="form_title">
-	<h3>Feedback Form</h3>
+	<h3>Feedback</h3>
 </div>
 <div class="left_form_feedback">
 <div class="container">

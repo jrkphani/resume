@@ -38,8 +38,8 @@
 			<a href="#">Resume On Mobile</a>-->
 			<a href="<?php echo base_url('login/logout'); ?>">Logout</a>
 			<?php } else { ?>
-			<a href="<?php echo base_url('login/index/register'); ?>" <? if($page =="login") echo 'class="ezcv_header_current"'; ?> >Register |</a>
-			<a href="<?php echo base_url('login'); ?>" <? if($page =="login") echo 'class="ezcv_header_current"'; ?> >Sign in</a>
+			<span><a href="<?php echo base_url('login/index/register'); ?>" <? if($page =="login") echo 'class="ezcv_header_current"'; ?> >Register |</a>
+			<a href="<?php echo base_url('login'); ?>" <? if($page =="login") echo 'class="ezcv_header_current"'; ?> >Sign in</a></span>
 			<?php } ?>
 			<a href="<?php echo base_url('feedback'); ?>" <? if($page =="feedback") echo 'class="ezcv_header_current"'; ?> >Feedback</a>
 		</nav>
@@ -52,7 +52,7 @@
 			<div class="topheader_contact">
 				<h4>Contact us</h4>
 				<ul>
-					<li><a class="c1" href="">Mail EZCV</a></li>
+					<li><a class="c1" href="mailto:aditya@digitalchakra.in">Mail EZCV</a></li>
 					<li><a class="c2" href="">Twitter EZCV</a></li>
 					<li><a class="c3" href="">Facebook EZCV</a></li>
 					<li><a class="c4 emailtooltip"  title="Address: Shree Park 3rd Floor West Wing

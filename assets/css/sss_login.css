@@ -217,8 +217,3 @@ border: solid 1px #c5533d;
 color: #fff;
 cursor: pointer; font-size:16px; padding:12px 30px 25px 30px;
 }
-.custom-tooltip-styling
-{
-	color:#000; padding:15px; border:solid 1px #d2d2d2; background:#fff; font-weight:bold;
-	font-size:15px; position:absolute;
-}

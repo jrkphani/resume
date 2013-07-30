@@ -107,3 +107,9 @@ h3{font-size: 1.4em;}
 .c5{background-position: -152px 0;}
 .topheader_contact ul li a:hover{opacity: 1;}
 .topheader_contact h4{margin: 10px 10px 0 0 ;	color: #626262;}
+
+.custom-tooltip-styling
+{
+	color:#000; padding:15px; border:solid 1px #d2d2d2; background:#fff!important; font-weight:bold;
+	font-size:15px; position:absolute;
+}

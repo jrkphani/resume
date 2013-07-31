@@ -99,7 +99,7 @@
 				  	</tr>
 				</table>
 				 
-				 <div class="captcha_img1"><span id="captcha_img"></span><span id="getcaptcha" class="cap_get1">&nbsp; refresh</span></div>
+				 <div class="captcha_img1"><span id="captcha_img"></span><span id="getcaptcha" class="cap_get1">&nbsp;</span></div>
 				 <input class="captcha_txt" type="text" id="inputCaptcha" name="captcha"/>
 				<span class="error_msg" id="error_msg1"></span>
 				<br>

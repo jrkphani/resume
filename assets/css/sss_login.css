@@ -234,3 +234,8 @@ font-size: 16px;
 height: 33px;
 padding: 0 2px 0 0; margin: 25px 0;
 }
+.cap_get1{
+	width:30px; height: 30px;   margin: 15px 0 0 5px; padding:14px 13px 0;
+	background:url("../img/icon_reset.png") no-repeat 0px 2px transparent; cursor: pointer;
+
+}

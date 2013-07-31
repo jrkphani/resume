@@ -93,10 +93,14 @@
 				  	<tr>
 				  		<td>Friend 2:</td>
 				  		<td>&nbsp<input type="email" name="friend_email[]" class="email_check friend_emails" /></td>
-				  		<td><span class="error_msg" id="error_msg1"></span></td>
+				  		<td><span class="error_msg" id="refer_err1"></span></td>
 				  	</tr>
 				</table>
-				 <span class="error_msg" id="error_msg1"></span>
+				 
+				 <div class="captcha_img1"><span id="captcha_img"></span><span id="getcaptcha" class="cap_get1">&nbsp;</span></div>
+				 <input class="captcha_txt" type="text" id="inputCaptcha" name="captcha"/>
+				<span class="error_msg" id="error_msg1"></span>
+				<br>
 				<span class="clickr" id="signupsubmit">Sign Up</span>
 			</form>
 		</div>

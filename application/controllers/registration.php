@@ -6,7 +6,8 @@ class Registration extends CI_Controller {
  {
    parent::__construct();
    $this->current_user=$this->session->userdata('logged_in');
-   $this->load->library('session');
+   $this->load->helper(array('form', 'url'));
+   $this->load->library(array('form_validation', 'session'));
  }
 
  function index()
@@ -19,7 +20,7 @@ class Registration extends CI_Controller {
 	   }
 	   else
 	   {*/
-	   	  $this->load->library('form_validation');
+	   	  
 		  // field name, error message, validation rules
 		  $this->form_validation->set_rules('firstname', 'First Name', 'trim|required|min_length[2]|max_length[20]');
 		  $this->form_validation->set_rules('lastname', 'Last Name', 'trim|required|min_length[1]|max_length[20]');
@@ -27,6 +28,7 @@ class Registration extends CI_Controller {
 		  $this->form_validation->set_rules('pass_word', 'Password', 'trim|required|min_length[6]|max_length[30]|xss_clean');
 		  //$this->form_validation->set_rules('con_password', 'Password Confirmation', 'trim|required|matches[password]');
 		  $this->form_validation->set_rules('friend_email[]', 'Referred Email', 'trim|required|valid_email|max_length[254]');
+		  $this->form_validation->set_rules('captcha', "Captcha", 'required|callback_captcha_check');
 		  $this->form_validation->set_rules('role', 'Type', 'required');
 
 		  $primary_email=$this->input->post('email_address');
@@ -249,9 +251,21 @@ class Registration extends CI_Controller {
 		else
 			$data['resultset']['success']='-1';
 	}
-	$this->load->view('json',$data);*/
+	//$this->load->view('json',$data);*/
  }
-
+function captcha_check()
+	{
+		if(strtolower($this->input->post('captcha')) == $this->session->userdata('captchaWord'))
+		
+		{
+			return true;
+		}
+		else
+		{
+			$this->form_validation->set_message('captcha_check', 'Captcha word mismatch.');
+			return false;
+		}
+	}
  function invite_friend($insert_id,$emails,$name)
  {
  	$this->load->model('user');

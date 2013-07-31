@@ -1,5 +1,6 @@
 $(document).ready(function()
 {
+	getcaptcha();
 	// If username avail of browser cookie, show it.
 	var username=$.cookie("username");
 	if(username!=undefined)
@@ -106,7 +107,7 @@ $(document).ready(function()
 	//Submit signup form
 	$('#signupsubmit').click(function()
 	{
-		$('#error_msg1').html("");
+		$('.error_msg').html("");
 		var email = $.trim($('#inputEmail').val());
 		valid = 1;
 		if(!validate('First Name','firstname',man=true,max=100,min=3,type='string',disp='firstname_err1'))
@@ -125,7 +126,10 @@ $(document).ready(function()
 		{ 
 			valid = 0;
 		}
-		
+		if(!validate('Captcha','inputCaptcha',man=true,max=30,min=6,type=false,disp='error_msg1'))
+		{ 
+			valid = 0;
+		}
 
 		/* Validate referred friends email addresses
 				1. Check emapty and valid email format
@@ -139,19 +143,19 @@ $(document).ready(function()
 			var temp_email=$.trim($(this).val());
 			if(!temp_email)
 			{
-				$('#error_msg1').html('The Referred Email fields are required.');
+				$('#refer_err1').html('The Referred Email fields are required.');
 				friends_result=false;
 				valid = 0;
 			}
 			else if(!temp_email.match(format))
 			{
-				$('#error_msg1').html('Referred Email is invalid.');
+				$('#refer_err1').html('Referred Email is invalid.');
 				friends_result=false;
 				valid = 0;
 			}
 			else if(temp_email==email)
 			{
-				$('#error_msg1').html('You cannot refer your self.');
+				$('#refer_err1').html('You cannot refer your self.');
 				friends_result=false;
 				valid = 0;
 			}
@@ -161,7 +165,7 @@ $(document).ready(function()
 			valid = 0;
 		else if($(friends_array).size() != $($.unique(friends_array)).size())
 		{
-			$('#error_msg1').html('You cannot refer the same person twice.');
+			$('#refer_err1').html('You cannot refer the same person twice.');
 			valid = 0;
 		}
 		
@@ -286,3 +290,22 @@ function validate_email(email)
 		}
 	});
 }
+function getcaptcha()
+  {
+	$.ajax({
+			url:baseurl+"captcha",
+			data: $('#contactForm').serialize(),
+			dataType:"JSON",
+			type:"POST",
+			success: function(result)
+			{
+				$('#captcha_img').html(result.resultset.captcha.image);
+				result.resultset.captcha.image
+				result.resultset.captcha.word
+			},
+			error: function()
+			{
+				$('#msg_disp').text('Intenal error, try again !');
+			}
+		});
+  }

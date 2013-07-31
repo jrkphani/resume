@@ -204,9 +204,13 @@ $(document).ready(function()
 	$('.template').click(function()
 	{
 		//$('.templateCell').removeClass('templateCellSelected');
+		$('.t_list_bg').removeClass('selected_temp');
+		$('.template').show();
 		$('#template').val($(this).attr('value'));
 		$('#preview').attr('title',$(this).attr('title'));
 		$('.thumb_sdw_tmp').attr('src',baseurl+'assets/img/'+$(this).attr('value')+'_thumb.jpg');
+		$('#'+$(this).attr('value')).addClass('selected_temp');
+		$(this).hide();
 		$('#selectTemplate').hide();
 	//	$('#'+$(this).attr('value')).addClass('templateCellSelected');
 	});

@@ -44,7 +44,6 @@
 		if(isset($user_detail[0]['Template']))
 		$templateValue = $user_detail[0]['Template'];
 	}
-		
 	?>
 	
 		<!-- ================================ form start ================================ -->
@@ -1157,39 +1156,39 @@
 			<div class="clearboth"></div>
 			<h3>Choose Template</h3>
 			<div class="change_arrow_lft"></div>
-	 		<div class="t_list_bg" id="T1">
+	 		<div class="t_list_bg <?if(($templateValue) && ($templateValue == 'T1')){ echo 'selected_temp'; }?>" id="T1">
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Spring Bloom</p>
-						<a title="Spring Bloom" class="t_select template" value="T1">Select</a>
+						<a title="Spring Bloom" <?if(($templateValue) && ($templateValue == 'T1')){ echo "style='display:none'";} ?> class="t_select template" value="T1">Select</a>
 					</div>
 				</div>
 			</div>
-			<div class="t_list_bg" id="T4">
+			<div class="t_list_bg <?if(($templateValue) && ($templateValue == 'T4')) {echo 'selected_temp'; }?>" id="T4">
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Pyramid Point</p>
-						<a title="Pyramid Point" class="t_select template" value="T4">Select</a>
+						<a title="Pyramid Point" <?if(($templateValue) && ($templateValue == 'T4')){ echo "style='display:none'";} ?> class="t_select template" value="T4">Select</a>
 					</div>
 				</div>
 			</div>
-			<div class="t_list_bg" id="T2">
+			<div class="t_list_bg <?if(($templateValue) && ($templateValue == 'T2')){ echo 'selected_temp';} ?>" id="T2">
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>White Citadel</p>
-						<a title="White Citadel" class="t_select template" value="T2">Select</a>
+						<a title="White Citadel" <?if(($templateValue) && ($templateValue == 'T2')) {echo "style='display:none'"; }?> class="t_select template" value="T2">Select</a>
 					</div>
 				</div>
 			</div>
-			<div class="t_list_bg" id="T3">
+			<div class="t_list_bg <?if(($templateValue) && ($templateValue == 'T3')) {echo 'selected_temp'; }?>" id="T3">
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Window View</p>
-						<a title="Window View" class="t_select template" value="T3">Select</a>
+						<a title="Window View" <?if(($templateValue) && ($templateValue == 'T3')) {echo "style='display:none'";} ?> class="t_select template" value="T3">Select</a>
 					</div>
 				</div>
 			</div>

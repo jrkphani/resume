@@ -1,6 +1,13 @@
 $(document).ready(function()
 {
 	getcaptcha();
+	
+	
+	$('#getcaptcha').click(function(){
+		  $('#captcha_img').html('loading...');
+		   getcaptcha();
+		  });
+		  
 	// If username avail of browser cookie, show it.
 	var username=$.cookie("username");
 	if(username!=undefined)

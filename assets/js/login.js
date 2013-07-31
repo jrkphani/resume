@@ -25,12 +25,14 @@ $(document).ready(function()
 	$('#forget').click(function(){
 		$('.login').hide();
 		$('.forget').show();
+		$('#error_msg').html("");
 	});
 
 	// Show login option and hide forgotpassword option
 	$('#back_to_login').click(function(){
 		$('.login').show();
 		$('.forget').hide();
+		$('#error_msg').html("");
 	});
 
 	// Submit signup when press enter on input fields

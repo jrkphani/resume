@@ -78,6 +78,25 @@ Class User extends CI_Model
 	   return false;
    }
  }
+  function get_user($data)
+ {
+	 //this method should get the parameter table.coloum in where condtion eg: $data=array('users.id'=>1);
+    //$email=$this->input->post('email_address');
+	$this -> db -> select('users.id,user_detail.first_name');
+	$this -> db -> from('users');
+	$this->db->join('user_detail', 'user_detail.user_id = users.id');
+	$this -> db -> where($data);
+	$query = $this -> db -> get();
+
+   if($query -> num_rows() == 1)
+   {
+	  return $query->result_array();
+   }
+   else
+   {
+	   return false;
+   }
+ }
  function activate_user($id,$code)
  {
 	$this -> db -> select('id');

@@ -15,8 +15,8 @@ class Forget extends CI_Controller {
 	 if (valid_email($email))
 	 {
 		 $this->load->model('user');
-		 $check_data=array('email'=>$email);
-			if($result = $this->user->check_user($check_data))
+		 $check_data=array('users.email'=>$email);
+			if($result = $this->user->get_user($check_data))
 			{
 				$update_data= array(
 							'forget'=>sha1(mt_rand(10000,99999).time().$email)
@@ -31,12 +31,14 @@ class Forget extends CI_Controller {
 					$config['wordwrap'] = TRUE;
 					$config['mailtype']='html';
 					$this->email->initialize($config);
-					$this->email->from('resume@digitalchakra.in', 'Digital Chakra');
+					$this->email->from('resume@digitalchakra.in', 'EZCV Password');
 					$this->email->to($email);
 					#$this->email->cc('another@another-example.com');
 					#$this->email->bcc('them@their-example.com');
-					$this->email->subject('Verify your account @ Digitalchakra');
-					$message= 'Verify your the registered account in <a href="'.base_url('forget/reset/'.$result[0]['id'].'/'.$update_data['forget']).'"> Digitalchakra Resume App </a>'; 
+					$this->email->subject('Reset your EZCV password');
+					$message= 'Hi '.$result[0]['first_name'].'<br> Changing your password is simple, plaese click on the link below to change it. <br>
+					<a href="'.base_url('forget/reset/'.$result[0]['id'].'/'.$update_data['forget']).'">'.base_url('forget/reset/'.$result[0]['id'].'/'.$update_data['forget']).'  </a>
+					<br>Thank you,<br>EZCV Team'; 
 					$this->email->message($message);
 					$this->email->send();
 					$data['success']='yes';
@@ -77,8 +79,10 @@ class Forget extends CI_Controller {
 	 $id = $this->input->post('uid');
 	 if($id)
 	 {
-	 if($password == $cpassword && strlen($password)>4)
+	 if($password == $cpassword)
 	 {
+		 if(strlen($password)>=6)
+		{
 		 $update_data=array('password'=>md5($password),'active'=>1,'forget'=>"");
 		 $where=array('id'=>$id,'forget'=>$active);
 		 $this->load->model('user');
@@ -93,10 +97,17 @@ class Forget extends CI_Controller {
 			$check_data['view_page'] = 'reset';
 			$this->load->view('template', $check_data);
 		 }
+		}
+		else
+		 {
+			$check_data=array('forget'=>$active,'id'=>$id, 'error'=>'Passwords should have minimum 6 characters');
+			$check_data['view_page'] = 'reset';
+			$this->load->view('template', $check_data);
+		 }
 	 }
 	 else
 	 {
-		$check_data=array('forget'=>$active,'id'=>$id, 'error'=>'invalid password');
+		$check_data=array('forget'=>$active,'id'=>$id, 'error'=>'Passwords mismatch');
 		$check_data['view_page'] = 'reset';
 		$this->load->view('template', $check_data);
 	 }

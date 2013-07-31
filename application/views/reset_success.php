@@ -30,7 +30,7 @@
 </style>
 
 		<div class="s_heading">
-			Your password has been changed successfully !
+			You have successfully reset your password.
 		</div>
 			<div class="download_logox">
 			</div>

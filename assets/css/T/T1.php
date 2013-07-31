@@ -69,7 +69,7 @@ a{text-decoration:none;}
 
 .wrapper .header .header_box2{width:42%; height:115px; float:left; background-color:#00c1ea; padding: 10px 0 0 0;}
 .wrapper .header .header_box2 .header_box2_center{text-align: center; }
-.header_box2_center_img{background:url(<?=$baseurl?>assets/img/Templates/domain.png) no-repeat scroll 50% 25% ; display:block; height:53px;}
+.header_box2_center_img{background:url(<?=$baseurl?>assets/img/Templates/domain.png) no-repeat scroll 50% 75% ; display:block; height:67px;}
 
 .wrapper .header .header_box2 .header_box2_center p{color:#ffffff; font-size:13px; font-size: 18px; text-align: left; margin: 5px 0 0 19px;}
 .wrapper .header .header_box2 .header_box2_center .desigi{font-size:15px;}

@@ -12,7 +12,7 @@ $(document).ready(function()
 	var username=$.cookie("username");
 	if(username!=undefined)
 		$("#username").val(username);
-
+/*
 	// Show signin option and hide register option
 	$('#signin_link').click(function(){
 		$('#form_reg').hide();
@@ -28,7 +28,7 @@ $(document).ready(function()
 		$(this).addClass('tab_hightlight');
 		$('#signin_link').removeClass('tab_hightlight');
 	});
-
+*/
 	// Show forgotpassword option and hide login option
 	$('#forget').click(function(){
 		$('.login').hide();

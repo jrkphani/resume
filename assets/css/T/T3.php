@@ -218,23 +218,23 @@ body p,b,h1,h2,h3,span{font-family:Arial, Helvetica, sans-serif; color:#3f3f3f;}
 /*************************************************************  contact  ************************************************************************/
 
 .wrapper .right .contact{width:80%; margin:10px 0px 0px 30px; float:left;}
-.wrapper .right .contact h1{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:16px 0 16px 38px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_contact.png) no-repeat 0% 50%;}
+.wrapper .right .contact h1{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:16px 0 16px 41px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_contact.png) no-repeat 0% 50%;}
 .wrapper .right .contact .phone{font-size: 14px; padding:22px 0 10px 38px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_mobile.jpg) no-repeat 0% 69%;}
-.wrapper .right .contact .mail{font-size: 14px; padding:10px 0 10px 38px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_mail.jpg) no-repeat 0% 64%;}
+
 .wrapper .right .contact .address{font-size: 14px; padding:10px 0 0px 38px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_address.jpg) no-repeat 0% 22%; line-height:18px;}
 
 
 /*************************************************************  other skills  ************************************************************************/
 
 .wrapper .right .other_skills{width:80%; margin:5px 0px 15px 30px; float:left;}
-.wrapper .right .other_skills h1{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:16px 0 16px 35px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_skill.jpg) no-repeat 0% 48%;}
-.wrapper .right .other_skills .otherskill_t3{font-size: 14px; color:#3f3f3f; padding:24px 0 0px 26px; line-height:5px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_bul.jpg) no-repeat 0% 100%;}
+.wrapper .right .other_skills h1{width:100%; border-bottom:1px solid #3f3f3f; margin:0 0 15px 0; color:#24b8e9; font-size: 15px; line-height:22px; padding:16px 0 16px 39px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_skill.jpg) no-repeat 0% 43%;}
+.wrapper .right .other_skills .otherskill_t3{font-size: 14px; color:#3f3f3f; padding:0px 0 5px 26px; line-height:21px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_bul.jpg) no-repeat 0px 7px;}
 
 
 /*************************************************************  education  ************************************************************************/
 
 .wrapper .right .education{width:80%; margin:10px 0px 0px 30px;}
-.wrapper .right .education h1{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:6px 0 16px 38px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_edu.png) no-repeat 0% 27%;}
+.wrapper .right .education h1{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:6px 0 16px 41px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_edu.png) no-repeat 0% 27%;}
 .wrapper .right .education .edu{width:100%; padding:0px 0;}
 .wrapper .right .education .edu .certification_name{width: 100%;float: left;line-height:18px; color: #303030; font-weight: bold; padding: 15px 0 0px 0; font-size: 15px;}
 .wrapper .right .education .edu .institution{color: #ec9d21;float: left;line-height: 20px;display: block;clear: right;padding: 5px 0 5px 0; font-size: 13px;}
@@ -246,18 +246,23 @@ body p,b,h1,h2,h3,span{font-family:Arial, Helvetica, sans-serif; color:#3f3f3f;}
 /*************************************************************  other details  ************************************************************************/
 
 .wrapper .right .other_details{width:80%; margin:2px 0px 0px 30px;}
-.wrapper .right .other_details h1{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:17px 0 16px 37px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_others.png) no-repeat 2% 64%;}
+.wrapper .right .other_details h1{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:17px 0 16px 41px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_others.png) no-repeat 2% 64%;}
 .wrapper .right .other_details .sub{width:100%; padding:0px 0;}
 .wrapper .right .other_details .sub .mstatus{display: block;color: #717171;padding: 10px 0 0px 0;font-size: 12px;line-height: 22px;}
 .wrapper .right .other_details .sub .passport{display: block;color: #717171;padding: 0 0 0px 0;font-size: 12px;line-height: 22px;}
 .wrapper .right .other_details .sub .visa{display: block;color: #717171;padding: 0 0 15px 0;font-size: 12px;line-height: 22px;}
 
-.wrapper .right .other_details .sub .url{display: block;color: #717171;padding: 0 0 5px 25px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/url1.png) no-repeat 0% 0%;}
-.wrapper .right .other_details .sub .skype{display: block;color: #717171;padding: 0 0 5px 25px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/skype1.png) no-repeat 0% 0%;}
-.wrapper .right .other_details .sub .fb{display: block;color: #717171;padding: 0 0 5px 25px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/facebook1.png) no-repeat 0% 0%;}
-.wrapper .right .other_details .sub .lin{display: block;color: #717171;padding: 0 0 5px 25px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/linkedin1.png) no-repeat 0% 0%;}
-.wrapper .right .other_details .sub .twit{display: block;color: #717171;padding: 0 0 15px 25px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/twitter1.png) no-repeat 0% 0%;}
 
+.wrapper .right .other_details h2{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:17px 0 16px 41px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_hw_to_cnt_me.png) no-repeat 2% 64%;}
+
+
+.wrapper .right .other_details .sub .url{display: block;color: #717171;padding: 0 0 5px 31px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/url1.png) no-repeat 0% 0%;}
+.wrapper .right .other_details .sub .skype{display: block;color: #717171;padding: 0 0 5px 31px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/skype1.png) no-repeat 0% 0%;}
+.wrapper .right .other_details .sub .fb{display: block;color: #717171;padding: 0 0 5px 31px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/facebook1.png) no-repeat 0% 0%;}
+.wrapper .right .other_details .sub .lin{display: block;color: #717171;padding: 0 0 5px 31px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/linkedin1.png) no-repeat 0% 0%;}
+.wrapper .right .other_details .sub .twit{display: block;color: #717171;padding: 0 0 15px 31px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/twitter1.png) no-repeat 0% 0%;}
+
+.wrapper .right .other_details .sub .mail{display: block;color: #717171;padding:0 0 3px 30px;font-size: 12px;line-height: 22px; margin: 15px 0 0 0; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_mail.jpg) no-repeat 0px 3px;}
 
 .wrapper .right .other_details .sub p b{font-weight:bold;}
 .wrapper .right .other_details .sub .percentage:last-child{border:none;}

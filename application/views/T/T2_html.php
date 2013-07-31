@@ -188,7 +188,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
             if($i)
            {
         ?>
-         <p id="skill1" class="styles bullet"><?=$name;?></p>
+         <p id="skill1" class="styles bullet2"><?=$name;?></p>
          <? } $i++; } ?><div class="clearall"></div>
          <p class="styles2 descp"><?=nl2br($about['mystrength']);?></p>
        </div><? } ?>
@@ -466,13 +466,13 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
       {
 		  //$passportDate=explode('#',$passport_visa['passportdate']);
 		  ?>
-          <p class="other_dets"><strong>Passport details: </strong><i><?=$passport_visa['passport']; /*$passportDate[0];*/ if($passport_visa['passportTo']) echo ', tile '.$passport_visa['passportTo']; ?></i></p>
+          <p class="other_dets"><strong>Passport details: </strong><i><?=$passport_visa['passport']; /*$passportDate[0];*/ if($passport_visa['passportTo']) echo ', till '.$passport_visa['passportTo']; ?></i></p>
           <? } ?>
       <? if($passport_visa['visa'])
       {
 		  //$visaDate= explode('#',$passport_visa['visadate']);
 		  ?>
-          <p class="other_dets"><strong>Visa details: </strong><i><?=$passport_visa['visa']; /*$visaDate[0];*/ if($passport_visa['visaTo']) echo ', tile '.$passport_visa['visaTo']; ?></i></p>
+          <p class="other_dets"><strong>Visa details: </strong><i><?=$passport_visa['visa']; /*$visaDate[0];*/ if($passport_visa['visaTo']) echo ', till '.$passport_visa['visaTo']; ?></i></p>
           <? }?>
    <!--       <p class="disig">http://www.google.com</p>
          <p class="url styles">http:google.com/</p>  

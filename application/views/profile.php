@@ -37,7 +37,7 @@
 
 
     <div class="profile-body">
-    	<span class="err-msg"><?php echo validation_errors(); if($error) echo $error['error'];  ?></span>
+    	<p class="scus-msg"><?php echo validation_errors(); if($error) echo $error['error'];  ?></p>
 
         <!-- Profile start   -->
         <div id="profile_div">
@@ -51,7 +51,7 @@
         	<tr>
             	<td>
                     <span class="pr-view pr_left">Name</span>
-                    <span class="pr-edit"><label for="first_name">Name*</label></span>
+                    <span class="pr-edit"><label class="pr_left" for="first_name">Name*</label></span>
                 </td>
                 <td>
                 	<span class="pr-view pr_right"><?php echo $first_name; ?>&nbsp;&nbsp;&nbsp;<?php echo $last_name; ?></span>
@@ -60,11 +60,12 @@
                 
             </tr>
             <tr class="pr_email">
-                <td class="pr_left">Email</td>
-                <td><?php echo $email; ?>
+                <td class="pr_left"><label  class="profile_fonts">Email</label></td>
+                <td><span class="pr_right"><?php echo $email; ?></span>
                     <span class="pr-edit mail_toggle" style="display:none">
                         <input type="checkbox" name="email_toggle" id="email_toggle" style="display:inherit;" value="1" <?php if($email==$secondary_email) echo 'checked=checked'; ?> />
-                        <span>Use this as display email.</span><span class="emailtooltip"  title="You can choose to display the email address you registered with on EZCV or you can provide an alternate email address here.">?</span>
+                        <span>Use this as display email.</span>
+                        <span class="emailtooltip tooltip_qs_img"  title="You can choose to display the email address you registered with on EZCV or you can provide an alternate email address here.">&nbsp;</span>
                     </span>
                 </td>
                 
@@ -72,17 +73,17 @@
             <tr id="display_email">
             	<td>
                     <span class="pr-view pr_left">Display Email</span>
-                    <span class="pr-edit pr_right"><label for="secondary_email">Display Email*</label></span>
+                    <span class="pr-edit"><label  class="pr_left" for="secondary_email">Display Email*</label></span>
                 </td>
                 <td>
-                	<span class="pr-view pr_left"><?php echo $secondary_email; ?></span>
+                	<span class="pr-view pr_right"><?php echo $secondary_email; ?></span>
                     <span class="pr-edit pr_right"><input type="text" name="secondary_email" id="secondary_email" value="<?php echo $secondary_email; ?>"  /></span>
                 </td>
             </tr>
             <tr>
             	<td>
                     <span class="pr-view pr_left">Mobile</span>
-                    <span class="pr-edit"><label for="mobile">Mobile*</label></span>
+                    <span class="pr-edit"><label  class="pr_left" for="mobile">Mobile*</label></span>
                 </td>
                 <td>
                 	<span class="pr-view pr_right"><?php echo $mobile; ?></span>
@@ -93,7 +94,7 @@
             <tr>
                 <td>
                     <span class="pr-view pr_left">Skype</span>
-                    <span class="pr-edit"><label for="skype">Skype</label></span>
+                    <span class="pr-edit"><label  class="pr_left" for="skype">Skype</label></span>
                 </td>
                 <td>
                     <span class="pr-view pr_right"><?php echo $skype; ?></span>
@@ -104,7 +105,7 @@
             <tr>
             	<td>
                     <span class="pr-view pr_left">Address</span>
-                    <span class="pr-edit"><label for="address">Address</label></span>
+                    <span class="pr-edit"><label  class="pr_left" for="address">Address</label></span>
                 </td>
                 <td>
                 	<div class="pr-view pr_right"><?php echo $address; ?></div>  
@@ -114,7 +115,7 @@
             <tr>
                 <td>
                     <span class="pr-view pr_left">Marital Status</span>
-                    <span class="pr-edit"><label for="married">Marital Status</label></span>
+                    <span class="pr-edit"><label  class="pr_left" for="married">Marital Status</label></span>
                 </td>
                 <td>
                     <span class="pr-view pr_right"><?php if($married==NULL) echo 'Not specified'; else if($married=='0') echo 'Not Married'; else if($married=='1') echo 'Married'; ?></span>
@@ -131,7 +132,7 @@
             <tr>
                 <td>
                     <span class="pr-view pr_left">Designation</span>
-                    <span class="pr-edit"><label for="designation">Designation</label></span>
+                    <span class="pr-edit"><label  class="pr_left" for="designation">Designation</label></span>
                 </td>
                 <td>
                     <span class="pr-view pr_right"><?php echo $designation; ?></span>
@@ -139,14 +140,13 @@
                 </td>
                 
             </tr>
-            <tr >
+            <tr style="border-bottom:none;">
             	
                 <td>
                     <span class="pr-edit">
                        <input type="submit" name="submit" value="Update" class="pr_btn"/>
                     </span>
-                </td>
-                <td>
+             
                 		<span class="pr-edit">
                         <input type="button" value="Cancel" id="pr-cancel-link" class="pr_btn"  /> 
                     </span>

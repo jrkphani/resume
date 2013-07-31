@@ -5,7 +5,7 @@
 	 margin-top: 100px;
 	cursor: pointer; text-decoration: none;
 	clear:both;
-	background: #f07057 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #c5533d;	color: #fff; font-family:segoeui;
+	background: #f07057 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #c5533d;	color: #fff; font-family: 'segoeui', sans-serif!important;
 }
 
 .clickr:hover{

@@ -452,13 +452,13 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
       {
 		  //$passportDate=explode('#',$passport_visa['passportdate']);
 		  ?>
-        <p>Passport details : <?=$passport_visa['passport']; /*$passportDate[0];*/ if($passport_visa['passportTo']) echo ', tile '.$passport_visa['passportTo']; ?></p>
+        <p>Passport details : <?=$passport_visa['passport']; /*$passportDate[0];*/ if($passport_visa['passportTo']) echo ', till '.$passport_visa['passportTo']; ?></p>
       <? }?>
       <? if($passport_visa['visa'])
       {
 		  //$visaDate= explode('#',$passport_visa['visadate']);
 		  ?>
-        <p>Visa details : <?=$passport_visa['visa']; /*$visaDate[0];*/ if($passport_visa['visaTo']) echo ', tile '.$passport_visa['visaTo']; ?></p>
+        <p>Visa details : <?=$passport_visa['visa']; /*$visaDate[0];*/ if($passport_visa['visaTo']) echo ', till '.$passport_visa['visaTo']; ?></p>
       <? }?>
     </div>
    </div>    

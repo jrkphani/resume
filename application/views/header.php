@@ -16,7 +16,14 @@
 </head>
 <body>
 <header id="ezcv_header">
-	<? $page = $this->uri->segment(1); ?>
+	<? 
+	$page = $this->uri->segment(1);
+	$register=NULL;
+	if($this->uri->segment(3)=='register')
+	{
+		$register='yes';
+	}
+	 ?>
 		<h1><a class="ezcv_logo" href="<?php echo base_url(); ?>"><img src="<?php echo base_url("assets/img/ezcv-logo.png"); ?>"> </a></h1>
 		<nav>
 			<a href="<?php echo base_url(); ?>" <? if($page =="" || $page =="home") echo 'class="ezcv_header_current"'; ?> >Home</a>
@@ -38,8 +45,8 @@
 			<a href="#">Resume On Mobile</a>-->
 			<a href="<?php echo base_url('login/logout'); ?>">Logout</a>
 			<?php } else { ?>
-			<span><a href="<?php echo base_url('login/index/register'); ?>" <? if($page =="login") echo 'class="ezcv_header_current"'; ?> >Register |</a>
-			<a href="<?php echo base_url('login'); ?>" <? if($page =="login") echo 'class="ezcv_header_current"'; ?> >Sign in</a></span>
+			<span><a  href="<?php echo base_url('login/index/register'); ?>" <? if($page =="login" && $register == 'yes') echo 'class="ezcv_header_current"'; ?> >Register</a>
+			<a href="<?php echo base_url('login'); ?>" <? if($page =="login" && $register != 'yes') echo 'class="ezcv_header_current"'; ?> >Sign in</a></span>
 			<?php } ?>
 			<a href="<?php echo base_url('feedback'); ?>" <? if($page =="feedback") echo 'class="ezcv_header_current"'; ?> >Feedback</a>
 		</nav>

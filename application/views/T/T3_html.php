@@ -274,16 +274,12 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
     <!---------------------------------------------------right-----------------------------------------------------------------------------> 
     
     <!---------------------------------------------------contact----------------------------------------------------------------------------->
-    <? if($user_detail['mobile'] || $user_detail['secondary_email'] || $user_detail['address']) { ?>
+    <? if($user_detail['mobile'] || $user_detail['address']) { ?>
     <div class="contact">
       <h1>Contact Me</h1>
       <?php if($user_detail['mobile']) { ?>
       <p class="phone">
         <?=$user_detail['mobile'];?>
-      </p>
-      <?php } if($user_detail['secondary_email']) { ?>
-      <p class="mail">
-        <?=$user_detail['secondary_email'];?>
       </p>
       <?php } if($user_detail['address']) { ?>
       <p class="address">
@@ -352,7 +348,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
     <div class="clearall"></div>
     <? } ?>
     <!---------------------------------------------------other details----------------------------------------------------------------------------->
-    <? if(($user_detail['dob']) || ($user_detail['married']!='NULL') || ($passport_visa['passport']) || ($passport_visa['visa']) || ($website['mylink']) || ($user_detail['skype']) || ($website['facebook']) || ($website['linkedin']) || ($website['twitter']))
+    <? if(($user_detail['dob']) || ($user_detail['married']!='NULL') || ($passport_visa['passport']) || ($passport_visa['visa']) )
     {?>
     <div class="other_details">
       <h1>Other Details</h1>
@@ -378,17 +374,44 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
 		  //$passportDate=explode('#',$passport_visa['passportdate']);
 		  ?>
         <p class="passport"><b>Passport details :</b>
-          <?php echo $passport_visa['passport']; if($passport_visa['passportTo']) echo ', Valid: tile '.$passport_visa['passportTo']; ?>
+          <?php echo $passport_visa['passport']; ?> 
+        </p>
+        <p class="passport"><b>Valid :</b>
+          <?php if($passport_visa['passportTo']) echo ' Till '.$passport_visa['passportTo']; ?>
         </p>
         <? }?>
         <? if($passport_visa['visa'])
       {
 		  //$visaDate= explode('#',$passport_visa['visadate']);
 		  ?>
-        <p class="visa"><b>Visa details :</b>
-          <?php echo $passport_visa['visa']; if($passport_visa['visaTo']) echo ', Valid: tile '.$passport_visa['visaTo']; ?>
+        <p class="passport"><b>Visa details :</b>
+          <?php echo $passport_visa['visa']; ?>
+          
         </p>
-        <? } if($website['mylink']) { ?>
+        
+        <p class="visa"><b>Valid :</b>          
+          <?php if($passport_visa['visaTo']) echo ' Till '.$passport_visa['visaTo']; ?>
+        </p>
+        
+        
+        
+       <?php }  ?>
+       
+       
+       <!-- how to reach me -->
+			 <?php
+			 
+		 
+			 
+			 if(($website['mylink']) || ($user_detail['skype']) || ($website['facebook']) || ($website['linkedin']) || ($website['twitter']) || ($user_detail['secondary_email'])) { ?>
+        
+         <h2><?=$user_detail['contactTitle'];?></h2>
+         
+				<?php } if($user_detail['secondary_email']) { ?>
+        <p class="mail">
+          <?=$user_detail['secondary_email'];?>
+        </p>        
+        <? if($website['mylink']) { ?>
         <p class="url">
          <?=$website['mylink'];?>
         </p>
@@ -410,7 +433,7 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
         </p>
        <? } ?>
         
-        
+        <?php } ?>
         
       </div>
     </div>

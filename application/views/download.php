@@ -16,7 +16,7 @@
           </div>
                     				<div class="download-main-inner downlod_cnt">
 				Your resume will be ready for download in, 
-        <span id="glowingLayout"></span> Seconds	<br />
+        <span style="color:#f07057; font-weight:bold;" id="glowingLayout"></span> <span style="color:#f07057; font-weight:bold;"> Seconds	</span><br />
         <br />
         Please wait while your resume is being prepared.
 			</div> 

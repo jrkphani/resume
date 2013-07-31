@@ -24,11 +24,15 @@
 	background-color: #f4f4f4;
 	position: relative;
 }
+
+.fbmandtri{font-size:13px; margin: 0 0 5px 0; font-style:italic;}
+.exchr{float: right;}
+
 .left_form_feedback .container #err_msg{margin:0 0 10px 0; color:#f07057;}
 .fb_cnt{margin:0 0 10px 0;padding:0 20px 0 0;}
 .fb_txt{margin:0 0 10px 0; }
 .fb_txtara{margin:0 0 10px 0; height: 122px;width: 403px;}
-.fb_btn{padding:9px 30px 24px 30px!important;display: inline-block;background: #f07057;border: solid 1px #c5533d;color: #fff; width: 103px!important;}
+.fb_btn{padding:9px 30px 24px 30px!important;display: inline-block;background: #f07057;border: solid 1px #c5533d;color: #fff; width: 103px!important; font-size:14px;}
 .fb_btn:hover{background-color: #da5e46;border: solid 1px #d05840;}
 
 .left_form_title{
@@ -38,8 +42,9 @@
 .left_form_title h3{ 
 	line-height: 40px; margin:10px 0 0 20px; 	float: left;
 	text-transform: uppercase;}
+	
 .left_form_title .showSelectTemplate{
-line-height: 53px;
+line-height: 42px;
 cursor: pointer;
 text-transform: uppercase;
 background: url(../img/sprites.png) 0px -928px no-repeat;
@@ -58,6 +63,27 @@ position: absolute;
 right:-100px;
 margin-top: 30px
 }
+
+
+.shwseltmp{background: url(../img/sprites.png) 0px -928px no-repeat; position: absolute;
+right: 0;
+margin: 30px 0px 0px 0;
+width: 75px;
+height: 50px;
+line-height: 17px; cursor: pointer;}
+
+.shwseltmp1{ position: absolute;
+right: 0;
+margin:101px 15px 0px 0;
+width: 75px;
+height: 47px;
+font-size: 13px;
+line-height: 14px;
+color: #323232;
+text-decoration: none; cursor: pointer; text-align:center;}
+
+
+
 .left_form_title .cht{position: absolute;
 right: 0px;
 width: 87px;
@@ -79,15 +105,15 @@ float: right;}
 /********************************about me Suggestions ***************************/
 .scroll_top{background: transparent url(../img/sprites.png) -300px -750px no-repeat; padding: 10px 0px 10px 0px; margin: 10px 0px 3px 146px;}
 
-.scroll_btm{background: transparent url(../img/sprites.png) -300px -765px no-repeat; padding: 10px 0px 10px 0px; margin: 3px 0px 0px 146px; clear: both;}
+.scroll_btm{background: transparent url(../img/sprites.png) -300px -769px no-repeat; padding: 5px 0px 10px 0px; margin: 7px 0px 0px 146px; clear: both;}
 
 .scroll_top_strn{background: transparent url(../img/sprites.png) -300px -750px no-repeat; padding: 10px 0px 10px 0px; margin: 0px 0px 3px 172px; width:195px;}
 
-.scroll_btm_strn{background: transparent url(../img/sprites.png) -300px -765px no-repeat; padding: 10px 0px 10px 0px; margin: 3px 0px 0 172px; width:195px; clear: both;}
+.scroll_btm_strn{background: transparent url(../img/sprites.png) -300px -769px no-repeat; padding: 5px 0px 10px 0px; margin: 7px 0px 0 172px; width:195px; clear: both;}
 
 
-.dowload_logo{background: transparent url(../img/download_logo.png) center no-repeat; text-align:center; height:480px; padding:0px;  display:block;}
-.downlod_cnt{text-align:center; margin:-65px 0 0 0;}
+.dowload_logo{background: transparent url(../img/download_logo.png) center no-repeat; text-align:center; height:235px; padding:0px;  display:block;}
+.downlod_cnt{text-align:center; margin:0px 0 0 0;}
 
 /******************************** Profile Tooltip ***************************/
 
@@ -472,16 +498,18 @@ float: left;
 .selectTemplate{
 position: fixed;
 top: 30%;
+height: 362px;
 width: 83%;
 padding-top: 20px;
 padding-bottom: 20px;
 background-color: #25b695;
-overflow: scroll;
+overflow-x: scroll;
+overflow-y: hidden;
 }
 
 .selectTemplate h3{
 	color: #fff;
-	margin-left: 20px;
+	margin-left: 20px; width:100%;
 }
 
 .selectTemplate .t_list_t{border:none;}
@@ -507,12 +535,12 @@ overflow: scroll;
 
 .mytb_added .formRemoveBtn{
 	top: 0px; 
-	left: 580px;
+	left:219px;
 }
 
 .mypr_added .formRemoveBtn, .myed_added .formRemoveBtn, .myaw_added .formRemoveBtn, .more_Added .formRemoveBtn{
 	top: 0px; 
-	left: 408px;
+	left: 443px;
 }
 
 
@@ -578,5 +606,5 @@ margin: -23px 0 0 226px;}
 /* selected template */
 .selected_temp
 {
-    border: 4px solid #25FFAE;
+    border: 4px solid #25FFAE!important;
 }

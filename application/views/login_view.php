@@ -4,15 +4,15 @@
 	<? if($register=='register')
 	{
 	?>
-	<a href="javascript:void(0);" class="btn_reg tab_hightlight" id="register_link"  >Register</a>
-	<a href="javascript:void(0);" class="btn_sig" id="signin_link" >Sign In</a>
+	<a href="<?=base_url('login/index/register');?>" class="btn_reg tab_hightlight" id="register_link"  >Register</a>
+	<a href="<?=base_url('login');?>" class="btn_sig" id="signin_link" >Sign In</a>
 	<?
 	}
 	else
 	{
 	?>
-	<a href="javascript:void(0);" class="btn_reg" id="register_link"  >Register</a>
-	<a href="javascript:void(0);" class="btn_sig tab_hightlight" id="signin_link" >Sign In</a>
+	<a href="<?=base_url('login/index/register');?>" class="btn_reg" id="register_link"  >Register</a>
+	<a href="<?=base_url('login');?>" class="btn_sig tab_hightlight" id="signin_link" >Sign In</a>
 	<? } ?>
 </div>
 <div class="left_form">
@@ -97,7 +97,7 @@
 				  	</tr>
 				</table>
 				 
-				 <div class="captcha_img1"><span id="captcha_img"></span><span id="getcaptcha" class="cap_get1">&nbsp;</span></div>
+				 <div class="captcha_img1"><span id="captcha_img"></span><span id="getcaptcha" class="cap_get1">&nbsp; refresh</span></div>
 				 <input class="captcha_txt" type="text" id="inputCaptcha" name="captcha"/>
 				<span class="error_msg" id="error_msg1"></span>
 				<br>

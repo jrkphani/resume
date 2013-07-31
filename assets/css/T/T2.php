@@ -98,7 +98,7 @@ body h1,h2,h3,h4,{font-weight:normal;}
 .skill1_container .bullet1{padding-left: 20px; line-height:15px; background:url(<?=$baseurl?>assets/img/Templates/t10_bul.jpg) no-repeat 0% 19%;}
 .skill1_container .bullet1 b{font-weight:bold;}
 
-
+.skill1_container .bullet2{padding: 0px 0 8px 20px; line-height: 15px; background: url(http://localhost/resume/assets/img/Templates/t10_bul.jpg) no-repeat 0px 5px;}
 .pbar{ }
 
 .pbar_inner{ 

@@ -55,7 +55,7 @@ class Feedback extends CI_Controller{
 				$result=$this->feedback_model->add_feedback($values);	// Insert feedback to database
 				if($result)
 				{
-					$data['msg']='Feedback submitted successfully.';
+					$data['msg']='Your feedback has been submitted successfully.';
 
 					//Mail Configuration
 					$this->load->library('email');

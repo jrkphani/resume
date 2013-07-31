@@ -503,8 +503,7 @@ width: 83%;
 padding-top: 20px;
 padding-bottom: 20px;
 background-color: #25b695;
-overflow-x: scroll;
-overflow-y: hidden;
+overflow: auto;
 }
 
 .selectTemplate h3{

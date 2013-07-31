@@ -49,7 +49,7 @@
 						<input type="password" class="login" placeholder="Password" id="passowrd" name="password">
 						<input type="text"  class="forget" placeholder="Email" id="fusername" name="fusername" style="display:none;">
 						<span id="forget" class="login" >Forgot Password?</span>
-						<span id="back_to_login" class="forget clickr" style="display:none;">Cancle</span>
+						<span id="back_to_login" class="forget clickr" style="display:none;">Cancel</span>
 					</div>
 					<span id="error_msg" ></span>
 						<div>

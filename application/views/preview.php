@@ -5,12 +5,12 @@
 	 margin-top: 100px;
 	cursor: pointer; text-decoration: none;
 	clear:both;
-	background: #f07057 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #c5533d;	color: #fff; font-family: 'segoeui', sans-serif!important;
+	background: #e78130 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #d77426;	color: #fff; font-family: 'segoeui', sans-serif!important;
 }
 
 .clickr:hover{
-	background-color: #da5e46;
-	border: solid 1px #d05840;
+	background-color: #f2722c;
+	border: solid 1px #d77426;
 }
 
 </style>

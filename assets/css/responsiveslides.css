@@ -50,13 +50,14 @@
 
   .rslides_tabs li a, .rslides_here a {
       width: 43px; height: 36px; display: block; 
-      color: #fff;  line-height: 36px;  text-align: center; text-decoration: none;
+      color: #323232;  line-height: 36px;  text-align: center; text-decoration: none;
       background: transparent url(../img/sprites.png) no-repeat left top; cursor: pointer;
       background-position: -191px 0;
   }
 
   .rslides_here a {
     background-position: -235px 0 !important;
+    color: #ffffff !important;
   }
 
 .rslider_container{

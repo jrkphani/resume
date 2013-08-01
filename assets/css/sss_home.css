@@ -4,24 +4,24 @@
 
 .slide_top_1, .slide_top_2{	
 	width:50%; height:100px; float: left;
-	background:#f2b852; color: #fff;	text-align: center;
+	background:#1fa1b4; color: #fff;	text-align: center;
 }
 .slide_top_1 {	 
-	background: #f07057;
+	background: #93c13d;
 }
 .slide_top_1 h3{
 	margin-left: 140px;	
 	line-height: 100px; text-align: left; text-transform: uppercase; 	font-size: 1.4em;
 }
 .slide_top_1 span{	
-	width:109px; height:102px; display:block; position: absolute; 
+	width:109px; height:103px; display:block; position: absolute; 
 	margin-top: -9px; margin-left: 20px;	font-size: 3em; line-height: 100px;
 	background:transparent url(../img/sprites.png) no-repeat left top; background-position: -301px -344px; }
 .slide_top_2 a{
 	width: 80%; height: 50%; display: block; 
 	margin: 0 auto; margin-top: 17px;	padding-top: 16px;	
-	border: solid 1px #D59C38; -webkit-border-radius: 4px; 	-moz-border-radius: 4px;	border-radius: 4px;
-  	background-color: #f07057;	color: #ffffff; text-decoration: none; font-size: 1.6em;}
+	border: solid 1px #dc7f35; -webkit-border-radius: 4px; 	-moz-border-radius: 4px;	border-radius: 4px;
+  	background-color: #eb8a3d;	color: #ffffff; text-decoration: none; font-size: 1.6em;}
 
 .slide_bottom_1, .slide_bottom_2{
 	width: 50%; height: 340px;	float: left;  
@@ -180,3 +180,20 @@ footer p{
  
 /************************** Landscape phones and down **************************/
 @media (max-width: 480px) { ... }
+
+
+.slide_top_1 {	background: #93c13d !important;}
+.slide_top_2 {	background: #1fa1b4 !important;}
+
+
+.slide_bottom_1{background: #95dcea !important;}
+.slide_bottom_2{background: #f2f2f2 !important;}
+
+
+.slide_top_2 a{ background-color:#fb8732  !important; border-color:#a85615 !important;}
+.slide_top_2 a:hover{
+	background-color: #f2722c !important;
+}
+.slide_bottom_2 p{
+	color: #232323;
+}

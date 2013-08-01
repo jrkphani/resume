@@ -394,7 +394,7 @@ height: 2px!important;
 
 .change_arrow_lft{background:transparent url(../img/sprites.png) -298px -648px no-repeat; display:block; padding:59px 15px 22px 37px; width:13px;  float:left; margin: 120px 0px 0 29px;}
 
-.change_arrow_rit{background:transparent url(../img/sprites.png) -360px -648px no-repeat; display:block; padding:59px 15px 22px 37px; width:13px;  float:right; margin: 120px 8px 0 29px;}
+.change_arrow_rit{background:transparent url(../img/sprites.png) -360px -648px no-repeat; display:block; padding:59px 15px 22px 50px; width:13px;  float:right; margin: 120px 8px 0 0px;}
 
 .t_list_bg{
 	width: 220px; height: 297px; float: left;
@@ -498,12 +498,12 @@ float: left;
 .selectTemplate{
 position: fixed;
 top: 30%;
-height: 362px;
+height: 382px;
 width: 83%;
 padding-top: 20px;
 padding-bottom: 20px;
 background-color: #25b695;
-overflow: auto;
+
 }
 
 .selectTemplate h3{
@@ -605,5 +605,7 @@ margin: -23px 0 0 226px;}
 /* selected template */
 .selected_temp
 {
-    border: 4px solid #25FFAE!important;
+    border: 4px solid #F07057!important;
 }
+.emailtooltip{margin:-15px 0 0 0!important;}
+.tooltip_qs_img{}

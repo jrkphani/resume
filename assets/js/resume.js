@@ -22,6 +22,29 @@ $(document).ready(function()
 			$('#'+$(this).attr('name')).hide();
 		}
 	});
+	
+	//template popup scroll -Mani
+	$('#rightbutton').click(function() {
+      event.preventDefault();
+			index = parseInt($('#template_pop').css('width').replace(/[^-\d\.]/g, '')) + parseInt($('#template_pop').css('marginLeft').replace(/[^-\d\.]/g, ''));
+			if(index >= 500 || isNaN(index))
+			{
+				 $('#template_pop').animate({
+        marginLeft: "-=100px"
+      }, "fast");
+			}
+   });
+	 $('#leftbutton').click(function() {
+      event.preventDefault();
+			index = parseInt($('#template_pop').css('marginLeft').replace(/[^-\d\.]/g, ''));
+			if(index <=0 || isNaN(index))
+			{
+      $('#template_pop').animate({
+       marginLeft: "+=100px"
+      }, "fast");
+			}
+   });
+
 	/* tiny url commented bcz limitte number of queries per day
 	 * 
 	var websitetime, linkedintime, twittertime, facebooktime= null;
@@ -204,7 +227,7 @@ $(document).ready(function()
 	$('.template').click(function()
 	{
 		//$('.templateCell').removeClass('templateCellSelected');
-		$('.t_list_bg').removeClass('selected_temp');
+		$('.t_list_t').removeClass('selected_temp');
 		$('.template').show();
 		$('#template').val($(this).attr('value'));
 		$('#preview').attr('title',$(this).attr('title'));
@@ -895,4 +918,7 @@ function validate_resume()
 			$(focus_slected).focus();
 		}
 		return flag;
+}
+function FixMargin(left) {
+    $(this).css("left", left);
 }

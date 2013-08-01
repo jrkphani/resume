@@ -50,7 +50,7 @@ body h1,h2,h3,h4,{font-weight:normal;}
 
 .wrapper .header{padding:40px 0 0 0;}
   
-.wrapper .header .left .logo{width:189px; height:45px; float:right; background:url(<?=$baseurl?>assets/img/Templates/t10_logo1.jpg) no-repeat 37% 0%; margin:31px 0 0 100px; background-color:#0b9bd0;}
+.wrapper .header .left .logo{width:189px; height:45px; float:right; background:url(<?=$baseurl?>assets/img/Templates/t10_logo1.jpg) no-repeat 94% 0%; margin:31px 0 0 100px; background-color:#0b9bd0;}
 
 .wrapper .header .right h1{font-size:17px; line-height:28px; padding:28px 0 0 0; font-weight:bold; }
 .wrapper .header .right h2{font-size:15px; line-height:30px; color:#0b9bd0; font-weight:bold;  padding:0 0 20px 0;}

@@ -1057,8 +1057,9 @@
 					<!--<input  type="text" class="feature_date_picker" name="visaTo" placeholder="Feb-2012" readonly="readonly" />-->
 				</div>
 			<? } ?>
+      		<span class="clickb next" style="margin: 14px 0 0 0; position: absolute;" href='#edication_tab'>Back</span>
 		</div>
-		<span class="clickb next" href='#edication_tab'>Back</span>
+
 		</div>
 		<!-- ===================================================================== More About Me tab end ==================-->
 	</form>
@@ -1082,13 +1083,28 @@
 
 
 		<!-- need make as popup -->
-		<div id="selectTemplate" style="display:none;"class="selectTemplate">
+
+			
+			
+      		<div id="selectTemplate" style="display:none;"class="selectTemplate">
 			<span id="selectTemplateclose" class="close_btn">close</span>
 			<div class="clearboth"></div>
-			<h3>Choose Template</h3>
-			<div class="change_arrow_lft"></div>
-	 		<div class="t_list_bg " id="T1">
-				<div class="t_list_t <? if(($templateValue) && ($templateValue == 'T1')){ echo 'selected_temp'; }?> ">
+			<h3>Choose Template</h3>			
+      
+      <div style="width:100%;">
+      <div style="width:10%; float:left; margin:0 45px 0 0;">
+ <!--      <div id="rightbutton" class="change_arrow_lft"></div>-->
+       <div class="change_arrow_lft"></div>
+       </div>
+       
+       <div style="width:74%; float:left;">
+       
+      <div style="width:85%; height:360px; overflow-y:hidden; margin: 20px 0 0 0;">
+      	<div id="template_pop" style='width:960px;height:360px; '>
+        
+     
+	 		<div class="t_list_bg " >
+				<div id="T1" class="t_list_t <? if(($templateValue) && ($templateValue == 'T1')){ echo 'selected_temp'; }?> ">
 					<img src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Spring Bloom</p>
@@ -1096,8 +1112,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="t_list_bg " id="T4">
-				<div class="t_list_t <? if(($templateValue) && ($templateValue == 'T4')) {echo 'selected_temp'; }?> ">
+      
+			<div class="t_list_bg ">
+				<div id="T4" class="t_list_t <? if(($templateValue) && ($templateValue == 'T4')) {echo 'selected_temp'; }?> ">
 					<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Pyramid Point</p>
@@ -1105,8 +1122,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="t_list_bg " id="T2">
-				<div class="t_list_t <? if(($templateValue) && ($templateValue == 'T2')){ echo 'selected_temp';} ?>">
+      
+			<div class="t_list_bg ">
+				<div id="T2" class="t_list_t <? if(($templateValue) && ($templateValue == 'T2')){ echo 'selected_temp';} ?>">
 					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>White Citadel</p>
@@ -1114,8 +1132,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="t_list_bg " id="T3">
-				<div class="t_list_t <? if(($templateValue) && ($templateValue == 'T3')) {echo 'selected_temp'; }?>">
+      
+			<div class="t_list_bg " >
+				<div id="T3" class="t_list_t <? if(($templateValue) && ($templateValue == 'T3')) {echo 'selected_temp'; }?>">
 					<img src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Window View</p>
@@ -1123,8 +1142,26 @@
 					</div>
 				</div>
 			</div>
+      
+         
+      
+      </div>
+      
+      </div>
+      </div>
+      <div style="width:2%; float:left; margin:0 0 0 20px;">      
       <div class="change_arrow_rit"></div>      
+<!--      <div id="leftbutton" class="change_arrow_rit"></div> -->
+      </div>
+      
+      </div>
+        
 		</div>
+			
+
+		</div>
+    
+    
 	</div>
 
 

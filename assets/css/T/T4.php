@@ -186,7 +186,7 @@ body p,b,h1,h2,h3,h4,span,div{font-family:Calibri, arial; color:#3f3f3f;}
 .skill .right_skill .first_skill p{ color:#1c1c1c; font-size:14px; line-height:14px; background:url(<?=$baseurl?>assets/img/Templates/t8_6.jpg) no-repeat 0% 50%; padding:0 0 0 20px;}
 .skill .right_skill .first_skill div p {font-weight:normal; font-size: 18px; color:#4aa1d9; margin:0 0 15px 0; background:none; padding:0;}
 .skill .right_skill .other_skill{width:100%;}
-.skill .right_skill .other_skill .sskill{width:255px; display: inline-block; font-weight:normal; font-size: 14px; color:#1c1c1c; margin:0 0 0px 0; line-height:20px; background:url(<?=$baseurl?>assets/img/Templates/t8_6.jpg) no-repeat scroll 0% 50%; padding:0px 0 0px 20px;}
+.skill .right_skill .other_skill .sskill{width:255px; display: inline-block; font-weight:normal; font-size: 14px; color:#1c1c1c; margin:0 0 0px 0; background:url(<?=$baseurl?>assets/img/Templates/t8_6.jpg) no-repeat scroll 0px 8px; padding:5px 0 5px 20px;}
 .skill .right_skill .other_skill p{ color:#1c1c1c; font-size:14px; line-height:14px; background:url(<?=$baseurl?>assets/img/Templates/t8_6.jpg) no-repeat 0% 50%; padding:0 0 0 20px;}
 .skill .right_skill .other_skill .str {font-weight:normal; font-size: 18px; color:#4aa1d9; margin:10px 0 15px 0; background:none; padding:0;}
 

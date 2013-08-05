@@ -864,20 +864,20 @@ function validate_resume()
 		}
 		if(!validate('Mobile Number','phone',man=true,max=17,min=10,type='mobile',disp='phone_err'))
 		{
-			$('.tab[tab="#contact_tab"]').addClass('rns_err');
+			$('.tab[tab="#about_tab"]').addClass('rns_err');
 			if(focus_slected==0)
 			{
-			tab_show ='#contact_tab';
+			tab_show ='#about_tab';
 			focus_slected='#phone';
 			}
 			flag = false;
 		}
 		if(!validate('Email','email',man=true,max=254,min=false,type='email',disp='email_err'))
 		{
-			$('.tab[tab="#contact_tab"]').addClass('rns_err');
+			$('.tab[tab="#about_tab"]').addClass('rns_err');
 			if(focus_slected==0)
 			{
-			tab_show ='#contact_tab';
+			tab_show ='#about_tab';
 			focus_slected='#email';
 			}
 			flag = false;

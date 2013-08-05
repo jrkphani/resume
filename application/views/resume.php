@@ -20,7 +20,7 @@
   
 	<span tab='#about_tab' class="tab rns rns_a rns_inner abt_tab">About Me</span>
 	<span tab='#objective_tab' class="tab rns rns_inner">Designation, Objective</span>
-	<span tab='#contact_tab' class="tab rns rns_inner">Contact Me</span>
+	<span tab='#contact_tab' class="tab rns rns_inner">How to reach me</span>
 	<span tab='#experience_tab' class="tab rns rns_inner">Experience Summary</span>
 	<span tab='#strength_tab' class="tab rns rns_inner">My Strength </span>
 	<span tab='#tool_tab' class="tab rns rns_inner">My Tool Box</span>
@@ -85,7 +85,12 @@
           <span class="fnme" id="fname_err"></span>
           <span class="lnme" id="lname_err"></span>
 				</div>
-				
+			<div >
+			    <input  type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
+				<span id="phone_err"></span><br />
+				<input   name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
+				<span id="email_err"></span>
+			</div>
 			<!-- DOB -->
 				<div>
 				    <label >Date of Birth</label>
@@ -272,7 +277,7 @@
 		<!-- ===================================================================== Contact Me tab start ==================-->
 		<div id="contact_tab"  class="tabs">
 			<div class="left_form_title">
-				<h3>Contact Me</h3>
+				<h3>How to reach me</h3>
 				<div class="clearboth"></div>
 				<p> In this section you can reveal your contact details and decide exactly how you would like your employers to contact you. Our recommendation is that you definitley give them your phone number and Email Id. </p>
 			</div>
@@ -284,20 +289,21 @@
 					if(isset($user_detail[0]['contactTitle']))
 					{?>
 					<option <? if($user_detail[0]['contactTitle'] == 'How to reach me') {echo 'selected="selected"'; $found=1; } ?> value="How to reach me">How to reach me</option>
+					<option <? if($user_detail[0]['contactTitle'] == 'My Hangouts') {echo 'selected="selected"'; $found=1; } ?> value="My Hangouts">My Hangouts</option>
+					<option <? if($user_detail[0]['contactTitle'] == 'My Web Footprint') {echo 'selected="selected"'; $found=1; } ?> value="My Web Footprint">My Web Footprint</option>
+					<option <? if($user_detail[0]['contactTitle'] == 'My Social Networks') {echo 'selected="selected"'; $found=1; } ?> value="My Social Networks">My Social Networks</option>
 					<option <?if(!$found)echo 'selected="selected"';?> value="Custom heading">Create my own heading</option>
 					<?} else {?>
 					<option value="How to reach me">How to reach me</option>
+					<option value="Custom heading">My Hangouts</option>
+					<option value="Custom heading">My Web Footprint</option>
+					<option value="Custom heading">My Social Networks</option>
 					<option value="Custom heading">Create my own heading</option>
 					<? }?>					
 				</select>
 				<input id="contactTitle" name="cusContactTitle" <?if(isset($user_detail[0]['contactTitle']) && (!$found)) {echo 'value="'.$user_detail[0]['contactTitle'].'"'; } else{ echo 'style="display:none;"'; }?> type="text"  placeholder="Custom title" />
 			</div>
-			<div >
-			    <input  type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
-          <span id="phone_err"></span><br />
-				<input   name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
-        <span id="email_err"></span>
-			</div>
+			
 			<div>
 			    <label>Website</label>
 			    <? 

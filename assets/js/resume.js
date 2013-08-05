@@ -356,7 +356,7 @@ $('#addSkills').click(function()
 		html+=				'<option value="9">9</option>';
 		html+=				'<option value="10">10</option>';
 		html+=			'</select>';*/
-		html+=			'<input type="hidden" name=skillEff[] id="skillEff'+id+'" value="1"/>';
+		html+=			'<input type="hidden" name=skillEff[] id="skillEff'+id+'" value="4"/>';
 		html+=			'<span class="sliding" id="sliding'+id+'" data="'+id+'"></span>';
 		html+=			'<span class="slidingText" id="slid_msg'+id+'"></div>';
 		html+=		'</div>';		
@@ -781,7 +781,7 @@ function define_slider(sliding_id)
 	$(selector).slider({
 		range: "max",
 		min: 1,
-		max: 8,
+		max: 6,
 		create: function( event, ui ) {
 		 	var data=$(this).attr('data');
 		 	var value=$('#skillEff'+data).val();
@@ -790,20 +790,20 @@ function define_slider(sliding_id)
 			switch(value)
 			{
 				case '1':
-					msg='Don\'t Know';break;
+					msg='Want to learn';break;
 				case '2':
-					msg='Training';break;
+					msg='Training/Learning';break;
+				//case '3':
+					//msg='Poor';break;
 				case '3':
-					msg='Poor';break;
-				case '4':
 					msg='Satisfactory';break;
-				case '5':
-					msg='OK';break;
-				case '6':
+				//case '5':
+					//msg='OK';break;
+				case '4':
 					msg='Good';break;
-				case '7':
+				case '5':
 					msg='Very Good';break;
-				case '8':
+				case '6':
 					msg='Expert';break;
 			}
 			$('#slid_msg'+data).html(msg);
@@ -815,20 +815,20 @@ function define_slider(sliding_id)
 			switch(ui.value)
 			{
 				case 1:
-					msg='Don\'t Know';break;
+					msg='Want to learn';break;
 				case 2:
-					msg='Training';break;
+					msg='Training/Learning';break;
+				//case 3:
+					//msg='Poor';break;
 				case 3:
-					msg='Poor';break;
-				case 4:
 					msg='Satisfactory';break;
-				case 5:
-					msg='OK';break;
-				case 6:
+				//case 5:
+					//msg='OK';break;
+				case 4:
 					msg='Good';break;
-				case 7:
+				case 5:
 					msg='Very Good';break;
-				case 8:
+				case 6:
 					msg='Expert';break;
 			}
 			$('#slid_msg'+data).html(msg);
@@ -864,20 +864,20 @@ function validate_resume()
 		}
 		if(!validate('Mobile Number','phone',man=true,max=17,min=10,type='mobile',disp='phone_err'))
 		{
-			$('.tab[tab="#contact_tab"]').addClass('rns_err');
+			$('.tab[tab="#about_tab"]').addClass('rns_err');
 			if(focus_slected==0)
 			{
-			tab_show ='#contact_tab';
+			tab_show ='#about_tab';
 			focus_slected='#phone';
 			}
 			flag = false;
 		}
 		if(!validate('Email','email',man=true,max=254,min=false,type='email',disp='email_err'))
 		{
-			$('.tab[tab="#contact_tab"]').addClass('rns_err');
+			$('.tab[tab="#about_tab"]').addClass('rns_err');
 			if(focus_slected==0)
 			{
-			tab_show ='#contact_tab';
+			tab_show ='#about_tab';
 			focus_slected='#email';
 			}
 			flag = false;

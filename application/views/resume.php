@@ -8,7 +8,7 @@
 .ui-datepicker-calendar {     display: none; }​
 </style>
 <?php
-	$keywords = array("Ability to Delegate", "Analytical Ability", "Can Handle to Work Overlay", "Competitive", "Competencies", "Collaborative", "Enthusiastic", "Flexible", "Follow Through Leadership", "High Energy", "Mutli-task oriented", "Organizational skills", "Presentation Skills", "Rigorous", "Self-driven", "Team building", "Setting priorities", "Self Managing", "Achievement oriented", "Adaptable", "Ability to Implement", "Ability to Plan", "Ability to Train", "Accurate", "Assertive", "Budget-driven", "Creative", "Communication Skills", "Conceptual Ability", "Dependable", "Deadline driven", "Detail-oriented", "Emphasis", "Energetic", "Ethical", "Excellent Track Record", "Extensive Experience", "Focused", "Good Understanding", "Independent", "Innovative", "Industrious", "Leadership", "Motivated", "Open Communication", "Open Minded", "Organized", "Problem Solving", "Process Oriented", "Proficient", "Persuasive", "Results Focused", "Results Oriented", "Resourcefulness", "Self Accountable", "Supportive", "Takes Initiative", "Versatile", "Reliable", "Articulate", "Customer Focused ", "Client Focused");
+	$keywords = array("Ability to Delegate", "Analytical Ability", "Can handle work overload", "Competitive", "Collaborative", "Enthusiastic", "Flexible", "Follow Through Leadership", "High Energy", "Mutli-task oriented", "Organizational skills", "Presentation Skills", "Rigorous", "Self-driven", "Team building", "Setting priorities", "Self Managing", "Achievement oriented", "Adaptable", "Ability to Implement", "Ability to Plan", "Ability to Train", "Accurate", "Assertive", "Budget-driven", "Creative", "Communication Skills", "Conceptual Ability", "Dependable", "Deadline driven", "Detail-oriented", "Emphasis", "Energetic", "Ethical", "Excellent Track Record", "Extensive Experience", "Focused", "Good Understanding", "Independent", "Innovative", "Industrious", "Leadership", "Motivated", "Open Communication", "Open Minded", "Organized", "Problem Solving", "Process Oriented", "Proficient", "Persuasive", "Results Focused", "Results Oriented", "Resourcefulness", "Self Accountable", "Supportive", "Takes Initiative", "Versatile", "Reliable", "Articulate", "Customer Focused ", "Client Focused","Initiative","Interpersonal Skills","Managed","Proactive","Strategy","Supervised","Methodology","Quality","Trained","Performance","Problem Solving","Team Management","Customer Experience","Customer Support","Manage Client Relationships","Self Starter","Business Innovation","Project Initiation","Planning","Client Presentations");
 ?>
 <div class="form_title">
 	<h3>Discover Yourself</h3>
@@ -20,7 +20,7 @@
   
 	<span tab='#about_tab' class="tab rns rns_a rns_inner abt_tab">About Me</span>
 	<span tab='#objective_tab' class="tab rns rns_inner">Designation, Objective</span>
-	<span tab='#contact_tab' class="tab rns rns_inner">Contact Me</span>
+	<span tab='#contact_tab' class="tab rns rns_inner">How to reach me</span>
 	<span tab='#experience_tab' class="tab rns rns_inner">Experience Summary</span>
 	<span tab='#strength_tab' class="tab rns rns_inner">My Strength </span>
 	<span tab='#tool_tab' class="tab rns rns_inner">My Tool Box</span>
@@ -85,7 +85,12 @@
           <span class="fnme" id="fname_err"></span>
           <span class="lnme" id="lname_err"></span>
 				</div>
-				
+			<div >
+			    <input  type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
+				<span id="phone_err"></span><br />
+				<input   name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
+				<span id="email_err"></span>
+			</div>
 			<!-- DOB -->
 				<div>
 				    <label >Date of Birth</label>
@@ -138,7 +143,30 @@
 				    <label >Current Address</label>
 				    <textarea rows="3"  type="text"  name="address" placeholder="Address" maxlength="90"><? if(isset($user_detail[0]['address'])) echo $user_detail[0]['address']; ?></textarea>
 				</div>
-			<!-- Summary -->
+				
+				<span style="margin-top:10px;" class="clickr next" href='#objective_tab'>Continue</span>
+			</div>
+		</div>
+		<!-- ===================================================================== About tab end ==================-->
+		
+		<!-- <div style="float:right;">
+       		<?php if($photo) { ?>
+            	<img src="<? echo base_url($this->config->item('path_profile_img').$user_id.'/'.$photo); ?>" id="profile_pic" />
+            <?php } else { ?>
+				<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" id="profile_pic" />
+            <?php } ?>
+            <span id="uploadstate"></span>
+		</div> -->
+		<!-- =========================================================== Designation,Objective tab start ==================-->
+		<div id="objective_tab" class="tabs">
+			<div class="left_form_title">
+				<h3>DESIGNATION, OBJECTIVE</h3>				
+				<div class="clearboth"></div>
+				<p>This section helps you elaborate on your profile and your current designation and what you are hoping to achieve in the future with respect to your career. In case you are a student, you can talk about your aspirations and the role you are looking forward to play in your career.</p>
+			</div>
+			<div class="form_sections">
+
+				<!-- Who am I start  -->
 				<div>
 					<select class="custTitle" name="summaryTitle">
 						<?
@@ -160,7 +188,7 @@
 						<option value="Who I am" >Who I	 am</option>
 						<option value="About me" >About me</option>
 						<option value="Summary" >Summary</option>
-						<option value="Custom heading" >Custom heading</option>
+						<option value="Custom heading" >Create my own heading</option>
 						<?}
 						?>
 						
@@ -183,27 +211,9 @@
 				<div class="scroll_btm sug_bot1" divId="sug1"></div>
             </div>
 				 <div class="clearboth"></div>
-				<span style="margin-top:10px;" class="clickr next" href='#objective_tab'>Continue</span>
-			</div>
-		</div>
-		<!-- ===================================================================== About tab end ==================-->
-		
-		<!-- <div style="float:right;">
-       		<?php if($photo) { ?>
-            	<img src="<? echo base_url($this->config->item('path_profile_img').$user_id.'/'.$photo); ?>" id="profile_pic" />
-            <?php } else { ?>
-				<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" id="profile_pic" />
-            <?php } ?>
-            <span id="uploadstate"></span>
-		</div> -->
-		<!-- =========================================================== Designation,Objective tab start ==================-->
-		<div id="objective_tab" class="tabs">
-			<div class="left_form_title">
-				<h3>DESIGNATION, OBJECTIVE</h3>				
-				<div class="clearboth"></div>
-				<p>This section will cover your current designation in case you are already working. If you are a student, you can skip this section. Alternatively, as a student you can talk about the role you desire to play in the path you take towards building your career. </p>
-			</div>
-			<div class="form_sections">
+				 <!-- Who am I end  -->
+
+
 		<!-- Designation -->
 			<div >
 				<!-- <label >Tag line</label> -->
@@ -223,7 +233,7 @@
 					<option value="What I want" <? if($objective[0] == 'What I want') {echo 'selected="selected"'; $found=1; } ?>>What I want</option>
 					<option value="Purpose" <? if($objective[0] == 'Purpose') {echo 'selected="selected"'; $found=1; } ?>>Purpose</option>
 					<option value="Objective" <? if($objective[0] == 'Objective') {echo 'selected="selected"'; $found=1; } ?>>Objective</option>
-					<option value="Custom heading" <?if(!$found)echo 'selected="selected"';?>>Custom heading</option>
+					<option value="Custom heading" <?if(!$found)echo 'selected="selected"';?>>Create my own heading</option>
 					<?
 					}
 					else
@@ -232,7 +242,7 @@
 					<option value="What I want" >What I want</option>
 					<option value="Purpose" >Purpose</option>
 					<option value="Objective" >Objective</option>
-					<option value="Custom heading" >Custom heading</option>
+					<option value="Custom heading" >Create my own heading</option>
 					<? }?>
 				</select>
 				<input id="objectivesTitle" name="cusObjectivesTitle" type="text" <?if(isset($about[0]['objective']) && (!$found)) {echo 'value="'.$objective[0].'"'; } else{ echo 'style="display:none;"'; }?> placeholder="Enter text here" />
@@ -242,6 +252,7 @@
 			    
 			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here" class="h200"><?php if(isset($about[0]['objective'])) echo $objective[1]; ?></textarea>
 			</div>
+			<!--
 			<div style="float:left;  margin: -53px 0 0 0;" class="content233">
 			<h3>Suggestions</h3>
 			<div divId="sug2" class="scroll_top scroll_top_inact sug_top1"></div>
@@ -251,7 +262,7 @@
 				</div>
 			</div>
 				<div class="scroll_btm sug_bot1" divId="sug2"></div>
-			</div>
+			</div> -->
 			 <div class="clearboth"></div>
 
 			
@@ -266,7 +277,7 @@
 		<!-- ===================================================================== Contact Me tab start ==================-->
 		<div id="contact_tab"  class="tabs">
 			<div class="left_form_title">
-				<h3>Contact Me</h3>
+				<h3>How to reach me</h3>
 				<div class="clearboth"></div>
 				<p> In this section you can reveal your contact details and decide exactly how you would like your employers to contact you. Our recommendation is that you definitley give them your phone number and Email Id. </p>
 			</div>
@@ -278,20 +289,21 @@
 					if(isset($user_detail[0]['contactTitle']))
 					{?>
 					<option <? if($user_detail[0]['contactTitle'] == 'How to reach me') {echo 'selected="selected"'; $found=1; } ?> value="How to reach me">How to reach me</option>
-					<option <?if(!$found)echo 'selected="selected"';?> value="Custom heading">Custom heading</option>
+					<option <? if($user_detail[0]['contactTitle'] == 'My Hangouts') {echo 'selected="selected"'; $found=1; } ?> value="My Hangouts">My Hangouts</option>
+					<option <? if($user_detail[0]['contactTitle'] == 'My Web Footprint') {echo 'selected="selected"'; $found=1; } ?> value="My Web Footprint">My Web Footprint</option>
+					<option <? if($user_detail[0]['contactTitle'] == 'My Social Networks') {echo 'selected="selected"'; $found=1; } ?> value="My Social Networks">My Social Networks</option>
+					<option <?if(!$found)echo 'selected="selected"';?> value="Custom heading">Create my own heading</option>
 					<?} else {?>
 					<option value="How to reach me">How to reach me</option>
-					<option value="Custom heading">Custom heading</option>
+					<option value="Custom heading">My Hangouts</option>
+					<option value="Custom heading">My Web Footprint</option>
+					<option value="Custom heading">My Social Networks</option>
+					<option value="Custom heading">Create my own heading</option>
 					<? }?>					
 				</select>
 				<input id="contactTitle" name="cusContactTitle" <?if(isset($user_detail[0]['contactTitle']) && (!$found)) {echo 'value="'.$user_detail[0]['contactTitle'].'"'; } else{ echo 'style="display:none;"'; }?> type="text"  placeholder="Custom title" />
 			</div>
-			<div >
-			    <input  type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
-          <span id="phone_err"></span><br />
-				<input   name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
-        <span id="email_err"></span>
-			</div>
+			
 			<div>
 			    <label>Website</label>
 			    <? 
@@ -536,7 +548,7 @@
 		  	</div>
 		  	<!-- strength briefly -->
 			<div>
-				<p style="margin:0 0 10px 0;">You can write about your strengths briefly here.	</p>
+				<p style="margin:0 0 10px 0;">You can write more about your strengths briefly here.	</p>
 			    <textarea rows="3"  type="text"  name="otherSkillsBrief" placeholder="A brief on your strengths"><?if(isset($about[0]['mystrength'])) echo $about[0]['mystrength'];?></textarea>
 			</div>
 			<span class="clickb next" href='#experience_tab'>Back</span>
@@ -551,7 +563,7 @@
 			<div class="left_form_title">
 				<h3>My Tool Box</h3>
 				<div class="clearboth"></div>
-				<p>Here's the place to add your skill sets, with a score on a scale to 10, 10 being the highest to indicate your profiiency in the skill. You can enter your skills sets here and assign a score to each.</p>
+				<p>Here's the place to add your skill sets, with a grade against each to indicate your proficiency in the skill. You can enter your skills sets here and assign a score to each of them. You can also elaborate on some of them.</p>
 			</div>
 			<div class="form_sections">
 			<!-- Skills -->
@@ -597,7 +609,7 @@
 								<option value='<?=$j;?>'><?=$j;?></option>
 							<? } ?>
 						</select>-->
-						<input type="hidden" name="skillEff[]" id="skillEff0" value="1"/>
+						<input type="hidden" name="skillEff[]" id="skillEff0" value="4"/>
 						<span class="sliding" data="0"></span>
 						<span class="slidingText" id="slid_msg0"></span>
 					</div>

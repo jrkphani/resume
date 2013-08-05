@@ -28,7 +28,7 @@ $intresttitle= unserialize($about['intresttitle']);
 $intrestDesc= unserialize($about['intrestDesc']);
 $intrestUrl= unserialize($about['intrestUrl']);
 $passport_visa = unserialize($about['passport_visa']);
-$skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","Very Good","Expert");
+$skillEffname=array("Want to learn","Training/Learning","Satisfactory","Good","Very Good","Expert");
 ?>
 </style>
 

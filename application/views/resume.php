@@ -152,7 +152,7 @@
 						<option value="Who I am" <? if($summary[0] == 'Who I am') {echo 'selected="selected"'; $found=1; } ?>>Who I am</option>
 						<option value="About me" <? if($summary[0] == 'About me') {echo 'selected="selected"'; $found=1; } ?>>About me</option>
 						<option value="Summary" <? if($summary[0] == 'Summary') {echo 'selected="selected"'; $found=1; } ?>>Summary</option>
-						<option value="Custom heading" <?if(!$found)echo 'selected="selected"';?> >Custom heading</option>					
+						<option value="Custom heading" <?if(!$found)echo 'selected="selected"';?> >Create my own heading</option>					
 						<?
 						}
 						else

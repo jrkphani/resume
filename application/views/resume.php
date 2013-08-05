@@ -8,7 +8,7 @@
 .ui-datepicker-calendar {     display: none; }​
 </style>
 <?php
-	$keywords = array("Ability to Delegate", "Analytical Ability", "Can Handle to Work Overlay", "Competitive", "Competencies", "Collaborative", "Enthusiastic", "Flexible", "Follow Through Leadership", "High Energy", "Mutli-task oriented", "Organizational skills", "Presentation Skills", "Rigorous", "Self-driven", "Team building", "Setting priorities", "Self Managing", "Achievement oriented", "Adaptable", "Ability to Implement", "Ability to Plan", "Ability to Train", "Accurate", "Assertive", "Budget-driven", "Creative", "Communication Skills", "Conceptual Ability", "Dependable", "Deadline driven", "Detail-oriented", "Emphasis", "Energetic", "Ethical", "Excellent Track Record", "Extensive Experience", "Focused", "Good Understanding", "Independent", "Innovative", "Industrious", "Leadership", "Motivated", "Open Communication", "Open Minded", "Organized", "Problem Solving", "Process Oriented", "Proficient", "Persuasive", "Results Focused", "Results Oriented", "Resourcefulness", "Self Accountable", "Supportive", "Takes Initiative", "Versatile", "Reliable", "Articulate", "Customer Focused ", "Client Focused");
+	$keywords = array("Ability to Delegate", "Analytical Ability", "Can handle work overload", "Competitive", "Collaborative", "Enthusiastic", "Flexible", "Follow Through Leadership", "High Energy", "Mutli-task oriented", "Organizational skills", "Presentation Skills", "Rigorous", "Self-driven", "Team building", "Setting priorities", "Self Managing", "Achievement oriented", "Adaptable", "Ability to Implement", "Ability to Plan", "Ability to Train", "Accurate", "Assertive", "Budget-driven", "Creative", "Communication Skills", "Conceptual Ability", "Dependable", "Deadline driven", "Detail-oriented", "Emphasis", "Energetic", "Ethical", "Excellent Track Record", "Extensive Experience", "Focused", "Good Understanding", "Independent", "Innovative", "Industrious", "Leadership", "Motivated", "Open Communication", "Open Minded", "Organized", "Problem Solving", "Process Oriented", "Proficient", "Persuasive", "Results Focused", "Results Oriented", "Resourcefulness", "Self Accountable", "Supportive", "Takes Initiative", "Versatile", "Reliable", "Articulate", "Customer Focused ", "Client Focused","Initiative","Interpersonal Skills","Managed","Proactive","Strategy","Supervised","Methodology","Quality","Trained","Performance","Problem Solving","Team Management","Customer Experience","Customer Support","Manage Client Relationships","Self Starter","Business Innovation","Project Initiation","Planning","Client Presentations");
 ?>
 <div class="form_title">
 	<h3>Discover Yourself</h3>
@@ -138,7 +138,30 @@
 				    <label >Current Address</label>
 				    <textarea rows="3"  type="text"  name="address" placeholder="Address" maxlength="90"><? if(isset($user_detail[0]['address'])) echo $user_detail[0]['address']; ?></textarea>
 				</div>
-			<!-- Summary -->
+				
+				<span style="margin-top:10px;" class="clickr next" href='#objective_tab'>Continue</span>
+			</div>
+		</div>
+		<!-- ===================================================================== About tab end ==================-->
+		
+		<!-- <div style="float:right;">
+       		<?php if($photo) { ?>
+            	<img src="<? echo base_url($this->config->item('path_profile_img').$user_id.'/'.$photo); ?>" id="profile_pic" />
+            <?php } else { ?>
+				<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" id="profile_pic" />
+            <?php } ?>
+            <span id="uploadstate"></span>
+		</div> -->
+		<!-- =========================================================== Designation,Objective tab start ==================-->
+		<div id="objective_tab" class="tabs">
+			<div class="left_form_title">
+				<h3>DESIGNATION, OBJECTIVE</h3>				
+				<div class="clearboth"></div>
+				<p>This section helps you elaborate on your profile and your current designation and what you are hoping to achieve in the future with respect to your career. In case you are a student, you can talk about your aspirations and the role you are looking forward to play in your career.</p>
+			</div>
+			<div class="form_sections">
+
+				<!-- Who am I start  -->
 				<div>
 					<select class="custTitle" name="summaryTitle">
 						<?
@@ -183,27 +206,9 @@
 				<div class="scroll_btm sug_bot1" divId="sug1"></div>
             </div>
 				 <div class="clearboth"></div>
-				<span style="margin-top:10px;" class="clickr next" href='#objective_tab'>Continue</span>
-			</div>
-		</div>
-		<!-- ===================================================================== About tab end ==================-->
-		
-		<!-- <div style="float:right;">
-       		<?php if($photo) { ?>
-            	<img src="<? echo base_url($this->config->item('path_profile_img').$user_id.'/'.$photo); ?>" id="profile_pic" />
-            <?php } else { ?>
-				<img src="<? echo base_url('assets/img/userPhoto.png'); ?>" id="profile_pic" />
-            <?php } ?>
-            <span id="uploadstate"></span>
-		</div> -->
-		<!-- =========================================================== Designation,Objective tab start ==================-->
-		<div id="objective_tab" class="tabs">
-			<div class="left_form_title">
-				<h3>DESIGNATION, OBJECTIVE</h3>				
-				<div class="clearboth"></div>
-				<p>This section will cover your current designation in case you are already working. If you are a student, you can skip this section. Alternatively, as a student you can talk about the role you desire to play in the path you take towards building your career. </p>
-			</div>
-			<div class="form_sections">
+				 <!-- Who am I end  -->
+
+
 		<!-- Designation -->
 			<div >
 				<!-- <label >Tag line</label> -->
@@ -242,6 +247,7 @@
 			    
 			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here" class="h200"><?php if(isset($about[0]['objective'])) echo $objective[1]; ?></textarea>
 			</div>
+			<!--
 			<div style="float:left;  margin: -53px 0 0 0;" class="content233">
 			<h3>Suggestions</h3>
 			<div divId="sug2" class="scroll_top scroll_top_inact sug_top1"></div>
@@ -251,7 +257,7 @@
 				</div>
 			</div>
 				<div class="scroll_btm sug_bot1" divId="sug2"></div>
-			</div>
+			</div> -->
 			 <div class="clearboth"></div>
 
 			

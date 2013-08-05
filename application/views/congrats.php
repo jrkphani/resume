@@ -3,7 +3,7 @@
 .s_heading{
 	width: 96%;
 	height: 60px;
-	background: #f07057;
+	background: #e78130;
 	line-height: 60px;
 	color: #fff;
 	font-size: 1.6em;
@@ -16,13 +16,13 @@
 	width: 200px; height: 40px; line-height: 40px;
 	 display: block; text-align: center;
 	 margin: 0 auto;	cursor: pointer; text-decoration: none;
-	background: #f07057 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #c5533d;	color: #fff;	
+	background: #e78130 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #d77426;	color: #fff;	
 	margin-top:100px;
 }
 
 .clickr:hover{
-	background-color: #da5e46;
-	border: solid 1px #d05840;
+	background-color: #f2722c;
+	border: solid 1px #d77426;
 }
 
 </style>

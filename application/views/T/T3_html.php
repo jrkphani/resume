@@ -274,13 +274,17 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
     <!---------------------------------------------------right-----------------------------------------------------------------------------> 
     
     <!---------------------------------------------------contact----------------------------------------------------------------------------->
-    <? if($user_detail['mobile'] || $user_detail['address']) { ?>
+    <? if($user_detail['mobile'] || $user_detail['address'] || $user_detail['secondary_email']) { ?>
     <div class="contact">
       <h1>Contact Me</h1>
       <?php if($user_detail['mobile']) { ?>
       <p class="phone">
         <?=$user_detail['mobile'];?>
-      </p>
+      </p>				
+			<?php } if($user_detail['secondary_email']) { ?>
+        <p class="mail">
+          <?=$user_detail['secondary_email'];?>
+        </p>
       <?php } if($user_detail['address']) { ?>
       <p class="address">
         <?=nl2br($user_detail['address']);?>
@@ -398,19 +402,17 @@ $skillEffname=array("Don't Know","Training","Poor","Satisfactory","OK","Good","V
        <?php }  ?>
        
        
-       <!-- how to reach me -->
+  <!-- -------------------------------------how to reach me------------------------------------- -->
 			 <?php
 			 
 		 
 			 
-			 if(($website['mylink']) || ($user_detail['skype']) || ($website['facebook']) || ($website['linkedin']) || ($website['twitter']) || ($user_detail['secondary_email'])) { ?>
+			 if(($website['mylink']) || ($user_detail['skype']) || ($website['facebook']) || ($website['linkedin']) || ($website['twitter'])) { ?>
         
-         <h2><?=$user_detail['contactTitle'];?></h2>
+         <h2><?=$user_detail['contactTitle'];?></h2><br/>
          
-				<?php } if($user_detail['secondary_email']) { ?>
-        <p class="mail">
-          <?=$user_detail['secondary_email'];?>
-        </p>        
+         
+        
         <? if($website['mylink']) { ?>
         <p class="url">
          <?=$website['mylink'];?>

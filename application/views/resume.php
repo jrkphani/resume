@@ -548,7 +548,7 @@
 		  	</div>
 		  	<!-- strength briefly -->
 			<div>
-				<p style="margin:0 0 10px 0;">You can write about your strengths briefly here.	</p>
+				<p style="margin:0 0 10px 0;">You can write more about your strengths briefly here.	</p>
 			    <textarea rows="3"  type="text"  name="otherSkillsBrief" placeholder="A brief on your strengths"><?if(isset($about[0]['mystrength'])) echo $about[0]['mystrength'];?></textarea>
 			</div>
 			<span class="clickb next" href='#experience_tab'>Back</span>

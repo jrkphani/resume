@@ -563,7 +563,7 @@
 			<div class="left_form_title">
 				<h3>My Tool Box</h3>
 				<div class="clearboth"></div>
-				<p>Here's the place to add your skill sets, with a score on a scale to 10, 10 being the highest to indicate your profiiency in the skill. You can enter your skills sets here and assign a score to each.</p>
+				<p>Here's the place to add your skill sets, with a grade against each to indicate your proficiency in the skill. You can enter your skills sets here and assign a score to each of them. You can also elaborate on some of them.</p>
 			</div>
 			<div class="form_sections">
 			<!-- Skills -->
@@ -609,7 +609,7 @@
 								<option value='<?=$j;?>'><?=$j;?></option>
 							<? } ?>
 						</select>-->
-						<input type="hidden" name="skillEff[]" id="skillEff0" value="1"/>
+						<input type="hidden" name="skillEff[]" id="skillEff0" value="4"/>
 						<span class="sliding" data="0"></span>
 						<span class="slidingText" id="slid_msg0"></span>
 					</div>

@@ -160,7 +160,7 @@
 						<option value="Who I am" >Who I	 am</option>
 						<option value="About me" >About me</option>
 						<option value="Summary" >Summary</option>
-						<option value="Custom heading" >Custom heading</option>
+						<option value="Custom heading" >Create my own heading</option>
 						<?}
 						?>
 						
@@ -223,7 +223,7 @@
 					<option value="What I want" <? if($objective[0] == 'What I want') {echo 'selected="selected"'; $found=1; } ?>>What I want</option>
 					<option value="Purpose" <? if($objective[0] == 'Purpose') {echo 'selected="selected"'; $found=1; } ?>>Purpose</option>
 					<option value="Objective" <? if($objective[0] == 'Objective') {echo 'selected="selected"'; $found=1; } ?>>Objective</option>
-					<option value="Custom heading" <?if(!$found)echo 'selected="selected"';?>>Custom heading</option>
+					<option value="Custom heading" <?if(!$found)echo 'selected="selected"';?>>Create my own heading</option>
 					<?
 					}
 					else
@@ -232,7 +232,7 @@
 					<option value="What I want" >What I want</option>
 					<option value="Purpose" >Purpose</option>
 					<option value="Objective" >Objective</option>
-					<option value="Custom heading" >Custom heading</option>
+					<option value="Custom heading" >Create my own heading</option>
 					<? }?>
 				</select>
 				<input id="objectivesTitle" name="cusObjectivesTitle" type="text" <?if(isset($about[0]['objective']) && (!$found)) {echo 'value="'.$objective[0].'"'; } else{ echo 'style="display:none;"'; }?> placeholder="Enter text here" />
@@ -278,10 +278,10 @@
 					if(isset($user_detail[0]['contactTitle']))
 					{?>
 					<option <? if($user_detail[0]['contactTitle'] == 'How to reach me') {echo 'selected="selected"'; $found=1; } ?> value="How to reach me">How to reach me</option>
-					<option <?if(!$found)echo 'selected="selected"';?> value="Custom heading">Custom heading</option>
+					<option <?if(!$found)echo 'selected="selected"';?> value="Custom heading">Create my own heading</option>
 					<?} else {?>
 					<option value="How to reach me">How to reach me</option>
-					<option value="Custom heading">Custom heading</option>
+					<option value="Custom heading">Create my own heading</option>
 					<? }?>					
 				</select>
 				<input id="contactTitle" name="cusContactTitle" <?if(isset($user_detail[0]['contactTitle']) && (!$found)) {echo 'value="'.$user_detail[0]['contactTitle'].'"'; } else{ echo 'style="display:none;"'; }?> type="text"  placeholder="Custom title" />

@@ -911,9 +911,9 @@
 					<?
 					if(isset($user_detail[0]['married']))
 					{?>
-						<option value="NULL" <?if($user_detail[0]['married']==NULL) echo 'selected="selected"';?>  >Not specified</option>
-						<option value=1 <?if($user_detail[0]['married']==1) echo 'selected="selected"';?>  >Married</option>
-						<option value=0 <?if($user_detail[0]['married']==0) echo 'selected="selected"';?>  >Unmarried</option>
+						<option value="1" <?if($user_detail[0]['married']=="1") echo 'selected="selected"';?>  >Married</option>
+						<option value="0" <?if($user_detail[0]['married']=="0") echo 'selected="selected"';?>  >Unmarried</option>
+						<option value="NULL" <?if($user_detail[0]['married']=="NULL") echo 'selected="selected"';?>  >Not specified</option>
 					<?
 					}
 					else

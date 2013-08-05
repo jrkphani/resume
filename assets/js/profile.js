@@ -29,6 +29,7 @@ $(document).ready(function(){
 	$("#pr-cancel-link").click(function(){
 		$('.pr-view, #pr-edit-link, #show_change_password').show();
 		$('.pr-edit').hide();
+		$('#uploadstate').html("");
 		//$('#pr-edit-link').show();
 		$('.img_update').attr('id','');
 	});

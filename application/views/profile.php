@@ -30,8 +30,8 @@
     <!--    Profile photo start  -->
     <div class="profile_photo" id="profile_photo">
         	<img src="<?php echo $img; ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;<?php echo $last_name; ?>" class="img_update" alt="Profile photo" />
-        	<span id="uploadstate"></span>
     </div>
+    <span id="uploadstate"></span>
     <div class="clearBoth"></div>
     <!--    Profile photo end   -->
 

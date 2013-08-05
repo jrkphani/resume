@@ -239,3 +239,7 @@ padding: 0 2px 0 0; margin: 25px 0;
 	background:url("../img/icon_reset.png") no-repeat 0px 2px transparent; cursor: pointer;
 
 }
+#uploadstate
+{
+color:red; margin: 10px 0 10px 0;
+}

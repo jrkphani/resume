@@ -1,5 +1,9 @@
 $(document).ready(function()
 {
+	//today date in date-picker 
+	$('button.ui-datepicker-current').live('click', function() {
+        $.datepicker._curInst.input.datepicker('setDate', new Date()).datepicker('hide');
+    });
 	//Avoid form data lose, by ask confirmation when click any links other than download.
 	downloadClicked = false;
     window.onbeforeunload = confirmExit;

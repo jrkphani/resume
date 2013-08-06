@@ -170,16 +170,16 @@ footer p{
 }
 
 /************************** Large desktop **************************/
-@media (min-width: 1200px) { ... }
+/*@media (min-width: 1200px) { ... }*/
  
 /************************** Portrait tablet to landscape and 1024 DESKTOP **************************/
-@media (min-width: 768px) and (max-width: 979px) { ... }
+/*@media (min-width: 768px) and (max-width: 979px) { ... }*/
  
 /************************** Landscape phone to portrait tablet **************************/
-@media (max-width: 767px) { ... }
+/*@media (max-width: 767px) { ... }*/
  
 /************************** Landscape phones and down **************************/
-@media (max-width: 480px) { ... }
+/*@media (max-width: 480px) { ... }*/
 
 
 .slide_top_1 {	background: #93c13d !important;}

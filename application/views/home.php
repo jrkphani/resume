@@ -1,5 +1,5 @@
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_home.css"); ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/responsiveslides.css"); ?>" />
+<link type="text/css" href="<?php echo base_url("assets/css/sss_home.css"); ?>" rel="stylesheet" />
+<link type="text/css" href="<?php echo base_url("assets/css/responsiveslides.css"); ?>" rel="stylesheet" />
 
 		<hr/>
 		<div class="rslider_container">
@@ -14,7 +14,7 @@
 							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
 						</div>
 						<div class="slide_bottom_1">
-							<img class="slider_img" src="<?php echo base_url("assets/img/slider1.png"); ?>">
+							<img class="slider_img" alt="Choose your resume style" title="Choose your resume style" src="<?php echo base_url("assets/img/slider1.png"); ?>">
 						</div>
 						<div class="slide_bottom_2">
 							<p>Penning down your resume is not easy to do and when its finally complete there is no energy left to make it look good. Its the same drab black and white Word document you end up with. <br/><br/>Here is where we want to make a difference. We believe your resume is the most important document you ever created and hence we have designed a whole range of templates for you to pick from. With a face lift there is a good chance your resume brightens up your prospects to get selected from the pile. </p>
@@ -32,7 +32,7 @@
 							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
 						</div>
 						<div class="slide_bottom_1">
-							<img class="slider_img" src="<?php echo base_url("assets/img/slider2.png"); ?>">
+							<img class="slider_img" alt="Discover yourself" title="Discover yourself" src="<?php echo base_url("assets/img/slider2.png"); ?>">
 						</div>
 						<div class="slide_bottom_2">
 							<p>These are the most crutial pieces of information. A recruiter can keep or reject your resume based on how you project yourself. We understand your need for a good resume with chatchy phrases that build your personality and make an impact.<br/><br/>We have made form filling much easier, you don't have to think up beautiful words any more. We serve them to you as you go along. All you need to do is pick the best matches that suit your personality. Now, that is a step forward to help right! </p>
@@ -52,7 +52,7 @@
 					
 					
 						<div class="slide_bottom_1"> 
-							<img class="slider_img" src="<?php echo base_url("assets/img/slider3.png"); ?>">
+							<img class="slider_img" alt="Build your Image" title="Build your Image" src="<?php echo base_url("assets/img/slider3.png"); ?>">
 						</div>
 						<div class="slide_bottom_2">
 							<p>At the end of the exercise of building your image and putting in all the right words together you want a great looking resume. We give you the choice of changing the template any number of times till you feel comfortable. <br/><br/>At the end of it, we want you to have a great looking resume that best describes you.</p>
@@ -72,7 +72,7 @@
 					
 					
 						<div class="slide_bottom_1">
-							<img class="slider_img" src="<?php echo base_url("assets/img/slider4.png"); ?>">
+							<img class="slider_img" alt="Register with EZCV" title="Register with EZCV" src="<?php echo base_url("assets/img/slider4.png"); ?>">
 						</div>
 						<div class="slide_bottom_2">
 							<p>And of course, any resume you work on is of great importance to us. We want to ensure we preserve all your hard work so that you can edit it the next time you visit our site. <br/><br/>Once you have registered with us, you can stay rest assured that all your hard work and time spent has been saved up to the last detail.</p>

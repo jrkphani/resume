@@ -74,14 +74,15 @@
 			<div class="left_form_title">
 				<h3>About Me</h3>
 				<div class="clearboth"></div>
-				<p> Tell us about yourself in this section. You can enter your name and current location as well as talk about yourself and what you have been doing till date.</p>
+				<p>Tell us about yourself in this section. You can enter your name, current location and other contact details here.</p>
 			</div>
 			
 			<div class="form_sections">
 				<div>
 					<input type="text" name="fname"  id="first_name" placeholder="First name"  value="<? if(isset($user_detail[0]['first_name'])) echo $user_detail[0]['first_name']; ?>" maxlength="30" required/>
-          
+          <span class="star_mant">*</span>
 					<input name="lname" type="text"  id="last_name" placeholder="Last name" value="<? if(isset($user_detail[0]['last_name'])) echo $user_detail[0]['last_name']; ?>" maxlength="30" required/>
+          <span class="star_mant2">*</span>
           <span class="fnme" id="fname_err"></span>
           <span class="lnme" id="lname_err"></span>
 				</div>

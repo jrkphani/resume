@@ -20,6 +20,7 @@ $(document).ready(function(){
 		$('.pr-edit').show();
 		//$('.pr-edit').css("display", "block");
 		$('.img_update').attr('id','profile_pic');
+		$('.img_update').addClass('edit_user_icon');
 
 		if($('#primary_email').val()==$('#secondary_email').val())
 			$('#display_email').hide();
@@ -32,6 +33,7 @@ $(document).ready(function(){
 		$('#uploadstate').html("");
 		//$('#pr-edit-link').show();
 		$('.img_update').attr('id','');
+		$('.img_update').removeClass('edit_user_icon');
 	});
 	
 	//Submit form

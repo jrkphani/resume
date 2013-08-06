@@ -157,5 +157,16 @@ Class User extends CI_Model
     $this->db->where('email',$email);
     $this->db->update('referred_emails',$data);
  }
+
+  //Get any general details about a user 
+  function get_userdetail($select,$where)
+  {
+    $this -> db -> select($select);
+    $this -> db -> from('users');
+    $this->db->join('user_detail', 'users.id = user_detail.user_id');
+    $this -> db -> where($where);
+    $query = $this -> db -> get();
+    return $query->result_array();
+  }
 }
 ?>

@@ -22,7 +22,7 @@
 	<span tab='#objective_tab' class="tab rns rns_inner">Designation, Objective</span>
 	<span tab='#contact_tab' class="tab rns rns_inner">How to reach me</span>
 	<span tab='#experience_tab' class="tab rns rns_inner">Experience Summary</span>
-	<span tab='#strength_tab' class="tab rns rns_inner">My Strength </span>
+	<span tab='#strength_tab' class="tab rns rns_inner">My Strengths </span>
 	<span tab='#tool_tab' class="tab rns rns_inner">My Tool Box</span>
 	<span tab='#milestones_tab' class="tab rns rns_inner">My Milestones</span>
 	<span tab='#edication_tab' class="tab rns rns_inner">Education & Awards</span>

@@ -53,7 +53,7 @@ function validate(title,id,mandatory,max_length,min_length,type,display)
 		var format = /^[a-zA-Z ]+$/;
 		if(!data.match(format))
 		{
-			var msg=title+' only can contain alphapets and empty space.';
+			var msg=title+' can contain alphapets and empty space only.';
 			if(!display)
 				alert(msg);
 			else
@@ -67,7 +67,7 @@ function validate(title,id,mandatory,max_length,min_length,type,display)
 		var format = /^[0-9]+$/;
 		if(!data.match(format))
 		{
-			var msg=title+' only can be a number.';
+			var msg=title+' can be a number only.';
 			if(!display)
 				alert(msg);
 			else

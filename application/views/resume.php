@@ -87,14 +87,16 @@
           <span class="lnme" id="lname_err"></span>
 				</div>
 			<div >
-			    <input  type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
+			   <span class="phone_icon">&nbsp;</span><input  type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
+         <span class="star_mant">*</span>
 				<span id="phone_err"></span><br />
-				<input   name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
+				<span class="mail_icon">&nbsp;</span><input   name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
+        <span class="star_mant">*</span>
 				<span id="email_err"></span>
 			</div>
 			<!-- DOB -->
 				<div>
-				    <label >Date of Birth</label>
+				    <label >Date of Birth<span style="color:red">*</span></label>
 				    <?
 				    if(isset($user_detail[0]['dob'])) 
 				    $dob = explode('-',$user_detail[0]['dob']);
@@ -111,7 +113,8 @@
 						<option value="<?=$dateMonth[$i];?>" <? if(isset($dob[0]) && $dob[0]==$dateMonth[$i]){ echo 'selected="selected"';} ?> > <?=$dateMonth[$i];?> </option>
 						<? } ?>
 				    </select>
-				    <select class="w100" name="dobDay">
+            <span class="star_mant3">*</span>
+				    <select class="w100 select_dob_input" name="dobDay">
 						<?
 						if((!isset($dob[0])) || (!$dob[0]))
 						echo '<option value="0" selected="selected">Day</option>';
@@ -123,7 +126,8 @@
 						<option value="<?=$i;?>" <? if(isset($dob[1]) && $dob[1]==$i){ echo 'selected="selected"';} ?> > <?=$i;?> </option>
 						<? } ?>
 				    </select>
-				    <select class="w100" name="dobYear">
+            <span class="star_mant3">*</span>
+				    <select class="w100 select_dob_input" name="dobYear">
 						<?
 						if((!isset($dob[0])) || (!$dob[0]))
 						echo '<option value="0" selected="selected">Year</option>';
@@ -137,12 +141,13 @@
 						<option value="<?=$current_Year;?>" <? if(isset($dob[2]) && $dob[2]==$current_Year){ echo 'selected="selected"';} ?> > <?=$current_Year--;?> </option>
 						<? } ?>
 				    </select>
+            <span class="star_mant4">*</span>
 				    <!--<input  type="text"  class="full_date_picker" name="dob" placeholder="Feb-09-1989" value="<? if(isset($user_detail[0]['dob'])) echo $user_detail[0]['dob']; ?>"  readonly="readonly" required/>-->
 				</div>
 			<!-- Address -->
 				<div >
 				    <label >Current Address</label>
-				    <textarea rows="3"  type="text"  name="address" placeholder="Address" maxlength="90"><? if(isset($user_detail[0]['address'])) echo $user_detail[0]['address']; ?></textarea>
+				    <textarea rows="3"  type="text"  name="address" placeholder="Address*" maxlength="90"><? if(isset($user_detail[0]['address'])) echo $user_detail[0]['address']; ?></textarea>
 				</div>
 				
 				<span style="margin-top:10px;" class="clickr next" href='#objective_tab'>Continue</span>
@@ -168,7 +173,8 @@
 			<div class="form_sections">
 
 				<!-- Who am I start  -->
-				<div>
+				<div style="float:left;">
+        <div>
 					<select class="custTitle" name="summaryTitle">
 						<?
 						$summary[0]=NULL;
@@ -198,19 +204,11 @@
 				</div>
 				<div class="textarea_big">
 					<!-- <label >Summary</label> -->
-				    <textarea rows="3" name="summary" type="text"  placeholder="Enter text here" maxlength="1000" class="h200"><?if(isset($about[0]['summary']))echo $summary[1];?></textarea>
+				    <textarea rows="3" name="summary" type="text"  placeholder="Enter text here*" maxlength="1000" class="h200"><?if(isset($about[0]['summary']))echo $summary[1];?></textarea>
 				    
 				</div>
-        <div style="float:left; margin: -53px 0 0 0;" class="content233">
-        <h3>Suggestions</h3>
-        		<div divId="sug1" class="scroll_top scroll_top_inact sug_top1"></div>
-        		<div style="overflow:hidden; width:300px; height:188px;">
-					<div class="suggestion_box" id="sug1">
-					    		<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
-					</div>
-				</div>
-				<div class="scroll_btm sug_bot1" divId="sug1"></div>
-            </div>
+        
+
 				 <div class="clearboth"></div>
 				 <!-- Who am I end  -->
 
@@ -251,8 +249,22 @@
 			<div class="textarea_big">
 			    <!-- <label >Objective</label> -->
 			    
-			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here" class="h200"><?php if(isset($about[0]['objective'])) echo $objective[1]; ?></textarea>
+			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here*" class="h200"><?php if(isset($about[0]['objective'])) echo $objective[1]; ?></textarea>
 			</div>
+      </div>
+      <div style="float:left">
+              <div style="float:left; margin: 58px 0 0 0;" class="content233">
+        <h3>Suggestions</h3>
+        		<div divId="sug1" class="scroll_top scroll_top_inact sug_top1"></div>
+        		<div style="overflow:hidden; width:300px; height:559px;">
+					<div class="suggestion_box" id="sug1">
+					    		<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
+					</div>
+				</div>
+				<div class="scroll_btm sug_bot1" divId="sug1"></div>
+            </div>
+      
+      </div>
 			<!--
 			<div style="float:left;  margin: -53px 0 0 0;" class="content233">
 			<h3>Suggestions</h3>
@@ -306,7 +318,7 @@
 			</div>
 			
 			<div>
-			    <label>Website</label>
+			    <span class="web_icon">&nbsp;</span>
 			    <? 
 			    if(isset($about[0]['website']))
 			    $website= unserialize($about[0]['website']);
@@ -314,19 +326,19 @@
 			    <input  class="w400" id="website" type="url"  name="url[]" placeholder="http://digitalchakra.in/" value="<? if(isset($about[0]['website'])) echo $website['mylink']; ?>" /><span id="website_err"></span>
 			</div>
 			<div>
-			    <label >linkedin</label>
+			    <span class="lin_icon">&nbsp;</span>
 			    <input class="w400" type="url" id="linkedin" name="url[]" placeholder="http://digitalchakra.in/linkedin" value="<? if(isset($about[0]['website'])) echo $website['linkedin']; ?>" /> <span id="linkedin_err"></span>
 			</div>
 			<div>
-			    <label >Skype</label>
+			    <span class="skype_icon">&nbsp;</span>
 			    <input class="w400" type="text"  name="skype" placeholder="skype" value="<? if(isset($user_detail[0]['skype'])) echo $user_detail[0]['skype']; ?>" />
 			</div>
 			<div>
-				<label >twitter</label>
+				<span class="tw_icon">&nbsp;</span>
 				<input class="w400" type="url" id="twitter" name="url[]" placeholder="http://twitter.com/Digitalchakra" value="<? if(isset($about[0]['website'])) echo $website['twitter']; ?>" /><span id="twitter_err"></span>
 			</div>
 			<div>
-				<label >facebook</label>
+				<span class="fb_icon">&nbsp;</span>
 				<input class="w400" type="url" id="facebook" name="url[]" placeholder="http://www.facebook.com/digitalchakra" value="<? if(isset($about[0]['website'])) echo $website['facebook']; ?>" /><span id="facebook_err"></span>
 			</div>
 			<span class="clickb next" href='#objective_tab'>Back</span>

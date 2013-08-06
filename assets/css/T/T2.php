@@ -102,7 +102,7 @@ body h1,h2,h3,h4,{font-weight:normal;}
 .pbar{ }
 
 .pbar_inner{ 
- width: 60%;  height: 6px;  margin-top: 2px; float: left; 
+ width: 48%;  height: 6px;  margin-top: 2px; float: left; 
  background-color: #dbdbdb; border:solid 1px #bebebe; }
 
 .pbar_fill{

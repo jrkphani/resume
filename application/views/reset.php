@@ -10,7 +10,7 @@
 <div class="container">
 		<div class="download-main">
 			<div class="download-main-inner">
-				<span style="color:#ff0000; font-size:14px; position:absolute; margin:22px 0 0 184px;"><?php echo $error; ?></span>
+				<span style="color:#ff0000; font-size:14px; position:absolute; margin:22px 0 0 204px;"><?php echo $error; ?></span>
 				<br>
 				<br>
 				<form action="<?php echo base_url('forget/activation'); ?>" method="POST">

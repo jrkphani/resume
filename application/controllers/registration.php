@@ -73,8 +73,8 @@ class Registration extends CI_Controller {
 
 		  	if($result_exist=$this->user->check_user(array('email'=>$primary_email)))
 		  	{
-		  		$data['errors']=$primary_email.' is already registered with us.';
-				$data['success']='no';
+		  		$data['ex_msg']=$primary_email.' is already registered with us.';
+				$data['success']='already';
 				$result['resultset']=$data;
 				$this->load->view('json',$result);
 			}

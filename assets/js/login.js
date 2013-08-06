@@ -200,16 +200,19 @@ $(document).ready(function()
 					if(data.resultset.html=='no')
 						$('#error_msg1').append(' Cannot generate download file. Try again later. <br />');
 					else if(data.resultset.html=='nosession')
-						$('#error_msg1').append('Registration success, plaese check your email. <br />');
+						$('.scus-msg').append('Thank you for registering with EZCV. An activation email has been sent to your account. Please activate your account and get access to your resume.');
 					else if(data.resultset.html=='nodownload')
-						$('#error_msg1').append('Registration success, plaese check your email. <br />');
+						$('.scus-msg').append('Thank you for registering with EZCV. An activation email has been sent to your account. Please activate your account and get access to your resume.');
 					else
 
 						window.location.replace(baseurl+'download/index/'+data.resultset.html);
 				}
 				else
 				{
-					$('#error_msg1').html(data.resultset.errors);	
+					if(data.resultset.success=='already')
+						$('#email_err1').html(data.resultset.ex_msg);
+					else
+						$('#error_msg1').html(data.resultset.errors);	
 				}
 			},
 			error:function()

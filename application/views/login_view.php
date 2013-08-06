@@ -65,6 +65,7 @@
 		<div id="form_reg" <? if($register!='register')	{ echo 'style="display:none;"'; } ?>>
 			<h2>New to Resume Builder? Sign Up </h2>
 			<form id="registration_form">
+				<p class="scus-msg"></p>
 				<label for="firstname">First name *</label>
 			    <input type="text" name="firstname" id="firstname" placeholder="First name" value="<?php echo $sess_user_detail['user_detail']['first_name']; ?>" />
 				<span class="error_msg" id="firstname_err1"></span>

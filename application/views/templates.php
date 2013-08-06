@@ -16,10 +16,10 @@
 			<div class="t_list_bg">
 				<!-- clicking on following div should do select functionality -->
 				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img title="Spring Bloom" class="temp_select" tvalue="T1" src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Spring Bloom</p>
-						<a title="Spring Bloom" class="t_select" tvalue="T1">Select</a>
+						<!--<a title="Spring Bloom" class="t_select" tvalue="T1">Select</a>-->
 						<span class="previewTemp" title="Spring Bloom" href="<?php echo base_url("assets/img/T1_full.png"); ?>">zoom</span>
 					</div>
 				</div>
@@ -27,10 +27,10 @@
 			<div class="t_list_bg">
 				<!-- clicking on following div should do select functionality -->
 			<div class="t_list_t">
-				<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
+				<img title="Pyramid Point" class="temp_select" tvalue="T4" src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 				<div class="t_list_s">
 					<p>Pyramid Point</p>
-					<a title="Pyramid Point" class="t_select" tvalue="T4">Select</a>
+					<!--<a title="Pyramid Point" class="t_select" tvalue="T4">Select</a>-->
 					<span class="previewTemp" title="Pyramid Point" href="<?php echo base_url("assets/img/T4_full.png"); ?>">zoom</span>
 				</div>
 			</div>
@@ -39,10 +39,10 @@
 			<div class="t_list_bg">
 				<!-- clicking on following div should do select functionality -->
 				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img title="White Citadel" class="temp_select" tvalue="T2" src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>White Citadel</p>
-						<a title="White Citadel" class="t_select" tvalue="T2">Select</a>
+						<!--<a title="White Citadel" class="t_select" tvalue="T2">Select</a>-->
 						<span class="previewTemp" title="White Citadel" href="<?php echo base_url("assets/img/T2_full.png"); ?>">zoom</span>
 					</div>
 				</div>
@@ -50,10 +50,10 @@
 			<div class="t_list_bg">
 				<!-- clicking on following div should do select functionality -->
 			<div class="t_list_t">
-				<img src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
+				<img title="Window View" class="temp_select" tvalue="T3" src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 				<div class="t_list_s">
 					<p>Window View</p>
-					<a title="Window View" class="t_select" tvalue="T3">Select</a>
+					<!--<a title="Window View" class="t_select" tvalue="T3">Select</a>-->
 					<span class="previewTemp" title="Window View" href="<?php echo base_url("assets/img/T3_full.png"); ?>">zoom</span>
 				</div>
 			</div>

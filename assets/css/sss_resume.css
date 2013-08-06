@@ -399,7 +399,7 @@ height: 2px!important;
 	border-left:1px solid #e1e1e1;
 	border-right:1px solid #e1e1e1;
 	border-top: 1px solid #e1e1e1;
-	transition : border 500ms ease-out; 
+	transition : border .2s ease-out; 
  	-webkit-transition : border .2s ease-in-out; 
 	-moz-transition : border .2s ease-in-out;
 	-o-transition : border .2s ease-in-out;   
@@ -425,20 +425,6 @@ height: 2px!important;
  -o-transition:margin-bottom .2s ease-in-out;
 }
 
-/*.t_list_t:hover .t_list_s{
-	margin-bottom: -9px;	
-}*/
-.t_list_t:hover{
-	border: solid 5px #ff7f27;	
-}
-
-.t_list_t:hover .t_list_s{
-	margin-bottom: -9px;	
-}
-
-.t_list_selected{
-	border: solid 5px #ff7f27;
-}
 
 
 .t_list_s p{
@@ -626,7 +612,7 @@ margin: -23px 0 0 226px;}
 /* selected template */
 .selected_temp
 {
-    border: 4px solid #F07057!important;
+    border: 5px solid #ff7f27!important;
 }
 /*.emailtooltip{margin:-15px 0 0 0!important;}*/
 .tooltip_qs_img{}
@@ -642,3 +628,29 @@ margin: -23px 0 0 226px;}
 
 .phone_icon{background:url(../img/sprites.png) 0px -1209px no-repeat; padding:6px 0px 12px 32px; display:inline-block;}
 .mail_icon{background:url(../img/sprites.png) 0px -1245px no-repeat; padding:6px 0px 12px 32px; display:inline-block;}
+
+
+.selectTemplate_bg{
+	margin-top: -212px;
+	width: 100%;
+	height: 140%;
+	position: absolute;
+	background-color: #232323;
+	opacity: .8;	
+}
+
+
+/*.t_list_t:hover .t_list_s{
+	margin-bottom: -9px;	
+}*/
+.t_list_t:hover{
+	border: solid 5px #ff7f27;	
+}
+
+.t_list_t:hover .t_list_s{
+	margin-bottom: -9px;	
+}
+
+.t_list_selected{
+	border: solid 5px #ff7f27;
+}

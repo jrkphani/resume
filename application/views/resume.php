@@ -1107,14 +1107,13 @@
 		
 
 
-		<!-- need make as popup -->
-
-			
-			
-      		<div id="selectTemplate" style="display:none;"class="selectTemplate">
-      		
-      		
-			<span id="selectTemplateclose" class="close_btn">close</span>
+<!-- need make as popup -->
+<!--========================== Need to be made visible along with select template popup ===========================-->
+<!-- <div class="selectTemplate_bg">
+	
+</div> -->
+			<div id="selectTemplate" style="display:none;"class="selectTemplate">
+      		<span id="selectTemplateclose" class="close_btn">close</span>
 			<div class="clearboth"></div>
 			<h3>Choose Template</h3>			
       

@@ -119,12 +119,12 @@ At the end of it, we want you to have a great looking resume that best describes
 				</span>
 				<p>The times are fast changing and long resumes are giving way to short crisp resumes. While its easy for some to make that change, there is room for those who are comfortable and don't want to make that change.EZCV allows you to choose which fields you want display and which ones you don't. All you need to do is fill in the relevant content and EZCV takes care of the rest. </p>
 			</div>
-			<div class="whyezcv_slider" >
+			<!-- <div class="whyezcv_slider" >
 				<span class="bs3">
 					
 				</span>
 				<p>We have tried to make it simple for everyone. Its not just about resume building, its about making a resume that suits your recruiters mind set. At EZCV, we are trying to accommodate as many companies as possible to make this transition to inhouse resume templates much easier.All you need to do is select your company and EZCV replaces the template. Tweek your resume to fill in fields that are incomplete and you are all set to go. </p>
-			</div>
+			</div> -->
 		</section>
 		<div class="clearboth"></div>
 		<!-- <hr/>

@@ -220,6 +220,7 @@ body p,b,h1,h2,h3,span{font-family:Arial, Helvetica, sans-serif; color:#3f3f3f;}
 .wrapper .right .contact{width:80%; margin:10px 0px 0px 30px; float:left;}
 .wrapper .right .contact h1{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:16px 0 16px 41px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_contact.png) no-repeat 0% 50%;}
 .wrapper .right .contact .phone{font-size: 14px; padding:22px 0 10px 38px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_mobile.jpg) no-repeat 0% 69%;}
+.wrapper .right .contact .mail{display: block; padding:2px 0 0px 38px; font-size: 14px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_mail.jpg) no-repeat 0px 6px;}
 
 .wrapper .right .contact .address{font-size: 14px; padding:10px 0 0px 38px; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_address.jpg) no-repeat 0% 22%; line-height:18px;}
 
@@ -256,13 +257,12 @@ body p,b,h1,h2,h3,span{font-family:Arial, Helvetica, sans-serif; color:#3f3f3f;}
 .wrapper .right .other_details h2{width:100%; border-bottom:1px solid #3f3f3f; color:#24b8e9; font-size: 15px; line-height:22px; padding:17px 0 16px 41px; text-transform:uppercase; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_hw_to_cnt_me.png) no-repeat 2% 64%;}
 
 
-.wrapper .right .other_details .sub .url{display: block;color: #717171;padding: 0 0 5px 31px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/url1.png) no-repeat 0% 0%;}
-.wrapper .right .other_details .sub .skype{display: block;color: #717171;padding: 0 0 5px 31px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/skype1.png) no-repeat 0% 0%;}
-.wrapper .right .other_details .sub .fb{display: block;color: #717171;padding: 0 0 5px 31px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/facebook1.png) no-repeat 0% 0%;}
-.wrapper .right .other_details .sub .lin{display: block;color: #717171;padding: 0 0 5px 31px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/linkedin1.png) no-repeat 0% 0%;}
-.wrapper .right .other_details .sub .twit{display: block;color: #717171;padding: 0 0 15px 31px;font-size: 12px;line-height: 22px; background:url(<?=$baseurl?>assets/img/Templates/twitter1.png) no-repeat 0% 0%;}
+.wrapper .right .other_details .sub .url{display: block;color: #717171; padding: 0px 0 0px 31px; font-size: 12px;line-height: 26px; background:url(<?=$baseurl?>assets/img/Templates/url1.png) no-repeat 0px 0px;}
+.wrapper .right .other_details .sub .skype{display: block;color: #717171; padding: 0px 0 0px 31px; font-size: 12px;line-height: 26px; background:url(<?=$baseurl?>assets/img/Templates/skype1.png) no-repeat 0% 0%;}
+.wrapper .right .other_details .sub .fb{display: block;color: #717171; padding: 0px 0 0px 31px; font-size: 12px;line-height: 26px; background:url(<?=$baseurl?>assets/img/Templates/facebook1.png) no-repeat 0% 0%;}
+.wrapper .right .other_details .sub .lin{display: block;color: #717171; padding: 0px 0 0px 31px; font-size: 12px;line-height: 26px; background:url(<?=$baseurl?>assets/img/Templates/linkedin1.png) no-repeat 0% 0%;}
+.wrapper .right .other_details .sub .twit{display: block;color: #717171; padding: 0px 0 0px 31px; font-size: 12px;line-height: 26px; background:url(<?=$baseurl?>assets/img/Templates/twitter1.png) no-repeat 0% 0%;}
 
-.wrapper .right .other_details .sub .mail{display: block;color: #717171;padding:0 0 3px 30px;font-size: 12px;line-height: 22px; margin: 15px 0 0 0; background:url(<?=$baseurl?>assets/img/Templates/t9_t10_mail.jpg) no-repeat 0px 3px;}
 
 .wrapper .right .other_details .sub p b{font-weight:bold;}
 .wrapper .right .other_details .sub .percentage:last-child{border:none;}

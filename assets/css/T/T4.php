@@ -177,7 +177,7 @@ body p,b,h1,h2,h3,h4,span,div{font-family:Calibri, arial; color:#3f3f3f;}
 
 /*************************************************************skills******************************************************************/
 
-.skill {margin: 10px 0 20px 0;}
+.skill {margin: 15px 0 20px 0;}
 .skill .left_skill{width:27%; float:left;  background:url(<?=$baseurl?>assets/img/Templates/t8_5.jpg) no-repeat 0% 50%;}
 .skill .left_skill p{padding:0 0 0 20px; color:#4aa1d9; font-size: 17px;  line-height:28px;}
 

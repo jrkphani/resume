@@ -1,6 +1,6 @@
 <style type="text/css">
 	.clickr{
-	width: 109px; height: 34px; line-height:33px;
+	width: 172px; height: 34px; line-height:33px;
 	 display: block; text-align: center;
 	 margin-top: 100px;
 	cursor: pointer; text-decoration: none;

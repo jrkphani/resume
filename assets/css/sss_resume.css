@@ -147,11 +147,11 @@ float: right;}
 	font-size: .9em;	text-decoration: none; color: #232323;
 	
 }
-.rsum_tp_active{padding:11px 0 0px 57px; height: 19px; display:block; background: url(../img/sprites.png) -404px -909px no-repeat; margin: 30px 0 0 0; text-align: left;font-family: segoeuib;color: #e78130; font-size: .9em;}
-.rsum_tp{padding:8px 0 0px 57px; height: 19px; display:block; background: url(../img/sprites.png) -403px -849px no-repeat; margin: 25px 0 0 0; text-align: left;color: #232323; font-size: .9em; text-decoration:none;}
-.rsum_tp1{padding:8px 0 2px 57px; height: 19px; display:block; background: url(../img/sprites.png) -403px -881px no-repeat; margin: 25px 0 0 0; text-align: left;color: #232323; font-size: .9em; text-decoration:none;}
+.rsum_tp_active{padding:11px 0 0px 57px; height: 19px; font-weight:bold; display:block; background: url(../img/sprites.png) -404px -909px no-repeat; margin: 30px 0 0 0; text-align: left;font-family: segoeuib;color: #e78130; font-size: .9em;}
+.rsum_tp{padding:8px 0 0px 57px; height: 19px; font-weight:bold; display:block; background: url(../img/sprites.png) -403px -849px no-repeat; margin: 25px 0 0 0; text-align: left;color: #232323; font-size: .9em; text-decoration:none;}
+.rsum_tp1{padding:8px 0 2px 57px; height: 19px; font-weight:bold; display:block; background: url(../img/sprites.png) -403px -881px no-repeat; margin: 25px 0 0 0; text-align: left;color: #232323; font-size: .9em; text-decoration:none;}
 
-.rsum_tp_rs{padding:8px 0 0px 57px; height: 19px; display:block; background: url(../img/sprites.png) -403px -818px no-repeat; margin: 25px 0 0 0; text-align: left;color: #232323; font-size: .9em; text-decoration:none; cursor:pointer;}
+.rsum_tp_rs{padding:8px 0 0px 57px; height: 19px; font-weight:bold; display:block; background: url(../img/sprites.png) -403px -818px no-repeat; margin: 25px 0 0 0; text-align: left;color: #232323; font-size: .9em; text-decoration:none; cursor:pointer;}
 
 .rns_b{
 	font-family: segoeuib;
@@ -251,7 +251,8 @@ input, select{
 }
 
 .form_sections{ margin-left: 20px; padding-bottom: 50px; }
-
+.star_mant{position:absolute; margin:-2px 0px 0 -13px; color:red;}
+.star_mant2{position:absolute; margin:-2px 0px 0 -9px; color:red;}
 .clickr, .clickr_final{
 	padding: 8px 30px 10px 20px; display: inline-block;
 	cursor: pointer;
@@ -273,14 +274,14 @@ input, select{
 
 .clickr_final{
 	position: absolute;	display: block;
-	bottom: 50px; right: 160px;
+	bottom: 50px; right:58px;
 	background: #e78130 ;
 }
 .clickr_preview {
 display: block;
 position: relative;
 float: right;
-margin: -86px 58px 0 0;
+margin: -86px 225px 0 0;
 padding: 9px 20px;
 background-color: #e78130;
 color: #fff;
@@ -393,9 +394,9 @@ height: 2px!important;
 
 }
 
-.change_arrow_lft{background:transparent url(../img/sprites.png) -298px -648px no-repeat; display:block; padding:59px 15px 22px 37px; width:13px;  float:left; margin: 120px 0px 0 29px;}
+.change_arrow_lft{background:transparent url(../img/sprites.png) -298px -648px no-repeat; display:block; padding:59px 15px 22px 37px; width:13px;  float:left; margin: 120px 0px 0 29px; visibility:hidden;}
 
-.change_arrow_rit{background:transparent url(../img/sprites.png) -360px -648px no-repeat; display:block; padding:59px 15px 22px 50px; width:13px;  float:right; margin: 120px 8px 0 0px;}
+.change_arrow_rit{background:transparent url(../img/sprites.png) -360px -648px no-repeat; display:block; padding:59px 15px 22px 50px; width:13px;  float:right; margin: 120px 8px 0 0px; visibility:hidden;}
 
 .t_list_bg{
 	width: 220px; height: 297px; float: left;

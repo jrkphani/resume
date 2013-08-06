@@ -2,12 +2,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="<?php echo base_url("assets/img/favicon.png"); ?>">
+<link rel="icon" type="image/png" href="<?php echo base_url("assets/img/favicon.png"); ?>" title="EZCV Favicon">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="keywords" content="Create cv online, create resume online,  Resume builder, EZCV">
 <meta name="description" content="Get noticed in a see of Resume">
 <title>EZCV | Get noticed in the sea of resumes</title>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_header.css"); ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_header.css"); ?>" title="EZCV Header" />
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/pepper-grinder/jquery-ui.css" />
 <script src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
 <script type="text/javascript">
@@ -24,7 +24,7 @@
 		$register='yes';
 	}
 	 ?>
-		<h1><a class="ezcv_logo" href="<?php echo base_url(); ?>"><img src="<?php echo base_url("assets/img/ezcv-logo.png"); ?>"> </a></h1>
+		<h1><a class="ezcv_logo" alt="EZCV" title="EZCV" href="<?php echo base_url(); ?>"><img alt="EZCV" title="EZCV" src="<?php echo base_url("assets/img/ezcv-logo.png"); ?>"> </a></h1>
 		<nav>
 			<a href="<?php echo base_url(); ?>" <? if($page =="" || $page =="home") echo 'class="ezcv_header_current"'; ?> >Home</a>
 			<a href="<?php echo base_url('why'); ?>" <? if($page =="why") echo 'class="ezcv_header_current"'; ?> >Why EZCV</a>
@@ -62,8 +62,7 @@
 					<li><a class="c1" href="mailto:aditya@digitalchakra.in">Mail EZCV</a></li>
 					<li><a class="c2" href="">Twitter EZCV</a></li>
 					<li><a class="c3" href="">Facebook EZCV</a></li>
-					<li><a class="c4 emailtooltip"  title="Address: Shree Park 3rd Floor West Wing
-# 578 Anna Salai Chennai-600 018" href="">Dribble EZCV</a></li>
+					<li><a class="c4 emailtooltip"  title="Address: Shree Park 3rd Floor, West Wing, # 578 Anna Salai, Chennai-600 018" href="">Dribble EZCV</a></li>
 					<li><a class="c5 emailtooltip" title="+9144 2433-0401,  +9144 2433-0402" href="">Phone EZCV</a></li>
 				</ul>
 			</div>

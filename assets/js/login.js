@@ -148,31 +148,34 @@ $(document).ready(function()
 
 		$(".friend_emails").each(function(){
 			var temp_email=$.trim($(this).val());
-			if(!temp_email)
+			/*if(!temp_email)
 			{
 				$('#refer_err1').html('The Referred Email fields are required.');
 				friends_result=false;
 				valid = 0;
-			}
-			else if(!temp_email.match(format))
+			}*/
+			if(temp_email)
 			{
-				$('#refer_err1').html('Referred Email is invalid.');
-				friends_result=false;
-				valid = 0;
+				if(!temp_email.match(format))
+				{
+					$('#error_msg1').html('Referred Email is invalid.');
+					friends_result=false;
+					valid = 0;
+				}
+				else if(temp_email==email)
+				{
+					$('#error_msg1').html('You cannot refer your self.');
+					friends_result=false;
+					valid = 0;
+				}
+				friends_array.push(temp_email);
 			}
-			else if(temp_email==email)
-			{
-				$('#refer_err1').html('You cannot refer your self.');
-				friends_result=false;
-				valid = 0;
-			}
-			friends_array.push(temp_email);
 		});
 		if(!friends_result)
 			valid = 0;
 		else if($(friends_array).size() != $($.unique(friends_array)).size())
 		{
-			$('#refer_err1').html('You cannot refer the same person twice.');
+			$('#error_msg1').html('You cannot refer the same person twice.');
 			valid = 0;
 		}
 		
@@ -266,6 +269,18 @@ $(document).ready(function()
 	$('.email_check').change(function(){
 		validate_email($(this).val());
 	});*/
+
+	$('#add_friend').click(function(){
+		var friend_count=parseInt($('#friend_count').val());
+		friend_count=friend_count+1;
+		$('#friend_count').val(friend_count)
+		html=		'<tr>';
+		html+=		'<td>Friend '+friend_count+':</td>';
+		html+=		'<td>&nbsp<input type="email" name="friend_email[]" class="email_check friend_emails" /></td>';
+		html+=		'<td></td>';
+	    html+=      '</tr>';
+		$('#friends_tb').append(html);
+	});
 });
 
 

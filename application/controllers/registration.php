@@ -27,12 +27,17 @@ class Registration extends CI_Controller {
 		  $this->form_validation->set_rules('email_address', 'Email', 'trim|required|valid_email|max_length[254]|xss_clean');
 		  $this->form_validation->set_rules('pass_word', 'Password', 'trim|required|min_length[6]|max_length[30]|xss_clean');
 		  //$this->form_validation->set_rules('con_password', 'Password Confirmation', 'trim|required|matches[password]');
-		  $this->form_validation->set_rules('friend_email[]', 'Referred Email', 'trim|required|valid_email|max_length[254]');
+		  //$this->form_validation->set_rules('friend_email[]', 'Referred Email', 'trim|required|valid_email|max_length[254]');
 		  $this->form_validation->set_rules('captcha', "Captcha", 'required|callback_captcha_check');
 		  $this->form_validation->set_rules('role', 'Type', 'required');
 
 		  $primary_email=$this->input->post('email_address');
-	  	  $friend_emails=$this->input->post('friend_email');
+	  	  $friend_emails=array_filter($this->input->post('friend_email'));
+
+		  foreach ($friend_emails as $key => $value) {
+		  	if(trim($value))
+		  		$this->form_validation->set_rules('friend_email['.$key.']', 'Referred Email', 'trim|valid_email|max_length[254]');
+		  }
 
 		  if($this->form_validation->run() == FALSE)
 		  {

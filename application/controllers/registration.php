@@ -267,7 +267,7 @@ function captcha_check()
 		}
 		else
 		{
-			$this->form_validation->set_message('captcha_check', 'Captcha word mismatch.');
+			$this->form_validation->set_message('captcha_check', 'There is a mismatch in the Captcha, please re-enter.');
 			return false;
 		}
 	}

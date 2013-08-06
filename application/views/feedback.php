@@ -5,7 +5,7 @@
 <div class="left_form_feedback">
 <div class="container">
 	
-	<div id="err_msg"><?php echo validation_errors(); if($msg) echo $msg; ?></div>
+	<div id="err_msg"<? if($success=='yes') {echo 'class="success_msg"';} else {echo 'class="error_msg"';} ?> ><?php echo validation_errors(); if($msg) echo $msg; ?></div>
 	<form name="feedback_form" id="feedback_form" method="post" action="">
 	<table>
   	<tr>

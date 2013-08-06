@@ -85,6 +85,7 @@
 			    <label>Refer friends</label>
 			 	<table class="reg_tr_remove" id="friends_tb">
 			 		<input type="hidden" id="friend_count" value="2" />
+			 		<input type="hidden" id="friend_id" value="2" />
 				  	<tr>
 				  		<td>Friend 1:</td>
 				  		<td>&nbsp<input type="email" name="friend_email[]" class="email_check friend_emails" /></td>
@@ -94,7 +95,7 @@
 				  		<td>Friend 2:</td>
 				  		<td>&nbsp<input type="email" name="friend_email[]" class="email_check friend_emails" /></td>
 				  		<td>
-				  			<span class="error_msg" id="refer_err1"></span>
+				  			<!-- <span class="error_msg" id="refer_err1"></span> -->
 				  			<span id="add_friend">+</span>
 				  		</td>
 				  	</tr>

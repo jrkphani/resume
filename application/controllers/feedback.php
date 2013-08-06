@@ -14,6 +14,7 @@ class Feedback extends CI_Controller{
 		$this->load->library('form_validation');	
 		$this->load->model('feedback_model');
 		$data['msg']=NULL;
+		$data['success']=NULL;
 		$data['view_page'] = 'feedback';
 
 		if($this->current_user)		// If user logged-in get name and email.
@@ -56,6 +57,7 @@ class Feedback extends CI_Controller{
 				if($result)
 				{
 					$data['msg']='Your feedback has been submitted successfully.';
+					$data['success']='yes';
 
 					//Mail Configuration
 					$this->load->library('email');
@@ -82,6 +84,7 @@ class Feedback extends CI_Controller{
 				}
 				else
 					$data['msg']='Internal error. Please try again later.';
+					$data['success']='no';
 			}
 		}
 		$this->load->view('template', $data);

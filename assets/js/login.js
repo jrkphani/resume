@@ -272,14 +272,31 @@ $(document).ready(function()
 
 	$('#add_friend').click(function(){
 		var friend_count=parseInt($('#friend_count').val());
+		var friend_id=parseInt($('#friend_id').val());
 		friend_count=friend_count+1;
-		$('#friend_count').val(friend_count)
-		html=		'<tr>';
-		html+=		'<td>Friend '+friend_count+':</td>';
+		friend_id=friend_id+1;
+
+		$('#friend_count').val(friend_count);
+		$('#friend_id').val(friend_id);
+
+		html=		'<tr id="fri_'+friend_id+'">';
+		html+=		'<td class="fri_count">Friend '+friend_count+':</td>';
 		html+=		'<td>&nbsp<input type="email" name="friend_email[]" class="email_check friend_emails" /></td>';
-		html+=		'<td></td>';
+		html+=		'<td><span class="rmv_friend" data="'+friend_id+'">-</span></td>';
 	    html+=      '</tr>';
 		$('#friends_tb').append(html);
+	});
+
+	$('.rmv_friend').live('click',function(){
+		var id=$(this).attr('data');
+		$('#fri_'+id).remove();
+
+		var i=2;
+		$('.fri_count').each(function(){
+			++i;
+			$(this).html('Friend '+i+':');			
+		});
+		$('#friend_count').val(i);
 	});
 });
 

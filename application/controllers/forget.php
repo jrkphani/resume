@@ -88,6 +88,28 @@ class Forget extends CI_Controller {
 		 $this->load->model('user');
 		 if($this->user->update_user($where,$update_data))
 		 {
+
+		 	//Send confirmation email
+		 	$this->load->library('email');
+			$config['charset'] = 'iso-8859-1';
+			$config['wordwrap'] = TRUE;
+			$config['mailtype']='html';
+			$this->email->initialize($config);
+			$this->email->from('resume@digitalchakra.in', 'EZCV Password');
+			$this->email->subject('EZCV Password Change Confirmation');
+
+			//Get user primary email, first and last name
+			$select=array('users.email','user_detail.first_name','user_detail.last_name');
+			$where=array('users.id'=>$id);
+			$result=$this->user->get_userdetail($select,$where);
+			$first_name=$result[0]['first_name'];
+			$last_name=$result[0]['last_name'];
+
+			$message= 'Hi '.$first_name.' '.$last_name.'<br /><br />Your password has been changed successfully.<br /><br />Thank you,<br />EZCV Team';
+			$this->email->message($message);
+			$this->email->to($result[0]['email']);
+			$this->email->send();
+
 		 	$data['view_page'] = 'reset_success';
 			$this->load->view('template', $data);
 		 }

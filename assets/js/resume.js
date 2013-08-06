@@ -237,7 +237,7 @@ $(document).ready(function()
 		$('#preview').attr('title',$(this).attr('title'));
 		$('.thumb_sdw_tmp').attr('src',baseurl+'assets/img/'+$(this).attr('value')+'_thumb.jpg');
 		$('#'+$(this).attr('value')).addClass('selected_temp');
-		$(this).hide();
+		//$(this).hide();
 		$('#selectTemplate, #selectTemplate_bg').hide();
 	//	$('#'+$(this).attr('value')).addClass('templateCellSelected');
 	});

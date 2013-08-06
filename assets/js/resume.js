@@ -130,12 +130,12 @@ $(document).ready(function()
 	
 	//close selectTemplate
 	$('#selectTemplateclose').click(function(){
-		$('#selectTemplate').hide();
+		$('#selectTemplate, #selectTemplate_bg').hide();
 	});
 
 	//show selectTemplate
 	$('.showSelectTemplate').click(function(){
-		$('#selectTemplate').show();
+		$('#selectTemplate, #selectTemplate_bg').show();
 	});
 
 	$("#preview").colorbox({iframe:true, escKey:true, width:"860px", height:"95%"});
@@ -193,7 +193,7 @@ $(document).ready(function()
 		{
 			//return false;
 			//alert('Please select a Template');
-			$('#selectTemplate').show();
+			$('#selectTemplate, #selectTemplate_bg').show();
 			return false;
 		}
 		else
@@ -238,7 +238,7 @@ $(document).ready(function()
 		$('.thumb_sdw_tmp').attr('src',baseurl+'assets/img/'+$(this).attr('value')+'_thumb.jpg');
 		$('#'+$(this).attr('value')).addClass('selected_temp');
 		$(this).hide();
-		$('#selectTemplate').hide();
+		$('#selectTemplate, #selectTemplate_bg').hide();
 	//	$('#'+$(this).attr('value')).addClass('templateCellSelected');
 	});
 	$('#addEdudcation').click(function()

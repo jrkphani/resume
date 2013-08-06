@@ -1109,10 +1109,10 @@
 
 <!-- need make as popup -->
 <!--========================== Need to be made visible along with select template popup ===========================-->
-<!-- <div class="selectTemplate_bg">
+<div style="display:none;" id="selectTemplate_bg" class="selectTemplate_bg">
 	
-</div> -->
-			<div id="selectTemplate" style="display:none;"class="selectTemplate">
+</div>
+			<div id="selectTemplate" style="display:none;" class="selectTemplate">
       		<span id="selectTemplateclose" class="close_btn">close</span>
 			<div class="clearboth"></div>
 			<h3>Choose Template</h3>			
@@ -1131,10 +1131,10 @@
      
 	 		<div class="t_list_bg " >
 				<div id="T1" class="t_list_t <? if(($templateValue) && ($templateValue == 'T1')){ echo 'selected_temp'; }?> ">
-					<img src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img title="Spring Bloom" class="template" value="T1" src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Spring Bloom</p>
-						<a title="Spring Bloom" <?if(($templateValue) && ($templateValue == 'T1')){ echo "style='display:none'";} ?> class="t_select template" value="T1">Select</a>
+						<!--<a title="Spring Bloom" <?if(($templateValue) && ($templateValue == 'T1')){ echo "style='display:none'";} ?> class="t_select template" value="T1">Select</a>-->
 						<span class="previewTemp" title="Spring Bloom">zoom</span>
 					</div>
 				</div>
@@ -1142,10 +1142,10 @@
       
 			<div class="t_list_bg ">
 				<div id="T4" class="t_list_t <? if(($templateValue) && ($templateValue == 'T4')) {echo 'selected_temp'; }?> ">
-					<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img title="Pyramid Point" class="template" value="T4" src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Pyramid Point</p>
-						<a title="Pyramid Point" <?if(($templateValue) && ($templateValue == 'T4')){ echo "style='display:none'";} ?> class="t_select template" value="T4">Select</a>
+						<!--<a title="Pyramid Point" <?if(($templateValue) && ($templateValue == 'T4')){ echo "style='display:none'";} ?> class="t_select template" value="T4">Select</a>-->
 						<span class="previewTemp" title="Pyramid Point">zoom</span>
 					</div>
 				</div>
@@ -1153,10 +1153,10 @@
       
 			<div class="t_list_bg ">
 				<div id="T2" class="t_list_t <? if(($templateValue) && ($templateValue == 'T2')){ echo 'selected_temp';} ?>">
-					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img title="White Citadel" class="template" value="T2" src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>White Citadel</p>
-						<a title="White Citadel" <?if(($templateValue) && ($templateValue == 'T2')) {echo "style='display:none'"; }?> class="t_select template" value="T2">Select</a>
+						<!--<a title="White Citadel" <?if(($templateValue) && ($templateValue == 'T2')) {echo "style='display:none'"; }?> class="t_select template" value="T2">Select</a>-->
 						<span class="previewTemp" title="White Citadel">zoom</span>
 					</div>
 				</div>
@@ -1164,10 +1164,10 @@
       
 			<div class="t_list_bg " >
 				<div id="T3" class="t_list_t <? if(($templateValue) && ($templateValue == 'T3')) {echo 'selected_temp'; }?>">
-					<img src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img title="Window View" class="template" value="T3" src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p>Window View</p>
-						<a title="Window View" <?if(($templateValue) && ($templateValue == 'T3')) {echo "style='display:none'";} ?> class="t_select template" value="T3">Select</a>
+						<!--<a title="Window View" <?if(($templateValue) && ($templateValue == 'T3')) {echo "style='display:none'";} ?> class="t_select template" value="T3">Select</a>-->
 						<span class="previewTemp" title="Window View">zoom</span>
 					</div>
 				</div>

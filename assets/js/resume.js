@@ -324,6 +324,12 @@ $('#addOskills').click(function()
 	});
 
 $('.sugg_strnth').live('click',function(){
+	
+	var chkelems = $('input[value="'+$(this).attr('value')+'"]');
+	if(chkelems.length >=1)
+	return false;
+	
+	//alert(chkelems.length);
 	var data=decodeURIComponent($(this).attr('value'));
 	var div_id=$(this).attr('data');
 

@@ -13,11 +13,29 @@
 				<br>
 				<br>
 				<form action="<?php echo base_url('forget/activation'); ?>" method="POST">
-  					 Enter New Password: <input type="password" placeholder="Password" id="passowrd" name="password"><br/>
-  					 Re-enter New Password: <input type="password" placeholder="Confirm Password" id="cpassowrd" name="cpassword"><br/>
+        <table>
+        	<tr>
+       		 <td>
+           	<label class="pr_left1">Enter New Password: </label>
+           </td>
+           <td>
+            <input type="password" placeholder="Password" id="passowrd" name="password">
+           </td>
+         </tr>
+         <tr>
+         <td>
+         	<label class="pr_left1">Re-enter New Password: </label>
+         </td>
+         <td>
+         	<input type="password" placeholder="Confirm Password" id="cpassowrd" name="cpassword">
+         </td>
+        </tr>
+       </table>
   					 <input type="hidden" value="<?php echo $forget; ?>" name="acode">
   					 <input type="hidden" value="<?php echo $id; ?>" name="uid">
 				     <input type="submit" id="restsubmit" class="fb_btn" style="cursor:pointer;" />
+             
+             
 				</form>
 			</div> 
 			

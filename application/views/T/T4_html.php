@@ -155,23 +155,22 @@ $skillEffname=array("Want to learn","Training/Learning","Satisfactory","Good","V
   </div>
   <div class="clearall"></div>
   <? } ?>
-  <!----------------------------------------------------skills---------------------------------------------------------------------------->
+  <!-- --------------------------------------------------skills-------------------------------------------------------------------------- -->
   <?
 	/*if(array_filter($skillName)) 
 	customized for this template 
 	*/
-	if(array_filter($skillName) || array_filter($otherSkills) || $about['mystrength'])
+	if(array_filter($skillName))
 { ?>
   <div class="skill">
     
     <div class="left_skill">
-      <p>Skills</p>
+      <p>My Tool Box</p>
     </div>
     <div class="right_skill">
-    	<? if(array_filter($skillName)) { ?>
       <div class="first_skill">
         <div>
-          <p>My Tool Box</p>
+          
         </div>
         <div class="mskill">
           <?
@@ -196,37 +195,52 @@ $skillEffname=array("Want to learn","Training/Learning","Satisfactory","Good","V
 			}?>
         </div>
       </div>  
+      </div>
+      </div>
       <div class="clearall"></div>
       <? } ?>
       
-      
-      <?php if(array_filter($otherSkills) || $about['mystrength']) { ?>
+<!-- --------------------------------------------------other skills-------------------------------------------------------------------------- -->
+  <?php     
+	/*if(array_filter($skillName)) 
+	customized for this template 
+	*/
+	 if(array_filter($otherSkills) || $about['mystrength']) { ?>
+
+  <div class="skill">
+    
+    <div class="left_skill">
+      <p>My Strengths</p>
+    </div>
+    
+    <div class="right_skill">
       <div class="other_skill">
         
-          <p class="str">My Strengths</p>
-        
-        <div class="mskill">      
-				<? 
+        <div class="mskill">
+          <? 
 			//skiping first record, becasue the first value will be always null
-        $i=0;
-        foreach($otherSkills as $name) {
-        	if($i)
-							{
-							?>
-          <p class="sskill"><?=$name;?></p>
-      <? }
-			$i++;
-			}?>
-       </div>
+					$i=0;
+					foreach($otherSkills as $name) {
+					if($i)
+				{?>
+        
+          <p class="sskill"><?=$name;?> </p>
+          <? }
+					$i++;
+					}?>
+        </div>
       </div>
       <div class="clearall"></div>      
-      <p class="other_discrip"><?=nl2br($about['mystrength']);?></p>
+      <p class="other_discrip"><?=nl2br($about['mystrength']);?></p>      
+      
+      
     </div>
-    <? } ?>
-  </div>
-  <div class="clearall"></div>
-  <? } ?>
-  <!-- project -->
+    
+      </div>
+      <div class="clearall"></div>
+      <? } ?>
+
+  <!-- ----------------------------------------------project------------------------------------------ -->
   
   <? if(array_filter($projName)) { ?>
   <div class="project">

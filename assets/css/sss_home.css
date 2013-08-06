@@ -3,42 +3,57 @@
 /*-----------------------------Carousel-------------------------------------*/
 
 .slide_top_1, .slide_top_2{	
-	width:50%; height:100px; float: left;
+	width:100%; height:100px; 
 	background:#1fa1b4; color: #fff;	text-align: center;
+}
+
+.slide_top_2{
+	padding-top: 20px;
+	height: 80px;
 }
 .slide_top_1 {	 
 	background: #93c13d;
 }
 .slide_top_1 h3{
-	margin-left: 140px;	
-	line-height: 100px; text-align: left; text-transform: uppercase; 	font-size: 1.4em;
+	margin-left: 20px;	
+	line-height: 100px; text-align: left; text-transform: uppercase; 	font-size: 1.8em;
 }
-.slide_top_1 span{	
+.slide_bottom_1 span{	
 	width:109px; height:103px; display:block; position: absolute; 
-	margin-top: -9px; margin-left: 20px;	font-size: 3em; line-height: 100px;
+	margin-top: -9px; margin-left: 0px;	font-size: 3em; line-height: 100px; padding-left:44px;
 	background:transparent url(../img/sprites.png) no-repeat left top; background-position: -301px -344px; }
+
+.slide_bottom_1 h4{
+	margin: 36px 20px 20px 140px;
+	font-size: 1.4em;
+	color: #232323;
+}
+
 .slide_top_2 a{
-	width: 80%; height: 50%; display: block; 
-	margin: 0 auto; margin-top: 17px;	padding-top: 16px;	
+	width: 40%; height: 50%; display: block;  
+	margin: 0 auto; 	padding-top: 12px;	
 	border: solid 1px #dc7f35; -webkit-border-radius: 4px; 	-moz-border-radius: 4px;	border-radius: 4px;
   	background-color: #eb8a3d;	color: #ffffff; text-decoration: none; font-size: 1.6em;}
 
 .slide_bottom_1, .slide_bottom_2{
-	width: 50%; height: 340px;	float: left;  
+	width: 50%; height: 320px;	float: left;  
 	color: #fff;
 }
 .slide_bottom_1{background: #3dbfd9;}
-.slide_bottom_2{background: #26b796;}
+.slide_bottom_2{background: #26b796; }
 .slide_bottom_2 p{
-	padding: 20px;  line-height: 24px;	font-size: 1.2em;
+	padding: 20px;  line-height: 24px;	font-size: 1em; 
 }	
 
+.slide_bottom_2 h4{
+	color: #000000; font-size: 1.4em; line-height: 24px; padding: 20px; 
+}
 .slider_view{
 	width:100%; height:450px;	position:relative;	overflow:hidden;
 	padding-top:10px;
 }
 .zxcv{
-	width: 100%; height: 100%; padding-top: 7px;
+	width: 100%; height: 100%; 
 }
 .slider_nav{ 
 	position: absolute; 

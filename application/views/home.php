@@ -7,77 +7,83 @@
 		  <li>
 			  <div class="zxcv">
 						<div class="slide_top_1">
-							<span>1</span>
-							<h3>Choose your resume style</h3>
-						</div>
-						<div class="slide_top_2">
-							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
+							<h3>4 Easy Steps to make an Effective Resume</h3>
 						</div>
 						<div class="slide_bottom_1">
+							<span>1</span>
+							<h4>CHOOSE YOUR RESUME STYLE</h4>
 							<img class="slider_img" alt="Choose your resume style" title="Choose your resume style" src="<?php echo base_url("assets/img/slider1.png"); ?>">
 						</div>
 						<div class="slide_bottom_2">
-							<p>Penning down your resume is not easy to do and when its finally complete there is no energy left to make it look good. Its the same drab black and white Word document you end up with. <br/><br/>Here is where we want to make a difference. We believe your resume is the most important document you ever created and hence we have designed a whole range of templates for you to pick from. With a face lift there is a good chance your resume brightens up your prospects to get selected from the pile. </p>
+							<h4>It takes 5 seconds for a recruiter to give your resume a chance!</h4>
+							<p>Give your resume a make over, not just in content but also in its appearance. We at EZCV understand that recruiters take all of 5 seconds to decide on your resume and we want to help you make that impact. We have a wide range of template designs that can suit your resume. With a face lift there is a good chance your resume brightens up your prospects to get selected from the pile. </p>
 						</div>
-						<div class="clearboth"></div>	
+						<div class="clearboth"></div>
+						<div class="slide_top_2">
+							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
+						</div>	
 			</div>
 		  </li>
 		  <li>
 			  <div class="zxcv">
 						<div class="slide_top_1">
-							<span>2</span>
-							<h3> Discover Yourself</h3>
-						</div>
-						<div class="slide_top_2">
-							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
+							<h3>4 Easy Steps to make an Effective Resume</h3>
 						</div>
 						<div class="slide_bottom_1">
+							<span>2</span>
+							<h4>DISCOVER YOURSELF</h4>
 							<img class="slider_img" alt="Discover yourself" title="Discover yourself" src="<?php echo base_url("assets/img/slider2.png"); ?>">
 						</div>
 						<div class="slide_bottom_2">
-							<p>These are the most crutial pieces of information. A recruiter can keep or reject your resume based on how you project yourself. We understand your need for a good resume with chatchy phrases that build your personality and make an impact.<br/><br/>We have made form filling much easier, you don't have to think up beautiful words any more. We serve them to you as you go along. All you need to do is pick the best matches that suit your personality. Now, that is a step forward to help right! </p>
+							<h4>We have done all the thinking for you!</h4>
+							<p>We understand your need for a good resume with chatchy phrases that build your personality and make an impact. We have made form filling much easier, you don't have to think up beautiful words any more. We serve them to you as you go along. All you need to do is pick the best matches that suit your personality. </p>
 						</div>
-						<div class="clearboth"></div>	
+						<div class="clearboth"></div>
+						<div class="slide_top_2">
+							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
+						</div>	
 			</div>
 		  </li>
 		  <li>
 			  <div class="zxcv">
 						<div class="slide_top_1">
-							<span>3</span>
-							<h3> Build Your Image</h3>
+							<h3>4 Easy Steps to make an Effective Resume</h3>
 						</div>
-						<div class="slide_top_2 ">
-							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
-						</div>
-					
-					
 						<div class="slide_bottom_1"> 
+							<span>3</span>
+							<h4>BUILD YOUR IMAGE</h4>
 							<img class="slider_img" alt="Build your Image" title="Build your Image" src="<?php echo base_url("assets/img/slider3.png"); ?>">
 						</div>
 						<div class="slide_bottom_2">
-							<p>At the end of the exercise of building your image and putting in all the right words together you want a great looking resume. We give you the choice of changing the template any number of times till you feel comfortable. <br/><br/>At the end of it, we want you to have a great looking resume that best describes you.</p>
+							<h4>Create an elegant profile!</h4>
+							<p>It just matters, your resume is the reflection of your personality and we surely want to get it right. You can decide on your template of choice and make the change as many times as you want till you feel comfortable. 
+At the end of it, we want you to have a great looking resume that best describes you.</p>
 						</div>
-						<div class="clearboth"></div>	
+						<div class="clearboth"></div>
+						<div class="slide_top_2 ">
+							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
+						</div>	
 			</div>
 		  </li>
 		  <li>
 			  <div class="zxcv">
 						<div class="slide_top_1">
-							<span>4</span>
-							<h3>Register With EZCV</h3>
+							<h3>4 Easy Steps to make an Effective Resume</h3>
 						</div>
-						<div class="slide_top_2">
-							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
-						</div>
-					
-					
 						<div class="slide_bottom_1">
+							<span>4</span>
+							<h4>REGISTER WITH EZCV</h4>
 							<img class="slider_img" alt="Register with EZCV" title="Register with EZCV" src="<?php echo base_url("assets/img/slider4.png"); ?>">
 						</div>
 						<div class="slide_bottom_2">
-							<p>And of course, any resume you work on is of great importance to us. We want to ensure we preserve all your hard work so that you can edit it the next time you visit our site. <br/><br/>Once you have registered with us, you can stay rest assured that all your hard work and time spent has been saved up to the last detail.</p>
+							<h4>Update and maintain your resume</h4>
+							<p>And of course, any resume you work on is of great importance to us. We want to ensure we preserve all your hard work so that you can edit it the next time you visit our site. Once you have registered with us, you can stay rest assured that all your hard work and time spent has been saved up to the last detail. 
+ </p>
 						</div>
-						<div class="clearboth"></div>	
+						<div class="clearboth"></div>
+						<div class="slide_top_2">
+							<a href="<?=base_url('templates'); ?>">Get Started Here</a>
+						</div>	
 					</div>
 		  </li>
 		</ul>

@@ -30,8 +30,9 @@
   /*float: left;*/ /*commented to center slider img*/
   width: 100%;
   border: 0;
-  max-height: 274px;
-  max-width: 486px;
+  max-height: 245px;
+  max-width: 435px;
+  margin: 0 0 0 80px;
   }
 
   /********************Custom css override**************************/
@@ -41,7 +42,7 @@
     z-index: 9999 !important;
     position: absolute;
     right: 30px;
-    bottom: -6px;
+    bottom: 94px;
   }
 
   .rslides_tabs li{

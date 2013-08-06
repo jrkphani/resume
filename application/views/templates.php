@@ -11,8 +11,10 @@
 </div>
 
 <div class="left_form">
+	<h2 style="padding-left:20px; padding-top:20px;">Please select a resume style</h2>
 		<div class="t_list">
 			<div class="t_list_bg">
+				<!-- clicking on following div should do select functionality -->
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
@@ -23,6 +25,7 @@
 				</div>
 			</div>
 			<div class="t_list_bg">
+				<!-- clicking on following div should do select functionality -->
 			<div class="t_list_t">
 				<img src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
 				<div class="t_list_s">
@@ -34,6 +37,7 @@
 		</div>
 		
 			<div class="t_list_bg">
+				<!-- clicking on following div should do select functionality -->
 				<div class="t_list_t">
 					<img src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
@@ -44,6 +48,7 @@
 				</div>
 			</div>
 			<div class="t_list_bg">
+				<!-- clicking on following div should do select functionality -->
 			<div class="t_list_t">
 				<img src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
 				<div class="t_list_s">

@@ -1,1 +1,1 @@
-This folder will have compressed version assets/js
+This folder will have compressed version of assets/js

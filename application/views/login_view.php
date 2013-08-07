@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_login.css"); ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url($this->config->item('path_css_file')."sss_login.css"); ?>" />
 
 <div class="form_title">
 	<? if($register=='register')

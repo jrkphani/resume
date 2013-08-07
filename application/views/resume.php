@@ -1,5 +1,5 @@
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/colorbox.css"); ?>"/>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_resume.css"); ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url($this->config->item('path_css_file')."colorbox.css"); ?>"/>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url($this->config->item('path_css_file')."sss_resume.css"); ?>" />
 
 <!--<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/jquery.toastmessage.css"); ?>"/>
 <div id="toast"></div>-->

@@ -308,9 +308,9 @@
 					<option <?if(!$found)echo 'selected="selected"';?> value="Custom heading">Create my own heading</option>
 					<?} else {?>
 					<option value="How to reach me">How to reach me</option>
-					<option value="Custom heading">My Hangouts</option>
-					<option value="Custom heading">My Web Footprint</option>
-					<option value="Custom heading">My Social Networks</option>
+					<option value="My Hangouts">My Hangouts</option>
+					<option value="My Web Footprint">My Web Footprint</option>
+					<option value="My Social Networks">My Social Networks</option>
 					<option value="Custom heading">Create my own heading</option>
 					<? }?>					
 				</select>

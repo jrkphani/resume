@@ -53,7 +53,7 @@ function validate(title,id,mandatory,max_length,min_length,type,display)
 		var format = /^[a-zA-Z ]+$/;
 		if(!data.match(format))
 		{
-			var msg=title+' can contain letters and empty space only.';
+			var msg=title+' can contain letters and space only.';
 			if(!display)
 				alert(msg);
 			else
@@ -95,7 +95,7 @@ function validate(title,id,mandatory,max_length,min_length,type,display)
 		var format = /^[0-9 \-\+]+$/;
 		if(!data.match(format))
 		{
-			var msg=title+' cannot contain alphabets or special characters.';
+			var msg=title+' cannot contain alphabets or special characters only.';
 			if(!display)
 				alert(msg);
 			else

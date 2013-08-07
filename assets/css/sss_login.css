@@ -141,7 +141,7 @@ margin-bottom: 10px;
     display:none;
 }
 
-.profile-body .scus-msg{color:green; margin: 10px 0 10px 0;}
+.profile-body .scus-msg{color:green; margin:30px 0 10px 0;}
 
 .pr_right_edit{
 	padding-top: 10px;
@@ -196,7 +196,7 @@ float: left;
 font-size: 15px;
 line-height: 21px;
 }
-.fnt_size{font-size: 13px; margin:5px 0;}
+.fnt_size{font-size: 13px; margin:8px 0 5px -22px; width:200px;}
 #form2 table tr{border:none!important;}
 .tbl{
     font-size: 13px;
@@ -245,11 +245,14 @@ padding: 0 2px 0 0; margin: 25px 0;
 color:red; margin: 10px 0 10px 0;
 }
 
-.rmv_friend{background:url("../img/sprites.png") -26px -1279px no-repeat; margin: 0 0 0 4px; width:16px; height:18px; display:inline-block; cursor:pointer; text-indent:-9999px;}
-#add_friend{background:url("../img/sprites.png") 0px -1279px no-repeat; margin: 0 0 0 4px; width:16px; height:18px; display:inline-block; cursor:pointer; text-indent:-9999px;}
+.rmv_friend{background:#e78130 url(../img/icon_delete.png) no-repeat center center; margin: 0 0 0 4px; width:29px; height:29px; display:inline-block; cursor:pointer; text-indent:-9999px;}
+#add_friend{background:#e78130 url("../img/plus_btn.png") left center no-repeat; margin:0 0 0 4px; padding:8px 20px 10px 30px; display:inline-block; cursor:pointer; border:solid 1px #d77426; color:#fff;}
 
 .edit_user_icon
 {
 cursor:pointer;
 }
-
+.success_msg{
+ color:green !important;
+}
+.scus-msg{color:green !important; margin:0 0 10px 0; font-style:italic;}

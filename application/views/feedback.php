@@ -48,5 +48,5 @@
 	</form>
 </div>
 </div>
-<script type="text/javascript" src="<?php echo base_url('assets/js/validation.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/feedback.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url($this->config->item('path_js_file').'validation.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url($this->config->item('path_js_file').'feedback.js'); ?>"></script>

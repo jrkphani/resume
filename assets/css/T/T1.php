@@ -326,7 +326,7 @@ a{text-decoration:none;}
 
 
 .pbar_inner{ 
- width: 60%;  height: 6px;  margin-top: 6px; float: left; 
+ width: 55%;  height: 6px;  margin-top: 6px; float: left; 
  background-color: #dbdbdb; border:solid 1px #bebebe; }
 
 .pbar_fill{
@@ -392,7 +392,7 @@ a{text-decoration:none;}
 .address .left_content{width:15%; float:left; height:42px; border-radius:0 30px 30px 0; background-color:#fa5e5b; display:block;}
 .address .left_content .left_icon{ /*width:180px;*/ height:42px; border-radius:0 30px 30px 0; background:url(<?=$baseurl?>assets/img/Templates/addr.png) no-repeat scroll 83% 60%;}
 .address .right_content{width:80%; float:right;}
-.address .right_content h1{font-size:15px; font-weight:bold; padding:15px 0 8px 0; color:#7e7e7e; text-transform:uppercase;}
+.address .right_content h1{font-size:15px; font-weight:bold; padding:15px 0 13px 0; color:#7e7e7e; text-transform:uppercase;}
 .address .right_content p{font-size:14px; line-height: 20px;text-align:justify; color:#7e7e7e; margin:0px 20px 0 44px;}
 
 

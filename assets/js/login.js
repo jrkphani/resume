@@ -250,7 +250,7 @@ $(document).ready(function()
 				{
 					if(data.resultset.success=='yes')
 					{
-						$('#error_msg').html("We have sent you an email to reset the password for your EZCV Account. Please check your mail account.");
+						$('#error_msg').html("<span class='success_msg'>We have sent you an email to reset the password for your EZCV Account. Please check your mail account.</span>");
 						//alert('s');
 						//window.location.reload();
 						//window.location.href="tmplts";
@@ -262,7 +262,7 @@ $(document).ready(function()
 				},
 				error:function()
 				{
-					$('#error_msg').html('Internal error, try agian...');
+					$('#error_msg').html("Internal error, try agian...");
 				}
 			});
 		}

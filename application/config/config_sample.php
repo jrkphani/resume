@@ -368,6 +368,8 @@ $config['path_profile_img'] = 'profile_photo/';
 /* Path for temporary html files */
 $config['path_temp_file'] = 'tmp/files/';
 
+/* Path for js files */
+$config['path_js_file'] = 'assets/js/';
 
 /*---------------------------	End of New configs		---------------------------*/
 

@@ -9,7 +9,7 @@
 <title>EZCV | Get noticed in the sea of resumes</title>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_header.css"); ?>" title="EZCV Header" />
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/pepper-grinder/jquery-ui.css" />
-<script src="<?php echo base_url("assets/js/jquery.js"); ?>"></script>
+<script src="<?php echo base_url($this->config->item('path_js_file')."jquery.js"); ?>"></script>
 <script type="text/javascript">
   var baseurl = "<?php print base_url(); ?>";
 </script>

@@ -77,5 +77,5 @@
 <input id="templateName" name="templateName" type="hidden" value="NULL">
 <input id="templateSubmit" type="submit" style="display:none;" >
 </form>
-<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>
-<script src="<?php echo base_url('assets/js/templates.js');?>"></script>
+<script src="<?php echo base_url($this->config->item('path_js_file').'jquery.colorbox-min.js'); ?>" ></script>
+<script src="<?php echo base_url($this->config->item('path_js_file').'templates.js');?>"></script>

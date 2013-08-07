@@ -87,16 +87,16 @@
           <span class="lnme" id="lname_err"></span>
 				</div>
 			<div >
-			   <span class="phone_icon">&nbsp;</span><input  type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
-         <span class="star_mant">*</span>
+			   <span class="phone_icon">&nbsp;</span><input style="margin-right:2px!important;" type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
+         <span class="phone_mant">*</span>
 				<span id="phone_err"></span><br />
-				<span class="mail_icon">&nbsp;</span><input   name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
-        <span class="star_mant">*</span>
+				<span class="mail_icon">&nbsp;</span><input style="margin-right:2px!important;" name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
+        <span class="mail_mant">*</span>
 				<span id="email_err"></span>
 			</div>
 			<!-- DOB -->
 				<div>
-				    <label >Date of Birth<span style="color:red">*</span></label>
+				    <label >Date of Birth<span style="color:red"> *</span></label>
 				    <?
 				    if(isset($user_detail[0]['dob'])) 
 				    $dob = explode('-',$user_detail[0]['dob']);
@@ -1201,10 +1201,10 @@
 
 				 
 		<div id="preview" class="stop-theme" title="<?=$templateName[$templateValue];?>" href=""></div>
-		<!--<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>-->
-		<script src="<?php echo base_url('assets/js/jquery.colorbox-min.js'); ?>" ></script>
+		<!--<script src="<?php echo base_url($this->config->item('path_js_file').'ajaxfileupload.js'); ?>" ></script>-->
+		<script src="<?php echo base_url($this->config->item('path_js_file').'jquery.colorbox-min.js'); ?>" ></script>
 		
-		<script src="<?php echo base_url('assets/js/validation.js');?>"></script>
-		<script src="<?php echo base_url('assets/js/resume.js');?>"></script>
+		<script src="<?php echo base_url($this->config->item('path_js_file').'validation.js');?>"></script>
+		<script src="<?php echo base_url($this->config->item('path_js_file').'resume.js');?>"></script>
 		<?php /* <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.toastmessage.js'); ?>" ></script>
 		<script type="text/javascript" src="<?php echo base_url('assets/js/sisyphus.js'); ?>" ></script> */ ?>

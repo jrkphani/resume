@@ -97,7 +97,7 @@
 				  		<td>&nbsp<input type="email" name="friend_email[]" class="email_check friend_emails" /></td>
 				  		<td>
 				  			<!-- <span class="error_msg" id="refer_err1"></span> -->
-				  			<span id="add_friend">+</span>
+				  			<span id="add_friend">Add</span>
 				  		</td>
 				  	</tr>
 				</table>
@@ -115,7 +115,7 @@
 </div>
 </div>
 
-<script type="text/javascript" src="<?php echo base_url('assets/js/validation.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/jquery.cookie.js');?>"></script>
-<script src="<?php echo base_url('assets/js/login.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url($this->config->item('path_js_file').'validation.js'); ?>"></script>
+<script src="<?php echo base_url($this->config->item('path_js_file').'jquery.cookie.js');?>"></script>
+<script src="<?php echo base_url($this->config->item('path_js_file').'login.js');?>"></script>
 	

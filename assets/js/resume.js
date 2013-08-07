@@ -189,7 +189,7 @@ $(document).ready(function()
 		}
 		else
 		{
-		if(!$('#template').val())
+		if(!$('#template').val() || $('#template').val()==0)
 		{
 			//return false;
 			//alert('Please select a Template');

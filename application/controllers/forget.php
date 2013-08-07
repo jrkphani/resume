@@ -36,7 +36,7 @@ class Forget extends CI_Controller {
 					#$this->email->cc('another@another-example.com');
 					#$this->email->bcc('them@their-example.com');
 					$this->email->subject('Reset your EZCV password');
-					$message= 'Hi '.$result[0]['first_name'].'<br> Changing your password is simple, plaese click on the link below to change it. <br>
+					$message= 'Hi '.$result[0]['first_name'].'<br> Changing your password is simple, please click on the link below to change it. <br>
 					<a href="'.base_url('forget/reset/'.$result[0]['id'].'/'.$update_data['forget']).'">'.base_url('forget/reset/'.$result[0]['id'].'/'.$update_data['forget']).'  </a>
 					<br>Thank you,<br>EZCV Team'; 
 					$this->email->message($message);

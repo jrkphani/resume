@@ -98,7 +98,7 @@ body p,b,h1,h2,h3,span{font-family:Arial, Helvetica, sans-serif; color:#3f3f3f;}
 .pbar{ width: 260px; height: 20px; }
 
 .pbar_inner{ 
- width: 38%;  height: 6px;  margin-top: 6px; float: left;  display: inline-block;
+ width: 37%;  height: 6px;  margin-top: 6px; float: left;  display: inline-block;
  background-color: #dbdbdb; border:solid 1px #bebebe; }
 
 .pbar_fill{
@@ -106,7 +106,7 @@ body p,b,h1,h2,h3,span{font-family:Arial, Helvetica, sans-serif; color:#3f3f3f;}
  background-color: #ec9d21; border:solid 1px #D88C14;}
 
 .pbar p{
- width: 100px;  display: inline;  color:#ec9d21; font-size:12px;
+ width: 100px;  display: inline;  color:#ec9d21; font-size:11px;
  margin-left: 10px; line-height: 20px; text-transform: capitalize;}
 
 .pbar1{ width: 12.5% !important;}

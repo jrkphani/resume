@@ -326,7 +326,7 @@ a{text-decoration:none;}
 
 
 .pbar_inner{ 
- width: 57%;  height: 6px;  margin-top: 6px; float: left; 
+ width: 55%;  height: 6px;  margin-top: 6px; float: left; 
  background-color: #dbdbdb; border:solid 1px #bebebe; }
 
 .pbar_fill{

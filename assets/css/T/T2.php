@@ -76,8 +76,8 @@ body h1,h2,h3,h4,{font-weight:normal;}
 
 .left1_center1 .exp_yers h4{font-size:13px; padding:10px 0 0 0;}
 .left1_center1 .exp_yers h4 p{line-height:24px;}
-.left1_center1 .exp_yers h2{width:50%; float:left; font-size:12px; padding:7px 0 0 0; color:#0b9bd0; font-weight:bold; font-style:italic;}
-.left1_center1 .exp_yers h3{width:50%; float:left; font-size:12px; padding:7px 0 0 0; text-align:right; color:#0b9bd0; font-weight:bold; font-style:italic;}
+.left1_center1 .exp_yers h2{width:85%;  font-size:12px; padding:7px 0 0 0; margin:0 0 5px 0; color:#0b9bd0; font-weight:bold; font-style:italic;}
+.left1_center1 .exp_yers h3{width:85%; font-size:12px; padding:7px 0 0 0;  color:#0b9bd0; font-weight:bold; font-style:italic;}
 .left1_center1 .exp_yers h2 span{color:#3f3f3f; }
 .left1_center1 .exp_yers h3 span{color:#3f3f3f; }
 .left1_center1 .exp_container{padding:5px 0px 0 0px;}
@@ -102,7 +102,7 @@ body h1,h2,h3,h4,{font-weight:normal;}
 .pbar{ }
 
 .pbar_inner{ 
- width: 46%;  height: 6px;  margin-top: 2px; float: left; 
+ width: 38%;  height: 6px;  margin-top: 2px; float: left; 
  background-color: #dbdbdb; border:solid 1px #bebebe; }
 
 .pbar_fill{

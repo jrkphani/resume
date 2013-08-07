@@ -98,7 +98,7 @@ body p,b,h1,h2,h3,span{font-family:Arial, Helvetica, sans-serif; color:#3f3f3f;}
 .pbar{ width: 260px; height: 20px; }
 
 .pbar_inner{ 
- width: 40%;  height: 6px;  margin-top: 6px; float: left;  display: inline-block;
+ width: 38%;  height: 6px;  margin-top: 6px; float: left;  display: inline-block;
  background-color: #dbdbdb; border:solid 1px #bebebe; }
 
 .pbar_fill{

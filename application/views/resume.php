@@ -87,16 +87,16 @@
           <span class="lnme" id="lname_err"></span>
 				</div>
 			<div >
-			   <span class="phone_icon">&nbsp;</span><input  type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
-         <span class="star_mant">*</span>
+			   <span class="phone_icon">&nbsp;</span><input style="margin-right:2px!important;" type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
+         <span class="phone_mant">*</span>
 				<span id="phone_err"></span><br />
-				<span class="mail_icon">&nbsp;</span><input   name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
-        <span class="star_mant">*</span>
+				<span class="mail_icon">&nbsp;</span><input style="margin-right:2px!important;" name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
+        <span class="mail_mant">*</span>
 				<span id="email_err"></span>
 			</div>
 			<!-- DOB -->
 				<div>
-				    <label >Date of Birth<span style="color:red">*</span></label>
+				    <label >Date of Birth<span style="color:red"> *</span></label>
 				    <?
 				    if(isset($user_detail[0]['dob'])) 
 				    $dob = explode('-',$user_detail[0]['dob']);

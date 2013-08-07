@@ -57,9 +57,13 @@ h3{font-size: 1.4em;}
 	border: 0; border-top: 1px solid #1c5870;
 }
 .ezcv_logo{	
-	width: 120px; height: 120px; display: block; 	
-	margin:20px 20px 0 0; 
-	color:#ffffff;	text-decoration: none;	 text-indent: -999em;
+	color: #FFFFFF;
+    display: inline-block;
+    height: 120px;
+    margin: 20px 20px 0 92px;
+    text-decoration: none;
+    text-indent: -999em;
+    width: 120px;
 }
 
 /*-----------------------------Content-------------------------------------*/

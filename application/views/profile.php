@@ -31,6 +31,7 @@
     <div class="profile_photo" id="profile_photo">
         	<img src="<?php echo $img; ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;<?php echo $last_name; ?>" class="img_update" alt="Profile photo" />
     </div>
+    <p class="pr_right fnt_size">File size cannot exceed 2Mb.</p>
     <span id="uploadstate"></span>
     <div class="clearBoth"></div>
     <!--    Profile photo end   -->

@@ -83,8 +83,10 @@ class Feedback extends CI_Controller{
 
 				}
 				else
+				{
 					$data['msg']='Internal error. Please try again later.';
 					$data['success']='no';
+				}
 			}
 		}
 		$this->load->view('template', $data);

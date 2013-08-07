@@ -616,7 +616,7 @@ margin: -23px 0 0 226px;}
 }
 /*.emailtooltip{margin:-15px 0 0 0!important;}*/
 .tooltip_qs_img{}
-.success_msg{color:green;}
+.success_msg{color:green; margin:0 0 10px 0;}
 .error_msg{color:red;}
 /**************contact*******************/
 

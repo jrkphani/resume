@@ -115,7 +115,7 @@
 </div>
 </div>
 
-<script type="text/javascript" src="<?php echo base_url('assets/js/validation.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/jquery.cookie.js');?>"></script>
-<script src="<?php echo base_url('assets/js/login.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url($this->config->item('path_js_file').'validation.js'); ?>"></script>
+<script src="<?php echo base_url($this->config->item('path_js_file').'jquery.cookie.js');?>"></script>
+<script src="<?php echo base_url($this->config->item('path_js_file').'login.js');?>"></script>
 	

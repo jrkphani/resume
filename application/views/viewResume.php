@@ -212,4 +212,4 @@
 		</form>
 	</div>
 </div>
-<script type="text/javascript" src="<?php echo base_url('assets/js/resume_download.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url($this->config->item('path_js_file').'resume_download.js'); ?>"></script>

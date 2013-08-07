@@ -34,7 +34,7 @@
 	</div>
 </div>
 
-<script src="<?php echo base_url('assets/js/jquery.countdown.min.js');?>"></script>
+<script src="<?php echo base_url($this->config->item('path_js_file').'jquery.countdown.min.js');?>"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	var austDay = new Date(0,0,0,0,0,1)

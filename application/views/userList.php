@@ -68,6 +68,4 @@
 
 </div>
 
-<!--<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>-->
-<script type="text/javascript" src="<?php echo base_url('assets/js/jquery-ui.min.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/userList.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url($this->config->item('path_js_file').'userList.js'); ?>"></script>

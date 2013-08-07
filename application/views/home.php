@@ -157,7 +157,7 @@ At the end of it, we want you to have a great looking resume that best describes
 	</div>
 	<!--<script src="http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript"></script>-->
 
-<script src="<?php echo base_url("assets/js/responsiveslides.min.js"); ?>" type="text/javascript"></script>
+<script src="<?php echo base_url($this->config->item('path_js_file')."responsiveslides.min.js"); ?>" type="text/javascript"></script>
 <script type="text/javascript">
 $(".rslides").responsiveSlides({
   auto: true,             // Boolean: Animate automatically, true or false

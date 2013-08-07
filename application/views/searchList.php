@@ -43,8 +43,7 @@
     <div style="clear:both"></div>
     </form>
 
-    <script src="<?php echo base_url('assets/js/searchList.js');?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
+    <script src="<?php echo base_url($this->config->item('path_js_file').'searchList.js');?>"></script>
 </div>
 <script>
 $(document).ready(function(){

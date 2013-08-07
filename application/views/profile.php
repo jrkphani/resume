@@ -202,6 +202,6 @@
     <!-- Control Links  end-->
 </div>
 </div>
-<script type="text/javascript" src="<?php echo base_url('assets/js/validation.js'); ?>"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/profile.js'); ?>"></script>
-<script src="<?php echo base_url('assets/js/ajaxfileupload.js'); ?>" ></script>
+<script type="text/javascript" src="<?php echo base_url($this->config->item('path_js_file').'validation.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url($this->config->item('path_js_file').'profile.js'); ?>"></script>
+<script src="<?php echo base_url($this->config->item('path_js_file').'ajaxfileupload.js'); ?>" ></script>

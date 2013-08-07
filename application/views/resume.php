@@ -1115,7 +1115,7 @@
 			<div id="selectTemplate" style="display:none;" class="selectTemplate">
       		<span id="selectTemplateclose" class="close_btn">close</span>
 			<div class="clearboth"></div>
-			<h3>Choose Template</h3>			
+			<h3>Please select a resume style</h3>			
       
       <div style="width:100%;">
       <div style="width:10%; float:left; margin:0 45px 0 0;">

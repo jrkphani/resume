@@ -27,6 +27,7 @@ do
     #Debug mode
     #java -jar yuicompressor-2.4.jar $i -o compressed/$i --charset utf-8 --verbose
     
+    #Non debug mode
     java -jar yuicompressor-2.4.jar $i -o compressed/$i --charset utf-8
     
     

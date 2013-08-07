@@ -113,17 +113,17 @@ $(document).ready(function()
 	$('.next').click(function()
 	{
 		//if(!validate_resume())
-		if(0)
-		{
-			return false;
-		}
-		else
-		{
+	//	if(0)
+		//{
+	//		return false;
+		//}
+	//	else
+	//	{
 			$('.tab').removeClass('rns_a');
 			$('.tabs').hide();
 			$(".tab[tab='" + $(this).attr('href') + "']").addClass('rns_a');
 			$($(this).attr('href')).show();
-		}
+		//}
 		$('html, body').animate({ scrollTop: 0 }, 0);
 	});
 	//let tab menu and continue button function start
@@ -722,7 +722,7 @@ function datepic()
 		changeMonth: true,
         changeYear: true,
         dateFormat: 'M-yy',
-        yearRange:'c:c+80',
+        yearRange:'c:c+80'
 		});
     
    /* $('.half_date_picker').click(function()

@@ -97,7 +97,7 @@
 				  		<td>&nbsp<input type="email" name="friend_email[]" class="email_check friend_emails" /></td>
 				  		<td>
 				  			<!-- <span class="error_msg" id="refer_err1"></span> -->
-				  			<span id="add_friend">+</span>
+				  			<span id="add_friend">Add</span>
 				  		</td>
 				  	</tr>
 				</table>

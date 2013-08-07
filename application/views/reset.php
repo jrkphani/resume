@@ -1,5 +1,5 @@
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_resume.css"); ?>" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_login.css"); ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url($this->config->item('path_css_file')."sss_resume.css"); ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url($this->config->item('path_css_file')."sss_login.css"); ?>" />
 <div class="form_title">
 	<h3>Reset your password</h3>
 </div>

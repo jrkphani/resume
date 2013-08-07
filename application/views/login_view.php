@@ -66,16 +66,16 @@
 			<h2>New to Resume Builder? Sign Up </h2>
 			<form id="registration_form">
 				<p class="scus-msg"></p>
-				<label for="firstname">First name *</label>
+				<label for="firstname">First name <span class="red">*</span></label>
 			    <input type="text" name="firstname" id="firstname" placeholder="First name" value="<?php echo $sess_user_detail['user_detail']['first_name']; ?>" />
 				<span class="error_msg" id="firstname_err1"></span>
-				<label  for="lastname">Last name *</label>
+				<label  for="lastname">Last name <span class="red">*</span></label>
 			    <input type="text" name="lastname" id="lastname" placeholder="Last name" value="<?php echo $sess_user_detail['user_detail']['last_name']; ?>" />
 			 	<span class="error_msg" id="lastname_err1"></span>
-			 	<label  for="inputEmail">Email *</label>
+			 	<label  for="inputEmail">Email <span class="red">*</span></label>
 			   	<input type="email" class="email_check" name="email_address" id="inputEmail" placeholder="Email" value="<?php echo $sess_user_detail['user_detail']['secondary_email']; ?>" />
 			    <span class="error_msg" id="email_err1"></span>
-			    <label  for="inputPassword">Password *</label>
+			    <label  for="inputPassword">Password <span class="red">*</span></label>
 			    <input type="password"  name="pass_word" id="inputPassword" placeholder="Password">
 			    <span class="error_msg" id="password_err1"></span>
 			    <div style="display:none;">

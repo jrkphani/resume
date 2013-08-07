@@ -256,3 +256,5 @@ cursor:pointer;
  color:green !important;
 }
 .scus-msg{color:green !important; margin:0 0 10px 0; font-style:italic;}
+
+.red{color:red; margin:-1px 0 0 1px; position:absolute;}

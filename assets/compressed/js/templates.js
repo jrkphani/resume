@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".previewTemp").colorbox({rel:"previewTemp",transition:"fade"});$(".temp_select").click(function(){$("#templateValue").attr("value",$(this).attr("tvalue"));$("#templateName").attr("value",$(this).attr("title"));$("#templateSubmit").click()})});

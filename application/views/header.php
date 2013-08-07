@@ -7,7 +7,7 @@
 <meta name="keywords" content="Create cv online, create resume online,  Resume builder, EZCV">
 <meta name="description" content="Get noticed in a see of Resume">
 <title>EZCV | Get noticed in the sea of resumes</title>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/css/sss_header.css"); ?>" title="EZCV Header" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url($this->config->item('path_css_file')."sss_header.css"); ?>" title="EZCV Header" />
 <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/pepper-grinder/jquery-ui.css" />
 <script src="<?php echo base_url($this->config->item('path_js_file')."jquery.js"); ?>"></script>
 <script type="text/javascript">

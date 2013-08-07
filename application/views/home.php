@@ -1,5 +1,5 @@
-<link type="text/css" href="<?php echo base_url("assets/css/sss_home.css"); ?>" rel="stylesheet" />
-<link type="text/css" href="<?php echo base_url("assets/css/responsiveslides.css"); ?>" rel="stylesheet" />
+<link type="text/css" href="<?php echo base_url($this->config->item('path_css_file')."sss_home.css"); ?>" rel="stylesheet" />
+<link type="text/css" href="<?php echo base_url($this->config->item('path_css_file')."responsiveslides.css"); ?>" rel="stylesheet" />
 
 		<hr/>
 		<div class="rslider_container">

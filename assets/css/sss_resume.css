@@ -510,7 +510,7 @@ width: 83%;
 padding-top: 20px;
 padding-bottom: 20px;
 background-color: #25b695;
-
+z-index: 9999;
 }
 
 .selectTemplate h3{
@@ -637,6 +637,7 @@ margin: -23px 0 0 226px;}
 	position: absolute;
 	background-color: #232323;
 	opacity: .8;	
+	z-index: 9999;
 }
 
 

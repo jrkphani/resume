@@ -24,6 +24,7 @@ $(document).ready(function(){
 
 		if($('#primary_email').val()==$('#secondary_email').val())
 			$('#display_email').hide();
+		$('.scus-msg').html("");
 	});
 	
 	//Cancel edit
@@ -112,6 +113,7 @@ $(document).ready(function(){
    		$('#current_password').val('');
    		$('#new_password').val('');
    		$('#confirm_password').val('');
+   		$('.scus-msg').html("");
    });
 
    // Hide Change Password
@@ -141,7 +143,7 @@ $(document).ready(function(){
 					$('#change_password_div').hide();
 			   		$('#profile_div').show();
 			   		$('#show_change_password').show();
-			   		$('.err-msg').html('Your Password has been successfully updated.');
+			   		$('.scus-msg').html('Your Password has been successfully updated.');
 			   		$('.pr-view, #pr-edit-link, #show_change_password, #profile_photo').show();
 					$('.pr-edit').hide();
 					//$('#pr-edit-link').show();

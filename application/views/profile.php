@@ -110,7 +110,7 @@
                     <span class="pr-edit"><label  class="pr_left" for="address">Address</label></span>
                 </td>
                 <td>
-                	<div class="pr-view pr_right"><?php echo $address; ?></div>  
+                	<div class="pr-view pr_right"><?php echo nl2br($address); ?></div>  
                     <div class="pr-edit pr_right_edit"><textarea name="address" id="address"><?php echo $address; ?></textarea></div>
                 </td>
             </tr>
@@ -163,7 +163,7 @@
 
         <!-- Forgot Password start-->
         <div id="change_password_div" style="display:none;">
-        <div id="change_password_msg"></div>
+        <div id="change_password_msg" class="error_msg"></div>
         <form name="form2" id="form2" method="post">
             <table>
                 <tr>

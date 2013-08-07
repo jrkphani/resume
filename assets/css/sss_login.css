@@ -1,6 +1,6 @@
 
 .form_title{
-	width: 100%; height: 60px; 
+	width: auto; height: 60px; 
 	background: #e78130;	border:solid 1px #d77426; color: #fff;
 }
 .form_title h3{
@@ -27,7 +27,7 @@
 }
 
 .left_form{
-	width: 100%; 
+	width: auto;
 	background-color: #f4f4f4;
 	padding: 50px;
 }

@@ -139,6 +139,7 @@ $(document).ready(function()
 	});
 
 	$("#preview").colorbox({iframe:true, escKey:true, width:"860px", height:"95%"});
+	$(".previewTemp").colorbox({rel:'previewTemp', transition:"fade"});
 	$("#resume_submit").click(function(e){
 		e.preventDefault();
 		if(!validate_resume())

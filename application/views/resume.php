@@ -1135,7 +1135,7 @@
 					<div class="t_list_s">
 						<p>Spring Bloom</p>
 						<!--<a title="Spring Bloom" <?if(($templateValue) && ($templateValue == 'T1')){ echo "style='display:none'";} ?> class="t_select template" value="T1">Select</a>-->
-						<span class="previewTemp" title="Spring Bloom">zoom</span>
+						<span class="previewTemp" title="Spring Bloom" href="<?php echo base_url("assets/img/T1_full.png"); ?>">zoom</span>
 					</div>
 				</div>
 			</div>
@@ -1146,7 +1146,7 @@
 					<div class="t_list_s">
 						<p>Pyramid Point</p>
 						<!--<a title="Pyramid Point" <?if(($templateValue) && ($templateValue == 'T4')){ echo "style='display:none'";} ?> class="t_select template" value="T4">Select</a>-->
-						<span class="previewTemp" title="Pyramid Point">zoom</span>
+						<span class="previewTemp" title="Pyramid Point" href="<?php echo base_url("assets/img/T4_full.png"); ?>">zoom</span>
 					</div>
 				</div>
 			</div>
@@ -1157,7 +1157,7 @@
 					<div class="t_list_s">
 						<p>White Citadel</p>
 						<!--<a title="White Citadel" <?if(($templateValue) && ($templateValue == 'T2')) {echo "style='display:none'"; }?> class="t_select template" value="T2">Select</a>-->
-						<span class="previewTemp" title="White Citadel">zoom</span>
+						<span class="previewTemp" title="White Citadel" href="<?php echo base_url("assets/img/T2_full.png"); ?>">zoom</span>
 					</div>
 				</div>
 			</div>
@@ -1168,7 +1168,7 @@
 					<div class="t_list_s">
 						<p>Window View</p>
 						<!--<a title="Window View" <?if(($templateValue) && ($templateValue == 'T3')) {echo "style='display:none'";} ?> class="t_select template" value="T3">Select</a>-->
-						<span class="previewTemp" title="Window View">zoom</span>
+						<span class="previewTemp" title="Window View" href="<?php echo base_url("assets/img/T3_full.png"); ?>">zoom</span>
 					</div>
 				</div>
 			</div>

@@ -2,7 +2,7 @@
 	.clickr{
 	width: 172px; height: 34px; line-height:33px;
 	 display: block; text-align: center;
-	 margin-top: 100px;
+	 margin-top: 80px; margin-bottom:30px;
 	cursor: pointer; text-decoration: none;
 	clear:both;
 	background: #e78130 url(../img/arrow_btn.png) no-repeat right center;	border: solid 1px #d77426;	color: #fff; font-family: 'segoeui', sans-serif!important;

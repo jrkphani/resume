@@ -13,8 +13,8 @@
 	<form name="feedback_form" id="feedback_form" method="post" action="">
 	<table>
   	<tr>
-    	<td></td>
-      <td><p class="fbmandtri">All fields are mandatory</p></td>
+    	<td><p class="fbmandtri">All fields are mandatory</p><br /></td>
+      	<td></td>
     </tr>
 		<tr>
 			<td ><p class="fb_cnt">Name <span class="red">*</span></p></td>
@@ -30,7 +30,7 @@
 		</tr>
 		<tr>
 			<td ><p class="fb_cnt">Message <span class="red">*</span></p></td>
-			<td><textarea class="fb_txtara" name="message" id="message" data-limit-input="1000" placeholder="Enter your Message"	></textarea>
+			<td><textarea class="fb_txtara" name="message" id="message" data-limit-input="1000" placeholder="Enter your Message" maxlength="1000" ></textarea>
       </td>
    </tr>
    <tr>
@@ -38,6 +38,7 @@
       </td>
       <td>
 			<p  class="fbmandtri exchr">0 of 1000 characters used</p>
+			<p  class="fbmandtri exchr" id="msg_status"><!--0 of 1000 characters used-->1000</p>
 			</td>
 		</tr>
 		<tr>

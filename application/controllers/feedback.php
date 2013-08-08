@@ -65,11 +65,11 @@ class Feedback extends CI_Controller{
 					$config['wordwrap'] = TRUE;
 					$config['mailtype']='html';
 					$this->email->initialize($config);
-					$this->email->from('ezcv@digitalchakra.in', 'Digital Chakra');
+					$this->email->from('ezcv@digitalchakra.in', 'EZCV');
 
 					//Write mail to user
-					$this->email->subject('Thank your for your feedback - EZCV');
-					$content= 'Dear User<br /><br />Thank you for your feedback on EZCV. Your feedback help us to improve. We will contact you if necessary.<br /><br />Regards<br />EZCV';
+					$this->email->subject('Thank you for your feedback on EZCV');
+					$content= 'Dear EZCV user,<br /><br />We thank you for taking time out to give us your valuable feedback on our website. We will surely go through your comments and try to incorporate them as soon as possible.<br /><br />Thank you,<br />EZCV Team';
 					$this->email->to($email);
 					$this->email->message($content);
 					$this->email->send();

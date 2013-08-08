@@ -37,7 +37,6 @@
    		<td>
       </td>
       <td>
-			<p  class="fbmandtri exchr">0 of 1000 characters used</p>
 			<p  class="fbmandtri exchr" id="msg_status"><!--0 of 1000 characters used-->1000</p>
 			</td>
 		</tr>

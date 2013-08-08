@@ -28,7 +28,7 @@
 </style>
 
 		<div class="s_heading">
-			Acount activated successfully
+			Account activated successfully
 		</div>
 		
 			<a class="dbutton clickr" href="<? echo base_url('login');?>/">Login</a>

@@ -17,19 +17,19 @@
       <td><p class="fbmandtri">All fields are mandatory</p></td>
     </tr>
 		<tr>
-			<td ><p class="fb_cnt">Name *</p></td>
+			<td ><p class="fb_cnt">Name <span class="red">*</span></p></td>
 			<td><input class="fb_txt" type="text" name="name" id="name" placeholder="Name" /></td>
 		</tr>
 		<tr>
-			<td ><p class="fb_cnt">Email *</p></td>
+			<td ><p class="fb_cnt">Email <span class="red">*</span></p></td>
 			<td><input class="fb_txt" type="text" name="email" id="email" placeholder="Email" /></td>
 		</tr>
 		<tr>
-			<td ><p class="fb_cnt">Subject *</p></td>
+			<td ><p class="fb_cnt">Subject <span class="red">*</span></p></td>
 			<td><input class="fb_txt" type="text" name="subject" id="subject" placeholder="Subject" /></td>
 		</tr>
 		<tr>
-			<td ><p class="fb_cnt">Message *</p></td>
+			<td ><p class="fb_cnt">Message <span class="red">*</span></p></td>
 			<td><textarea class="fb_txtara" name="message" id="message" data-limit-input="1000" placeholder="Enter your Message"	></textarea>
       </td>
    </tr>

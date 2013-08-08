@@ -11,7 +11,7 @@
 </div>
 
 <div class="left_form">
-	<h2 style="padding-left:20px; padding-top:20px;">Please select a resume style</h2>
+	<h2 style="padding-left:20px; padding-top:20px; font-size:20px;">You can select a resume template of your choice here.</h2>
 		<div class="t_list">
 			<div class="t_list_bg">
 				<!-- clicking on following div should do select functionality -->

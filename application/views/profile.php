@@ -30,10 +30,10 @@
     <!--    Profile photo start  -->
     <div class="profile_photo" id="profile_photo">
         	<img src="<?php echo $img; ?>" title="<?php echo $first_name; ?>&nbsp;&nbsp;<?php echo $last_name; ?>" class="img_update" alt="Profile photo" />
-          <p class="pr_right fnt_size">File size cannot exceed 2Mb.</p>
+          
     </div>
-    
     <span id="uploadstate"></span>
+    <p class="pr_right pr-edit fnt_size">File size cannot exceed 2MB.</p>    
     <div class="clearBoth"></div>
     <!--    Profile photo end   -->
 
@@ -53,7 +53,7 @@
         	<tr>
             	<td>
                     <span class="pr-view pr_left">Name</span>
-                    <span class="pr-edit"><label class="pr_left" for="first_name">Name*</label></span>
+                    <span class="pr-edit"><label class="pr_left" for="first_name">Name<span class="red">*</span></label></span>
                 </td>
                 <td>
                 	<span class="pr-view pr_right"><?php echo $first_name; ?>&nbsp;&nbsp;&nbsp;<?php echo $last_name; ?></span>
@@ -75,7 +75,7 @@
             <tr id="display_email">
             	<td>
                     <span class="pr-view pr_left">Display Email</span>
-                    <span class="pr-edit"><label  class="pr_left" for="secondary_email">Display Email*</label></span>
+                    <span class="pr-edit"><label  class="pr_left" for="secondary_email">Display Email<span class="red">*</span></label></span>
                 </td>
                 <td>
                 	<span class="pr-view pr_right"><?php echo $secondary_email; ?></span>
@@ -85,7 +85,7 @@
             <tr>
             	<td>
                     <span class="pr-view pr_left">Mobile</span>
-                    <span class="pr-edit"><label  class="pr_left" for="mobile">Mobile*</label></span>
+                    <span class="pr-edit"><label  class="pr_left" for="mobile">Mobile<span class="red">*</span></label></span>
                 </td>
                 <td>
                 	<span class="pr-view pr_right"><?php echo $mobile; ?></span>
@@ -167,15 +167,15 @@
         <form name="form2" id="form2" method="post">
             <table>
                 <tr>
-                    <td><label class="pr_left1" for="current_password">Current Password*</label></td>
+                    <td><label class="pr_left1" for="current_password">Current Password<span class="red">*</span></label></td>
                     <td><input type="password" name="current_password" id="current_password" /></td>
                 </tr>
                 <tr>
-                    <td><label class="pr_left1" for="new_password">New Password*</label></td>
+                    <td><label class="pr_left1" for="new_password">New Password<span class="red">*</span></label></td>
                     <td><input type="password" name="new_password" id="new_password" /></td>
                 </tr>
                 <tr>
-                    <td><label class="pr_left1"  for="confirm_password">Confirm Password*</label></td>
+                    <td><label class="pr_left1"  for="confirm_password">Confirm Password<span class="red">*</span></label></td>
                     <td><input type="password" name="confirm_password" id="confirm_password" /></td>
                 </tr>
                 <tr>

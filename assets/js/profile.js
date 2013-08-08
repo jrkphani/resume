@@ -84,7 +84,15 @@ $(document).ready(function(){
    });
 
    //Submit image form on image selection
-   $('#userfile').live('change', function(){ $('#fsubmit').click(); });
+   $('#userfile').live('change', function(){
+		var file_size=(this.files[0].size)/1048576;
+     if(file_size>2)
+     {
+      $('#uploadstate').html('The uploaded file exceeds the maximum file size limit.');
+      return false;
+     }
+     $('#fsubmit').click(); 
+		});
 
    //Call browse for file when click profile photo
    $('#profile_pic').live("click",function()

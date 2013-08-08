@@ -196,7 +196,7 @@ float: left;
 font-size: 15px;
 line-height: 21px;
 }
-.fnt_size{font-size: 13px; margin:8px 0 5px -22px; width:200px;}
+.fnt_size{font-size: 13px; margin:8px 0 5px 0px; width:200px;}
 #form2 table tr{border:none!important;}
 .tbl{
     font-size: 13px;
@@ -209,7 +209,7 @@ line-height: 21px;
 	 border:solid 5px #e1e1e1;
 		text-align: center; padding:5px 0 0 0;
 }
-
+.profile_photo1{min-height:80px;}
 tr{
 	border-bottom: solid 1px #e1e1e1;
 }

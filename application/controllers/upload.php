@@ -22,7 +22,7 @@ class Upload extends CI_Controller
    {
       $config['upload_path'] = FCPATH.$this->config->item('path_temp_img');
       $config['allowed_types'] = 'gif|jpg|png';
-      $config['max_size']  = 1024 * 8;
+      $config['max_size']  = 1024 * 2;
       $config['encrypt_name'] = TRUE;
       $this->load->library('upload', $config);
       if (!$this->upload->do_upload($file_element_name))

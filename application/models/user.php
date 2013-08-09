@@ -1,14 +1,12 @@
 <?php
 Class User extends CI_Model
 {
- function login($username, $password)
+ function login($username)
  {
    $this -> db -> select('users.id,users.email,user_detail.first_name,user_detail.last_name,user_detail.role,user_detail.limit,user_detail.flag');
    $this -> db -> from('users');
    $this -> db -> where('users.email', $username);
-   $this -> db -> where('users.password', MD5($password));
    $this -> db -> where('users.active', 1);
-   $this -> db -> limit(1);
    $this -> db -> join('user_detail','users.id=user_detail.user_id');
 
    $query = $this -> db -> get();
@@ -167,6 +165,21 @@ Class User extends CI_Model
     $this -> db -> where($where);
     $query = $this -> db -> get();
     return $query->result_array();
+  }
+
+  function get_password($username){
+    $this->db->select('password');
+    $this->db->where('email', $username);
+     $query = $this->db->get('users');
+     if($query->num_rows() == 1){
+        foreach($query->result() as $row){
+          $pwd = $row->password;
+        }
+        return $pwd;
+       }
+       else{
+        return FALSE;
+       }
   }
 }
 ?>

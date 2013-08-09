@@ -12,6 +12,7 @@ class Registration extends CI_Controller {
 
  function index()
  {
+ 		$this->load->library('passhash');
 	 /*if($this->current_user)
 	   {
 		 $session_data = $this->session->userdata('logged_in');
@@ -101,7 +102,7 @@ class Registration extends CI_Controller {
 									'firstname'=>$this->input->post('firstname'),
 									'lastname'=>$this->input->post('lastname'),
 									'email'=>$this->input->post('email_address'),
-									'password'=>md5($this->input->post('pass_word')),
+									'password'=>$this->passhash->hash($this->input->post('pass_word')),
 									'role'=>$this->input->post('role'),
 									'active'=>sha1(mt_rand(10000,99999).time().$this->input->post('email_address'))
 								  );

@@ -82,7 +82,7 @@ class Registration extends CI_Controller {
 			{
 			  	error_reporting(E_ERROR);
 			 	$this->load->library('smtp_validate_email');
-				$sender = 'ramasamy.digitalchakra@gmail.com';
+				$sender = 'no-reply@ezcv.in';
 				$SMTP_Validator = new Smtp_validate_email();
 				$SMTP_Validator->debug = false;
 				/*$results=$SMTP_Validator->validate(array($primary_email,$friend_email1,$friend_email2), $sender);
@@ -124,7 +124,7 @@ class Registration extends CI_Controller {
 							$config['wordwrap'] = TRUE;
 							$config['mailtype']='html';
 							$this->email->initialize($config);
-							$this->email->from('resume@digitalchakra.in', 'Digital Chakra');
+							$this->email->from('no-reply@ezcv.in', 'EZCV');
 							#$this->email->cc('another@another-example.com');
 							#$this->email->bcc('them@their-example.com');
 							if($post_data['role']=='user')
@@ -227,7 +227,7 @@ class Registration extends CI_Controller {
  	{*/
  	error_reporting(E_ERROR);
  	$this->load->library('smtp_validate_email');		
-	$sender = 'ramasamy.digitalchakra@gmail.com';
+	$sender = 'no-reply@ezcv.in';
 	$SMTP_Validator = new Smtp_validate_email();
 	$SMTP_Validator->debug = false;
 	$not_valid=NULL;

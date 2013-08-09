@@ -58,6 +58,7 @@
 				<p class="showSelectTemplate shwseltmp">&nbsp;</p><br />
         <a href="#" class="cht showSelectTemplate shwseltmp1" style="background:none!important;">Change Template</a>
 		
+		<a href="#" class="btn_dld">Download Resume</a>
 		
 		<!-- ================================ form start ================================ -->
 	<form id="resume_form">

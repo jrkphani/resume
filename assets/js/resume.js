@@ -140,6 +140,8 @@ $(document).ready(function()
 
 	$("#preview").colorbox({iframe:true, escKey:true, width:"860px", height:"95%"});
 	$(".previewTemp").colorbox({rel:'previewTemp', transition:"fade"});
+	
+	//Save or Save & Register only
 	$("#resume_submit").click(function(e){
 		e.preventDefault();
 		if(!validate_resume())
@@ -167,7 +169,15 @@ $(document).ready(function()
 					if(result.resultset.success=='yes')
 					{
 						downloadClicked = true;
-						window.location=baseurl+'login/index/register';
+						if(result.resultset.image=='no')
+						{
+							alert("saved");
+							//window.location=baseurl+'login/index/register';
+						}
+						else
+						{
+							window.location=baseurl+'login/index/register';
+						}
 					}
 					else
 					{
@@ -182,6 +192,8 @@ $(document).ready(function()
 		//}
 		}
 	});
+	
+	//Preview only
 	$("#preview_submit").click(function(e){
 		e.preventDefault();
 		if(!validate_resume())
@@ -630,6 +642,41 @@ $('#addSkills').click(function()
 	/*$( function() {
 		$( "#resume_form" ).sisyphus();
 	} );*/
+	
+	
+	
+	
+	//Save and Download
+	$('#directDownload').click(function(){
+		if(!validate_resume())
+		{
+		return false;
+		}
+		else
+		{
+			$.ajax({
+				url: baseurl+'preview', 
+				type: 'post',
+				data: $('#resume_form').serialize()+ "&registeronly=yes",
+				success:function(result)
+				{
+					if(result.resultset.success=='yes')
+					{
+						downloadClicked = true;
+						window.location=baseurl+'download/index/'+result.resultset.html;
+					}
+					else
+					{
+						alert('Internal error, Please try agian!');
+					}
+				},
+				error:function()
+				{
+					alert('Internal error, Please try agian!');
+				}
+			});
+		}
+		});
 });
 /*function showNotice()
 {
@@ -770,7 +817,10 @@ function download(link)
 	downloadClicked = true;
 	window.location=baseurl+'download/index/'+link;
 }
-
+ function save()
+ {
+	 $("#resume_submit").click();
+ }
 // Make sure for exit, if user clicked other than the download link.
 function confirmExit()
 {

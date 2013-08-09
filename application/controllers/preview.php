@@ -201,16 +201,38 @@ class Preview extends CI_Controller {
 				$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
 				$this->load->model('resume_model');
 				$user_id=$this->current_user['id'];
-				$this->resume_model->update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education);
 				$file_name=$user_id;
+				if($post_array['registeronly'])
+				{
+					$this->resume_model->update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education);
+					$data['html']=$file_name;
+					$data['image']='no';
+				}
+				else
+				{
+					$data['image']='yes';
+				}
 				$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
+				if(!write_file($temp_path_html, $preview_data))
+					{
+						//Unable to write file
+						$data['success']='no';
+						$data['msg']='Internal error';
+						$result['resultset']=$data;
+					}
+					else
+					{
+						$data['success']='yes';
+						$data['html']=$file_name;
+						$result['resultset']=$data;
+					}
+				$result['resultset']=$data;
 			}
 			else
 			{
 				//user not logged in
 				$this->session->set_userdata('resume_data',$post_array);
-				if(!$post_array['registeronly'])
-				{
+				
 					$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
 					$file_name=mt_rand().time();
 					$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
@@ -223,49 +245,38 @@ class Preview extends CI_Controller {
 "></span>';
 					//$style="";
 					$preview_data = $style.$preview_data;
-				}				
+					if(!write_file($temp_path_html, $preview_data))
+					{
+						//Unable to write file
+						$data['success']='no';
+						$data['msg']='Internal error';
+						$result['resultset']=$data;
+					}
+					else
+					{			
+							// Command to execute
+							$command = FCPATH."application/third_party/wkhtmltoimage-i386 --load-error-handling ignore";
+							
+							// Putting together the command for `shell_exec()`
+							$ex = "$command " . $temp_path_html ." ". $temp_path_img;
+							
+							// Generate the image
+							$output = shell_exec($ex);
+							if(!$this->current_user)
+							{
+							//remove html
+							unlink($temp_path_html);
+							}
+							
+							//set returning image type yes
+						$data['image']='yes';
+						$data['success']='yes';
+						$data['html']=$file_name;
+						$result['resultset']=$data;
+					}			
 			}
-			if(!$post_array['registeronly'])
-			{
-			if(!write_file($temp_path_html, $preview_data))
-			{
-				//Unable to write file
-				$data['success']='no';
-				$data['msg']='Internal error';
-				$result['resultset']=$data;
-			}
-			else
-			{
-				$data['image']='no';
-				if(!$this->current_user)
-				{					
-					// Command to execute
-					$command = FCPATH."application/third_party/wkhtmltoimage-i386 --load-error-handling ignore";
-					
-					// Putting together the command for `shell_exec()`
-					$ex = "$command " . $temp_path_html ." ". $temp_path_img;
-					
-					// Generate the image
-					$output = shell_exec($ex);
-				
-					//remove html
-					unlink($temp_path_html);
-					
-					
-					//set returning image type yes
-					$data['image']='yes';
-				}
-				$data['success']='yes';
-				$data['html']=$file_name;
-				$result['resultset']=$data;
-			}
-		}
-		else
-		{
-			//only save data no need to preview
-			$data['success']='yes';
-			$result['resultset']=$data;
-		}
+
+			
 			$this->load->view('json',$result);
 		}
 		else

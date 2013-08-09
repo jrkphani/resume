@@ -37,6 +37,8 @@
      <input type="submit" name="submit" id="fsubmit" value="Upload"/>
    </form>
 </div>-->
+
+<div id="directDownload">Direct Downlaod</div>
 <div class="left_form">
 	<?
 	if(!$templateValue)
@@ -1091,13 +1093,15 @@
 
 	<!-- ======================================================================== form end ================================ -->
 		<!-- final save buttons -->
-			
+			<span  id="resume_submit" class="clickr_final"> Save</span>
+			<span  id="preview_submit" class="clickr_preview"> Preview</span>
 			<? if(isset($user_detail))
 			{?>
-			<span  id="preview_submit" class="clickr_preview"> Save & Download</span>
+			<!--<span  id="preview_submit" class="clickr_preview"> Preview</span>
+			<span  id="resume_submit" class="clickr_preview"> Save</span>-->
 			<?} else {?>
-			<span  id="resume_submit" class="clickr_final"> Save & Register</span>
-			<span  id="preview_submit" class="clickr_preview"> Preview</span>
+			<!--<span  id="resume_submit" class="clickr_final"> Save</span>
+			<span  id="preview_submit" class="clickr_preview"> Preview</span>-->
 			<? } ?>
 		    <!--<span  class="clickr next" >Reset</span>-->
 		

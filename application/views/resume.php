@@ -938,13 +938,13 @@
 					{?>
 						<option value="1" <?if($user_detail[0]['married']=="1") echo 'selected="selected"';?>  >Married</option>
 						<option value="0" <?if($user_detail[0]['married']=="0") echo 'selected="selected"';?>  >Unmarried</option>
-						<option value="NULL" <?if($user_detail[0]['married']=="NULL") echo 'selected="selected"';?>  >Not specified</option>
+						<option value="" <?if($user_detail[0]['married']==NULL) echo 'selected="selected"';?>  >Not specified</option>
 					<?
 					}
 					else
 					{
 					?>
-					<option value="NULL">Not specified</option>
+					<option value="" selected="selected">Not specified</option>
 					<option value="1">Married</option>
 					<option value="0">Unmarried</option>
 					<? } ?>
@@ -985,7 +985,7 @@
 						for($i=1; $i<=80; $i++)
 						{
 						?>
-						<option value="<?=$current_Year;?>" <? if(isset($passportDate) && $passportDate[1]==$current_Year){ echo 'selected="selected"';} ?> > <?=$current_Year++;?> </option>
+						<option value="<?=$current_Year;?>" <? if(isset($passportDate[1]) && $passportDate[1]==$current_Year){ echo 'selected="selected"';} ?> > <?=$current_Year++;?> </option>
 						<? } ?>
 				    </select>
 					<!--<input  type="text" class="feature_date_picker" name="passportTo" placeholder="Feb-2012" value="<?=$passport_visa['passportTo'];?>" readonly="readonly" />-->
@@ -1018,7 +1018,7 @@
 						for($i=1; $i<=80; $i++)
 						{
 						?>
-						<option value="<?=$current_Year;?>" <? if(isset($visaDate) && $visaDate[1]==$current_Year){ echo 'selected="selected"';} ?> > <?=$current_Year++;?> </option>
+						<option value="<?=$current_Year;?>" <? if(isset($visaDate[1]) && $visaDate[1]==$current_Year){ echo 'selected="selected"';} ?> > <?=$current_Year++;?> </option>
 						<? } ?>
 				    </select>
 					<!--<input  type="text" class="feature_date_picker" name="visaTo" placeholder="Feb-2012" value="<?=$passport_visa['visaTo'];?>" readonly="readonly" />-->

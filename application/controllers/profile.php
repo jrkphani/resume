@@ -51,11 +51,12 @@ class Profile extends CI_Controller{
 		else
 		{
 			// Set update datas
+			$marri_status=($this->input->post('married')!=NULL) ? $this->input->post('married') : NULL;
 			$data = array(
 				'first_name' => $this->input->post('first_name'),
 				'last_name' => $this->input->post('last_name'),
 				'mobile' => $this->input->post('mobile'),
-				'married' => $this->input->post('married'),
+				'married' => $marri_status,
 				'skype' => $this->input->post('skype'),
 				'designation' => $this->input->post('designation'),
 				'address' => $this->input->post('address'),

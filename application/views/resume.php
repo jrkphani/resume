@@ -59,9 +59,9 @@
 				<? } ?>
 				<p class="showSelectTemplate shwseltmp">&nbsp;</p><br />
         <a href="#" class="cht showSelectTemplate shwseltmp1" style="background:none!important;">Change Template</a>
-		
+		<?if(isset($user_detail[0])) {?>
 		<a href="#" id="directDownload" class="btn_dld">Download Resume</a>
-		
+		<? } ?>
 		<!-- ================================ form start ================================ -->
 	<form id="resume_form">
 		<input type="hidden" value="<?=$templateValue;?>" id="template" name="template" autocomplete="off" />

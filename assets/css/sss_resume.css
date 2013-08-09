@@ -66,9 +66,9 @@ margin-top: 30px
 }
 
 .btn_dld{
-width: 240px; height: 40px; display: block;
-position: absolute;	right:10px;	margin-top: -68px;
-text-align: center; text-decoration: none;line-height: 40px;
+width: 300px; height: 46px; display: block;
+position: absolute;	right:10px;	margin-top: -71px; font-size: 1.29em;
+text-align: center; text-decoration: none;line-height: 44px;
 border: solid 1px #592a07;/*background-color: #93c13d;*/
 background: rgb(132,63,2); /* Old browsers */
 background: -moz-linear-gradient(top,  rgba(132,63,2,1) 0%, rgba(117,50,0,1) 100%); /* FF3.6+ */

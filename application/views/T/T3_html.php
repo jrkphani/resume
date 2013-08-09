@@ -352,7 +352,7 @@ $skillEffname=array("Want to learn","Training/Learning","Satisfactory","Good","V
     <div class="clearall"></div>
     <? } ?>
     <!---------------------------------------------------other details----------------------------------------------------------------------------->
-    <? if(($user_detail['dob']) || ($user_detail['married']!='NULL') || ($passport_visa['passport']) || ($passport_visa['visa']) )
+    <? if(($user_detail['dob']) || ($user_detail['married']!=NULL) || ($passport_visa['passport']) || ($passport_visa['visa']) )
     {?>
     <div class="other_details">
       <h1>Other Details</h1>
@@ -362,7 +362,7 @@ $skillEffname=array("Want to learn","Training/Learning","Satisfactory","Good","V
       
       <p class="mstatus"><b>DOB :</b> <?=$user_detail['dob'];?></p>
  			 <? } ?>
-        <? if($user_detail['married']!='NULL')
+        <? if($user_detail['married']!=NULL)
       {
 		  if($user_detail['married'] == 1)
 		  $married = 'Married';

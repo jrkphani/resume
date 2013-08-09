@@ -42,6 +42,7 @@ class Preview extends CI_Controller {
 			$dob = $this->input->post('dobMonth').'-'.$this->input->post('dobDay').'-'.$this->input->post('dobYear');
 			else
 			$dob=NULL;
+			$marri_status=($this->input->post('marital')!=NULL) ? $this->input->post('marital') : NULL;
 			$user_detail=array(
 			'first_name' => $this->input->post('fname'),
 			'last_name' => $this->input->post('lname'),
@@ -51,7 +52,7 @@ class Preview extends CI_Controller {
 			'skype' => $this->input->post('skype'),
 			'secondary_email' => $this->input->post('email'),
 			'address' => $this->input->post('address'),
-			'married' => $this->input->post('marital'),
+			'married' => $marri_status,
 			'photo' => $this->input->post('photo'),
 			'experience' => $this->input->post('expYr').'.'.$this->input->post('expMon'),
 			'contactTitle' => $contactTitle,

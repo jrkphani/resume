@@ -120,12 +120,12 @@
                     <span class="pr-edit"><label  class="pr_left" for="married">Marital Status</label></span>
                 </td>
                 <td>
-                    <span class="pr-view pr_right"><?php if($married=='NULL') echo 'Not specified'; else if($married=='0') echo 'Not Married'; else if($married=='1') echo 'Married'; ?></span>
+                    <span class="pr-view pr_right"><?php if($married==NULL) echo 'Not specified'; else if($married=='0') echo 'Not Married'; else if($married=='1') echo 'Married'; ?></span>
                     <span class="pr-edit pr_right_edit">
                         <select name="married" id="married">
                             <option value="1" <?php if($married=='1') { ?> selected="selected" <?php } ?>>Married</option>
                             <option value="0" <?php if($married=='0') { ?> selected="selected" <?php } ?>>Unmarried</option>
-                            <option value="NULL" <?php if($married=='NULL') { ?> selected="selected" <?php } ?>>Not specified</option>
+                            <option value="" <?php if($married==NULL) { ?> selected="selected" <?php } ?>>Not specified</option>
                         </select>
                     </span>
                 </td>

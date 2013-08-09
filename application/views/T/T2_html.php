@@ -431,7 +431,7 @@ $skillEffname=array("Want to learn","Training/Learning","Satisfactory","Good","V
     <? } ?> 
     
   <!-- --------------------------------------------------other details-------------------------------------------------------------------------- -->    
-    <? if(($user_detail['dob']) || ($user_detail['married']!='NULL') || ($passport_visa['passport']) || ($passport_visa['visa']))
+    <? if(($user_detail['dob']) || ($user_detail['married']!=NULL) || ($passport_visa['passport']) || ($passport_visa['visa']))
     {?>
     <div class="left1_center1">
     	<div class="exp_yers center1">
@@ -453,7 +453,7 @@ $skillEffname=array("Want to learn","Training/Learning","Satisfactory","Good","V
               <? if($user_detail['dob']){?>
               <p class="other_dets"><strong>DOB : </strong><?=$user_detail['dob'];?></p>
                <? } ?>
-						<? if($user_detail['married']!='NULL')
+						<? if($user_detail['married']!=NULL)
             {
             if($user_detail['married'] == 1)
             $married = 'Married';

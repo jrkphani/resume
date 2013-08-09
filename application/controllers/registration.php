@@ -200,8 +200,42 @@ class Registration extends CI_Controller {
 		 $this->load->model('user');
 		 if($this->user->activate_user($id,$code))
 		 {
-			$data['view_page'] = 'congrats';
-			$this->load->view('template', $data);
+			 $resultdata['download'] = 'no';
+			 $resultdata['msg']="";
+			 $this->load->model('resume_model');
+			 $data['user_detail']= $this->resume_model->user_detail($id);
+			 $data['skill']= $this->resume_model->skill($id);
+				if(count($data['skill']) >0)
+				{
+					$viewdata['user_detail']=$data['user_detail'][0];
+					$viewdata['skill']=$data['skill'][0];
+					$data['company']= $this->resume_model->company($id);
+					$viewdata['company']=$data['company'][0];
+					 $data['project']= $this->resume_model->project($id);
+					 $viewdata['project']=$data['project'][0];
+					 $data['education']= $this->resume_model->education($id);
+					 $viewdata['education']=$data['education'][0];		 
+					 $data['about']= $this->resume_model->about($id);
+					 $viewdata['about']=$data['about'][0];
+					 $data['awards']= $this->resume_model->awards($id);
+					 $viewdata['awards']=$data['awards'][0];
+					 $data['otherSkills']= $this->resume_model->otherskill($id);
+					 $viewdata['otherSkills']=$data['otherSkills'][0];
+					 $preview_data = $this->load->view('T/'.$viewdata['user_detail']['Template'].'_html',$viewdata,true);
+					 $file_name=$id;
+					 
+					 $temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
+					 if(!write_file($temp_path_html, $preview_data))
+						{
+							//Unable to write file
+							$resultdata['msg']='Internal error, please login to download ';
+						}			
+					$resultdata['download'] = 'yes';
+				}
+			$resultdata['view_page'] = 'congrats';
+			$resultdata['id'] = $id;
+			$resultdata['code'] = $code;
+			$this->load->view('template', $resultdata);
 		 }
 		 else
 		 {

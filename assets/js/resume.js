@@ -150,15 +150,15 @@ $(document).ready(function()
 		}
 		else
 		{
-		/*if(!$('#template').val())
+		if(!$('#template').val() || $('#template').val()==0)
 		{
 			//return false;
 			//alert('Please select a Template');
-			$('#selectTemplate').show();
+			$('#selectTemplate, #selectTemplate_bg').show();
 			return false;
-		}*/
-		//else
-		//{
+		}
+		else
+		{
 			//update();
 			$.ajax({
 				url: baseurl+'preview', 
@@ -189,7 +189,7 @@ $(document).ready(function()
 					alert('Internal error, Please try agian!');
 				}
 			});
-		//}
+		}
 		}
 	});
 	

@@ -43,6 +43,21 @@ class Download extends CI_Controller {
 		
 		//$this->load->view('home');
 	}
+	function activation()
+	{
+		$this->load->helper('file');
+		$html = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
+		if($html)
+		{						
+			$resultdata['view_page'] = 'activate_download';
+			$resultdata['html']=base_url('download/wk_html_to_pdf/'.$html);
+			$this->load->view('template', $resultdata);
+		}
+		else
+		{
+			echo "404"; exit(0);
+		}
+   	}
 	function pdf()
 	{
 		//mpdf

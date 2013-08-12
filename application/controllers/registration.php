@@ -220,6 +220,7 @@ class Registration extends CI_Controller {
 					$viewdata['user_detail']=$data['user_detail'][0];
 					$data['skill']= $this->resume_model->skill($id);
 					$viewdata['skill']=$data['skill'][0];
+					$viewdata['template']=$viewdata['user_detail']['Template'];
 					$data['company']= $this->resume_model->company($id);
 					$viewdata['company']=$data['company'][0];
 					 $data['project']= $this->resume_model->project($id);

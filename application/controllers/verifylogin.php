@@ -48,14 +48,16 @@ class VerifyLogin extends CI_Controller {
    $username = $this->input->post('username');
 
    //query the database
-   $db_password = $this->user->get_password($username);
-    if ($this->passhash->check_password($db_password, $password)) {
+   $where=array('email' => $username);
+   $db_password = $this->user->get_password($where);
+    if ($this->passhash->check_input($db_password, $password)) {
       $result = $this->user->login($username);
       if($result){
        $sess_array1 = array();
        foreach($result as $row){
           $sess_array = array(
            'id' => $row->id,
+           'id_encrypt' => $row->id_encrypt,
            'email' => $row->email,
   		     'firstname' => $row->first_name,
       		 'lastname' => $row->last_name,

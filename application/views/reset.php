@@ -33,7 +33,7 @@
         </tr>
        </table>
   					 <input type="hidden" value="<?php echo $forget; ?>" name="acode">
-  					 <input type="hidden" value="<?php echo $id; ?>" name="uid">
+  					 <input type="hidden" value="<?php echo $id_encrypt; ?>" name="uid">
 				     <input type="submit" id="restsubmit" class="fb_btn" style="cursor:pointer;" />
              
              

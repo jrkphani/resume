@@ -37,7 +37,7 @@ class Forget extends CI_Controller {
 					#$this->email->bcc('them@their-example.com');
 					$this->email->subject('Reset your EZCV password');
 					$message= 'Hi '.$result[0]['first_name'].'<br><br> Changing your password is simple, please click on the link below to change it. <br>
-					<a href="'.base_url('forget/reset/'.$result[0]['id'].'/'.$update_data['forget']).'">'.base_url('forget/reset/'.$result[0]['id'].'/'.$update_data['forget']).'  </a>
+					<a href="'.base_url('forget/reset/'.urlencode($result[0]['id_encrypt']).'/'.$update_data['forget']).'">'.base_url('forget/reset/'.urlencode($result[0]['id_encrypt']).'/'.$update_data['forget']).'  </a>
 					<br><br>Thank you,<br>EZCV Team'; 
 					$this->email->message($message);
 					$this->email->send();
@@ -73,6 +73,7 @@ class Forget extends CI_Controller {
  }
  function activation()
  {
+	 $this->load->library('passhash'); 	
 	 $password = $this->input->post('password');
 	 $cpassword = $this->input->post('cpassword');
 	 $active = $this->input->post('acode');
@@ -83,12 +84,11 @@ class Forget extends CI_Controller {
 	 {
 		 if(strlen($password)>=6)
 		{
-		 $update_data=array('password'=>md5($password),'active'=>1,'forget'=>"");
-		 $where=array('id'=>$id,'forget'=>$active);
+		 $update_data=array('password'=>$this->passhash->hash($password),'active'=>1,'forget'=>"");
+		 $where=array('id_encrypt'=>$id,'forget'=>$active);
 		 $this->load->model('user');
 		 if($this->user->update_user($where,$update_data))
 		 {
-
 		 	//Send confirmation email
 		 	$this->load->library('email');
 			$config['charset'] = 'iso-8859-1';
@@ -100,7 +100,7 @@ class Forget extends CI_Controller {
 
 			//Get user primary email, first and last name
 			$select=array('users.email','user_detail.first_name','user_detail.last_name');
-			$where=array('users.id'=>$id);
+			$where=array('users.id_encrypt'=>$id);
 			$result=$this->user->get_userdetail($select,$where);
 			$first_name=$result[0]['first_name'];
 			$last_name=$result[0]['last_name'];
@@ -115,21 +115,21 @@ class Forget extends CI_Controller {
 		 }
 		 else
 		 {
-			$check_data=array('forget'=>$active,'id'=>$id, 'error'=>'internal error');
+			$check_data=array('forget'=>$active,'id_encrypt'=>$id, 'error'=>'internal error');
 			$check_data['view_page'] = 'reset';
 			$this->load->view('template', $check_data);
 		 }
 		}
 		else
 		 {
-			$check_data=array('forget'=>$active,'id'=>$id, 'error'=>'Passwords should have minimum 6 characters');
+			$check_data=array('forget'=>$active,'id_encrypt'=>$id, 'error'=>'Passwords should have minimum 6 characters');
 			$check_data['view_page'] = 'reset';
 			$this->load->view('template', $check_data);
 		 }
 	 }
 	 else
 	 {
-		$check_data=array('forget'=>$active,'id'=>$id, 'error'=>'Passwords mismatch');
+		$check_data=array('forget'=>$active,'id_encrypt'=>$id, 'error'=>'Passwords mismatch');
 		$check_data['view_page'] = 'reset';
 		$this->load->view('template', $check_data);
 	 }
@@ -141,12 +141,12 @@ class Forget extends CI_Controller {
  }
  function reset()
  {
-	 $id = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
+	 $id = ($this->uri->segment(3)) ? urldecode($this->uri->segment(3)) : NULL;
 	 $code = ($this->uri->segment(4)) ? $this->uri->segment(4) : NULL;
 	 if(($code) &&  strlen($code)>2)
 	 {
 		 $this->load->model('user');
-		 $check_data=array('id'=>$id,'forget'=>$code);
+		 $check_data=array('id_encrypt'=>$id,'forget'=>$code);
 		 if($result = $this->user->check_user($check_data))
 		 {
 			$check_data['error']=NULL;

@@ -46,7 +46,10 @@ class Download extends CI_Controller {
 	function activation()
 	{
 		$this->load->helper('file');
-		$html = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
+		$this->load->model('user');
+		$id_encrypt = ($this->uri->segment(3)) ? urldecode($this->uri->segment(3)) : NULL;
+		$html = $this->user->get_id($id_encrypt);
+		
 		if($html)
 		{						
 			$resultdata['view_page'] = 'activate_download';

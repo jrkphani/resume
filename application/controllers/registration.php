@@ -196,19 +196,22 @@ class Registration extends CI_Controller {
  {
 	 $id = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
 	 $code = ($this->uri->segment(4)) ? $this->uri->segment(4) : NULL;
+	 $this->load->helper('file');
 	 if(($id) &&  strlen($code)>2)
 	 {
 		 $this->load->model('user');
 		 if($this->user->activate_user($id,$code))
 		 {
 			 $resultdata['download'] = 'no';
-			 $resultdata['msg']="";
+			 $resultdata['msg']=NULL;
 			 $this->load->model('resume_model');
 			 $data['user_detail']= $this->resume_model->user_detail($id);
-			 $data['skill']= $this->resume_model->skill($id);
-				if(count($data['skill']) >0)
+			 $data['about']= $this->resume_model->about($id);
+			 
+				if(count($data['about']) >0)
 				{
 					$viewdata['user_detail']=$data['user_detail'][0];
+					$data['skill']= $this->resume_model->skill($id);
 					$viewdata['skill']=$data['skill'][0];
 					$data['company']= $this->resume_model->company($id);
 					$viewdata['company']=$data['company'][0];
@@ -216,7 +219,7 @@ class Registration extends CI_Controller {
 					 $viewdata['project']=$data['project'][0];
 					 $data['education']= $this->resume_model->education($id);
 					 $viewdata['education']=$data['education'][0];		 
-					 $data['about']= $this->resume_model->about($id);
+					 
 					 $viewdata['about']=$data['about'][0];
 					 $data['awards']= $this->resume_model->awards($id);
 					 $viewdata['awards']=$data['awards'][0];
@@ -224,7 +227,6 @@ class Registration extends CI_Controller {
 					 $viewdata['otherSkills']=$data['otherSkills'][0];
 					 $preview_data = $this->load->view('T/'.$viewdata['user_detail']['Template'].'_html',$viewdata,true);
 					 $file_name=$id;
-					 
 					 $temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
 					 if(!write_file($temp_path_html, $preview_data))
 						{

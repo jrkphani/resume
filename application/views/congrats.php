@@ -1,6 +1,6 @@
 <?
 		$url=base_url("download/activation"."/".$id);
-		if($download=='yes' && $msg!="")
+		if($download=='yes' && (!$msg))
 		header( "refresh:5;".$url);
 ?>
 <style type="text/css">
@@ -41,7 +41,7 @@
 			Account activated successfully
 		</div>
 		<?if($download=='yes')  {
-			if($msg!="")
+			if(!$msg)
 			{
 			 ?>
 		<div class="redirect">

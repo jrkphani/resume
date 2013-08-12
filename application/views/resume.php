@@ -144,7 +144,7 @@
 						<option value="<?=$current_Year;?>" <? if(isset($dob[2]) && $dob[2]==$current_Year){ echo 'selected="selected"';} ?> > <?=$current_Year--;?> </option>
 						<? } ?>
 				    </select>
-            <span class="star_mant4">*</span>
+            <!--<span class="star_mant4">*</span>-->
 				    <!--<input  type="text"  class="full_date_picker" name="dob" placeholder="Feb-09-1989" value="<? if(isset($user_detail[0]['dob'])) echo $user_detail[0]['dob']; ?>"  readonly="readonly" required/>-->
 				</div>
 			<!-- Address -->

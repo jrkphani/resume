@@ -99,7 +99,7 @@
 			</div>
 			<!-- DOB -->
 				<div>
-				    <label >Date of Birth<span style="color:red"> *</span></label>
+				    <label >Date of Birth<!--<span style="color:red"> *</span>--></label>
 				    <?
 				    if(isset($user_detail[0]['dob'])) 
 				    $dob = explode('-',$user_detail[0]['dob']);

@@ -109,13 +109,18 @@ class Profile extends CI_Controller{
 	// Change password
 	function change_password()
 	{
-		$current_password=md5($this->input->post('current_password'));
-		$new_password=md5($this->input->post('new_password'));
+		$this->load->library('passhash');
+		$this->load->model('user');
+		$current_password=$this->input->post('current_password');
+		//$new_password=md5($this->input->post('new_password'));
+		$new_password=$this->passhash->hash($this->input->post('new_password'));
 
-		$where1=array('id'=>$this->current_user['id'],'password'=>$current_password);
+		//$where1=array('id'=>$this->current_user['id'],'password'=>$current_password);
 		$where2=array('id'=>$this->current_user['id']);
 
-		if($this->profile_model->check_password($where1))
+		$db_password = $this->user->get_password($where2);
+		//if($this->profile_model->check_password($where1))
+		if($this->passhash->check_input($db_password, $current_password))
 		{
 			$values=array('password'=>$new_password);
 			if($this->profile_model->change_password($values,$where2))

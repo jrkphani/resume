@@ -11,8 +11,7 @@ class Registration extends CI_Controller {
  }
 
  function index()
- {
- 		$this->load->library('passhash');
+ {	
 	 /*if($this->current_user)
 	   {
 		 $session_data = $this->session->userdata('logged_in');
@@ -98,6 +97,7 @@ class Registration extends CI_Controller {
 				else*/
 				if(1)
 				{
+					$this->load->library('passhash');
 					$post_data=array(
 									'firstname'=>$this->input->post('firstname'),
 									'lastname'=>$this->input->post('lastname'),
@@ -111,6 +111,12 @@ class Registration extends CI_Controller {
 					{
 						if($user_id=$this->user->add_user($post_data))
 						{
+							//Add encrypted user id.
+							$encrypt_id=str_replace('/' , '' , $this->passhash->hash($user_id)); //removing forward strokes from encrypt_id
+							$where=array('id'=>$user_id);
+							$values=array('id_encrypt' => $encrypt_id );
+							$this->user->update_user($where,$values);
+
 							//modify the seesion data based in register data
 							$session_data = $this->session->userdata('resume_data');
 							$first_name=$post_data['firstname'];
@@ -155,7 +161,7 @@ class Registration extends CI_Controller {
 								}
 								$this->invite_friend($user_id,$friend_emails,$first_name.' '.$last_name);								
 								$this->email->subject('Activate your EZCV Account');
-								$message= 'Dear '.$first_name.' '.$last_name.'<br /><br />Thank you for registering with EZCV. Please click on the link below to activate your account and get access to your resume.<br /><a href="'.base_url('registration/activation/'.$user_id.'/'.$post_data['active']).'"> Activate my EZCV Account </a><br />Once you have activated your account, you can view your current resume and  edit it any time, change templates and update your details. You can also download the resume whenever you wish.<br /><br />Get Noticed in a Sea of Resumes!<br /><br />Regards<br />EZCV Team';							
+								$message= 'Dear '.$first_name.' '.$last_name.'<br /><br />Thank you for registering with EZCV. Please click on the link below to activate your account and get access to your resume.<br /><a href="'.base_url('registration/activation/'.urlencode($encrypt_id).'/'.$post_data['active']).'"> Activate my EZCV Account </a><br />Once you have activated your account, you can view your current resume and  edit it any time, change templates and update your details. You can also download the resume whenever you wish.<br /><br />Get Noticed in a Sea of Resumes!<br /><br />Regards<br />EZCV Team';							
 							}
 							else if($post_data['role']=='member')
 							{
@@ -172,7 +178,7 @@ class Registration extends CI_Controller {
 						}
 						else
 						{
-							$data['errors']="Internal error, Please try agian!";
+							$data['errors']="Internal error, Please try again!";
 							$data['success']='no';
 							$result['resultset']=$data;
 							$this->load->view('json',$result);
@@ -180,7 +186,7 @@ class Registration extends CI_Controller {
 					}
 					else
 					{
-						$data['errors']="eamil is not available";
+						$data['errors']="Email is not available";
 						$data['success']='no';
 						$result['resultset']=$data;
 						$this->load->view('json',$result);
@@ -194,14 +200,15 @@ class Registration extends CI_Controller {
 
  function activation()
  {
-	 $id = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
+	 $id_encrypt = ($this->uri->segment(3)) ? urldecode($this->uri->segment(3)) : NULL;
 	 $code = ($this->uri->segment(4)) ? $this->uri->segment(4) : NULL;
-	 $this->load->helper('file');
-	 if(($id) &&  strlen($code)>2)
+	 $this->load->helper('file');	 
+	 if(($id_encrypt) &&  strlen($code)!=1)
 	 {
 		 $this->load->model('user');
-		 if($this->user->activate_user($id,$code))
+		 if($this->user->activate_user($id_encrypt,$code))
 		 {
+		 	$id = $this->user->get_id($id_encrypt);
 			 $resultdata['download'] = 'no';
 			 $resultdata['msg']=NULL;
 			 $this->load->model('resume_model');
@@ -236,7 +243,7 @@ class Registration extends CI_Controller {
 					$resultdata['download'] = 'yes';
 				}
 			$resultdata['view_page'] = 'congrats';
-			$resultdata['id'] = $id;
+			$resultdata['id'] = $id_encrypt;
 			$resultdata['code'] = $code;
 			$this->load->view('template', $resultdata);
 		 }

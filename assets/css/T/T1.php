@@ -1,4 +1,4 @@
-<?php header("Content-type: text/css"); 
+<?php //header("Content-type: text/css"); 
 $baseurl=base_url();
 ?>
 @charset "utf-8";

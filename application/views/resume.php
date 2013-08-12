@@ -90,7 +90,7 @@
           <span class="lnme" id="lname_err"></span>
 				</div>
 			<div >
-			   <span class="phone_icon">&nbsp;</span><input style="margin-right:2px!important;" type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
+			   <span class="phone_icon">&nbsp;</span><!--<input style="width:77px; margin-right:3px;" type="text" name="code-phone" placeholder="Country code" value=""/> --><input style="margin-right:2px!important;" type="text"  name="phone" id="phone" placeholder="Phone" value="<? if(isset($user_detail[0]['mobile'])) echo $user_detail[0]['mobile']; ?>" />
          <span class="phone_mant">*</span>
 				<span id="phone_err"></span><br />
 				<span class="mail_icon">&nbsp;</span><input style="margin-right:2px!important;" name="email" type="email" id="email"  placeholder="Email" value="<? if(isset($user_detail[0]['secondary_email'])) echo $user_detail[0]['secondary_email']; ?>" />
@@ -116,7 +116,7 @@
 						<option value="<?=$dateMonth[$i];?>" <? if(isset($dob[0]) && $dob[0]==$dateMonth[$i]){ echo 'selected="selected"';} ?> > <?=$dateMonth[$i];?> </option>
 						<? } ?>
 				    </select>
-            <span class="star_mant3">*</span>
+           <!-- <span class="star_mant3">*</span> -->
 				    <select class="w100 select_dob_input" name="dobDay">
 						<?
 						if((!isset($dob[0])) || (!$dob[0]))
@@ -129,7 +129,7 @@
 						<option value="<?=$i;?>" <? if(isset($dob[1]) && $dob[1]==$i){ echo 'selected="selected"';} ?> > <?=$i;?> </option>
 						<? } ?>
 				    </select>
-            <span class="star_mant3">*</span>
+            <!--<span class="star_mant3">*</span> -->
 				    <select class="w100 select_dob_input" name="dobYear">
 						<?
 						if((!isset($dob[0])) || (!$dob[0]))
@@ -255,11 +255,11 @@
 			    <textarea rows="3"  name="objective" type="text"  placeholder="Enter Text here*" class="h200"><?php if(isset($about[0]['objective'])) echo $objective[1]; ?></textarea>
 			</div>
       </div>
-      <div style="float:left">
-              <div style="float:left; margin: 58px 0 0 0;" class="content233">
+      <div style="float:left; width:31%;">
+              <div style="float:left; width:100%; margin: 58px 0 0 0;" class="content233">
         <h3>Suggestions</h3>
         		<div divId="sug1" class="scroll_top scroll_top_inact sug_top1"></div>
-        		<div style="overflow:hidden; width:300px; height:559px;">
+        		<div style="overflow:hidden; width:100%; height:559px;">
 					<div class="suggestion_box" id="sug1">
 					    		<?php foreach ($keywords as $key) { echo '<span>'.$key.'</span>'; } ?>
 					</div>
@@ -547,9 +547,9 @@
 			    	</div>
 			    </div>
 
-			    <div  style="float:left;">
+			    <div  style="float:left; width:48%;">
 			    <div divId="sugg_strnth_list" class="scroll_top_strn scroll_top_inact sug_top1"></div>
-			    	<div style="overflow:hidden; width:350px; height:173px;">
+			    	<div style="overflow:hidden; width:100%; height:173px;">
 						<div id="sugg_strnth_list" class="mys_right">
 							<?php foreach ($keywords as $i => $key) { echo '<div id="sugg_strnth_'.($i+1).'">'.$key.'<span class="sugg_strnth" value="'.$key.'" data="'.($i+1).'">+</span></div>'; } ?>
 		    			</div>

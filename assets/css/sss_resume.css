@@ -136,14 +136,14 @@ border: 1px solid #E7E3E3;
 float: right;}
 
 /********************************about me Suggestions ***************************/
-.scroll_top{background: transparent url(../img/sprites.png) -300px -750px no-repeat;/* padding: 10px 0px 10px 0px;*/ margin: 10px 0px 3px 146px; width:21px; height:16px; cursor:pointer;}
+.scroll_top{background: transparent url(../img/arrow-top.png) /*-300px -750px*/center no-repeat; /* padding: 10px 0px 10px 0px; margin: 10px 0px 3px 146px; */  margin: 10px 0px 3px 25px; width:100%; height:16px; cursor:pointer;}
 
-.scroll_btm{background: transparent url(../img/sprites.png) -300px -769px no-repeat; /*padding: 5px 0px 10px 0px;*/ margin: 7px 0px 20px 146px; width:21px; height:16px; clear: both; cursor:pointer;}
+.scroll_btm{background: transparent url(../img/arrow-btm.png) /*-300px -769px*/center no-repeat; /*padding: 5px 0px 10px 0px; margin: 7px 0px 20px 146px; */ margin: 7px 0px 20px 25px; width:100%; height:16px; clear: both; cursor:pointer;}
 
-.scroll_top_strn{background: transparent url(../img/sprites.png) -300px -750px no-repeat; /*padding: 10px 0px 10px 0px;*/ margin: 0px 0px 3px 172px; width:21px; height:16px; cursor:pointer;}
+.scroll_top_strn{background: transparent url(../img/arrow-top.png)  center no-repeat; /*padding: 10px 0px 10px 0px;*/ margin: 0px 0px 3px 25px; width:100%; height:16px; cursor:pointer;}
 
-.scroll_btm_strn{background: transparent url(../img/sprites.png) -300px -769px no-repeat; /*padding: 5px 0px 10px 0px*/; margin: 7px 0px 0 172px; width:21px; height:16px; clear: both; cursor:pointer;}
-
+.scroll_btm_strn{background: transparent url(../img/arrow-btm.png)  center no-repeat; /*padding: 5px 0px 10px 0px*/; margin: 7px 0px 0 25px; width:100%; height:16px; clear: both; cursor:pointer;}
+ 
 .scroll_top:hover{opacity:0.7;}
 .scroll_btm:hover{opacity:0.7;}
 .scroll_top_strn:hover{opacity:0.7;}
@@ -493,7 +493,7 @@ float: left;
 .why_pg_cnt{padding:0 30px 10px 0;}
 /*************************************** Suggestion box *********************/
 .suggestion_box, .mys_right{
-	width:300px; height:559px;  display: block; overflow-y: scroll;
+	/*width:300px;*/  width:100%; height:559px;  display: block; overflow-y: scroll;
 	float:left; 
 	padding-left: 10px;
 	margin-left: 10px;
@@ -524,7 +524,7 @@ float: left;
 	font-size: 24px; 
 	
 }
-.content233 h3{ margin:0 0 15px 23px; font-size:18px; text-align:center;}
+.content233 h3{ margin:0 0 15px 23px; font-size:18px; text-align:center; width:100%;}
 .suggestion_box h3{
 	margin-bottom: 10px;
 }
@@ -590,7 +590,7 @@ z-index: 9999;
 }
 .mys_right{
 
-	width: 350px;
+	width:100%;
 }
 
 .other_details{

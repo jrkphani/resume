@@ -171,7 +171,7 @@ $(document).ready(function()
 						downloadClicked = true;
 						if(result.resultset.image=='no')
 						{
-							alert("saved");
+							alert("Saved");
 							//window.location=baseurl+'login/index/register';
 						}
 						else

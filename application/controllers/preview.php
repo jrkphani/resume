@@ -202,6 +202,7 @@ class Preview extends CI_Controller {
 				$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
 				$this->load->model('resume_model');
 				$user_id=$this->current_user['id'];
+				$id_encrypt=$this->current_user['id_encrypt'];
 				$file_name=$user_id;
 				if($post_array['registeronly'])
 				{
@@ -224,7 +225,7 @@ class Preview extends CI_Controller {
 					else
 					{
 						$data['success']='yes';
-						$data['html']=$file_name;
+						$data['html']=urlencode($id_encrypt);
 						$result['resultset']=$data;
 					}
 				$result['resultset']=$data;

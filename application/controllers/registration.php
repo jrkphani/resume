@@ -327,7 +327,7 @@ function captcha_check()
  		else
  			$this->user->add_friend($email,$insert_id);
  		$this->email->to($email);
- 		$this->email->subject('Your frined, '.$name.' has referred you to EZCV - Make a Better Resume Now');
+ 		$this->email->subject('Your friend, '.$name.' has referred you to EZCV - Make a Better Resume Now');
 		$message= 'Your friend '.$name.', has referred your name to us and recommends EZCV to you. We would like to introduce EZCV, a simple solution to all your resume building needs. We help you build not just your resume but also your personality and give you a beautiful resume template to go with it.<br /><br />
 					You get just one chance with job opportunities, and we help you make that impact. Join us and we can help you build your personality.<br /><a href="'.base_url('login/').'"> REGISTER WITH EZCV </a><br /><br />Get Noticed in a Sea of Resumes!<br /><br />Regards<br />EZCV Team';
 		$this->email->message($message);

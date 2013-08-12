@@ -1,5 +1,5 @@
 <?
-		$url=base_url("download/activation"."/".$id);
+		$url=base_url("download/activation"."/".urlencode($id));
 		if($download=='yes' && (!$msg))
 		header( "refresh:5;".$url);
 ?>

@@ -59,11 +59,11 @@
 			<div class="topheader_contact">
 				<h4>Contact us</h4>
 				<ul>
-					<li><a class="c1" href="mailto:aditya@digitalchakra.in">Mail EZCV</a></li>
-					<li><a class="c2" href="">Twitter EZCV</a></li>
-					<li><a class="c3" href="">Facebook EZCV</a></li>
-					<li><a class="c4 emailtooltip"  title="Address: Shree Park 3rd Floor, West Wing, # 578 Anna Salai, Chennai-600 018" href="">Dribble EZCV</a></li>
-					<li><a class="c5 emailtooltip" title="+9144 2433-0401,  +9144 2433-0402" href="">Phone EZCV</a></li>
+					<li><a class="c1" href="mailto:help@ezcv.in" target="_blank">Mail EZCV</a></li>
+					<li><a class="c2" href="https://twitter.com/Digitalchakra" target="_blank">Twitter EZCV</a></li>
+					<li><a class="c3" href="https://www.facebook.com/digitalchakra" target="_blank">Facebook EZCV</a></li>
+					<li><a class="c4 emailtooltip"  title="Address: Shree Park 3rd Floor, West Wing, # 578 Anna Salai, Chennai-600 018" href="http://goo.gl/maps/VSJ2S" target="_blank">Dribble EZCV</a></li>
+					<li><a class="c5 emailtooltip" title="+9144 2433-0401,  +9144 2433-0402" href="http://digitalchakra.in" target="_blank">Phone EZCV</a></li>
 				</ul>
 			</div>
 			

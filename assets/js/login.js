@@ -183,6 +183,7 @@ $(document).ready(function()
 		{
 			return false;
 		}
+		$(this).hide();
 		$.ajax(
 		{
 			url:baseurl+'registration',
@@ -214,10 +215,12 @@ $(document).ready(function()
 					else
 						$('#error_msg1').html(data.resultset.errors);	
 				}
+				$('#signupsubmit').show();
 			},
 			error:function()
 			{
 				$('#error_msg1').html('Internal error, try agian...');
+				$('#signupsubmit').show();
 			}
 		});
 	});

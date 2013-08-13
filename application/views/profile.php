@@ -33,7 +33,7 @@
           
     </div>
     <span id="uploadstate"></span>
-    <p class="pr_right pr-edit fnt_size">File size cannot exceed 2MB.</p>    
+    <p class="pr_right pr-edit fnt_size">max. 2MB</p>    
     <div class="clearBoth"></div>
     <!--    Profile photo end   -->
 

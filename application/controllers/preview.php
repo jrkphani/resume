@@ -290,13 +290,16 @@ class Preview extends CI_Controller {
 	{
 		//preview inside application
 		$this->load->helper('file');
-		$html = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
+		$this->load->model('user');
+		$id_encrypt = ($this->uri->segment(3)) ? urldecode($this->uri->segment(3)) : NULL;
+		$html = $this->user->get_id($id_encrypt);
 		if($this->current_user)
 		{
 			$content = read_file(FCPATH.$this->config->item('path_temp_file').$html.".html");
 		}
 		else
 		{
+			$html=$id_encrypt;
 			$content = '<img style="width: 790px;" src="'.base_url($this->config->item('path_temp_img').$html.'.jpg').'" >';
 		}
 		$data['html']=$content;

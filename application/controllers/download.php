@@ -115,7 +115,10 @@ class Download extends CI_Controller {
 			}*/
 			
 			$pdf_name=$html.'.pdf';
-			$download_pdf_name='Resume.pdf';
+			if($this->current_user)
+				$download_pdf_name=$this->current_user['firstname'].'_'.$this->current_user['lastname'].'_resume.pdf';
+			else
+				$download_pdf_name='Resume.pdf';
 				
 			$html_path=FCPATH.$this->config->item('path_temp_file').$html.'.html';	// html file path
 			$pdf_path=FCPATH.$this->config->item('path_temp_file').$pdf_name;	// path for where generated pdf file have to save

@@ -196,7 +196,8 @@ float: left;
 font-size: 15px;
 line-height: 21px;
 }
-.fnt_size{font-size: 13px; margin:8px 0 5px 0px; width:200px;}
+.fnt_size{font-size: 12px; margin:8px 0 5px 16px; width:200px;}
+.fnt_size span{font-size: 13px; font-weight:bold;}
 #form2 table tr{border:none!important;}
 .tbl{
     font-size: 13px;

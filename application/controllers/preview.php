@@ -208,8 +208,7 @@ class Preview extends CI_Controller {
 				{
 					$this->resume_model->update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education);
 					$data['html']=$file_name;
-					//$data['image']='no';
-					$data['image']='yes';
+					$data['loggin']='no';
 				}
 				else
 				{
@@ -311,13 +310,14 @@ class Preview extends CI_Controller {
 		else
 		{
 			$html=$id_encrypt;
-			$content = '<img style="width: 790px;" src="'.base_url($this->config->item('path_temp_img').$html.'.jpg').time().'" >';
+			$content = '<img style="width: 790px;" src="'.base_url($this->config->item('path_temp_img').$html.'.jpg?').time().'" >';
 		}
 		$data['html']=$content;
 		$data['link']=$html;
 		$data['user_id']=$this->current_user['id'];
 		$data['view_page'] = 'preview';
-		//$this->load->view('template', $data);
+		print_r($data);
+		die;
 		$this->load->view('preview',$data);	
 	}
 	function resume()

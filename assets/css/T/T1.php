@@ -337,15 +337,15 @@ a{text-decoration:none;}
  width: 100px;  display: inline; 
  margin-left: 10px; line-height: 20px; text-transform: capitalize;}
 
-.pbar1{ width: 12.5% !important;}
-.pbar2{ width: 25% !important;}
-.pbar3{ width: 37.5% !important;}
-.pbar4{ width: 50% !important;}
-.pbar5{ width: 62.5% !important;}
-.pbar6{ width: 75% !important;}
-.pbar7{ width: 87.5% !important;}
+.pbar1{ width: 16.66% !important;}
+.pbar2{ width: 33.32% !important;}
+.pbar3{ width: 49.98% !important;}
+.pbar4{ width: 66.64% !important;}
+.pbar5{ width: 83.3% !important;}
+.pbar6{ width: 100% !important;}
+/*.pbar7{ width: 87.5% !important;}
 .pbar8{ width: 100% !important;}
-
+*/
 
 /*********************************************** interest ***********************************************************/
 .interest{padding:18px 0 0px 0;}

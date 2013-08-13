@@ -109,14 +109,15 @@ body p,b,h1,h2,h3,span{font-family:Arial, Helvetica, sans-serif; color:#3f3f3f;}
  width: 100px;  display: inline;  color:#ec9d21; font-size:11px;
  margin-left: 10px; line-height: 20px; text-transform: capitalize;}
 
-.pbar1{ width: 12.5% !important;}
-.pbar2{ width: 25% !important;}
-.pbar3{ width: 37.5% !important;}
-.pbar4{ width: 50% !important;}
-.pbar5{ width: 62.5% !important;}
-.pbar6{ width: 75% !important;}
-.pbar7{ width: 87.5% !important;}
+.pbar1{ width: 16.66% !important;}
+.pbar2{ width: 33.32% !important;}
+.pbar3{ width: 49.98% !important;}
+.pbar4{ width: 66.64% !important;}
+.pbar5{ width: 83.3% !important;}
+.pbar6{ width: 100% !important;}
+/*.pbar7{ width: 87.5% !important;}
 .pbar8{ width: 100% !important;}
+*/
 
 
 /*************************************************************  experience  ************************************************************************/

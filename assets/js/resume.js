@@ -853,7 +853,7 @@ function define_slider(sliding_id)
 				case '1':
 					msg='Want to learn';break;
 				case '2':
-					msg='Training/Learning';break;
+					msg='Training';break;
 				//case '3':
 					//msg='Poor';break;
 				case '3':
@@ -878,7 +878,7 @@ function define_slider(sliding_id)
 				case 1:
 					msg='Want to learn';break;
 				case 2:
-					msg='Training/Learning';break;
+					msg='Training';break;
 				//case 3:
 					//msg='Poor';break;
 				case 3:

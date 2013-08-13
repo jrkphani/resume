@@ -208,7 +208,7 @@ class Preview extends CI_Controller {
 				{
 					$this->resume_model->update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education);
 					$data['html']=$file_name;
-					$data['loggin']='no';
+					$data['image']='no';
 				}
 				else
 				{

@@ -208,13 +208,15 @@ class Preview extends CI_Controller {
 				{
 					$this->resume_model->update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education);
 					$data['html']=$file_name;
-					$data['image']='no';
+					//$data['image']='no';
+					$data['image']='yes';
 				}
 				else
 				{
 					$data['image']='yes';
 				}
 				$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
+				$temp_path_img=FCPATH.$this->config->item('path_temp_img').$file_name.'.jpg';
 				if(!write_file($temp_path_html, $preview_data))
 					{
 						//Unable to write file
@@ -224,6 +226,14 @@ class Preview extends CI_Controller {
 					}
 					else
 					{
+						// Command to execute
+							$command = FCPATH."application/third_party/wkhtmltoimage-i386 --load-error-handling ignore";
+							
+							// Putting together the command for `shell_exec()`
+							$ex = "$command " . $temp_path_html ." ". $temp_path_img;
+							
+							// Generate the image
+							$output = shell_exec($ex);
 						$data['success']='yes';
 						$data['html']=urlencode($id_encrypt);
 						$result['resultset']=$data;
@@ -295,12 +305,13 @@ class Preview extends CI_Controller {
 		$html = $this->user->get_id($id_encrypt);
 		if($this->current_user)
 		{
-			$content = read_file(FCPATH.$this->config->item('path_temp_file').$html.".html");
+			//$content = read_file(FCPATH.$this->config->item('path_temp_file').$html.".html");
+			$content = '<img style="width: 790px;" src="'.base_url($this->config->item('path_temp_img').$html.'.jpg?').time().'" >';
 		}
 		else
 		{
 			$html=$id_encrypt;
-			$content = '<img style="width: 790px;" src="'.base_url($this->config->item('path_temp_img').$html.'.jpg').'" >';
+			$content = '<img style="width: 790px;" src="'.base_url($this->config->item('path_temp_img').$html.'.jpg').time().'" >';
 		}
 		$data['html']=$content;
 		$data['link']=$html;

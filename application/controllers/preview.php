@@ -316,8 +316,6 @@ class Preview extends CI_Controller {
 		$data['link']=$html;
 		$data['user_id']=$this->current_user['id'];
 		$data['view_page'] = 'preview';
-		print_r($data);
-		die;
 		$this->load->view('preview',$data);	
 	}
 	function resume()

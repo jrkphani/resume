@@ -171,7 +171,7 @@ $(document).ready(function()
 						downloadClicked = true;
 						if(result.resultset.image=='no')
 						{
-							alert("Saved");
+							alert("Your resume is saved.");
 							//window.location=baseurl+'login/index/register';
 						}
 						else

@@ -33,7 +33,7 @@
 	text-align:center;
 	margin:0 auto;
 	margin-top:150px;
-	color: #00FF00;
+	color: green;
 	font-size:1.3em;
 }
 </style>

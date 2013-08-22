@@ -83,17 +83,17 @@ class Profile extends CI_Controller{
 			// Update profile completion flag
 			if($data['first_name']!=NULL && $data['last_name']!=NULL && $data['secondary_email']!=NULL && $data['mobile']!=NULL)
 			{
-				$arr=$this->session->userdata('logged_in');
-				if($arr['flag']=='1')
+				if($this->current_user['flag']=='1')
 				{
 					$data['flag']='0';
 					$sess_array = array(
-							         'id' => $arr['id'],
-							         'email' => $arr['email'],
-									 'firstname' => $arr['firstname'],
-									 'lastname' => $arr['lastname'],
-									 'role' => $arr['role'],
-							         'limit' => $arr['limit'],
+							         'id' => $this->current_user['id'],
+							         'id_encrypt' => $this->current_user['id_encrypt'],
+							         'email' => $this->current_user['email'],
+									 'firstname' => $this->current_user['firstname'],
+									 'lastname' => $this->current_user['lastname'],
+									 'role' => $this->current_user['role'],
+							         'limit' => $this->current_user['limit'],
 							         'flag' => '0',
 							       );
 					$this->session->set_userdata('logged_in', $sess_array);

@@ -43,6 +43,7 @@
 			<a href="#">My Portfolio Space</a>
 			<a href="#">My Contact List</a>
 			<a href="#">Resume On Mobile</a>-->
+			<a href="<?php echo base_url('mailresume'); ?>" <? if($page =="feedback") echo 'class="ezcv_header_current"'; ?> >Mail Your Resume</a>
 			<a href="<?php echo base_url('login/logout'); ?>">Logout</a>
 			<?php } else { ?>
 			<span><a  href="<?php echo base_url('login/index/register'); ?>" <? if($page =="login" && $register == 'yes') echo 'class="ezcv_header_current"'; ?> >Register</a>

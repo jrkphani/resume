@@ -13,51 +13,21 @@
 <div class="left_form">
 	<h2 style="padding-left:20px; padding-top:20px; font-size:20px;">You can select a resume template of your choice here.</h2>
 		<div class="t_list">
+			<?php foreach ($result as $row) { ?>
 			<div class="t_list_bg">
 				<!-- clicking on following div should do select functionality -->
 				<div class="t_list_t">
-					<img title="Spring Bloom" class="temp_select" tvalue="T1" src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img src="<?php echo base_url("assets/img/T".$row->id."_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
-						<p>Spring Bloom</p>
-						<!--<a title="Spring Bloom" class="t_select" tvalue="T1">Select</a>-->
-						<span class="previewTemp" title="Spring Bloom" href="<?php echo base_url("assets/img/T1_full.png"); ?>">zoom</span>
+						<p><?php echo $row->title; ?></p>
+						<a title="<?php echo $row->title; ?>" class="t_select" tvalue="T<?php echo $row->id; ?>" >Select</a>
+						<span class="previewTemp" title="<?php echo $row->title; ?>" href="<?php echo base_url("assets/img/T".$row->id."_full.png"); ?>">zoom</span>
 					</div>
-				</div>
+				</div><br />
+				<div class="star" template="<?php echo $row->id; ?>" data-score="<?php echo $row->rate; ?>" ></div>
+				<span id="str<?php echo $row->id; ?>"></span>
 			</div>
-			<div class="t_list_bg">
-				<!-- clicking on following div should do select functionality -->
-			<div class="t_list_t">
-				<img title="Pyramid Point" class="temp_select" tvalue="T4" src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
-				<div class="t_list_s">
-					<p>Pyramid Point</p>
-					<!--<a title="Pyramid Point" class="t_select" tvalue="T4">Select</a>-->
-					<span class="previewTemp" title="Pyramid Point" href="<?php echo base_url("assets/img/T4_full.png"); ?>">zoom</span>
-				</div>
-			</div>
-		</div>
-		
-			<div class="t_list_bg">
-				<!-- clicking on following div should do select functionality -->
-				<div class="t_list_t">
-					<img title="White Citadel" class="temp_select" tvalue="T2" src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
-					<div class="t_list_s">
-						<p>White Citadel</p>
-						<!--<a title="White Citadel" class="t_select" tvalue="T2">Select</a>-->
-						<span class="previewTemp" title="White Citadel" href="<?php echo base_url("assets/img/T2_full.png"); ?>">zoom</span>
-					</div>
-				</div>
-			</div>
-			<div class="t_list_bg">
-				<!-- clicking on following div should do select functionality -->
-			<div class="t_list_t">
-				<img title="Window View" class="temp_select" tvalue="T3" src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>
-				<div class="t_list_s">
-					<p>Window View</p>
-					<!--<a title="Window View" class="t_select" tvalue="T3">Select</a>-->
-					<span class="previewTemp" title="Window View" href="<?php echo base_url("assets/img/T3_full.png"); ?>">zoom</span>
-				</div>
-			</div>
-		</div>
+			<?php } ?>
 			<!--<div class="t_list_bg">
 			<div class="t_list_t">
 				<img src="<?php echo base_url("assets/img/T_thumb.jpg"); ?>" alt="Template thumbnail"/>
@@ -78,4 +48,5 @@
 <input id="templateSubmit" type="submit" style="display:none;" >
 </form>
 <script src="<?php echo base_url($this->config->item('path_js_file').'jquery.colorbox-min.js'); ?>" ></script>
+<script src="<?php echo base_url($this->config->item('path_js_file').'jquery.raty.min.js'); ?>" ></script>
 <script src="<?php echo base_url($this->config->item('path_js_file').'templates.js');?>"></script>

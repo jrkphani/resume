@@ -49,6 +49,19 @@
         <input type="hidden" name="photo_ext" id="photo_ext" value="" />
         <input type="hidden" id="profile_flag" value="<?php echo $profile_flag; ?>" />
         <input type="hidden" name="primary_email" id="primary_email" value="<?php echo $email; ?>" />
+
+        <!-- Online resume start  -->
+        <div id="online_resume">
+        <?php if($online=="1")
+        {
+            echo "Online Resume URL: ".base_url('onlineresume/view/'.urlencode($id_encrypt)); ?>&nbsp;&nbsp;
+            <a href="javascript:void(0);" id="disable_online">Disable</a>
+        <?php } else { ?>
+            <a href="javascript:void(0);" id="make_online">Make Resume Online</a>
+        <?php } ?>
+        </div>
+        <!-- Online resume end  -->
+
     	<table border="0" class="tbl" cellpadding="2">
         	<tr>
             	<td>
@@ -204,4 +217,5 @@
 </div>
 <script type="text/javascript" src="<?php echo base_url($this->config->item('path_js_file').'validation.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url($this->config->item('path_js_file').'profile.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url($this->config->item('path_js_file').'online_resume.js'); ?>"></script>
 <script src="<?php echo base_url($this->config->item('path_js_file').'ajaxfileupload.js'); ?>" ></script>

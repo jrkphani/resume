@@ -19,6 +19,7 @@ class Profile extends CI_Controller{
 	{
 		$result=$this->profile_model->get_profile($this->current_user['id']);
 		$data=$result[0];
+		$data['id_encrypt']=$this->current_user['id_encrypt'];
 		$data['email']=$this->current_user['email'];
 		$data['error']=$error;
 		$data['view_page'] = 'profile';

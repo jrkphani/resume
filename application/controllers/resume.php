@@ -12,6 +12,8 @@ class Resume extends CI_Controller
 	public  function index()
 	 {
 		 $data['view_page'] = 'resume';
+		 $this->load->model('templates_model');
+		 $data['result']=$this->templates_model->get_templates();
 		 $data['templateValue'] = ($this->input->post('templateValue'))?$this->input->post('templateValue'):0;
 		 $data['templateName'] = array(0=>'Resume',
 							'T1'=>'Spring Bloom','T2'=>'White Citadel',

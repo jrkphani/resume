@@ -17,10 +17,9 @@
 			<div class="t_list_bg">
 				<!-- clicking on following div should do select functionality -->
 				<div class="t_list_t">
-					<img src="<?php echo base_url("assets/img/T".$row->id."_thumb.jpg"); ?>" alt="Template thumbnail"/>
+					<img title="<?php echo $row->title; ?>" class="temp_select" tvalue="T<?php echo $row->id; ?>" src="<?php echo base_url("assets/img/T".$row->id."_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
 						<p><?php echo $row->title; ?></p>
-						<a title="<?php echo $row->title; ?>" class="t_select" tvalue="T<?php echo $row->id; ?>" >Select</a>
 						<span class="previewTemp" title="<?php echo $row->title; ?>" href="<?php echo base_url("assets/img/T".$row->id."_full.png"); ?>">zoom</span>
 					</div>
 				</div><br />

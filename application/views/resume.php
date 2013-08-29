@@ -1132,41 +1132,21 @@
        
       <div style="width:85%; height:360px; overflow-y:hidden; margin: 20px 0 0 0;">
       	<div id="template_pop" style='width:960px;height:360px; '>
-        
-     
-	 		<div class="t_list_bg " >
-				<div id="T1" class="t_list_t <? if(($templateValue) && ($templateValue == 'T1')){ echo 'selected_temp'; }?> ">
-					<img title="Spring Bloom" class="template" value="T1" src="<?php echo base_url("assets/img/T1_thumb.jpg"); ?>" alt="Template thumbnail"/>
+			<?php foreach ($result as $row) { ?>
+			<div class="t_list_bg">
+				<div id="T<?=$row->id;?>" class="t_list_t <? if(($templateValue) && ($templateValue == "T".$row->id)){ echo 'selected_temp'; }?> ">
+				<div class="t_list_t">
+					<img title="<?php echo $row->title; ?>" class="template" value="T<?php echo $row->id; ?>" src="<?php echo base_url("assets/img/T".$row->id."_thumb.jpg"); ?>" alt="Template thumbnail"/>
 					<div class="t_list_s">
-						<p>Spring Bloom</p>
-						<!--<a title="Spring Bloom" <?if(($templateValue) && ($templateValue == 'T1')){ echo "style='display:none'";} ?> class="t_select template" value="T1">Select</a>-->
-						<span class="previewTemp" title="Spring Bloom" href="<?php echo base_url("assets/img/T1_full.png"); ?>">zoom</span>
+						<p><?php echo $row->title; ?></p>
+						<span class="previewTemp" title="<?php echo $row->title; ?>" href="<?php echo base_url("assets/img/T".$row->id."_full.png"); ?>">zoom</span>
 					</div>
 				</div>
+				<!--<div class="star" template="<?php echo $row->id; ?>" data-score="<?php echo $row->rate; ?>" ></div>
+				<span id="str<?php echo $row->id; ?>"></span>-->
 			</div>
-      
-			<div class="t_list_bg ">
-				<div id="T4" class="t_list_t <? if(($templateValue) && ($templateValue == 'T4')) {echo 'selected_temp'; }?> ">
-					<img title="Pyramid Point" class="template" value="T4" src="<?php echo base_url("assets/img/T4_thumb.jpg"); ?>" alt="Template thumbnail"/>
-					<div class="t_list_s">
-						<p>Pyramid Point</p>
-						<!--<a title="Pyramid Point" <?if(($templateValue) && ($templateValue == 'T4')){ echo "style='display:none'";} ?> class="t_select template" value="T4">Select</a>-->
-						<span class="previewTemp" title="Pyramid Point" href="<?php echo base_url("assets/img/T4_full.png"); ?>">zoom</span>
-					</div>
-				</div>
 			</div>
-      
-			<div class="t_list_bg ">
-				<div id="T2" class="t_list_t <? if(($templateValue) && ($templateValue == 'T2')){ echo 'selected_temp';} ?>">
-					<img title="White Citadel" class="template" value="T2" src="<?php echo base_url("assets/img/T2_thumb.jpg"); ?>" alt="Template thumbnail"/>
-					<div class="t_list_s">
-						<p>White Citadel</p>
-						<!--<a title="White Citadel" <?if(($templateValue) && ($templateValue == 'T2')) {echo "style='display:none'"; }?> class="t_select template" value="T2">Select</a>-->
-						<span class="previewTemp" title="White Citadel" href="<?php echo base_url("assets/img/T2_full.png"); ?>">zoom</span>
-					</div>
-				</div>
-			</div>
-      
+			<?php } ?>
 			<div class="t_list_bg " >
 				<div id="T3" class="t_list_t <? if(($templateValue) && ($templateValue == 'T3')) {echo 'selected_temp'; }?>">
 					<img title="Window View" class="template" value="T3" src="<?php echo base_url("assets/img/T3_thumb.jpg"); ?>" alt="Template thumbnail"/>

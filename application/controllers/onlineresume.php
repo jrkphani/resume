@@ -136,7 +136,7 @@ class Onlineresume extends CI_Controller{
 
 		$preview_data = $this->load->view('T/'.$post_array['template'].'_html',$post_array,true);
 
-		$file_name=mt_rand().time();
+		$file_name=$user_detail['first_name']."_".$user_detail['last_name'];
 		$html_path=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
 		
 		if(write_file($html_path, $preview_data))

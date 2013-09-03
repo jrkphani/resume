@@ -435,13 +435,13 @@
 						{
 							$fromtoDate = explode('#',$companyDate[$i]);
 						?>
-						<div id="c<?=$i;?>">
+						<div id="c<?=$i;?>" class="cmp_repeater cmn_repeater">
 						<? if($i) {?>
 						<span class="button remove formRemoveBtn" onclick=removeId("c<?=$i;?>");>Remove</span>
 						<? } ?>
-							<div class="cmp_repeater cmn_repeater">
-								<input class="cmpny_txt"  type="text" name="cmpnyName[]" placeholder="Company name" value="<?=$record;?>"><br/>
-								<input class="cmpny_txt" name="cmpnyDesg[]" type="text"  placeholder="Designation" value="<?=$companyDesc[$i];?>"><br/>
+							<div >
+								<input type="text" name="cmpnyName[]" placeholder="Company name" value="<?=$record;?>"><br/>
+								<input class="cmp_desgn" name="cmpnyDesg[]" type="text"  placeholder="Designation" value="<?=$companyDesc[$i];?>"><br/>
 								<label >From</label>
 								<input  type="text"  name="cmpnyFrom[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" /><br/>
 								<label >To</label>

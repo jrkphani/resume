@@ -118,7 +118,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
            <? }           
             if($compensation[1])
           {?>
-          <p style="float:right; margin:0 0 5px 0;"><b style="font-weight:bold;"><span style="color:#4aa1d9;">Current CTC : </span><?=$compensation[2];?> <?=$compensation[1];?></b></p>
+          <p style="float:right; margin:0 0 5px 0;"><b style="font-weight:bold;"><span style="color:#4aa1d9;">Expected CTC : </span><?=$compensation[2];?> <?=$compensation[1];?></b></p>
 
                  
         </div>

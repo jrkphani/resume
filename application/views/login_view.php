@@ -95,12 +95,10 @@
 				  	<tr>
 				  		<td>Friend 2:</td>
 				  		<td>&nbsp<input type="email" name="friend_email[]" class="email_check friend_emails" /></td>
-				  		<td>
-				  			<!-- <span class="error_msg" id="refer_err1"></span> -->
-				  			<span id="add_friend">Add</span>
-				  		</td>
+				  		<td></td>
 				  	</tr>
 				</table>
+				<div id="add_friend">Add</div><br /><br />
 				 
 				 <div class="captcha_img1"><span id="captcha_img"></span><span id="getcaptcha" class="cap_get1">&nbsp;</span></div>
 				 <input class="captcha_txt" type="text" id="inputCaptcha" name="captcha"/>

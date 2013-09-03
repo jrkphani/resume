@@ -466,7 +466,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
      <? } ?>
 
   <!---------------------------address---------------------------->
-  <?php if($user_detail['address'] || $user_detail['skype'] || $website['linkedin'] || $website['twitter'] || $website['facebook']) { ?> 
+  <?php if($user_detail['address'] || $user_detail['skype'] || $website['linkedin'] || $website['twitter'] || $website['facebook'] || $website['mylink']) { ?> 
     <div class="address">
     <div class="left_content">
       <div class="left_icon"></div>
@@ -480,7 +480,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
         <p class="skypee"><?=$user_detail['skype'];?></p>
         <? } ?>
         
-        <? if($website['linkedin']) { ?>
+        <? if($website['mylink']) { ?>
         <p class="myurl"><?=$website['mylink'];?></p>
         <? } ?>
         

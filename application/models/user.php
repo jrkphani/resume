@@ -77,7 +77,7 @@ Class User extends CI_Model
  {
 	 //this method should get the parameter table.coloum in where condtion eg: $data=array('users.id'=>1);
     //$email=$this->input->post('email_address');
-	$this->db->select('users.id_encrypt,user_detail.first_name');
+	$this->db->select('users.id_encrypt,user_detail.first_name,user_detail.last_name');
 	$this->db->from('users');
 	$this->db->join('user_detail', 'user_detail.user_id = users.id');
 	$this->db->where($data);

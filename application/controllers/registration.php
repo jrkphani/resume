@@ -161,12 +161,53 @@ class Registration extends CI_Controller {
 								}
 								$this->invite_friend($user_id,$friend_emails,$first_name.' '.$last_name);								
 								$this->email->subject('Activate your EZCV Account');
-								$message= 'Dear '.$first_name.' '.$last_name.'<br /><br />Thank you for registering with EZCV. Please click on the link below to activate your account and get access to your resume.<br /><a href="'.base_url('registration/activation/'.urlencode($encrypt_id).'/'.$post_data['active']).'"> Activate my EZCV Account </a><br />Once you have activated your account, you can view your current resume and  edit it any time, change templates and update your details. You can also download the resume whenever you wish.<br /><br />Get Noticed in a Sea of Resumes!<br /><br />Regards<br />EZCV Team';							
+/*								$message= 'Dear '.$first_name.' '.$last_name.'<br /><br />Thank you for registering with EZCV. Please click on the link below to activate your account and get access to your resume.<br /><a href="'.base_url('registration/activation/'.urlencode($encrypt_id).'/'.$post_data['active']).'"> Activate my EZCV Account </a><br />Once you have activated your account, you can view your current resume and  edit it any time, change templates and update your details. You can also download the resume whenever you wish.<br /><br />Get Noticed in a Sea of Resumes!<br /><br />Regards<br />EZCV Team';	*/
+								
+								$message= '<table width="820px" border="0" align="center">
+													<tr bgcolor="#266a86">
+														<td scope="row" style="height:126px;">
+															<a href="http://ezcv.in/" style="text-decoration:none;"><img style="margin-left:20px; margin-top:3px; margin-bottom:3px;" src='.base_url("assets/img/ezcv-logo.png").' alt="EZCV" title="EZCV" width="125" height="106"/></a>
+														</td>
+													</tr>
+													<tr>
+														<td scope="row">
+															<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; padding:0px 0 0 20px; margin-top:10px;">Dear <span style="color:#e78130;">"'.$first_name.' '.$last_name.'"</span></p>
+															<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 5px 20px; margin-top:10px;">Thank you for registering with EZCV. Please click on the <b style="font:15px Arial, Helvetica, sans-serif; font-weight:bold;">one time activation</b> link below to activate your account and get access to your resume.</p>
+														</td>
+													</tr>
+													<tr>
+														<td scope="row" align="center";>
+															<a href="'.base_url('registration/activation/'.urlencode($encrypt_id).'/'.$post_data['active']).'" style="font:14px Arial, Helvetica, sans-serif; padding:10px 15px; text-align:center; background-color:#e78130; border:1px solid #d77426; text-decoration:none; color:#fff;">Activate My EZCV Account</a>
+														</td>
+													</tr>
+													<tr>
+														<td scope="row">
+														<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 5px 20px;"> Once you have activated your account, you can view your current resume and edit it any time, change templates and update your details. You can also download the resume whenever you wish.</p>
+														<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 10px 20px; margin:0px;">Get Noticed in a Sea of Resumes!</p>
+														</td>
+													</tr>
+													<tr>
+														<td scope="row">
+														<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 0px 20px; margin:0px;">Regards</p>
+														<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 10px 20px; margin:0px;"><span style="font-weight:bold;">EZCV</span> Team</p></td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr bgcolor="#525252">
+														<td scope="row">
+															<p style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:10px 20px 10px 20px; margin:0px; color:#fff;">
+															&copy; copyright '.date('Y').' | <a style="color:#FFFFFF; text-decoration:underline;" href="http://ezcv.in/">EZCV</a> | All Rights Reserved
+															
+														</p>
+														</td>
+													</tr>
+												</table>';						
 							}
 							else if($post_data['role']=='member')
 							{
 								$this->email->subject('Thank you for register with EZCV as a member');
-								$message= 'Dear User<br /><br />Thank you for your register on EZCV. Your account has been created successfully. We will alert you after admin approval.<br /><br />Regards<br />EZCV'; 
+								$message= 'Dear User<br /><br />Thank you for your register on EZCV. Your account has been created successfully. We will alert you after admin approval.<br /><br />Regards<br />EZCV';
 							}
 							$this->email->to($post_data['email']);
 							$this->email->message($message);
@@ -328,8 +369,39 @@ function captcha_check()
  			$this->user->add_friend($email,$insert_id);
  		$this->email->to($email);
  		$this->email->subject('Your friend, '.$name.' has referred you to EZCV - Make a Better Resume Now');
-		$message= 'Your friend '.$name.', has referred your name to us and recommends EZCV to you. We would like to introduce EZCV, a simple solution to all your resume building needs. We help you build not just your resume but also your personality and give you a beautiful resume template to go with it.<br /><br />
-					You get just one chance with job opportunities, and we help you make that impact. Join us and we can help you build your personality.<br /><a href="'.base_url('login/').'"> REGISTER WITH EZCV </a><br /><br />Get Noticed in a Sea of Resumes!<br /><br />Regards<br />EZCV Team';
+		/*$message= 'Your friend '.$name.', has referred your name to us and recommends EZCV to you. We would like to introduce EZCV, a simple solution to all your resume building needs. We help you build not just your resume but also your personality and give you a beautiful resume template to go with it.<br /><br />
+					You get just one chance with job opportunities, and we help you make that impact. Join us and we can help you build your personality.<br /><a href="'.base_url('login/').'"> REGISTER WITH EZCV </a><br /><br />Get Noticed in a Sea of Resumes!<br /><br />Regards<br />EZCV Team';*/
+
+		$message= '<table width="820px" border="0" align="center">
+						<tr bgcolor="#266a86">
+							<td scope="row" style="height:126px;">
+								<a href="http://ezcv.in/" style="text-decoration:none;"><img style="margin-left:20px; margin-top:3px; margin-bottom:3px;" src='.base_url("assets/img/ezcv-logo.png").' alt="EZCV" title="EZCV" width="125" height="106"/></a>
+							</td>
+						</tr>
+						<tr>
+							<td scope="row">
+								<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 5px 20px; margin-top:10px;">
+									Your friend <strong>'.$name.'</strong>, has referred your name to us and recommends EZCV to you. We would like to introduce EZCV, a simple solution to all your resume building needs. We help you build not just your resume but also your personality and give you a beautiful resume template to go with it.<br /><br />You get just one chance with job opportunities, and we help you make that impact. Join us and we can help you build your personality.<br /><a href="'.base_url('login/').'"> REGISTER WITH EZCV </a>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td scope="row">
+							<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 0px 20px; margin:0px;">Regards</p>
+							<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 10px 20px; margin:0px;"><span style="font-weight:bold;">EZCV</span> Team</p></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td>
+						</tr>
+						<tr bgcolor="#525252">
+							<td scope="row">
+								<p style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:10px 20px 10px 20px; margin:0px; color:#fff;">
+								&copy; copyright '.date('Y').' | <a style="color:#FFFFFF; text-decoration:underline;" href="http://ezcv.in/">EZCV</a> | All Rights Reserved
+								
+							</p>
+							</td>
+						</tr>
+					</table>';
 		$this->email->message($message);
 		if(!$this->email->send())
 			$data['mail']='no';

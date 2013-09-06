@@ -30,8 +30,9 @@ class Resume extends CI_Controller
 			 $data['about']= $this->resume_model->about($this->current_user['id']);
 			 $data['award']= $this->resume_model->awards($this->current_user['id']);
 			 $data['otherskill']= $this->resume_model->otherskill($this->current_user['id']);
+			 $data['recommendation']= $this->resume_model->get_allrecommendation($this->current_user['id']);
 			 
-			 
+			 $data['logged_in']= $this->current_user['id'];
 			/* echo '<pre>';
 			 print_r($data);
 			die;*/

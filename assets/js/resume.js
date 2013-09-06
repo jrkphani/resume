@@ -172,6 +172,12 @@ $(document).ready(function()
 						if(result.resultset.image=='no')
 						{
 							alert("Your resume is saved.");
+
+							//Inactivate saved recommends
+							$('.rec_emails, .rec_msg').attr('disabled', true);
+							$('.rec_emails').removeClass('rec_emails');
+							$('.rec_rmv').remove();
+
 							//window.location=baseurl+'login/index/register';
 						}
 						else
@@ -435,6 +441,47 @@ $('#addSkills').click(function()
 		html+=			'</div>';
 		$('#moreabout').append(html);
 	});
+
+	// Add recommendation
+	$('#addrec').click(function()
+	{	
+		var count=$('#rec_count').val();
+		var max=$('#rec_count').attr('data');
+		if(count>=max)
+		{
+			if(max==3)
+				alert('Only 3 recommendation are allowed. You can get more after login.');
+			else
+				alert('Reached max allowed recommendations.');
+			return false;
+		}
+		$('#rec_count').val(++count);
+
+		id=parseInt($(this).attr('value'))+1;
+		$(this).attr('value',id);
+		rid="re"+id;
+		html=	'<div id="'+rid+'" class="myaw_added">';
+		html+=		'<span class="button remove formRemoveBtn rec_rmv" onclick=removeId("'+rid+'");>Remove</span>';	
+		html+=				'<div>';
+		html+=					'<input  type="text" name="rec_emails[]" class="rec_emails" placeholder="Enter contact email address" data="'+rid+'" />';
+		html+=					'<br /><span class="rec_err" id="rec_err_'+rid+'"></span>';
+		html+=				'</div>';
+		html+=				'<div>';
+		html+=				'<textarea rows="3"  name="rec_message[]" type="text" class="rec_msg"  placeholder="Message(Optional)" data="'+rid+'" maxlength="512"></textarea>';
+		html+=				'<span id="rec_len_'+rid+'">512</span>';
+		html+=				'</div>';
+		html+=			'</div>';
+		$('#recommed').append(html);
+		datepic();
+	});
+
+	$(".rec_msg").live('keyup',function(){
+		var charLength = $(this).val().length;
+		var id = $(this).attr('data');
+		$("#rec_len_"+id).html(512-charLength);
+		if ($(this).val().length >= 512)
+			$("#rec_len_"+id).html('Reached max length.');
+	});
 	
 	
 	$('#uploadstate').html("");
@@ -628,6 +675,33 @@ $('#addSkills').click(function()
 		}
 		});
 	}
+
+	//	Update exist recommendation status by ajax
+	$('.rec_status').change(function(){
+		var id=$(this).attr('data');
+		if($(this).prop('checked'))
+			var status='1';
+		else
+			var status='0';
+		$.ajax({
+		url: baseurl+'recommendation/update', 
+		dataType: 'json',
+		type: 'post',
+		data: {id:id,status:status},
+		success:function(data){
+			if(data.resultset.success!='yes')
+			{
+				alert('Internal error. Try again later.');
+				return false;
+			}
+		},
+		error:function()
+		{
+			alert('Internal error. Try again later.');
+			return false;
+		}
+		});
+	});
 
 	//Auto save start
 	/*setInterval(function() {   //calls update every 120000ms(2 min)
@@ -902,7 +976,7 @@ function validate_resume()
 		focus_slected=0;
 		tab_show=0;
 		$('.tab').removeClass('rns_err');
-		$('#email_err , #phone_err, #fname_err, #lname_err').html("");
+		$('#email_err , #phone_err, #fname_err, #lname_err, .rec_err').html("");
 		if(!validate('First Name','first_name',man=true,max=100,min=3,type='string',disp='fname_err'))
 		{
 			$('.tab[tab="#about_tab"]').addClass('rns_err');
@@ -969,6 +1043,78 @@ function validate_resume()
 				flag = false;
 			}
 		}
+
+		// Validate Recommendation
+		var recomm_emails = new Array();
+		$('.rec_emails').each(function(){
+			var email=$(this).val();
+			var format = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			var err_id=$(this).attr('data');
+			if(!email)
+			{
+				$('#rec_err_'+err_id).html('Email address cannot be empty.');
+				$('.tab[tab="#objective_tab"]').addClass('rns_err');
+				if(focus_slected==0)
+					tab_show ='#objective_tab';
+				flag = false;
+				return false;
+			}
+			else if(email.length>100)
+			{
+				$('#rec_err_'+err_id).html('Email address is too long.');
+				$('.tab[tab="#objective_tab"]').addClass('rns_err');
+				if(focus_slected==0)
+					tab_show ='#objective_tab';
+				flag = false;
+				return false;
+			}
+			else if(!email.match(format))
+			{
+				$('#rec_err_'+err_id).html('Invalid Email address');
+				$('.tab[tab="#objective_tab"]').addClass('rns_err');
+				if(focus_slected==0)
+					tab_show ='#objective_tab';
+				flag = false;
+				return false;
+			}
+			else if($.inArray(email,recomm_emails)!=-1)
+			{
+				$('#rec_err_gen').html('Only once you can ask a email for recommendation.');
+				$('.tab[tab="#objective_tab"]').addClass('rns_err');
+				if(focus_slected==0)
+					tab_show ='#objective_tab';
+				flag = false;
+				return false;
+			}
+			recomm_emails.push(email);
+		});
+
+		if($('#logged_in').val()=='1' && flag==true && recomm_emails.length>0)
+		{
+			$.ajax({
+				url: baseurl+'recommendation/checkavail',
+				type:'POST',
+				data: {emails:recomm_emails},
+				dataType: 'json',
+				success:function(data){
+					if(data.resultset.success=='yes')
+					{
+				   		$('#rec_err_gen').html('Only once you can ask a email for recommendation.');
+						$('.tab[tab="#objective_tab"]').addClass('rns_err');
+						if(focus_slected==0)
+							tab_show ='#objective_tab';
+						flag = false;
+					}
+				},
+				error:function()
+				{
+					alert('Internal error, Please try agian!');
+					flag = false;
+				},
+	         	async:   false
+			});
+		}
+
 		if(tab_show!=0)
 		{
 			$('.tabs').hide();

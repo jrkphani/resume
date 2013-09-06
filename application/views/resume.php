@@ -70,6 +70,7 @@
 		<input type="hidden" name="remove_company" value="" id="remove_company" />
 		<input type="hidden" name="remove_project" value="" id="remove_project" />
 		<input type="hidden" name="remove_education" value="" id="remove_education" />
+		<input type="hidden" id="logged_in" value="<? if(isset($logged_in)) echo '1'; else echo '0'; ?>" />
 		<? //print_r($user_detail) ;die; ?>
 		<!-- ============================================================================= About tab start ==================================-->
 		<div id="about_tab" class="tabs">
@@ -285,6 +286,57 @@
 			<span class="clickb next" href='#about_tab'>Back</span>
 			<span class="clickr next" style="margin-top:10px;" href='#contact_tab'>Continue</span>
 		</div>
+
+		<!--	Recommendation start	-->
+		<br />
+		<div class="recommed">
+			<div class="left_form_title awards_or">
+				<h3>Recommendation</h3>
+				<div class="clearboth"></div>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+			</div>
+			<div id="recommed">
+				<?
+				$i=0;
+				$rec_count=0;
+				$recommendation=(isset($recommendation)) ? $recommendation : NULL;
+				if($recommendation)
+				{
+					$recEmails = $recommendation[0]['emails'];
+					$recContent = $recommendation[0]['content'];
+					$recAbout = $recommendation[0]['about_friend'];
+					$recReply = $recommendation[0]['reply'];
+					$rec_count=sizeof($recommendation);
+					foreach($recommendation as $recommend)
+					{
+				?>
+				<div id="rec<?=$recommend['id'];?>" class="myaw_added">
+					<!--<span class="button remove formRemoveBtn remove_rec" data="<?=$recommend['id'];?>");>Remove</span>-->
+					<div>
+						Email:&nbsp;&nbsp;&nbsp;<?=$recommend['emails'];?>
+					</div>
+					<div>
+						About Him:&nbsp;&nbsp;&nbsp;<?=$recommend['about_friend'];?>
+					</div>
+					<div>
+						Reply:&nbsp;&nbsp;&nbsp;<?=$recommend['reply'];?>
+					</div>
+					<span><input type="checkbox" class="rec_status" data="<?=$recommend['id'];?>" />Show on resume</span>
+					<br /><br />
+				</div>
+				<?
+					$i++;
+					}
+				} ?>
+			</div>
+			<span class="rec_err" id="rec_err_gen"></span>
+			<div>
+				<span class="clickr_add"  id="addrec" value="<?=$i;?>">Add New</span><br/>
+			</div><br/>
+		</div>
+		<input type="hidden" id="rec_count" value="<?php echo $rec_count; ?>" <?php if(isset($logged_in)) echo "data='8'"; else echo "data='3'"; ?> >
+		<!--	Recommendation end	-->
+
 		</div>
 		
 		<!-- ===================================================================== Designation,Objective tab end ==================-->

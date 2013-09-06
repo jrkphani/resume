@@ -170,5 +170,49 @@ class Resume_model extends CI_model{
 			}
 
 	}
+
+	function getDetails($column,$table,$where)
+	{
+		$this->db->select($column);
+		$query = $this->db->get_where($table,$where);
+		return $query->result_array();
+	}
+
+	//	Recommendation start
+	function get_allrecommendation($id)
+	{
+		$query=$this->db->get_where('recommendation', array('user_id' => $id));
+		return $query->result_array();
+	}
+
+	function add_recommendation($data)
+	{
+		$this->db->insert('recommendation', $data); 
+		return $this->db->insert_id();
+	}
+ 
+	function get_recommendation($id)
+	{
+		$query=$this->db->get_where('recommendation', array('id' => $id));
+		return $query->result_array();
+	}
+
+	function update_recommendation($id,$values)
+	{
+		$this->db->where('id', $id);
+		return $this->db->update('recommendation',$values);
+	}
+
+	function check_avail($id,$where_in)
+	{
+		$this->db->where('user_id',$id);
+		$this->db->where_in('emails', $where_in);
+		$query = $this->db->get('recommendation');
+		if($query -> num_rows() > 0)
+			return true;
+		else
+			return false;
+	}
+	//	Recommendation end
 }
 ?>

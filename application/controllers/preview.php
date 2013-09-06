@@ -181,6 +181,28 @@ class Preview extends CI_Controller {
 		);
 
 	$otherSkills['name']=serialize($this->input->post('otherSkills'));
+
+	//	Recommendation start
+	$rec_emails=$this->input->post('rec_emails');
+	$rec_message=$this->input->post('rec_message');
+
+	/*
+	$recommend_array = array();
+	if($rec_emails)
+	{
+		foreach ($rec_emails as $rec_email) {
+			$rec_email=explode(',',$rec_email);
+			array_push($recommend_array, $rec_email);
+		}
+	}*/
+
+	$recommendation=array(
+		//'emails' => serialize($recommend_array),
+		'emails' => serialize($rec_emails),
+		'content' => serialize($rec_message)
+	);
+	$post_array['recommendation']=$recommendation;
+	//	Recommendation end
 	
 	$template= $this->input->post('template');
 
@@ -207,6 +229,7 @@ class Preview extends CI_Controller {
 				if($post_array['registeronly'])
 				{
 					$this->resume_model->update($user_id,$user_detail,$about,$awards,$skill,$otherSkills,$company,$project,$education);
+					$this->recommend_mail($rec_emails,$rec_message);	//	Recommendation
 					$data['html']=$file_name;
 					$data['image']='no';
 				}
@@ -325,8 +348,56 @@ class Preview extends CI_Controller {
 		$data['link'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : NULL;
 		$data['view_page'] = 'onlinePreview';
 		$this->load->view('template', $data);
-		//$this->load->view('onlinePreview',$data);	
+		//$this->load->view('onlinePreview',$data);
 	}
+
+	//	Recommendation start
+	function recommend_mail($rec_emails,$rec_message)
+	{
+		$this->load->model('resume_model');
+
+		// Initialize mail
+		$this->load->library('email');
+		$config['charset'] = 'iso-8859-1';
+		$config['wordwrap'] = TRUE;
+		$config['mailtype']='html';
+		$from_name=$this->current_user['firstname'].' '.$this->current_user['lastname'];
+		$this->email->initialize($config);
+		$this->email->from($this->current_user['email'], $from_name);
+		
+		if(!$this->resume_model->check_avail($this->current_user['id'],$rec_emails))	// Check is already referred
+		{
+			foreach($rec_emails as $keys => $to_emails)
+			{
+				if($to_emails)	// Check emails is available
+				{
+					$update=array(
+						'user_id' => $this->current_user['id'],
+						'content' => $rec_message[$keys],
+						'status' => '0'
+					);
+					/* //Use this for multible comma separated emails
+					foreach ($to_emails as $to_email)
+					{
+						$to_email=trim($to_email);
+					*/
+						$to_email=trim($to_emails);
+						if(filter_var($to_email, FILTER_VALIDATE_EMAIL))	// Check valid email
+						{
+								$update['emails']=$to_email;
+								$insert_id=$this->resume_model->add_recommendation($update);	// Add recommendations
+								$this->email->to($to_email);
+								$this->email->subject($from_name.' asks you to recommend his/ her self');
+								$message=nl2br($rec_message[$keys]).'<br /><br />Please click on following link, to leave your feedback about him/ her.<br /><a href="'.base_url('recommendation/index/'.$insert_id.'/'.urlencode($to_email)).'">Reply your Feedback</a><br /><br />Regards<br />EZCV';
+								$this->email->message($message);
+								$this->email->send();
+						}
+					/*}*/
+				}
+			}
+		}
+	}
+	//	Recommendation end
 }
 
 /* End of file welcome.php */

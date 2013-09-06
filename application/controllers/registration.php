@@ -138,6 +138,7 @@ class Registration extends CI_Controller {
 							{
 								if($this->session->userdata('resume_data'))
 								{
+								$this->recommend_mail($user_id,$primary_email,$session_data);	// Recommendation
 								if($html_link=$this->updateUser($user_id,$session_data))
 								{
 									$data['html']=$html_link;
@@ -437,6 +438,55 @@ function friend_check()
 	else
 		return true;
 }
+
+//	Recommendation start
+function recommend_mail($user_id,$primary_email,$session_data)
+{
+	$rec_email=unserialize($session_data['recommendation']['emails']);
+	$rec_content=unserialize($session_data['recommendation']['content']);
+
+	$this->load->model('resume_model');
+	
+	// Initialize mail
+	$this->load->library('email');
+	$config['charset'] = 'iso-8859-1';
+	$config['wordwrap'] = TRUE;
+	$config['mailtype']='html';
+	$from_name=$session_data['user_detail']['first_name'].' '.$session_data['user_detail']['last_name'];
+	$this->email->initialize($config);
+	$this->email->from($primary_email, $from_name);
+		
+	foreach($rec_email as $keys => $to_emails)
+	{
+		if($to_emails)	// Check emails is available
+		{
+			$update=array(
+				'user_id' => $user_id,
+				'content' => $rec_content[$keys],
+				'status' => '0'
+			);
+			/* //Use this for multible comma separated emails
+			foreach ($to_emails as $to_email)
+			{
+				$to_email=trim($to_email);
+			*/
+				$to_email=trim($to_emails);
+				if(filter_var($to_email, FILTER_VALIDATE_EMAIL))	// Check valid email
+				{
+					$update['emails']=$to_email;
+					$insert_id=$this->resume_model->add_recommendation($update);	// Add recommendations
+					$this->email->to($to_email);
+					$this->email->subject($from_name.' asks you to recommend his/ her self');
+					$message=nl2br($rec_content[$keys]).'<br /><br />Please click on following link, to leave your feedback about him/ her.<br /><a href="'.base_url('recommendation/index/'.$insert_id.'/'.urlencode($to_email)).'">Reply your Feedback</a><br /><br />Regards<br />EZCV';
+					$this->email->message($message);
+					$this->email->send();
+				}
+			/*}*/
+		}
+	}
+
+}
+//	Recommendation end
 
 function updateUser($user_id,$session_data=NULL)
 {

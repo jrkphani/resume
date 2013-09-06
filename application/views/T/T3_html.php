@@ -34,7 +34,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
 
 <body>
 <div class="wrapper"> 
-  <!---------------------------------------------------header----------------------------------------------------------------------------->
+  <!-- header -->
   <div class="header_top">&nbsp; </div>
   <div class="header_box1">
     <p class="name">
@@ -46,9 +46,9 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
     </p>
   </div>
   <div class="clearall"></div>
-  <!---------------------------------------------------left----------------------------------------------------------------------------->
+  <!-- left -->
   <div class="left"> 
-    <!---------------------------------------------------objective----------------------------------------------------------------------------->
+    <!-- objective -->
     <? if(trim($objective[1])){ ?>
     <div class="objective">
       <h1>
@@ -60,7 +60,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
     </div>
     <div class="clearall"></div>
     <? } ?>
-    <!---------------------------------------------------summary----------------------------------------------------------------------------->
+    <!-- summary -->
     <? if(trim($summary[1])){ ?>
     <div class="summary">
       <h1>
@@ -72,7 +72,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
     </div>
     <div class="clearall"></div>
     <? } ?>
-    <!----------------------------------------------------experience---------------------------------------------------------------------------->
+    <!-- experience -->
       <?  if(array_filter($cmpnyName) || ($compensation[0]) || ($compensation[1]) || ($user_detail['experience']!='0.0')){ ?>
     <div class="exp_container">
     <h1>EXPERIENCE SUMMARY</h1>
@@ -105,7 +105,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
     <? } $i++; } ?>
 		</div>
       <? } ?>
-    <!----------------------------------------------------skills---------------------------------------------------------------------------->
+    <!-- skills -->
     <? if(array_filter($skillName)){ ?>
     <div class="skills">
       <h1>My Tool Box</h1>
@@ -153,7 +153,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
     <div class="clearall"></div>
     <? } ?>
     
-    <!----------------------------------------------------project---------------------------------------------------------------------------->
+    <!-- project -->
     <? if(array_filter($projName)) { ?>
     <div class="project">
       <h1>My Milestones</h1>
@@ -185,7 +185,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
     <div class="clearall"></div>
     <? } ?>
     
-    <!----------------------------------------------------recommendation----------------------------------------------------------------------------> 
+    <!-- recommendation --> 
     
     <!--      <div class="recommend">
       	<h1>My Recommendations</h1>
@@ -199,7 +199,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
       </div>
 		</div><div class="clearall"></div>--> 
     
-    <!-- --------------------------------------------------reference----------------------------------------------------------------------------> 
+    <!-- reference --> 
     
     <!--      <div class="reference">
       	<h1>My References</h1>
@@ -214,7 +214,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
         </div>
 		</div><div class="clearall"></div>   --> 
     
-    <!-- --------------------------------------------------awards---------------------------------------------------------------------------->
+    <!-- awards -->
     <? if(array_filter($awdTitle)){ ?>
     <div class="awards">
       <h1>Awards</h1>
@@ -244,7 +244,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
     <div class="clearall"></div>
     <? } ?>
     
-    <!-- --------------------------------------------------interest---------------------------------------------------------------------------->
+    <!-- interest -->
     <? if(array_filter($intresttitle)) { ?>
     <div class="interest">
       <h1>My Other Interest</h1>
@@ -268,12 +268,12 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
     </div>
     <div class="clearall"></div>
     <? } ?>
-    <!--------------------------------------------left end-----------------------------------------------------------------------------> 
+    <!-- left end --> 
   </div>
   <div class="right"> 
-    <!---------------------------------------------------right-----------------------------------------------------------------------------> 
+    <!-- right --> 
     
-    <!---------------------------------------------------contact----------------------------------------------------------------------------->
+    <!-- contact -->
     <? if($user_detail['mobile'] || $user_detail['address'] || $user_detail['secondary_email']) { ?>
     <div class="contact">
       <h1>Contact Me</h1>
@@ -294,7 +294,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
     <div class="clearall"></div>
     <?php } ?>
     
-    <!---------------------------------------------------otherskills----------------------------------------------------------------------------->
+    <!-- otherskills -->
     <? if(array_filter($otherSkills) || $about['mystrength']) { ?>
     <div class="other_skills">
       <h1>My Strengths</h1>
@@ -319,7 +319,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
     </div>
     <div class="clearall"></div>
     <? } ?>
-    <!---------------------------------------------------education----------------------------------------------------------------------------->
+    <!-- education -->
     
     <? if(array_filter($eduInst)) { ?>
     <div class="education">
@@ -351,10 +351,10 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
     </div>
     <div class="clearall"></div>
     <? } ?>
-    <!---------------------------------------------------other details----------------------------------------------------------------------------->
+    <!-- other details -->
+    <div class="other_details">
     <? if(($user_detail['dob']) || ($user_detail['married']!=NULL) || ($passport_visa['passport']) || ($passport_visa['visa']) )
     {?>
-    <div class="other_details">
       <h1>Other Details</h1>
       <div class="sub">
       <? if($user_detail['dob']){?>
@@ -396,13 +396,15 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
         <p class="visa"><b>Valid :</b>          
           <?php if($passport_visa['visaTo']) echo ' Till '.$passport_visa['visaTo']; ?>
         </p>
+      </div>
         
         
         
-       <?php }  ?>
+       <?php }  
+    } ?>
        
        
-  <!-- -------------------------------------how to reach me------------------------------------- -->
+  <!-- how to reach me -->
 			 <?php
 			 
 		 
@@ -410,7 +412,7 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
 			 if(($website['mylink']) || ($user_detail['skype']) || ($website['facebook']) || ($website['linkedin']) || ($website['twitter'])) { ?>
         
          <h2><?=$user_detail['contactTitle'];?></h2><br/>
-         
+         <div class="sub">
          
         
         <? if($website['mylink']) { ?>
@@ -435,14 +437,14 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
         </p>
        <? } ?>
         
+      </div>
         <?php } ?>
         
-      </div>
     </div>
     <div class="clearall"></div>
-    <? } ?>
+   
     
-    <!---------------------------------------------------right end-----------------------------------------------------------------------------> 
+    <!-- right end --> 
   </div>
   <div class="clearall"></div>
 </div>

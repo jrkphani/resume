@@ -473,8 +473,9 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
     </div>
     <div class="right_content">
       <h1><?=$user_detail['contactTitle'];?></h1>
-      
+        <? if($user_detail['address']) { ?>
         <p class="addr"><?=nl2br($user_detail['address']);?></p>
+        <? } ?>
         
         <? if($user_detail['skype']) { ?>
         <p class="skypee"><?=$user_detail['skype'];?></p>

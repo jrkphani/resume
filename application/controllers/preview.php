@@ -201,7 +201,7 @@ class Preview extends CI_Controller {
 		'emails' => serialize($rec_emails),
 		'content' => serialize($rec_message)
 	);
-	$post_array['recommendation']=$recommendation;
+
 	//	Recommendation end
 	
 	$template= $this->input->post('template');
@@ -221,8 +221,14 @@ class Preview extends CI_Controller {
 			if($this->current_user)
 			{
 				//user logged in
-				$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
 				$this->load->model('resume_model');
+
+				$select=array('emails','about_friend','reply');
+				$where=array('user_id' =>$this->current_user['id'] , 'status' => '1');
+				$result_rec=$this->resume_model->getDetails($select,'recommendation',$where);
+				$post_array['recommendation']=$result_rec;
+
+				$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
 				$user_id=$this->current_user['id'];
 				$id_encrypt=$this->current_user['id_encrypt'];
 				$file_name=$user_id;
@@ -265,9 +271,10 @@ class Preview extends CI_Controller {
 			else
 			{
 				//user not logged in
+				$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
+				$post_array['recommendation']=$recommendation;
 				$this->session->set_userdata('resume_data',$post_array);
 				
-					$preview_data = $this->load->view('T/'.$postdata['template'].'_html',$post_array,true);
 					$file_name=mt_rand().time();
 					$temp_path_html=FCPATH.$this->config->item('path_temp_file').$file_name.'.html';
 					$temp_path_img=FCPATH.$this->config->item('path_temp_img').$file_name.'.jpg';

@@ -464,7 +464,7 @@ $('#addSkills').click(function()
 		html+=		'<span class="button remove formRemoveBtn rec_rmv" onclick=removeId("'+rid+'");>Remove</span>';	
 		html+=				'<div>';
 		html+=					'<input  type="text" name="rec_emails[]" class="rec_emails" placeholder="Enter contact email address" data="'+rid+'" />';
-		html+=					'<br /><span class="rec_err" id="rec_err_'+rid+'"></span>';
+		html+=					'<span class="rec_err" id="rec_err_'+rid+'"></span>';
 		html+=				'</div>';
 		html+=				'<div>';
 		html+=				'<textarea rows="3"  name="rec_message[]" type="text" class="rec_msg"  placeholder="Message(Optional)" data="'+rid+'" maxlength="512"></textarea>';
@@ -678,7 +678,7 @@ $('#addSkills').click(function()
 
 	//	Update exist recommendation status by ajax
 	$('.rec_status').change(function(){
-		var id=$(this).attr('data');
+		var id=$(this).val();
 		if($(this).prop('checked'))
 			var status='1';
 		else
@@ -1053,36 +1053,36 @@ function validate_resume()
 			if(!email)
 			{
 				$('#rec_err_'+err_id).html('Email address cannot be empty.');
-				$('.tab[tab="#objective_tab"]').addClass('rns_err');
+				$('.tab[tab="#recommend_tab"]').addClass('rns_err');
 				if(focus_slected==0)
-					tab_show ='#objective_tab';
+					tab_show ='#recommend_tab';
 				flag = false;
 				return false;
 			}
 			else if(email.length>100)
 			{
 				$('#rec_err_'+err_id).html('Email address is too long.');
-				$('.tab[tab="#objective_tab"]').addClass('rns_err');
+				$('.tab[tab="#recommend_tab"]').addClass('rns_err');
 				if(focus_slected==0)
-					tab_show ='#objective_tab';
+					tab_show ='#recommend_tab';
 				flag = false;
 				return false;
 			}
 			else if(!email.match(format))
 			{
 				$('#rec_err_'+err_id).html('Invalid Email address');
-				$('.tab[tab="#objective_tab"]').addClass('rns_err');
+				$('.tab[tab="#recommend_tab"]').addClass('rns_err');
 				if(focus_slected==0)
-					tab_show ='#objective_tab';
+					tab_show ='#recommend_tab';
 				flag = false;
 				return false;
 			}
 			else if($.inArray(email,recomm_emails)!=-1)
 			{
-				$('#rec_err_gen').html('Only once you can ask a email for recommendation.');
-				$('.tab[tab="#objective_tab"]').addClass('rns_err');
+				$('#rec_err_gen').html('You cannot ask a email for recommendation more than one time.');
+				$('.tab[tab="#recommend_tab"]').addClass('rns_err');
 				if(focus_slected==0)
-					tab_show ='#objective_tab';
+					tab_show ='#recommend_tab';
 				flag = false;
 				return false;
 			}
@@ -1099,10 +1099,10 @@ function validate_resume()
 				success:function(data){
 					if(data.resultset.success=='yes')
 					{
-				   		$('#rec_err_gen').html('Only once you can ask a email for recommendation.');
-						$('.tab[tab="#objective_tab"]').addClass('rns_err');
+				   		$('#rec_err_gen').html('You cannot ask a email for recommendation more than one time.');
+						$('.tab[tab="#recommend_tab"]').addClass('rns_err');
 						if(focus_slected==0)
-							tab_show ='#objective_tab';
+							tab_show ='#recommend_tab';
 						flag = false;
 					}
 				},

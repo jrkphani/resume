@@ -123,11 +123,16 @@ class Onlineresume extends CI_Controller{
 		$result8=$this->onlineresume_model->getDetails($select,'otherskill',$where);
 		$otherSkills['name']=$result8[0]['name'];
 
+		$where2=array('user_id' => $this->current_user['id'],'status'=>'1');
+		$select=array('emails','about_friend','reply');
+		$recommendation=$this->onlineresume_model->getDetails($select,'recommendation',$where2);
+
 		$post_array['about']=$about;
 		$post_array['awards']=$awards;
 		$post_array['skill']=$skill;
 		$post_array['company']=$company;
 		$post_array['project']=$project;
+		$post_array['recommendation']=$recommendation;
 		$post_array['education']=$education;
 		$post_array['template']=$result1[0]['Template'];
 		$post_array['otherSkills']=$otherSkills;

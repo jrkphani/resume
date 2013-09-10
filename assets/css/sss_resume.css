@@ -247,7 +247,8 @@ float: right;}
 .right_nav h3{ 
 	display:blocl; margin: 20px 5px 20px 5px;}
 	
-#fname_err, #lname_err, #phone_err, #email_err{color:#f07057; font-size:15px; padding:0 10px 0 0; font-style:italic;}
+#fname_err, #lname_err, #phone_err, #email_err, .rec_err{color:#f07057; font-size:15px; padding:0 10px 0 0; font-style:italic;}
+#rec_err_gen{ padding-top: 10px;}
 
 /*.clickr{font-family: Myriad Pro;}*/
 

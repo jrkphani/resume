@@ -297,6 +297,46 @@ $skillEffname=array("Want to learn","Training","Satisfactory","Good","Very Good"
   </div>
   <div class="clearall"></div>
   <? } ?>
+
+  <!---------------------------projects---------------------------->  
+      <? if(isset($recommendation) && ($recommendation)) { ?>
+    <div class="projects">
+      <div class="left_content">
+        <div class="left_icon"></div>
+      </div>
+      <div class="right_content">
+        <h1>MY RECOMMENDATIONS</h1>
+      </div>
+      <div class="clearall"></div>
+      <? 
+      $i=0;
+      foreach($recommendation as $recommend) { ?>
+    <div class="comment_content">
+      <div class="comment_content_lft">
+        <p class="year_from">
+          
+        </p>
+        <p class="year_to">
+         
+        </p>
+      </div>
+      <div class="comment_content_rit">
+        <h2>
+         <?=$recommend['emails'];?>
+        </h2>
+        <p>
+        <?=$recommend['about_friend'];?>
+        </p>
+        <p>
+          Reply: <?=$recommend['reply'];?>
+        </p>
+      </div>
+      <div class="clearall"></div>
+    </div>
+    <? $i++; } ?>
+  </div>
+  <div class="clearall"></div>
+  <? } ?>
   
       
   <!---------------------------education---------------------------->

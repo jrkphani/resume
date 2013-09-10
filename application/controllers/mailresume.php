@@ -142,7 +142,7 @@ class Mailresume extends CI_Controller{
 			'intrestUrl' => $result2[0]['intrestUrl']
 		);
 
-		$select=array('id','title','date','description');
+		$select=array('title','date','description');
 		$result3=$this->onlineresume_model->getDetails($select,'awards',$where);
 		$awards = array(
 			'title'=>$result3[0]['title'],
@@ -150,7 +150,7 @@ class Mailresume extends CI_Controller{
 			'description'=>$result3[0]['description']
 		);
 
-		$select=array('id','name','designation','date');
+		$select=array('name','designation','date');
 		$result4=$this->onlineresume_model->getDetails($select,'company',$where);
 		$company=array(
 			'name' => $result4[0]['name'],
@@ -158,7 +158,7 @@ class Mailresume extends CI_Controller{
 			'date' => $result4[0]['date']
 		);
 
-		$select=array('id','institution','certification','date','score');
+		$select=array('institution','certification','date','score');
 		$result5=$this->onlineresume_model->getDetails($select,'education',$where);
 		$education = array(
 			'institution'=> $result5[0]['institution'],
@@ -167,7 +167,7 @@ class Mailresume extends CI_Controller{
 			'score'=> $result5[0]['score']
 		);
 
-		$select=array('id','name','role','description','url');
+		$select=array('name','role','description','url');
 		$result6=$this->onlineresume_model->getDetails($select,'project',$where);
 		$project=array(
 			'name' => $result6[0]['name'],
@@ -176,22 +176,27 @@ class Mailresume extends CI_Controller{
 			'description' => $result6[0]['description']
 		);
 
-		$select=array('id','name','efficiency');
+		$select=array('name','efficiency');
 		$result7=$this->onlineresume_model->getDetails($select,'skill',$where);
 		$skill=array(
 			'name' => $result7[0]['name'],
 			'efficiency' => $result7[0]['efficiency']
 		);
 
-		$select=array('id','name');
+		$select=array('name');
 		$result8=$this->onlineresume_model->getDetails($select,'otherskill',$where);
 		$otherSkills['name']=$result8[0]['name'];
+
+		$where2=array('user_id' => $this->current_user['id'],'status'=>'1');
+		$select=array('emails','about_friend','reply');
+		$recommendation=$this->onlineresume_model->getDetails($select,'recommendation',$where2);
 
 		$post_array['about']=$about;
 		$post_array['awards']=$awards;
 		$post_array['skill']=$skill;
 		$post_array['company']=$company;
 		$post_array['project']=$project;
+		$post_array['recommendation']=$recommendation;
 		$post_array['education']=$education;
 		$post_array['template']=$result1[0]['Template'];
 		$post_array['otherSkills']=$otherSkills;

@@ -20,6 +20,7 @@
   
 	<span tab='#about_tab' class="tab rns rns_a rns_inner abt_tab">About Me</span>
 	<span tab='#objective_tab' class="tab rns rns_inner">Designation, Objective</span>
+	<span tab='#recommend_tab' class="tab rns rns_inner">My Recommendations</span>
 	<span tab='#contact_tab' class="tab rns rns_inner">How to reach me</span>
 	<span tab='#experience_tab' class="tab rns rns_inner">Experience Summary</span>
 	<span tab='#strength_tab' class="tab rns rns_inner">My Strengths </span>
@@ -204,7 +205,7 @@
 						?>
 						
 					</select>
-					<input  id="summaryTitle" name='cusSummaryTitle' <?if(isset($about[0]['summary']) && (!$found)) {echo 'value="'.$summary[0].'"'; } else{ echo 'style="display:none;"'; }?> type="text"  placeholder="Enter Text"  maxlength="25"/>
+					<input  id="summaryTitle" name='cusSummaryTitle' <?if(isset($about[0]['summary']) && (!$found)) {echo 'value="'.$summary[0].'"'; } else{ echo 'style="display:none;"'; }?> type="text"  placeholder="Enter Text"  maxlength="25" />
 				</div>
 				<div class="textarea_big">
 					<!-- <label >Summary</label> -->
@@ -284,62 +285,73 @@
 
 			
 			<span class="clickb next" href='#about_tab'>Back</span>
-			<span class="clickr next" style="margin-top:10px;" href='#contact_tab'>Continue</span>
+			<span class="clickr next" style="margin-top:10px;" href='#recommend_tab'>Continue</span>
+		</div>
+	</div>
+	<!-- ===================================================================== Designation,Objective tab end ==================-->
+
+	<!--	Recommendation start	-->
+	<div id="recommend_tab"  class="tabs">
+		<div class="left_form_title">
+			<h3>My Recommendations</h3>
+			<div class="clearboth"></div>
+			<p>Here is where you can ask your friends and colleagues to contribute. Send out a request to them asking them to drop in a recommendation for you in relation to the work you have done with them.</p>
 		</div>
 
-		<!--	Recommendation start	-->
-		<br />
-		<div class="recommed">
-			<div class="left_form_title awards_or">
-				<h3>Recommendation</h3>
-				<div class="clearboth"></div>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-			</div>
-			<div id="recommed">
-				<?
-				$i=0;
-				$rec_count=0;
-				$recommendation=(isset($recommendation)) ? $recommendation : NULL;
-				if($recommendation)
+		<div class="form_sections">
+		<div id="recommed">
+			<?
+			$i=0;
+			$rec_count=0;
+			$recommendation=(isset($recommendation)) ? $recommendation : NULL;
+			if($recommendation)
+			{
+				$recEmails = $recommendation[0]['emails'];
+				$recContent = $recommendation[0]['content'];
+				$recAbout = $recommendation[0]['about_friend'];
+				$recReply = $recommendation[0]['reply'];
+				$rec_count=sizeof($recommendation);
+				foreach($recommendation as $recommend)
 				{
-					$recEmails = $recommendation[0]['emails'];
-					$recContent = $recommendation[0]['content'];
-					$recAbout = $recommendation[0]['about_friend'];
-					$recReply = $recommendation[0]['reply'];
-					$rec_count=sizeof($recommendation);
-					foreach($recommendation as $recommend)
-					{
-				?>
-				<div id="rec<?=$recommend['id'];?>" class="myaw_added">
-					<!--<span class="button remove formRemoveBtn remove_rec" data="<?=$recommend['id'];?>");>Remove</span>-->
-					<div>
-						Email:&nbsp;&nbsp;&nbsp;<?=$recommend['emails'];?>
-					</div>
-					<div>
-						About Him:&nbsp;&nbsp;&nbsp;<?=$recommend['about_friend'];?>
-					</div>
-					<div>
-						Reply:&nbsp;&nbsp;&nbsp;<?=$recommend['reply'];?>
-					</div>
-					<span><input type="checkbox" class="rec_status" data="<?=$recommend['id'];?>" />Show on resume</span>
-					<br /><br />
+			?>
+			<div id="rec<?=$recommend['id'];?>" class="myaw_added">
+				<!--<span class="button remove formRemoveBtn remove_rec" data="<?=$recommend['id'];?>");>Remove</span>-->
+				<div>
+					Email:&nbsp;&nbsp;&nbsp;<?=$recommend['emails'];?>
 				</div>
-				<?
-					$i++;
-					}
-				} ?>
+				<div>
+					About Him:&nbsp;&nbsp;&nbsp;<?=$recommend['about_friend'];?>
+				</div>
+				<div>
+					Reply:&nbsp;&nbsp;&nbsp;<?=$recommend['reply'];?>
+				</div>
+				<?php if($recommend['reply']) { ?>
+				<span><input type="checkbox" class="rec_status" name="rec_status[]" value="<?=$recommend['id'];?>" <?php if($recommend['status']=='1') { ?> checked="checked" <?php } ?> />Show on resume</span>
+				<!--<input type="text" name="ex_rec_email[]" value="<?=$recommend['emails'];?>" />
+				<input type="text" name="ex_rec_about[]" value="<?=$recommend['about_friend'];?>" />
+				<input type="text" name="ex_rec_reply[]" value="<?=$recommend['reply'];?>" />-->
+				<?php } ?>
+				<br /><br />
 			</div>
-			<span class="rec_err" id="rec_err_gen"></span>
-			<div>
-				<span class="clickr_add"  id="addrec" value="<?=$i;?>">Add New</span><br/>
-			</div><br/>
+			<?
+				$i++;
+				}
+			} ?>
 		</div>
-		<input type="hidden" id="rec_count" value="<?php echo $rec_count; ?>" <?php if(isset($logged_in)) echo "data='8'"; else echo "data='3'"; ?> >
-		<!--	Recommendation end	-->
+		<div>
+			<span class="clickr_add"  id="addrec" value="<?=$i;?>">Add New</span>
+		</div>
+		<div class="rec_err" id="rec_err_gen"></div><br/>
+		<input type="hidden" id="rec_count" value="<?php echo $rec_count; ?>" <?php if(isset($logged_in)) echo "data='8'"; else echo "data='3'"; ?> />
 
+		<div class="clearboth"></div>
+		<span class="clickb next" href='#objective_tab'>Back</span>
+		<span class="clickr next" style="margin-top:10px;" href='#contact_tab'>Continue</span>
 		</div>
+	</div>
+	<!--	Recommendation end	-->
+
 		
-		<!-- ===================================================================== Designation,Objective tab end ==================-->
 				
 			  
 		<!-- ===================================================================== Contact Me tab start ==================-->
@@ -396,7 +408,7 @@
 				<span class="fb_icon">&nbsp;</span>
 				<input class="w400" type="url" id="facebook" name="url[]" placeholder="http://www.facebook.com/digitalchakra" value="<? if(isset($about[0]['website'])) echo $website['facebook']; ?>" /><span id="facebook_err"></span>
 			</div>
-			<span class="clickb next" href='#objective_tab'>Back</span>
+			<span class="clickb next" href='#recommend_tab'>Back</span>
 			<span class="clickr next" href='#experience_tab'>Continue</span>
 			
 		</div>

@@ -395,7 +395,35 @@ class Preview extends CI_Controller {
 								$insert_id=$this->resume_model->add_recommendation($update);	// Add recommendations
 								$this->email->to($to_email);
 								$this->email->subject($from_name.' asks you to recommend his/ her self');
-								$message=nl2br($rec_message[$keys]).'<br /><br />Please click on following link, to leave your feedback about him/ her.<br /><a href="'.base_url('recommendation/index/'.$insert_id.'/'.urlencode($to_email)).'">Reply your Feedback</a><br /><br />Regards<br />EZCV';
+								//$message=nl2br($rec_message[$keys]).'<br /><br />Please click on following link, to leave your feedback about him/ her.<br /><a href="'.base_url('recommendation/index/'.urlencode(base64_encode($insert_id)).'/'.urlencode(base64_encode($to_email))).'">Reply your Feedback</a><br /><br />Regards<br />EZCV';
+								$message= '<table width="820px" border="0" align="center">
+									<tr bgcolor="#266a86">
+										<td scope="row" style="height:126px;">
+											<a href="http://ezcv.in/" style="text-decoration:none;"><img style="margin-left:20px; margin-top:3px; margin-bottom:3px;" src='.base_url("assets/img/ezcv-logo.png").' alt="EZCV" title="EZCV" width="125" height="106"/></a>
+										</td>
+									</tr>
+									<tr>
+										<td scope="row">
+											<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 5px 20px; margin-top:10px;">'.nl2br($rec_message[$keys]).'<br /><br />Please click on following link, to leave your feedback about him/ her.<br /><a href="'.base_url('recommendation/index/'.urlencode(base64_encode($insert_id)).'/'.urlencode(base64_encode($to_email))).'">Reply your Feedback</a></p>
+										</td>
+									</tr>
+									<tr>
+										<td scope="row">
+										<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 0px 20px; margin:0px;">Regards</p>
+										<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 10px 20px; margin:0px;"><span style="font-weight:bold;">EZCV</span> Team</p></td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+									</tr>
+									<tr bgcolor="#525252">
+										<td scope="row">
+											<p style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:10px 20px 10px 20px; margin:0px; color:#fff;">
+											&copy; copyright '.date('Y').' | <a style="color:#FFFFFF; text-decoration:underline;" href="http://ezcv.in/">EZCV</a> | All Rights Reserved
+											
+										</p>
+										</td>
+									</tr>
+								</table>';
 								$this->email->message($message);
 								$this->email->send();
 						}

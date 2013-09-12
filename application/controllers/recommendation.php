@@ -12,8 +12,8 @@ class Recommendation extends CI_Controller
 
 	function index()
 	{
-		$id=$this->uri->segment(3);
-		$email_id=urldecode($this->uri->segment(4));
+		$id=base64_decode(urldecode($this->uri->segment(3)));
+		$email_id=base64_decode(urldecode($this->uri->segment(4)));
 		$result=$this->resume_model->get_recommendation($id);
 		$data['msg']=NULL;
 

@@ -12,16 +12,29 @@
 	<?php } ?>
 	<div>
 		<label for="about">About You:</label>&nbsp;&nbsp;&nbsp;
-		<textarea name="about" id="about"><?=$result[0]['about_friend']?></textarea>
+		<?php 
+		if($result[0]['about_friend'])
+			echo $result[0]['about_friend'];
+		else
+			echo '<textarea name="about" id="about">'.$result[0]['about_friend'].'</textarea>';
+		?>
 	</div>
 	<br />
 	<div>
 		<label for="reply">Your Feedback:</label>&nbsp;&nbsp;&nbsp;
-		<textarea name="reply" id="reply"><?=$result[0]['reply']?></textarea>
+		<?php
+		if($result[0]['reply'])
+			echo $result[0]['reply'];
+		else
+			echo '<textarea name="reply" id="reply">'.$result[0]['reply'].'</textarea>';
+		?>
 	</div>
 	<br />
 	<div>
-		<input type="submit" name="rec_submit" value="Update" />
+		<?php
+		if((!$result[0]['about_friend']) || (!$result[0]['reply']))
+			echo '<input type="submit" name="rec_submit" value="Update" />';
+		?>
 	</div>
 </div>
 </form>

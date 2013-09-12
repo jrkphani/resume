@@ -32,7 +32,35 @@ class Mailresume extends CI_Controller{
 					$emails=$this->input->post('email');
 					$emails=explode(',', $emails);
 					$subject=$this->input->post('subject');
-					$message=nl2br($this->input->post('message'));
+					//$message=nl2br($this->input->post('message'));
+					$message= '<table width="820px" border="0" align="center">
+									<tr bgcolor="#266a86">
+										<td scope="row" style="height:126px;">
+											<a href="http://ezcv.in/" style="text-decoration:none;"><img style="margin-left:20px; margin-top:3px; margin-bottom:3px;" src='.base_url("assets/img/ezcv-logo.png").' alt="EZCV" title="EZCV" width="125" height="106"/></a>
+										</td>
+									</tr>
+									<tr>
+										<td scope="row">
+											<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 5px 20px; margin-top:10px;">'.nl2br($this->input->post('message')).'</p>
+										</td>
+									</tr>
+									<tr>
+										<td scope="row">
+										<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 0px 20px; margin:0px;">Regards</p>
+										<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 10px 20px; margin:0px;"><span style="font-weight:bold;">EZCV</span> Team</p></td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+									</tr>
+									<tr bgcolor="#525252">
+										<td scope="row">
+											<p style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:10px 20px 10px 20px; margin:0px; color:#fff;">
+											&copy; copyright '.date('Y').' | <a style="color:#FFFFFF; text-decoration:underline;" href="http://ezcv.in/">EZCV</a> | All Rights Reserved
+											
+										</p>
+										</td>
+									</tr>
+								</table>';
 
 					if($pdf=$this->get_pdf())
 					{

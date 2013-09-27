@@ -38,8 +38,11 @@
              <input type="button" value="Submit" id="restsubmit" class="btn btn-small btn-primary" />
         </div>
     </div>
+    <!-- right box end -->
+    <div style="clear:both;"></div>
+    <br />
     <div class="span12">
-        Previous Search
+        Previous Searches:
         <table id="previousSearch">
             <? foreach($searchList as $single)
             {?>
@@ -54,7 +57,6 @@
             <?}?>
         </table>
     </div>
-    <!-- right box end -->
     <div style="clear:both"></div>
     </form>
 

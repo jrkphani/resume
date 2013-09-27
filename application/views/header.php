@@ -18,7 +18,9 @@
 <header id="ezcv_header">
 	<? 
 	$page = $this->uri->segment(1);
+	$function = $this->uri->segment(2);
 	$register=NULL;
+	$session_data = $this->session->userdata('logged_in');
 	if($this->uri->segment(3)=='register')
 	{
 		$register='yes';
@@ -28,22 +30,28 @@
 		<nav>
 			<a href="<?php echo base_url(); ?>" <? if($page =="" || $page =="home") echo 'class="ezcv_header_current"'; ?> >Home</a>
 			<a href="<?php echo base_url('why'); ?>" <? if($page =="why") echo 'class="ezcv_header_current"'; ?> >Why EZCV</a>
-			<a href="<?=base_url('templates'); ?>" <? if($page =="templates") echo 'class="ezcv_header_current"'; ?>>Resume Templates</a>
+			<?php if(($session_data['role']!='member') && ($session_data['role']!='admin')) { ?><a href="<?=base_url('templates'); ?>" <? if($page =="templates") echo 'class="ezcv_header_current"'; ?>>Resume Templates</a><?php } ?>
 			<!--<a href="<?=base_url('blog'); ?>">Blog</a>
 			<a href="<?=base_url('testimonials'); ?>">Testimonials</a>-->
 		</nav>
 		<hr/>
 		<nav>
-			<?php if($session_data = $this->session->userdata('logged_in')) { ?>
-			<a href="<?php echo base_url('profile'); ?>"><?php echo $session_data['firstname']; ?></a>
+			<?php if($session_data) { ?>
+			<a href="<?php echo base_url('profile'); ?>" <? if($page =="profile") echo 'class="ezcv_header_current"'; ?> ><?php echo $session_data['firstname']; ?></a>
+
+			<?php if($session_data['role']=='user') { ?>
 			<a href="<?php echo base_url('resume'); ?>" <? if($page =="resume") echo 'class="ezcv_header_current"'; ?> >My Resume</a>
+			<a href="<?php echo base_url('mailresume'); ?>" <? if($page =="mailresume") echo 'class="ezcv_header_current"'; ?> >Mail Your Resume</a>
+			<?php } else if($session_data['role']=='member') { ?>
+			<a href="<?php echo base_url('member/searchresume'); ?>" <? if($page =="member" && $function !="selectedresume") echo 'class="ezcv_header_current"'; ?> >Search Resume</a>
+			<a href="<?php echo base_url('member/selectedresume'); ?>" <? if($function =="selectedresume") echo 'class="ezcv_header_current"'; ?> >Selected Resume</a>
 			<!--<a href="#">My Recommendations</a>
 			<a href="#">Refer Friends</a>
 			<a href="#">My Page</a>
 			<a href="#">My Portfolio Space</a>
 			<a href="#">My Contact List</a>
 			<a href="#">Resume On Mobile</a>-->
-			<a href="<?php echo base_url('mailresume'); ?>" <? if($page =="feedback") echo 'class="ezcv_header_current"'; ?> >Mail Your Resume</a>
+			<?php } ?>
 			<a href="<?php echo base_url('login/logout'); ?>">Logout</a>
 			<?php } else { ?>
 			<span><a  href="<?php echo base_url('login/index/register'); ?>" <? if($page =="login" && $register == 'yes') echo 'class="ezcv_header_current"'; ?> >Register</a>

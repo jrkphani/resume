@@ -8,6 +8,8 @@ class Resume extends CI_Controller
 		$this->current_user=$this->session->userdata('logged_in');
 		if($this->current_user['flag']==1) //check for profile complition
 			redirect('profile', 'refresh');
+		if(($this->current_user['role']=='admin') || ($this->current_user['role']=='member'))
+			redirect('my404');
 	}
 	public  function index()
 	 {

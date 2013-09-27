@@ -126,5 +126,15 @@ function downloadResume($ids,$fields=NULL)
   return $this->db->get()->result_array();
 }
 
+function checkAvail($table,$where)
+{
+  $this->db->where($where);
+  $query = $this->db->get($table);
+  if($query -> num_rows() > 0)
+    return true;
+  else
+    return false;
+}
+
 }//class end
 ?>

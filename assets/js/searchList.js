@@ -99,6 +99,10 @@ $(document).ready(function(){
                     $('#previousSearch').prepend('<tr id='+id+'><td><a href="javascript:void(0);">'+title+'</a><span onclick="removeExistSearch('+id+');">X</span></td></tr>');
     				$('#saveSearch').remove();
                 }
+                else if(data.resultset.success=='exist')
+                {
+                    alert('Cannot save. You already saved a serach with this name.');
+                }
                 else
                 {
                     alert('Internal error, Please try agian!');

@@ -78,11 +78,6 @@
 			    <label  for="inputPassword">Password <span class="red">*</span></label>
 			    <input type="password"  name="pass_word" id="inputPassword" placeholder="Password">
 			    <span class="error_msg" id="password_err1"></span>
-			    <div style="display:none;">
-					<label for="role">Account Type</label>
-					<input type="radio" name="role" id="role" value="user" checked="checked" >User
-					<input type="radio" name="role" id="role" value="member">Member
-			    </div>
 			    <label>Refer friends</label>
 			 	<table class="reg_tr_remove" id="friends_tb">
 			 		<input type="hidden" id="friend_count" value="2" />
@@ -102,6 +97,10 @@
 				 
 				 <div class="captcha_img1"><span id="captcha_img"></span><span id="getcaptcha" class="cap_get1">&nbsp;</span></div>
 				 <input class="captcha_txt" type="text" id="inputCaptcha" name="captcha"/>
+				 <div>
+				 	Register as:&nbsp;&nbsp;<input type="radio" name="role" id="role" value="user" checked="checked" />User&nbsp;&nbsp;
+				 	<input type="radio" name="role" id="role" value="member" />Member
+				 </div>
 				<div class="error_msg" id="error_msg1"></div>
 				<br>
 				<span class="clickr" id="signupsubmit">Sign Up</span>

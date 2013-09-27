@@ -200,12 +200,11 @@ $(document).ready(function()
 						$('#error_msg1').append(' There was a problem occurred on sending mail. <br />');
 					if(data.resultset.html=='no')
 						$('#error_msg1').append(' Cannot generate download file. Try again later. <br />');
-					else if(data.resultset.html=='nosession')
+					else if((data.resultset.html=='nosession') || (data.resultset.html=='nodownload'))
 						$('.scus-msg').append('Thank you for registering with EZCV. An activation email has been sent to your account. Please activate your account and get access to your resume.');
-					else if(data.resultset.html=='nodownload')
-						$('.scus-msg').append('Thank you for registering with EZCV. An activation email has been sent to your account. Please activate your account and get access to your resume.');
+					else if(data.resultset.role=='member')
+						$('.scus-msg').append('Thank you for registering with EZCV as  a member.');
 					else
-
 						window.location.replace(baseurl+'download/index/'+data.resultset.html);
 				}
 				else

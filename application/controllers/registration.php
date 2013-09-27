@@ -134,6 +134,7 @@ class Registration extends CI_Controller {
 							$this->email->from('no-reply@ezcv.in', 'EZCV');
 							#$this->email->cc('another@another-example.com');
 							#$this->email->bcc('them@their-example.com');
+							$this->invite_friend($user_id,$friend_emails,$first_name.' '.$last_name);								
 							if($post_data['role']=='user')
 							{
 								if($this->session->userdata('resume_data'))
@@ -160,7 +161,6 @@ class Registration extends CI_Controller {
 								{
 									$data['html']='nosession';
 								}
-								$this->invite_friend($user_id,$friend_emails,$first_name.' '.$last_name);								
 								$this->email->subject('Activate your EZCV Account');
 /*								$message= 'Dear '.$first_name.' '.$last_name.'<br /><br />Thank you for registering with EZCV. Please click on the link below to activate your account and get access to your resume.<br /><a href="'.base_url('registration/activation/'.urlencode($encrypt_id).'/'.$post_data['active']).'"> Activate my EZCV Account </a><br />Once you have activated your account, you can view your current resume and  edit it any time, change templates and update your details. You can also download the resume whenever you wish.<br /><br />Get Noticed in a Sea of Resumes!<br /><br />Regards<br />EZCV Team';	*/
 								
@@ -208,13 +208,43 @@ class Registration extends CI_Controller {
 							else if($post_data['role']=='member')
 							{
 								$this->email->subject('Thank you for register with EZCV as a member');
-								$message= 'Dear User<br /><br />Thank you for your register on EZCV. Your account has been created successfully. We will alert you after admin approval.<br /><br />Regards<br />EZCV';
+								//$message= 'Dear User<br /><br />Thank you for your register on EZCV. Your account has been created successfully. We will alert you after admin approval.<br /><br />Regards<br />EZCV';
+								$message= '<table width="820px" border="0" align="center">
+													<tr bgcolor="#266a86">
+														<td scope="row" style="height:126px;">
+															<a href="http://ezcv.in/" style="text-decoration:none;"><img style="margin-left:20px; margin-top:3px; margin-bottom:3px;" src='.base_url("assets/img/ezcv-logo.png").' alt="EZCV" title="EZCV" width="125" height="106"/></a>
+														</td>
+													</tr>
+													<tr>
+														<td scope="row">
+															<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; padding:0px 0 0 20px; margin-top:10px;">Dear <span style="color:#e78130;">"'.$first_name.' '.$last_name.'"</span></p>
+															<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 5px 20px; margin-top:10px;">Thank you for your register on EZCV. Your account has been created successfully. We will alert you after admin approval.</p>
+														</td>
+													</tr>
+													<tr>
+														<td scope="row">
+														<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 0px 20px; margin:0px;">Regards</p>
+														<p style="font-family:Arial, Helvetica, sans-serif; font-size:14px; padding:0px 20px 10px 20px; margin:0px;"><span style="font-weight:bold;">EZCV</span> Team</p></td>
+													</tr>
+													<tr>
+														<td>&nbsp;</td>
+													</tr>
+													<tr bgcolor="#525252">
+														<td scope="row">
+															<p style="font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:10px 20px 10px 20px; margin:0px; color:#fff;">
+															&copy; copyright '.date('Y').' | <a style="color:#FFFFFF; text-decoration:underline;" href="http://ezcv.in/">EZCV</a> | All Rights Reserved
+															
+														</p>
+														</td>
+													</tr>
+												</table>';
 							}
 							$this->email->to($post_data['email']);
 							$this->email->message($message);
 							if(!$this->email->send())
 								$data['mail']='no';
 							$data['success']='yes';
+							$data['role']='member';
 							$result['resultset']=$data;
 							$this->load->view('json',$result);
 						}

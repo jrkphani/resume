@@ -21,18 +21,23 @@ class Templates extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('templates_model');
+		$this->current_user=$this->session->userdata('logged_in');
 	}
 	function index()
 	{
-		$data['view_page'] = 'templates';
-		$data['result']=$this->templates_model->get_templates();
-		$this->load->view('template', $data);
+		if(($this->current_user['role']=='admin') || ($this->current_user['role']=='member'))
+			redirect('my404');
+		else
+		{
+			$data['view_page'] = 'templates';
+			$data['result']=$this->templates_model->get_templates();
+			$this->load->view('template', $data);
+		}
 	}
 	function add_star()
 	{
 		$template=$this->input->post('template');
 		$score=$this->input->post('score');
-		$this->current_user=$this->session->userdata('logged_in');
 
 		if($this->current_user)
 		{

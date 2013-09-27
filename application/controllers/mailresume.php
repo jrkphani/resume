@@ -7,6 +7,8 @@ class Mailresume extends CI_Controller{
 	{
 		parent::__construct();
 		$this->current_user=$this->session->userdata('logged_in');
+		if($this->current_user['role']!='user')
+			redirect('login', 'refresh');
 	}
 
 	function index()

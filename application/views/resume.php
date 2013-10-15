@@ -507,9 +507,10 @@
 								<input type="text" name="cmpnyName[]" placeholder="Company name" value="<?=$record;?>"><br/>
 								<input class="cmp_desgn" name="cmpnyDesg[]" type="text"  placeholder="Designation" value="<?=$companyDesc[$i];?>"><br/>
 								<label >From</label>
-								<input  type="text"  name="cmpnyFrom[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" /><br/>
+								<input  type="text"  name="cmpnyFrom[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" /><span class="clear_date">Clear</span><br/>
 								<label >To</label>
 								<input  type="text"  name="cmpnyTo[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[1];?>" readonly="readonly" />
+								<span class="clear_date">Clear</span>
 							</div>
 						</div>
 						<?
@@ -524,9 +525,11 @@
 							<input  type="text" name="cmpnyName[]" placeholder="Company name" class="cmp_desgn"><br/>
 							<input  name="cmpnyDesg[]" type="text"  placeholder="Designation" class="cmp_desgn"><br/>
 							<label >From</label>
-							<input  type="text" class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" /><br/>
+							<input  type="text" class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" />
+							<span class="clear_date">Clear</span><br/>
 							<label >To</label>
 							<input  type="text" class="half_date_picker" name="cmpnyTo[]" placeholder="Feb-2012" readonly="readonly" />
+							<span class="clear_date">Clear</span>
 						</div>
 					</div >
 					<? } ?>
@@ -816,11 +819,13 @@
 						<div style="float:left;">
 							<label style="display:block;">From</label>
 							<input type="text"  name="eduFrom[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" />
+							<span class="clear_date">Clear</span>
 
 						</div>
             <div>							
             	<label style="display:block;">To</label>
 							<input  type="text"  name="eduTo[]" class="half_date_picker" placeholder="Feb-2012" value="<?=$fromtoDate[1];?>" readonly="readonly" />
+							<span class="clear_date">Clear</span>
             
             </div>
 					</div>
@@ -843,8 +848,10 @@
 					<div>
 						<label >From</label>
 						<input type="text" class="half_date_picker" name="eduFrom[]" placeholder="Feb-2012" readonly="readonly" />
+						<span class="clear_date">Clear</span>
 						<label >To</label>
 						<input  type="text" class="half_date_picker" name="eduTo[]" placeholder="Feb-2012" readonly="readonly" />
+						<span class="clear_date">Clear</span>
 					</div>
 				</div>
 				<? } ?>
@@ -882,10 +889,12 @@
 						<div style="float:left;">
 							<label >For the period From</label>
 							<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="Feb-2012" value="<?=$fromtoDate[0];?>" readonly="readonly" />
+							<span class="clear_date">Clear</span>
             </div>
             <div>
 							<label >To</label>
 							<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="Feb-2012" value="<?=$fromtoDate[1];?>" readonly="readonly" />
+							<span class="clear_date">Clear</span>
 						</div>
 						<div>
 							<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description"><?=$awardDesc[$i];?></textarea>
@@ -905,8 +914,10 @@
 						<div>
 							<label >For the period From</label>
 							<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="Feb-2012" readonly="readonly" />
+							<span class="clear_date">Clear</span>
 							<label >To</label>
 							<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="Feb-2012" readonly="readonly" />
+							<span class="clear_date">Clear</span>
 						</div>
 						<div>
 							<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description"></textarea>

@@ -277,8 +277,10 @@ $(document).ready(function()
 		html+=			'<div>';
 		html+=				'<label >From</label>';
 		html+=				'<input type="text" class="half_date_picker" name="eduFrom[]" placeholder="Feb-2012" readonly="readonly" />';
+		html+=				'<span class="clear_date">Clear</span>';
 		html+=				'<label >To</label>';
 		html+=				'<input  type="text" class="half_date_picker" name="eduTo[]" placeholder="Feb-2012" readonly="readonly" />';
+		html+=				'<span class="clear_date">Clear</span>';
 		html+=			'</div>';
 		html+=		'</div>';
 		$('#edudcation').append(html);
@@ -315,9 +317,11 @@ $('#addCompany').click(function()
 			html+=				'<input  type="text" name="cmpnyName[]" placeholder="Company name"><br/>';
 			html+=				'<input  name="cmpnyDesg[]" type="text"  placeholder="Designation" class="cmp_desgn"><br/>';
 			html+=				'<label >From</label>';
-			html+=				'<input  type="text"  class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" /><br/>';
+			html+=				'<input  type="text"  class="half_date_picker" name="cmpnyFrom[]" placeholder="Feb-2012" readonly="readonly" />';
+			html+=				'<span class="clear_date">Clear</span><br/>';
 			html+=				'<label >To</label>';
 			html+=				'<input  type="text"  class="half_date_picker" name="cmpnyTo[]" placeholder="Feb-2012" readonly="readonly" />';
+			html+=				'<span class="clear_date">Clear</span>';
 			html+=			'</div>';
 			html+=		'</div >';
 		$('#company').append(html);
@@ -409,8 +413,10 @@ $('#addSkills').click(function()
 		html+=				'<div>';
 		html+=					'<label >For the period From</label>';
 		html+=					'<input  type="text" class="half_date_picker" name="awdFrom[]" placeholder="Feb-2012" readonly="readonly" />';
+		html+=					'<span class="clear_date">Clear</span>';
 		html+=					'<label >To</label>';
 		html+=					'<input  type="text" class="half_date_picker" name="awdTo[]" placeholder="Feb-2012" readonly="readonly" />';
+		html+=					'<span class="clear_date">Clear</span>';
 		html+=				'</div>';
 		html+=				'<div>';
 		html+=					'<textarea rows="3"  name="awdDesc[]" type="text"  placeholder="Description"></textarea>';
@@ -1129,3 +1135,8 @@ function validate_resume()
 function FixMargin(left) {
     $(this).css("left", left);
 }
+
+// Clear date
+$('.clear_date').live('click',function(){
+	$(this).prev().val('');
+});

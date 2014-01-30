@@ -36,7 +36,7 @@
 						</div>
 						<div class="slide_bottom_2">
 							<h4>We have done all the thinking for you!</h4>
-							<p>We understand your need for a good resume with chatchy phrases that build your personality and make an impact. We have made form filling much easier, you don't have to think up beautiful words any more. We serve them to you as you go along. All you need to do is pick the best matches that suit your personality. </p>
+							<p>We understand your need for a good resume with catchy phrases that build your personality and make an impact. We have made form filling much easier, you don't have to think up beautiful words any more. We serve them to you as you go along. All you need to do is pick the best matches that suit your personality. </p>
 						</div>
 						<div class="clearboth"></div>
 						<div class="slide_top_2">
